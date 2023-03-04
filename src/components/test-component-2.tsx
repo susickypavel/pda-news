@@ -1,7 +1,6 @@
+import { Button } from "@rneui/base";
 import React from "react";
 
-import { Button } from "@rneui/base";
-
 export const TestComponent2: React.FC = () => {
-  return <Button>TestComponent2</Button>;
+  return <Button title="Test2" />;
 };
