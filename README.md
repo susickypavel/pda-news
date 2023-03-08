@@ -11,6 +11,8 @@
 ## 1.2 Running the application for the first time
 
 ```sh
+# If you're a Windows user, you need to allow connection from node.exe process in firewall
+
 # Check whether you're logged in with your expo account on your machine
 npm run expo whoami
 
