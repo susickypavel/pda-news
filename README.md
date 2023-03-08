@@ -11,6 +11,12 @@
 ## 1.2 Running the application for the first time
 
 ```sh
+# Check whether you're logged in with your expo account on your machine
+npm run expo whoami
+
+# Login if you're not.
+npm run expo login
+
 # Install dependencies
 npm install
 
@@ -18,7 +24,6 @@ npm install
 npm run start
 
 # Scan QR code in the terminal with your iOS/Android device
-
 ```
 
 ## 1.3 Code climate
