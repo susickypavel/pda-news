@@ -1,8 +1,7 @@
 import { createTheme, ThemeProvider } from "@rneui/themed";
 import * as React from "react";
-import { View } from "react-native";
 
-import { TestComponent } from "./src/components/test-component";
+import { LoginScreen } from "./src/screens/login-screen";
 
 const theme = createTheme({
 	components: {
@@ -15,9 +14,7 @@ const theme = createTheme({
 const App: React.FC = () => {
 	return (
 		<ThemeProvider theme={theme}>
-			<View>
-				<TestComponent />
-			</View>
+			<LoginScreen />
 		</ThemeProvider>
 	);
 };
