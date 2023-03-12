@@ -4,6 +4,8 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { supabase } from "../api/supabase";
+
 const LOGIN_SCHEMA = z.object({
 	email: z.string(),
 	password: z.string()
@@ -11,8 +13,13 @@ const LOGIN_SCHEMA = z.object({
 
 type LoginFormData = z.infer<typeof LOGIN_SCHEMA>;
 
-function onSubmit(data: LoginFormData) {
-	console.log(data);
+async function onSubmit(data: LoginFormData) {
+	const response = await supabase.auth.signInWithPassword({
+		email: data.email,
+		password: data.password
+	});
+
+	console.log(response);
 }
 
 /**
