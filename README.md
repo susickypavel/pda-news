@@ -23,6 +23,8 @@ npm run expo login
 # Install dependencies.
 npm install
 
+# ! Fill required env vars from .env.example into .env
+
 # Run development server
 npm run start
 
