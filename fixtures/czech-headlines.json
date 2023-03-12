@@ -1,0 +1,206 @@
+{
+	"status": "ok",
+	"totalResults": 30,
+	"articles": [
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "TN.cz",
+			"title": "Na Svitavsku se převrátil autobus. Silný vítr od rána způsobil už desítky dopravních nehod | TN.cz - TN.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMiiAFodHRwczovL3RuLm5vdmEuY3ovenByYXZvZGFqc3R2aS9jbGFuZWsvNDk0Mzc2LW5hLXN2aXRhdnNrdS1zZS1wcmV2cmF0aWwtYXV0b2J1cy1zaWxueS12aXRyLW9kLXJhbmEtenB1c29iaWwtdXotZGVzaXRreS1kb3ByYXZuaWNoLW5laG9k0gEA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T10:06:00Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "Novinky.cz",
+			"title": "Při nehodě autobusu na Svitavsku utrpěli dva lidé středně těžké zranění - Novinky.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMibGh0dHBzOi8vd3d3Lm5vdmlua3kuY3ovY2xhbmVrL2tyaW1pLXByaS1uZWhvZGUtYXV0b2J1c3UtbmEtc3ZpdGF2c2t1LXV0cnBlbGktdHJpLWxpZGUtdGV6a2EtenJhbmVuaS00MDQyNTU1NtIBcmh0dHBzOi8vd3d3Lm5vdmlua3kuY3ovY2xhbmVrL2tyaW1pLXByaS1uZWhvZGUtYXV0b2J1c3UtbmEtc3ZpdGF2c2t1LXV0cnBlbGktdHJpLWxpZGUtdGV6a2EtenJhbmVuaS00MDQyNTU1Nj9hbXA9MQ?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T09:35:02Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "ČT sport",
+			"title": "ŽIVĚ: Slalom žen na SP v alpském lyžování v Aare - ČT sport",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMinAFodHRwczovL3Nwb3J0LmNlc2thdGVsZXZpemUuY3ovY2xhbmVrL2x5em92YW5pLWEtc25vd2JvYXJkaW5nL3NwLXYtYWxwc2tlbS1seXpvdmFuaS96aXZlLXNsYWxvbS16ZW4tbmEtc3Atdi1hbHBza2VtLWx5em92YW5pLXYtYWFyZS82NDBjNDQ5NWY5MTI1NWI1ZWI0YTI2ODjSAQA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T09:20:54Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "iDNES.cz",
+			"title": "Sníh, špatný terén, odklad. Jablonec a Slovácko v neděli hrát nebudou - iDNES.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMidmh0dHBzOi8vd3d3LmlkbmVzLmN6L2ZvdGJhbC9wcnZuaS1saWdhL2phYmxvbmVjLXNsb3ZhY2tvLWZvdGJhbC1wcnZuaS1saWdhLW9ka2xhZC1zbmloLXRlcmVuLkEyMzAzMTFfMTAwNTU4X2ZvdGJhbF9qcnbSAQA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T09:15:00Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "Novinky.cz",
+			"title": "Po Ukrajině vyhlásíme válku Evropě, tvrdí Solovjov - Novinky.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMiamh0dHBzOi8vd3d3Lm5vdmlua3kuY3ovY2xhbmVrL3ZhbGthLW5hLXVrcmFqaW5lLXBvLXVrcmFqaW5lLXZ5aGxhc2ltZS12YWxrdS1ldnJvcGUtdHZyZGktc29sb3Zqb3YtNDA0MjU1NTLSAXBodHRwczovL3d3dy5ub3Zpbmt5LmN6L2NsYW5lay92YWxrYS1uYS11a3JhamluZS1wby11a3JhamluZS12eWhsYXNpbWUtdmFsa3UtZXZyb3BlLXR2cmRpLXNvbG92am92LTQwNDI1NTUyP2FtcD0x?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T09:01:02Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "Sport.cz",
+			"title": "Limberský: Snad fanoušci Slavie konečně pochopí, že nenávist není správná cesta! - Sport.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMihQFodHRwczovL3d3dy5zcG9ydC5jei9jbGFuZWsvZm90YmFsLWNlc2thLTEtbGlnYS1saW1iZXJza3ktc25hZC1mYW5vdXNjaS1zbGF2aWUta29uZWNuZS1wb2Nob3BpLXplLW5lbmF2aXN0LW5lbmktc3ByYXZuYS1jZXN0YS00MDM4Njk20gEA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T08:26:47Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "iDNES.cz",
+			"title": "Rusové na Ukrajinu použili přes pět tisíc raket a tisíc dronů, řekl Zelenskyj - iDNES.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMidmh0dHBzOi8vd3d3LmlkbmVzLmN6L3pwcmF2eS96YWhyYW5pY25pL3VrcmFqaW5hLXJ1c2tvLXZhbGthLXJha2V0eS1kcm9ueS11dG9rLXplbGVuc2t5ai5BMjMwMzExXzA4MDUwNl96YWhyYW5pY25pX3Zham_SAQA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T08:22:21Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "Parlamentní listy",
+			"title": "Rajchl obsadí Václavák. Hovoří „Vidlák“ a senátorka Hamplová - Parlamentní listy",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMibmh0dHBzOi8vd3d3LnBhcmxhbWVudG5pbGlzdHkuY3ovYXJlbmEvbW9uaXRvci9SYWpjaGwtb2JzYWRpLVZhY2xhdmFrLUhvdm9yaS1WaWRsYWstYS1zZW5hdG9ya2EtSGFtcGxvdmEtNzMxNzE50gEA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T08:03:00Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "Sport.cz",
+			"title": "Krejčíková - Jastremská 6:1, 6:2, Čtveřice českých tenistek slaví na Indian Wells postup do 3. kola! Fruhvirtová s Lehečkou neuspěli - Sport.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMiigFodHRwczovL3d3dy5zcG9ydC5jei9jbGFuZWsvdGVuaXMtY3R2ZXJpY2UtY2Vza3ljaC10ZW5pc3Rlay1zbGF2aS1uYS1pbmRpYW4td2VsbHMtcG9zdHVwLWRvLTMta29sYS1mcnVodmlydG92YS1zLWxlaGVja291LW5ldXNwZWxpLTQwMzg5NjbSAQA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T08:02:33Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "Novinky.cz",
+			"title": "Rusko buduje obranné linie daleko od fronty - Novinky.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMiZGh0dHBzOi8vd3d3Lm5vdmlua3kuY3ovY2xhbmVrL3ZhbGthLW5hLXVrcmFqaW5lLXJ1c2tvLWJ1ZHVqZS1vYnJhbm5lLWxpbmllLWRhbGVrby1vZC1mcm9udHktNDA0MjU1NDjSAQA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T07:53:55Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "denik.cz",
+			"title": "Česko zasáhl silný vítr. Stromy padají na silnice i železnici - denik.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMiQ2h0dHBzOi8vd3d3LmRlbmlrLmN6L3pfZG9tb3ZhL2Nlc2tvLXBvY2FzaS1zaWxueS12aXRyLTIwMjMwMzExLmh0bWzSAQA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T07:27:00Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "SeznamZprávy.cz",
+			"title": "Jaro? Kdepak. Během noci spadly teploty a Česko zasypal sníh - SeznamZprávy.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMicGh0dHBzOi8vd3d3LnNlem5hbXpwcmF2eS5jei9jbGFuZWsvZG9tYWNpLXppdm90LXYtY2Vza3UtamFyby1rZGVwYWstcmFkdS1taXN0LXYtY2Vza3Utdi1ub2NpLXphc3lwYWwtc25paC0yMjc2MjPSAXZodHRwczovL3d3dy5zZXpuYW16cHJhdnkuY3ovY2xhbmVrL2RvbWFjaS16aXZvdC12LWNlc2t1LWphcm8ta2RlcGFrLXJhZHUtbWlzdC12LWNlc2t1LXYtbm9jaS16YXN5cGFsLXNuaWgtMjI3NjIzP2FtcD0x?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T06:55:59Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "Novinky.cz",
+			"title": "Čínský parlament novým premiérem zvolil Li Čchianga, spojence prezidenta - Novinky.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMifmh0dHBzOi8vd3d3Lm5vdmlua3kuY3ovY2xhbmVrL3phaHJhbmljbmktc3ZldC1jaW5za3ktcGFybGFtZW50LW5vdnltLXByZW1pZXJlbS16dm9saWwtbGktY2NoaWFuZ2Etc3BvamVuY2UtcHJlemlkZW50YS00MDQyNTU0N9IBhAFodHRwczovL3d3dy5ub3Zpbmt5LmN6L2NsYW5lay96YWhyYW5pY25pLXN2ZXQtY2luc2t5LXBhcmxhbWVudC1ub3Z5bS1wcmVtaWVyZW0tenZvbGlsLWxpLWNjaGlhbmdhLXNwb2plbmNlLXByZXppZGVudGEtNDA0MjU1NDc_YW1wPTE?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T06:23:54Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "iDNES.cz",
+			"title": "Nový Twitter bez Muska? Meta zvažuje spuštění podobné sociální sítě - iDNES.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMigwFodHRwczovL3d3dy5pZG5lcy5jei9la29ub21pa2EvemFocmFuaWNuaS9tZXRhLWZhY2Vib29rLXR3aXR0ZXItZWxvbi1tdXNrLW5vdmEtc2l0LXNvY2lhbG5pLXNpdGUuQTIzMDMxMV8wNzE2MDZfZWtvLXphaHJhbmljbmlfaWR2c9IBAA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T06:23:00Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "Novinky.cz",
+			"title": "Hvězda StarDance Jan Tománek: Taneční? Bavily mě hlavně holky, které tam chodily - Novinky.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMifGh0dHBzOi8vd3d3Lm5vdmlua3kuY3ovY2xhbmVrL2t1bHR1cmEtaHZlemRhLXN0YXJkYW5jZS1qYW4tdG9tYW5lay10YW5lY25pLWJhdmlseS1tZS1obGF2bmUtaG9sa3kta3RlcmUtdGFtLWNob2RpbHktNDA0MjQxNzbSAYIBaHR0cHM6Ly93d3cubm92aW5reS5jei9jbGFuZWsva3VsdHVyYS1odmV6ZGEtc3RhcmRhbmNlLWphbi10b21hbmVrLXRhbmVjbmktYmF2aWx5LW1lLWhsYXZuZS1ob2xreS1rdGVyZS10YW0tY2hvZGlseS00MDQyNDE3Nj9hbXA9MQ?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T05:29:44Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "ceskatelevize.cz/ct24",
+			"title": "Je to možné, řekl papež o možnosti zrušení celibátu římskokatolických kněží - ceskatelevize.cz/ct24",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMicmh0dHBzOi8vY3QyNC5jZXNrYXRlbGV2aXplLmN6L3N2ZXQvMzU3MDkyMy1qZS1tb3puZS1yZWtsLXBhcGV6LW8tbW96bm9zdGktenJ1c2VuaS1jZWxpYmF0dS1yaW1za29rYXRvbGlja3ljaC1rbmV6adIBAA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T05:22:49Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "ceskatelevize.cz/ct24",
+			"title": "Každý objekt v Česku by měl mít fotovoltaiku pro vlastní spotřebu, míní Hladík - ceskatelevize.cz/ct24",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMid2h0dHBzOi8vY3QyNC5jZXNrYXRlbGV2aXplLmN6L2RvbWFjaS8zNTcwOTA1LWthemR5LW9iamVrdC12LWNlc2t1LW1lbC1taXQtZm90b3ZvbHRhaWt1LXByby12bGFzdG5pLXNwb3RyZWJ1LW1pbmktaGxhZGlr0gEA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T04:30:00Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "Stream.cz",
+			"title": "Marta Jandová je téměř 9 let šťastně vdaná: Na spokojené manželství má jednoduchý recept - Stream.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMihQFodHRwczovL3d3dy5zdHJlYW0uY3ovZXh0cmEtdi10ZXJlbnUvbWFydGEtamFuZG92YS1qZS10ZW1lci05LWxldC1zdGFzdG5lLXZkYW5hLW5hLXNwb2tvamVuZS1tYW56ZWxzdHZpLW1hLWplZG5vZHVjaHktcmVjZXB0LTY0NTU0NTg30gEA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T04:00:57Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "eXtra.cz",
+			"title": "Polosirotek Anička Pomeje (9): Dojemná reakce na zásnuby maminky - eXtra.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMifmh0dHBzOi8vd3d3LmV4dHJhLmN6L3plbXJlbC1qaS10YXRpbmVrLWFuaWNrYS1wb21lamUtOS11ei1qZS1hbGUtemFzZS1zdGFzdG5hLXJlYWtjZS1uYS16YXNudWJ5LW1hbWlua3ktYS1zbG92YS1vLWFkb3BjaS04ZGNjN9IBAA?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-11T04:00:00Z",
+			"content": null
+		},
+		{
+			"source": { "id": "google-news", "name": "Google News" },
+			"author": "SeznamZprávy.cz",
+			"title": "Zeman prý žádal Fialu o beztrestnost pro Mynáře. Už podruhé - SeznamZprávy.cz",
+			"description": null,
+			"url": "https://news.google.com/rss/articles/CBMieWh0dHBzOi8vd3d3LnNlem5hbXpwcmF2eS5jei9jbGFuZWsvZG9tYWNpLXppdm90LXYtY2Vza3UtemVtYW4tcHJ5LXphZGFsLWZpYWx1LW8tYmV6dHJlc3Rub3N0LXByby1teW5hcmUtdXotcG9kcnVoZS0yMjc2MjHSAX9odHRwczovL3d3dy5zZXpuYW16cHJhdnkuY3ovY2xhbmVrL2RvbWFjaS16aXZvdC12LWNlc2t1LXplbWFuLXByeS16YWRhbC1maWFsdS1vLWJlenRyZXN0bm9zdC1wcm8tbXluYXJlLXV6LXBvZHJ1aGUtMjI3NjIxP2FtcD0x?oc=5",
+			"urlToImage": null,
+			"publishedAt": "2023-03-10T22:07:17Z",
+			"content": null
+		}
+	]
+}
