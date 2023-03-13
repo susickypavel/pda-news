@@ -26,6 +26,7 @@ export default {
 		web: {
 			favicon: "./assets/favicon.png"
 		},
+		scheme: "myapp",
 		extra: {
 			SUPABASE_URL: process.env.SUPABASE_URL,
 			SUPABASE_PUBLIC_ANON: process.env.SUPABASE_PUBLIC_ANON

@@ -3,10 +3,10 @@ import { StyleSheet, View } from "react-native";
 
 import { LoginForm } from "@/components/login-form";
 
-export const LoginScreen: React.FC = () => {
+export const SignInScreen: React.FC = () => {
 	return (
 		<View style={styles.container}>
-			<LoginForm />
+			<SignInForm />
 		</View>
 	);
 };

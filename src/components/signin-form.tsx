@@ -25,7 +25,7 @@ async function onSubmit(data: LoginFormData) {
 /**
  * NOTE: Just a rough implementation for testing purposes
  */
-export const LoginForm: React.FC = () => {
+export const SignInForm: React.FC = () => {
 	const { control, handleSubmit } = useForm<LoginFormData>({
 		resolver: zodResolver(LOGIN_SCHEMA)
 	});
