@@ -11,21 +11,22 @@
 ## 1.2 Running the application for the first time
 
 ```sh
-# If you're a Windows user, you need to allow connection from node.exe process in firewall
+# If you're a Windows user, you need to allow connection from node.exe process in firewall.
+# If you're a MacOS user, you need `watchman` installed on your machine.
 
-# Check whether you're logged in with your expo account on your machine
+# Check whether you're logged in with your expo account on your machine.
 npm run expo whoami
 
 # Login if you're not.
 npm run expo login
 
-# Install dependencies
+# Install dependencies.
 npm install
 
 # Run development server
 npm run start
 
-# Scan QR code in the terminal with your iOS/Android device
+# Scan QR code in the terminal with your iOS/Android device.
 ```
 
 ## 1.3 Code climate
