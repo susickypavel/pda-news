@@ -4,7 +4,7 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { supabase } from "../api/supabase";
+import { supabase } from "@/api/supabase";
 
 // TODO: Proper copywriting
 

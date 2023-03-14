@@ -1,10 +1,8 @@
-import "react-native-url-polyfill/auto";
-
 import { ThemeProvider } from "@rneui/themed";
 import { Stack } from "expo-router";
 import React, { useEffect } from "react";
 
-import { supabase } from "../src/api/supabase";
+import { supabase } from "@/api/supabase";
 
 export default function DefaultLayout() {
 	useEffect(() => {

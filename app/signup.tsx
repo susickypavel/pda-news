@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { LoginForm } from "@/components/login-form";
+import { SignUpForm } from "@/components/signup-form";
 
 export default function Home() {
 	return (
