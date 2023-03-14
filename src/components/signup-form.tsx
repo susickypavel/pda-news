@@ -6,10 +6,18 @@ import { z } from "zod";
 
 import { supabase } from "../api/supabase";
 
-const REGISTER_SCHEMA = z.object({
-	email: z.string(),
-	password: z.string()
-});
+// TODO: Proper copywriting
+
+const REGISTER_SCHEMA = z
+	.object({
+		email: z.string().email("Invalid email").trim(),
+		password: z.string().min(6, "At least 6 chars").trim(),
+		passwordConfirmation: z.string()
+	})
+	.refine(data => data.password === data.passwordConfirmation, {
+		message: "Passwords don't match",
+		path: ["passwordConfirmation"]
+	});
 
 type RegistrationFormData = z.infer<typeof REGISTER_SCHEMA>;
 
@@ -19,7 +27,9 @@ async function onSubmit(data: RegistrationFormData) {
 		password: data.password
 	});
 
-	console.log(response);
+	if (response.error) {
+		// TODO: Inform user
+	}
 }
 
 /**
@@ -61,6 +71,21 @@ export const SignUpForm: React.FC = () => {
 				)}
 				name="password"
 			/>
+			<Controller
+				control={control}
+				render={({ field: { onChange, onBlur, value }, fieldState }) => (
+					<Input
+						value={value}
+						secureTextEntry
+						onBlur={onBlur}
+						onChangeText={onChange}
+						errorMessage={fieldState.error?.message}
+						label="Confirm Password"
+					/>
+				)}
+				name="passwordConfirmation"
+			/>
+
 			<Button title="Sign up" onPress={handleSubmit(onSubmit)} />
 		</React.Fragment>
 	);

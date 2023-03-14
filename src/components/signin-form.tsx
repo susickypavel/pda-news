@@ -7,7 +7,7 @@ import { z } from "zod";
 import { supabase } from "../api/supabase";
 
 const LOGIN_SCHEMA = z.object({
-	email: z.string(),
+	email: z.string().email("Invalid email"),
 	password: z.string()
 });
 
@@ -19,7 +19,9 @@ async function onSubmit(data: LoginFormData) {
 		password: data.password
 	});
 
-	console.log(response);
+	if (response.error) {
+		// TODO: Inform user
+	}
 }
 
 /**
