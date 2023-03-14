@@ -3,13 +3,13 @@ import { StyleSheet, View } from "react-native";
 
 import { LoginForm } from "@/components/login-form";
 
-export const SignInScreen: React.FC = () => {
+export default function Home() {
 	return (
 		<View style={styles.container}>
-			<SignInForm />
+			<SignUpForm />
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	container: {

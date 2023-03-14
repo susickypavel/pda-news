@@ -1,7 +1,26 @@
+import { Text } from "@rneui/base";
+import { Link } from "expo-router";
 import React from "react";
+import { StyleSheet, View } from "react-native";
 
-import { SignInScreen } from "../src/screens/signin-screen";
+import { SignInForm } from "../src/components/signin-form";
 
 export default function Home() {
-	return <SignInScreen />;
+	return (
+		<View style={styles.container}>
+			<SignInForm />
+			<Link href="/signup">
+				<Text>Register</Text>
+			</Link>
+		</View>
+	);
 }
+
+const styles = StyleSheet.create({
+	container: {
+		alignItems: "center",
+		flex: 1,
+		justifyContent: "center",
+		padding: 20
+	}
+});
