@@ -1,13 +1,14 @@
 import { ThemeProvider } from "@rneui/themed";
 import type { Session } from "@supabase/supabase-js";
-import { Stack, useRouter } from "expo-router";
+import { Slot, SplashScreen } from "expo-router";
 import React, { useEffect, useState } from "react";
+import { StyleSheet, View } from "react-native";
 
 import { supabase } from "@/api/supabase";
+import { SignInForm } from "@/components/signin-form";
 
 export default function DefaultLayout() {
-	const [authSession, setAuthSession] = useState<Session | null>(null);
-	const router = useRouter();
+	const [authSession, setAuthSession] = useState<Session | null | undefined>(undefined);
 
 	useEffect(() => {
 		supabase.auth
@@ -17,6 +18,7 @@ export default function DefaultLayout() {
 			})
 			.catch(reason => {
 				console.log(`ERROR: Couldn't fetch session status. (${reason})`);
+				setAuthSession(null);
 			});
 
 		const auth = supabase.auth.onAuthStateChange((_, session) => {
@@ -26,17 +28,32 @@ export default function DefaultLayout() {
 		return () => auth.data.subscription.unsubscribe();
 	}, []);
 
-	useEffect(() => {
-		if (!authSession || !authSession.user) {
-			router.replace("/sign-in");
-		} else {
-			router.replace("/");
-		}
-	}, [authSession]);
+	if (typeof authSession === "undefined") {
+		return <SplashScreen />;
+	}
+
+	if (!authSession) {
+		return (
+			<ThemeProvider>
+				<View style={styles.container}>
+					<SignInForm />
+				</View>
+			</ThemeProvider>
+		);
+	}
 
 	return (
 		<ThemeProvider>
-			<Stack />
+			<Slot />
 		</ThemeProvider>
 	);
 }
+
+const styles = StyleSheet.create({
+	container: {
+		alignItems: "center",
+		flex: 1,
+		justifyContent: "center",
+		padding: 20
+	}
+});
