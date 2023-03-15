@@ -1,0 +1,19 @@
+import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import { Tab } from "@rneui/base";
+import React from "react";
+
+// TODO: Acommodate more space at the bottom for iOS to prevent interference with the Home indicator
+
+export const TabBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
+	const onPress = (route: BottomTabBarProps["state"]["routes"][0]) => {
+		navigation.navigate(route.name);
+	};
+
+	return (
+		<Tab value={state.index}>
+			{state.routes.map(route => {
+				return <Tab.Item title={route.name} key={route.key} onPressIn={() => onPress(route)} />;
+			})}
+		</Tab>
+	);
+};

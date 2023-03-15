@@ -26,7 +26,8 @@ module.exports = {
 	plugins: ["react", "react-native", "@typescript-eslint", "simple-import-sort"],
 	rules: {
 		"simple-import-sort/imports": "error",
-		"simple-import-sort/exports": "error"
+		"simple-import-sort/exports": "error",
+		"react/prop-types": "off"
 	},
 	settings: {
 		react: {
