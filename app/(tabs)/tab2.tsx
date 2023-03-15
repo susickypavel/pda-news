@@ -1,12 +1,11 @@
+import { Text } from "@rneui/base";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { SignUpForm } from "@/components/signup-form";
-
-export default function SignUp() {
+export default function Tab2() {
 	return (
 		<View style={styles.container}>
-			<SignUpForm />
+			<Text>Tab 2</Text>
 		</View>
 	);
 }
