@@ -1,16 +1,17 @@
-import { Button, Text } from "@rneui/base";
+import { Text } from "@rneui/base";
+import { Link } from "expo-router";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { supabase } from "@/api/supabase";
+import { SignInForm } from "@/components/signin-form";
 
-export default function Home() {
+export default function SignIn() {
 	return (
 		<View style={styles.container}>
-			<Text>Hello, World!</Text>
-			<Button onPress={() => supabase.auth.signOut()}>
-				<Text>Sign out</Text>
-			</Button>
+			<SignInForm />
+			<Link href="/sign-up">
+				<Text>Create account</Text>
+			</Link>
 		</View>
 	);
 }

@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 
 import { SignUpForm } from "@/components/signup-form";
 
-export default function Home() {
+export default function SignUp() {
 	return (
 		<View style={styles.container}>
 			<SignUpForm />
