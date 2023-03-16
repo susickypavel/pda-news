@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input } from "@rneui/base";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { Alert } from "react-native";
 import { z } from "zod";
 
 import { supabase } from "@/api/supabase";
@@ -20,7 +21,8 @@ async function onSubmit(data: LoginFormData) {
 	});
 
 	if (response.error) {
-		// TODO: Inform user
+		// TODO: Inform user, this is a debug alert
+		Alert.alert("Sign in error", response.error.message);
 	}
 }
 
