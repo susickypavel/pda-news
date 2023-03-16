@@ -1,20 +1,11 @@
 import { Text } from "@rneui/base";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 
 export default function Tab2() {
 	return (
-		<View style={styles.container}>
+		<View className="flex-1 items-center justify-center">
 			<Text>Tab 2</Text>
 		</View>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		alignItems: "center",
-		flex: 1,
-		justifyContent: "center",
-		padding: 20
-	}
-});
