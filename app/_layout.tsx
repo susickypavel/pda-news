@@ -1,14 +1,13 @@
 import { ThemeProvider } from "@rneui/themed";
 import type { Session } from "@supabase/supabase-js";
-import { Slot, SplashScreen } from "expo-router";
+import { Slot, SplashScreen, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
 
 import { supabase } from "@/api/supabase";
-import { SignInForm } from "@/components/signin-form";
 
 export default function DefaultLayout() {
 	const [authSession, setAuthSession] = useState<Session | null | undefined>(undefined);
+	const router = useRouter();
 
 	useEffect(() => {
 		supabase.auth
@@ -28,32 +27,19 @@ export default function DefaultLayout() {
 		return () => auth.data.subscription.unsubscribe();
 	}, []);
 
-	if (typeof authSession === "undefined") {
-		return <SplashScreen />;
-	}
-
-	if (!authSession) {
-		return (
-			<ThemeProvider>
-				<View style={styles.container}>
-					<SignInForm />
-				</View>
-			</ThemeProvider>
-		);
-	}
+	useEffect(() => {
+		// TODO: Fix flash of login form.
+		if (!authSession?.user) {
+			router.replace("/auth/sign-in");
+		} else {
+			router.replace("/");
+		}
+	}, [authSession]);
 
 	return (
 		<ThemeProvider>
+			{typeof authSession === "undefined" ? <SplashScreen /> : null}
 			<Slot />
 		</ThemeProvider>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		alignItems: "center",
-		flex: 1,
-		justifyContent: "center",
-		padding: 20
-	}
-});
