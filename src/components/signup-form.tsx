@@ -29,16 +29,12 @@ async function onSubmit(data: RegistrationFormData) {
 	});
 
 	if (response.error) {
-		// TODO: Inform user, this is a debug alert
-		Alert.alert("Sign up error", response.error.message);
+		Alert.alert("Oops", response.error.message);
 	}
 }
 
-/**
- * NOTE: Just a rough implementation for testing purposes
- */
 export const SignUpForm: React.FC = () => {
-	const { control, handleSubmit } = useForm<RegistrationFormData>({
+	const { control, handleSubmit, setFocus } = useForm<RegistrationFormData>({
 		resolver: zodResolver(REGISTER_SCHEMA)
 	});
 
@@ -46,8 +42,11 @@ export const SignUpForm: React.FC = () => {
 		<React.Fragment>
 			<Controller
 				control={control}
-				render={({ field: { onChange, onBlur, value }, fieldState }) => (
+				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						ref={ref}
+						onSubmitEditing={() => setFocus("password")}
+						returnKeyType="next"
 						value={value}
 						onChangeText={onChange}
 						onBlur={onBlur}
@@ -61,8 +60,11 @@ export const SignUpForm: React.FC = () => {
 			/>
 			<Controller
 				control={control}
-				render={({ field: { onChange, onBlur, value }, fieldState }) => (
+				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						ref={ref}
+						onSubmitEditing={() => setFocus("passwordConfirmation")}
+						returnKeyType="next"
 						value={value}
 						secureTextEntry
 						onBlur={onBlur}
@@ -75,9 +77,12 @@ export const SignUpForm: React.FC = () => {
 			/>
 			<Controller
 				control={control}
-				render={({ field: { onChange, onBlur, value }, fieldState }) => (
+				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						ref={ref}
 						value={value}
+						onSubmitEditing={handleSubmit(onSubmit)}
+						returnKeyType="done"
 						secureTextEntry
 						onBlur={onBlur}
 						onChangeText={onChange}

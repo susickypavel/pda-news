@@ -21,16 +21,12 @@ async function onSubmit(data: LoginFormData) {
 	});
 
 	if (response.error) {
-		// TODO: Inform user, this is a debug alert
-		Alert.alert("Sign in error", response.error.message);
+		Alert.alert("Oops", response.error.message);
 	}
 }
 
-/**
- * NOTE: Just a rough implementation for testing purposes
- */
 export const SignInForm: React.FC = () => {
-	const { control, handleSubmit } = useForm<LoginFormData>({
+	const { control, handleSubmit, setFocus } = useForm<LoginFormData>({
 		resolver: zodResolver(LOGIN_SCHEMA)
 	});
 
@@ -38,8 +34,14 @@ export const SignInForm: React.FC = () => {
 		<React.Fragment>
 			<Controller
 				control={control}
-				render={({ field: { onChange, onBlur, value }, fieldState }) => (
+				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						ref={ref}
+						returnKeyType="next"
+						onSubmitEditing={() => {
+							console.log("focus");
+							setFocus("password");
+						}}
 						value={value}
 						onChangeText={onChange}
 						onBlur={onBlur}
@@ -53,14 +55,17 @@ export const SignInForm: React.FC = () => {
 			/>
 			<Controller
 				control={control}
-				render={({ field: { onChange, onBlur, value }, fieldState }) => (
+				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						ref={ref}
+						returnKeyType="done"
 						value={value}
 						secureTextEntry
 						onBlur={onBlur}
 						onChangeText={onChange}
 						errorMessage={fieldState.error?.message}
 						label="Password"
+						onSubmitEditing={handleSubmit(onSubmit)}
 					/>
 				)}
 				name="password"
