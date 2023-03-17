@@ -1,10 +1,25 @@
-import { ThemeProvider } from "@rneui/themed";
+import { createTheme, ThemeProvider } from "@rneui/themed";
 import type { Session } from "@supabase/supabase-js";
 import { Slot, SplashScreen, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 
 import { supabase } from "@/api/supabase";
 import { AuthContext } from "@/context/auth";
+
+const theme = createTheme({
+	components: {
+		Button: {
+			containerStyle: {
+				width: "100%"
+			}
+		},
+		Input: {
+			containerStyle: {
+				paddingHorizontal: 0
+			}
+		}
+	}
+});
 
 export default function DefaultLayout() {
 	const [authSession, setAuthSession] = useState<Session | null>(null);
@@ -47,7 +62,7 @@ export default function DefaultLayout() {
 	}, [authSession]);
 
 	return (
-		<ThemeProvider>
+		<ThemeProvider theme={theme}>
 			{isLoading ? <SplashScreen /> : null}
 			<AuthContext.Provider value={authSession}>
 				<Slot />

@@ -1,5 +1,5 @@
 import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { Tab } from "@rneui/base";
+import { Tab } from "@rneui/themed";
 import React from "react";
 
 export const TabBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
