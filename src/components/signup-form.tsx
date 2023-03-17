@@ -30,6 +30,8 @@ async function onSubmit(data: RegistrationFormData) {
 
 	if (response.error) {
 		Alert.alert("Oops", response.error.message);
+	} else {
+		Alert.alert("Success", "We've sent you an email to verify your account.");
 	}
 }
 

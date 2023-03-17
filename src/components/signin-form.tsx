@@ -45,7 +45,6 @@ export const SignInForm: React.FC = () => {
 						ref={ref}
 						returnKeyType="next"
 						onSubmitEditing={() => {
-							console.log("focus");
 							setFocus("password");
 						}}
 						value={value}
@@ -77,7 +76,7 @@ export const SignInForm: React.FC = () => {
 				)}
 				name="password"
 			/>
-			<Button loading={isSubmitting} title="Submit" onPress={handleSubmit(onSubmit)} />
+			<Button loading={isSubmitting} title="Sign in" onPress={handleSubmit(onSubmit)} />
 		</React.Fragment>
 	);
 };

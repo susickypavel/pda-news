@@ -7,7 +7,14 @@ module.exports = function (api) {
 			require.resolve("expo-router/babel"),
 			[
 				"module-resolver",
-				{ alias: { "@/components": "./src/components", "@/screens": "./src/screens", "@/api": "./src/api" } }
+				{
+					alias: {
+						"@/components": "./src/components",
+						"@/screens": "./src/screens",
+						"@/api": "./src/api",
+						"@/context": "./src/context"
+					}
+				}
 			],
 			"nativewind/babel"
 		]

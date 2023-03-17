@@ -6,9 +6,18 @@
 		"noUnusedParameters": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/components/*": ["./src/components/*"],
-			"@/screens/*": ["./src/screens/*"],
-			"@/api/*": ["./src/api/*"]
+			"@/components/*": [
+				"./src/components/*"
+			],
+			"@/screens/*": [
+				"./src/screens/*"
+			],
+			"@/api/*": [
+				"./src/api/*"
+			],
+			"@/context/*": [
+				"./src/context/*"
+			]
 		}
 	},
 	"extends": "expo/tsconfig.base"
