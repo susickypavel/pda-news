@@ -8,6 +8,7 @@ import { supabase } from "@/api/supabase";
 export default function DefaultLayout() {
 	const [authSession, setAuthSession] = useState<Session | null | undefined>(undefined);
 	const router = useRouter();
+	const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
 		supabase.auth
@@ -28,17 +29,18 @@ export default function DefaultLayout() {
 	}, []);
 
 	useEffect(() => {
-		// TODO: Fix flash of login form.
-		if (!authSession?.user) {
-			router.replace("/auth/sign-in");
-		} else {
-			router.replace("/");
-		}
+		if (typeof authSession === "undefined") return;
+
+		router.replace(authSession?.user ? "/" : "/auth/sign-in");
+
+		const id = setTimeout(() => setLoading(false), 250);
+
+		return () => clearTimeout(id);
 	}, [authSession]);
 
 	return (
 		<ThemeProvider>
-			{typeof authSession === "undefined" ? <SplashScreen /> : null}
+			{isLoading ? <SplashScreen /> : null}
 			<Slot />
 		</ThemeProvider>
 	);
