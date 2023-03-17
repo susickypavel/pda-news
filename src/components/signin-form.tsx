@@ -26,7 +26,12 @@ async function onSubmit(data: LoginFormData) {
 }
 
 export const SignInForm: React.FC = () => {
-	const { control, handleSubmit, setFocus } = useForm<LoginFormData>({
+	const {
+		control,
+		handleSubmit,
+		setFocus,
+		formState: { isSubmitting }
+	} = useForm<LoginFormData>({
 		resolver: zodResolver(LOGIN_SCHEMA)
 	});
 
@@ -36,6 +41,7 @@ export const SignInForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						disabled={isSubmitting}
 						ref={ref}
 						returnKeyType="next"
 						onSubmitEditing={() => {
@@ -57,6 +63,7 @@ export const SignInForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						disabled={isSubmitting}
 						ref={ref}
 						returnKeyType="done"
 						value={value}
@@ -70,7 +77,7 @@ export const SignInForm: React.FC = () => {
 				)}
 				name="password"
 			/>
-			<Button title="Submit" onPress={handleSubmit(onSubmit)} />
+			<Button loading={isSubmitting} title="Submit" onPress={handleSubmit(onSubmit)} />
 		</React.Fragment>
 	);
 };

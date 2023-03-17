@@ -34,7 +34,12 @@ async function onSubmit(data: RegistrationFormData) {
 }
 
 export const SignUpForm: React.FC = () => {
-	const { control, handleSubmit, setFocus } = useForm<RegistrationFormData>({
+	const {
+		control,
+		handleSubmit,
+		setFocus,
+		formState: { isSubmitting }
+	} = useForm<RegistrationFormData>({
 		resolver: zodResolver(REGISTER_SCHEMA)
 	});
 
@@ -44,6 +49,7 @@ export const SignUpForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						disabled={isSubmitting}
 						ref={ref}
 						onSubmitEditing={() => setFocus("password")}
 						returnKeyType="next"
@@ -62,6 +68,7 @@ export const SignUpForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						disabled={isSubmitting}
 						ref={ref}
 						onSubmitEditing={() => setFocus("passwordConfirmation")}
 						returnKeyType="next"
@@ -79,6 +86,7 @@ export const SignUpForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<Input
+						disabled={isSubmitting}
 						ref={ref}
 						value={value}
 						onSubmitEditing={handleSubmit(onSubmit)}
@@ -93,7 +101,7 @@ export const SignUpForm: React.FC = () => {
 				name="passwordConfirmation"
 			/>
 
-			<Button title="Sign up" onPress={handleSubmit(onSubmit)} />
+			<Button loading={isSubmitting} title="Sign up" onPress={handleSubmit(onSubmit)} />
 		</React.Fragment>
 	);
 };
