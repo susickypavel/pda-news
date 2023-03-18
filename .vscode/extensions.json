@@ -3,7 +3,9 @@
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"EditorConfig.EditorConfig",
-		"bradlc.vscode-tailwindcss"
+		"bradlc.vscode-tailwindcss",
+		"ms-python.python",
+		"ms-python.vscode-pylance"
 	],
 	"unwantedRecommendations": []
 }
