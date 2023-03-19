@@ -7,7 +7,9 @@ export const supabase = createClient(
 	Constants.expoConfig?.extra?.SUPABASE_PUBLIC_ANON,
 	{
 		auth: {
-			storage: AsyncStorage
+			storage: AsyncStorage,
+			autoRefreshToken: true,
+			persistSession: true,
 		}
 	}
 );

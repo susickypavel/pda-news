@@ -1,15 +1,23 @@
 import { Button, Text } from "@rneui/themed";
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { supabase } from "@/api/supabase";
 
 export default function Home() {
 	return (
-		<View className="flex-1 items-center justify-center">
+		<View style={styles.container}>
 			<Button onPress={() => supabase.auth.signOut()}>
 				<Text>Sign out</Text>
 			</Button>
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	container: {
+		alignItems: "center",
+		flex: 1,
+		justifyContent: "center",
+	}
+})

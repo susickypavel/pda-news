@@ -15,8 +15,7 @@ module.exports = function (api) {
 						"@/context": "./src/context"
 					}
 				}
-			],
-			"nativewind/babel"
+			]
 		]
 	};
 };

@@ -1,12 +1,12 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { LinkButton } from "@/components/common/link-button";
 import { SignUpForm } from "@/components/signup-form";
 
 export default function SignInScreen() {
 	return (
-		<View className="flex-1 items-center justify-center p-4">
+		<View style={styles.container}>
 			<SignUpForm />
 			<LinkButton
 				href="/auth/sign-in"
@@ -20,3 +20,12 @@ export default function SignInScreen() {
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	container: {
+		alignItems: "center",
+		flex: 1,
+		justifyContent: "center",
+		padding: 16
+	}
+})
