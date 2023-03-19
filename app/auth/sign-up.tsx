@@ -4,7 +4,7 @@ import { StyleSheet, View } from "react-native";
 import { LinkButton } from "@/components/common/link-button";
 import { SignUpForm } from "@/components/signup-form";
 
-export default function SignInScreen() {
+export default function SignUpScreen() {
 	return (
 		<View style={styles.container}>
 			<SignUpForm />
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		padding: 16
 	}
-})
+});
