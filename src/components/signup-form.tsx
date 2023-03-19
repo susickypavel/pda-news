@@ -1,11 +1,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Input } from "@rneui/themed";
+import { Button } from "@rneui/themed";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Alert } from "react-native";
 import { z } from "zod";
 
 import { supabase } from "@/api/supabase";
+
+import { TextField } from "./common/textfield";
 
 // TODO: Proper copywriting
 
@@ -50,7 +52,7 @@ export const SignUpForm: React.FC = () => {
 			<Controller
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
-					<Input
+					<TextField
 						disabled={isSubmitting}
 						ref={ref}
 						onSubmitEditing={() => setFocus("password")}
@@ -59,7 +61,7 @@ export const SignUpForm: React.FC = () => {
 						onChangeText={onChange}
 						onBlur={onBlur}
 						autoCapitalize="none"
-						keyboardType="email-address"
+						textContentType="emailAddress"
 						errorMessage={fieldState.error?.message}
 						label="Email"
 					/>
@@ -69,7 +71,7 @@ export const SignUpForm: React.FC = () => {
 			<Controller
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
-					<Input
+					<TextField
 						disabled={isSubmitting}
 						ref={ref}
 						onSubmitEditing={() => setFocus("passwordConfirmation")}
@@ -87,7 +89,7 @@ export const SignUpForm: React.FC = () => {
 			<Controller
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
-					<Input
+					<TextField
 						disabled={isSubmitting}
 						ref={ref}
 						value={value}
