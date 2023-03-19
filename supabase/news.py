@@ -1,9 +1,11 @@
-import requests
-import os
+
 import json
+import os
+import requests
 
 from supabase import create_client, Client
 from dotenv import load_dotenv
+from custom_logger import logger
 
 load_dotenv()
 
@@ -21,14 +23,18 @@ def insert_articles(country: str, category: str):
         raise SystemExit(error)
 
     if (len(result.data) <= 0):
+        logger.warning(f"No sources found for {country} and {category} category")
         return
 
     domains = ",".join([source["domain"] for source in result.data])
     domains_ids = {source['domain']: source['id'] for source in result.data}
 
+    # TODO: Retry on an error
+    # TODO: Handle non 2XX responses
     try:
         articles = []
         next_page_id = None
+        total_results_count = 0
 
         while True:
             params = [
@@ -49,6 +55,7 @@ def insert_articles(country: str, category: str):
             articles.extend(data["results"])
 
             if next_page_id is None:
+                total_results_count = data["totalResults"]
                 break
 
         def transform_data(article_data):
@@ -63,6 +70,7 @@ def insert_articles(country: str, category: str):
             }
 
         supabase.table("articles").upsert([transform_data(article) for article in articles]).execute()
+        logger.info(f"Inserted ({len(articles)}/{total_results_count}) articles for {country} and {category} category")
     except Exception as error:
         raise SystemExit(error)
 
@@ -70,11 +78,8 @@ def insert_articles(country: str, category: str):
 def main():
     result = supabase.table("categories").select("name").execute()
 
-    categories = [category["name"] for category in result.data]
-
-    for category in categories:
+    for category in [category["name"] for category in result.data]:
         insert_articles("cz", category)
-        print(f"Finished fetching {category} in cz")
 
 
 main()
