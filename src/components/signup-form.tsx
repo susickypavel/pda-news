@@ -61,7 +61,9 @@ export const SignUpForm: React.FC = () => {
 						onChangeText={onChange}
 						onBlur={onBlur}
 						autoCapitalize="none"
+						keyboardType="email-address"
 						textContentType="emailAddress"
+						caretHidden={false}
 						errorMessage={fieldState.error?.message}
 						label="Email"
 					/>

@@ -11,7 +11,7 @@ import { TextField } from "./common/textfield";
 
 const LOGIN_SCHEMA = z.object({
 	email: z.string().email("Invalid email"),
-	password: z.string()
+	password: z.string().nonempty("Required")
 });
 
 type LoginFormData = z.infer<typeof LOGIN_SCHEMA>;
@@ -46,14 +46,14 @@ export const SignInForm: React.FC = () => {
 						disabled={isSubmitting}
 						ref={ref}
 						returnKeyType="next"
-						onSubmitEditing={() => {
-							setFocus("password");
-						}}
+						onSubmitEditing={() => setFocus("password")}
 						value={value}
 						onChangeText={onChange}
 						onBlur={onBlur}
 						autoCapitalize="none"
+						keyboardType="email-address"
 						textContentType="emailAddress"
+						caretHidden={false}
 						errorMessage={fieldState.error?.message}
 						label="Email"
 					/>
