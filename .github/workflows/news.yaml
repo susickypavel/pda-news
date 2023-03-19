@@ -24,7 +24,8 @@ jobs:
           python-version: '3.11.2'
           cache: 'pip'
 
-      - run: echo '${{ steps.python_setup.outputs.cache-hit }}'
+      - name: Cache hit
+        run: echo '${{ steps.python_setup.outputs.cache-hit }}'
 
       - run: |
           python -m pip install --upgrade pip
