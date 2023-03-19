@@ -21,35 +21,48 @@ def insert_articles(country: str, category: str):
         raise SystemExit(error)
 
     if (len(result.data) <= 0):
-        # TODO: Info debug?
         return
 
     domains = ",".join([source["domain"] for source in result.data])
     domains_ids = {source['domain']: source['id'] for source in result.data}
 
     try:
-        # TODO: Follow pagination
-        response = requests.get("https://newsdata.io/api/1/news", [
-            ["apikey", NEWSDATA_API_KEY],
-            ["country", country],
-            ["domain", domains],
-            ["category", category]
-        ])
+        articles = []
+        next_page_id = None
 
-        data = json.loads(response.text)
+        while True:
+            params = [
+                ["apikey", NEWSDATA_API_KEY],
+                ["country", country],
+                ["domain", domains],
+                ["category", category],
+            ]
 
-        def transform_data(data):
+            if (next_page_id is not None):
+                params.append(["page", next_page_id])
+
+            response = requests.get("https://newsdata.io/api/1/news", params)
+
+            data = json.loads(response.text)
+
+            next_page_id = data["nextPage"]
+            articles.extend(data["results"])
+
+            if next_page_id is None:
+                break
+
+        def transform_data(article_data):
             return {
-                "title": data["title"],
-                "content": data["content"],
-                "published_at": data["pubDate"],
+                "title": article_data["title"],
+                "content": article_data["content"],
+                "published_at": article_data["pubDate"],
                 "region": country,
                 "category": category,
-                "original_url": data["link"],
-                "source_id": domains_ids[data["source_id"]]
+                "original_url": article_data["link"],
+                "source_id": domains_ids[article_data["source_id"]]
             }
 
-        supabase.table("articles").upsert([transform_data(item) for item in data["results"]]).execute()
+        supabase.table("articles").upsert([transform_data(article) for article in articles]).execute()
     except Exception as error:
         raise SystemExit(error)
 
