@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {
-		"start": "cross-env EXPO_USE_PATH_ALIASES=1 expo start",
+		"start": "expo start",
+		"start:clear": "expo start --clear",
 		"android": "expo start --android",
 		"ios": "expo start --ios",
 		"web": "expo start --web",
