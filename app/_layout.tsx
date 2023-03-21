@@ -4,9 +4,16 @@ import { Slot, SplashScreen, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 
 import { supabase } from "@/api/supabase";
+import { ColorScheme } from "@/components/color-scheme";
 import { AuthContext } from "@/context/auth";
 
 const theme = createTheme({
+	darkColors: {
+		background: "#000000"
+	},
+	lightColors: {
+		background: "#ffffff"
+	},
 	components: {
 		Button: {
 			containerStyle: {
@@ -68,7 +75,9 @@ export default function DefaultLayout() {
 		<ThemeProvider theme={theme}>
 			{isLoading ? <SplashScreen /> : null}
 			<AuthContext.Provider value={authSession}>
-				<Slot />
+				<ColorScheme>
+					<Slot />
+				</ColorScheme>
 			</AuthContext.Provider>
 		</ThemeProvider>
 	);
