@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { TabBar } from "@/components/tab-bar";
 
-export default function DefaultLayout() {
+export default function TabsLayout() {
 	const { theme } = useTheme();
 
 	return (
