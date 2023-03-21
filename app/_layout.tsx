@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider } from "@rneui/themed";
+import { ThemeProvider } from "@rneui/themed";
 import type { Session } from "@supabase/supabase-js";
 import { Slot, SplashScreen, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
@@ -7,31 +7,9 @@ import { supabase } from "@/api/supabase";
 import { ColorScheme } from "@/components/color-scheme";
 import { AuthContext } from "@/context/auth";
 
-const theme = createTheme({
-	darkColors: {
-		background: "#000000"
-	},
-	lightColors: {
-		background: "#ffffff"
-	},
-	components: {
-		Button: {
-			containerStyle: {
-				width: "100%"
-			},
-			buttonStyle: {
-				paddingVertical: 16
-			}
-		},
-		Input: {
-			containerStyle: {
-				paddingHorizontal: 0
-			}
-		}
-	}
-});
+import { theme } from "../src/theme";
 
-export default function DefaultLayout() {
+const RootLayout: React.FC = () => {
 	const [authSession, setAuthSession] = useState<Session | null>(null);
 	const [isLoading, setLoading] = useState(true);
 	const router = useRouter();
@@ -81,4 +59,8 @@ export default function DefaultLayout() {
 			</AuthContext.Provider>
 		</ThemeProvider>
 	);
-}
+};
+
+RootLayout.displayName = "RootLayout";
+
+export default RootLayout;

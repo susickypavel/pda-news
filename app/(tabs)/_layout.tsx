@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { TabBar } from "@/components/tab-bar";
 
-export default function TabsLayout() {
+const TabsLayout: React.FC = () => {
 	const { theme } = useTheme();
 
 	return (
@@ -22,10 +22,14 @@ export default function TabsLayout() {
 			/>
 		</SafeAreaView>
 	);
-}
+};
+
+TabsLayout.displayName = "TabsLayout";
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1
 	}
 });
+
+export default TabsLayout;
