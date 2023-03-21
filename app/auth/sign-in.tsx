@@ -2,11 +2,12 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import { LinkButton } from "@/components/common/link-button";
+import withHideKeyboard from "@/components/hoc/with-hide-keyboard";
 import { SignInForm } from "@/components/signin-form";
 
-export default function SignInScreen() {
+function SignInScreen(props: object) {
 	return (
-		<View style={styles.container}>
+		<View style={styles.container} {...props}>
 			<SignInForm />
 			<LinkButton
 				href="/auth/sign-up"
@@ -28,4 +29,6 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		padding: 16
 	}
-})
+});
+
+export default withHideKeyboard(SignInScreen);
