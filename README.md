@@ -21,14 +21,14 @@
 # If you're a Windows user, you need to allow connection from node.exe process in firewall.
 # If you're a MacOS user, you need `watchman` installed on your machine.
 
+# Install dependencies.
+npm install
+
 # Check whether you're logged in with your expo account on your machine.
 npm run expo whoami
 
 # Login if you're not.
 npm run expo login
-
-# Install dependencies.
-npm install
 
 # ! Fill required env vars from .env.example into .env (See 1.3)
 
