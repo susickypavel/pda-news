@@ -11,6 +11,9 @@ const theme = createTheme({
 		Button: {
 			containerStyle: {
 				width: "100%"
+			},
+			buttonStyle: {
+				paddingVertical: 16
 			}
 		},
 		Input: {
