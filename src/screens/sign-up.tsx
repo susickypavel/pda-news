@@ -2,12 +2,12 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import withHideKeyboard from "@/components/hoc/with-hide-keyboard";
-import { SignInForm } from "@/components/signin-form";
+import { SignUpForm } from "@/components/signup-form";
 
-function SignInScreen(props: object) {
+function Screen(props: object) {
 	return (
 		<View style={styles.container} {...props}>
-			<SignInForm />
+			<SignUpForm />
 		</View>
 	);
 }
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default withHideKeyboard(SignInScreen);
+export const SignUpScreen = withHideKeyboard(Screen);
