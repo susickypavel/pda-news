@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@rneui/themed";
 import type { Session } from "@supabase/supabase-js";
-import { Slot, SplashScreen, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 
 import { supabase } from "@/api/supabase";
@@ -12,7 +11,6 @@ import { theme } from "../src/theme";
 const RootLayout: React.FC = () => {
 	const [authSession, setAuthSession] = useState<Session | null>(null);
 	const [isLoading, setLoading] = useState(true);
-	const router = useRouter();
 
 	useEffect(() => {
 		let loadingId: NodeJS.Timeout | null = null;
@@ -45,17 +43,10 @@ const RootLayout: React.FC = () => {
 		};
 	}, []);
 
-	useEffect(() => {
-		router.replace(authSession?.user ? "/" : "/auth/sign-in");
-	}, [authSession]);
-
 	return (
 		<ThemeProvider theme={theme}>
-			{isLoading ? <SplashScreen /> : null}
 			<AuthContext.Provider value={authSession}>
-				<ColorScheme>
-					<Slot />
-				</ColorScheme>
+				<ColorScheme></ColorScheme>
 			</AuthContext.Provider>
 		</ThemeProvider>
 	);

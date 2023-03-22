@@ -1,7 +1,7 @@
 {
 	"name": "pda-news",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "node_modules/expo/AppEntry.js",
 	"scripts": {
 		"start": "expo start",
 		"start:clear": "expo start --clear",
@@ -23,8 +23,6 @@
 		"expo": "~48.0.5",
 		"expo-constants": "~14.2.1",
 		"expo-font": "^11.1.1",
-		"expo-linking": "~4.0.1",
-		"expo-router": "^1.2.2",
 		"expo-splash-screen": "^0.18.1",
 		"expo-status-bar": "~1.4.4",
 		"expo-system-ui": "^2.2.1",
