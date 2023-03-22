@@ -2,7 +2,7 @@ import { createTheme } from "@rneui/themed";
 
 export const theme = createTheme({
 	darkColors: {
-		background: "#000000"
+		background: "#000000",
 	},
 	lightColors: {
 		background: "#ffffff",
@@ -18,12 +18,15 @@ export const theme = createTheme({
 			titleStyle: {
 				fontFamily: "InterTightBlack",
 				fontWeight: "900",
-			}
+			},
 		},
 		Input: {
 			containerStyle: {
 				paddingHorizontal: 0
 			}
+		},
+		Icon: {
+			color: "#fff"
 		}
 	}
 });

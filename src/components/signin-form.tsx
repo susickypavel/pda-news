@@ -1,8 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@rneui/themed";
+import { Button, Icon } from "@rneui/themed";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Alert } from "react-native";
+import { Alert, StyleSheet } from "react-native";
 import { z } from "zod";
 
 import { supabase } from "@/api/supabase";
@@ -78,7 +78,21 @@ export const SignInForm: React.FC = () => {
 				)}
 				name="password"
 			/>
-			<Button loading={isSubmitting} title="Sign in" onPress={handleSubmit(onSubmit)} />
+			<Button
+				buttonStyle={styles.submitButton}
+				icon={<Icon name="login" type="material" />}
+				iconPosition="right"
+				loading={isSubmitting}
+				title="Sign in"
+				onPress={handleSubmit(onSubmit)}
+			/>
 		</React.Fragment>
 	);
 };
+
+export const styles = StyleSheet.create({
+	submitButton: {
+		justifyContent: "space-between",
+		paddingHorizontal: 16
+	}
+});

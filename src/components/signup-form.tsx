@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@rneui/themed";
+import { Button, Icon } from "@rneui/themed";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Alert } from "react-native";
@@ -8,6 +8,7 @@ import { z } from "zod";
 import { supabase } from "@/api/supabase";
 
 import { TextField } from "./common/textfield";
+import { styles } from "./signin-form";
 
 // TODO: Proper copywriting
 
@@ -104,8 +105,14 @@ export const SignUpForm: React.FC = () => {
 				)}
 				name="passwordConfirmation"
 			/>
-
-			<Button loading={isSubmitting} title="Sign up" onPress={handleSubmit(onSubmit)} />
+			<Button
+				buttonStyle={styles.submitButton}
+				icon={<Icon name="arrow-forward" type="material" />}
+				iconPosition="right"
+				loading={isSubmitting}
+				title="Let's become informed!"
+				onPress={handleSubmit(onSubmit)}
+			/>
 		</React.Fragment>
 	);
 };
