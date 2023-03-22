@@ -1,9 +1,11 @@
+import { NavigationProp, RouteProp } from "@react-navigation/native";
 import { Tab } from "@rneui/themed";
 import React, { useState } from "react";
 import { useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneMap, TabView } from "react-native-tab-view";
 
+import { RootStackParamList } from "../../App";
 import { ExploreTab } from "./tabs/explore";
 import { NewsTab } from "./tabs/news";
 import { ProfileTab } from "./tabs/profile";
@@ -14,7 +16,16 @@ const renderScene = SceneMap({
 	profile: ProfileTab
 });
 
-export function HomeScreen() {
+type ProfileScreenRouteProp = RouteProp<RootStackParamList, "Home">;
+
+type ProfileScreenNavigationProp = NavigationProp<RootStackParamList, "Home">;
+
+type ProfileScreenProps = {
+	route: ProfileScreenRouteProp;
+	navigation: ProfileScreenNavigationProp;
+};
+
+export function HomeScreen(props: ProfileScreenProps) {
 	const layout = useWindowDimensions();
 
 	const [index, setIndex] = useState(0);

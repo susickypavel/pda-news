@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { StackActions, useNavigation } from "@react-navigation/native";
 import type { Session } from "@supabase/supabase-js";
 import React, { createContext, useContext, useEffect, useRef } from "react";
 
@@ -14,8 +14,7 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children, value, onChange }) => {
 	const isMounted = useRef(false);
-	// TODO: Type it correctly
-	const navigation = useNavigation<any>();
+	const navigation = useNavigation();
 
 	useEffect(() => {
 		const auth = supabase.auth.onAuthStateChange((_, session) => {
@@ -34,9 +33,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children, value, onC
 		}
 
 		if (value?.user) {
-			navigation.navigate("Home");
+			navigation.dispatch(StackActions.replace("Home"));
 		} else {
-			navigation.navigate("SignIn");
+			navigation.dispatch(StackActions.replace("SignIn"));
 		}
 	}, [value]);
 

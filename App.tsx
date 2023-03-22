@@ -16,15 +16,16 @@ import { HomeScreen } from "@/screens/home";
 import { SignInScreen } from "@/screens/sign-in";
 import { SignUpScreen } from "@/screens/sign-up";
 
+import type { RootStackParamList } from "./src/app";
 import { theme } from "./src/theme";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 SplashScreen.preventAutoHideAsync();
 
 const App: React.FC = () => {
 	const [authSession, setAuthSession] = useState<Session | null>(null);
-	const [initialRouteName, setRoute] = useState("SignIn");
+	const [initialRouteName, setRoute] = useState<keyof RootStackParamList>("SignIn");
 	const [isAuthStateLoaded, setAuthStateLoaded] = useState(false);
 	const [isFontLoaded] = useFonts({
 		InterTightBlack: require("@/assets/fonts/Black.ttf")
@@ -76,21 +77,9 @@ const App: React.FC = () => {
 										}
 									}}
 								>
-									<Stack.Screen
-										name="SignIn"
-										component={SignInScreen}
-										options={{
-											gestureEnabled: false
-										}}
-									/>
-									<Stack.Screen
-										name="SignUp"
-										component={SignUpScreen}
-										options={{
-											gestureEnabled: false
-										}}
-									/>
-									<Stack.Screen name="Home" component={HomeScreen} />
+									<Stack.Screen name="SignIn" component={SignInScreen} />
+									<Stack.Screen name="SignUp" component={SignUpScreen} />
+									<Stack.Screen name="Home" component={HomeScreen} options={{}} />
 								</Stack.Navigator>
 							)}
 						</ThemeConsumer>
