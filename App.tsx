@@ -9,6 +9,7 @@ import * as React from "react";
 import { useCallback, useEffect, useState } from "react";
 
 import { supabase } from "@/api/supabase";
+import { ColorScheme } from "@/components/color-scheme";
 import { AuthProvider } from "@/context/auth";
 import { HomeScreen } from "@/screens/home";
 import { SignInScreen } from "@/screens/sign-in";
@@ -67,18 +68,32 @@ const App: React.FC = () => {
 	return (
 		<NavigationContainer onReady={onReady}>
 			<ThemeProvider theme={theme}>
-				<AuthProvider value={authSession} onChange={setAuthSession}>
-					<Stack.Navigator
-						initialRouteName={initialRouteName}
-						screenOptions={{
-							headerShown: false
-						}}
-					>
-						<Stack.Screen name="SignIn" component={SignInScreen} />
-						<Stack.Screen name="SignUp" component={SignUpScreen} />
-						<Stack.Screen name="Home" component={HomeScreen} />
-					</Stack.Navigator>
-				</AuthProvider>
+				<ColorScheme>
+					<AuthProvider value={authSession} onChange={setAuthSession}>
+						<Stack.Navigator
+							initialRouteName={initialRouteName}
+							screenOptions={{
+								headerShown: false
+							}}
+						>
+							<Stack.Screen
+								name="SignIn"
+								component={SignInScreen}
+								options={{
+									gestureEnabled: false
+								}}
+							/>
+							<Stack.Screen
+								name="SignUp"
+								component={SignUpScreen}
+								options={{
+									gestureEnabled: false
+								}}
+							/>
+							<Stack.Screen name="Home" component={HomeScreen} />
+						</Stack.Navigator>
+					</AuthProvider>
+				</ColorScheme>
 			</ThemeProvider>
 		</NavigationContainer>
 	);
