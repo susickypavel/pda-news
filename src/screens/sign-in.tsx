@@ -1,4 +1,3 @@
-import { useTheme } from "@rneui/themed";
 import React from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -8,17 +7,10 @@ import withHideKeyboard from "@/components/hoc/with-hide-keyboard";
 import { SignInForm } from "@/components/signin-form";
 
 function Screen(props: object) {
-	const { theme } = useTheme();
-
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === "ios" ? "padding" : "height"}
-			style={[
-				styles.container,
-				{
-					backgroundColor: theme.colors.background
-				}
-			]}
+			style={styles.container}
 			{...props}
 		>
 			<SafeAreaView style={styles.safe}>

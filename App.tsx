@@ -2,7 +2,7 @@ import "react-native-url-polyfill/auto";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { ThemeProvider } from "@rneui/themed";
+import { ThemeConsumer, ThemeProvider } from "@rneui/themed";
 import { Session } from "@supabase/supabase-js";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -64,29 +64,36 @@ const App: React.FC = () => {
 			<ThemeProvider theme={theme}>
 				<ColorScheme>
 					<AuthProvider value={authSession} onChange={setAuthSession}>
-						<Stack.Navigator
-							initialRouteName={initialRouteName}
-							screenOptions={{
-								headerShown: false,
-								animation: "slide_from_right"
-							}}
-						>
-							<Stack.Screen
-								name="SignIn"
-								component={SignInScreen}
-								options={{
-									gestureEnabled: false
-								}}
-							/>
-							<Stack.Screen
-								name="SignUp"
-								component={SignUpScreen}
-								options={{
-									gestureEnabled: false
-								}}
-							/>
-							<Stack.Screen name="Home" component={HomeScreen} />
-						</Stack.Navigator>
+						<ThemeConsumer>
+							{({ theme }) => (
+								<Stack.Navigator
+									initialRouteName={initialRouteName}
+									screenOptions={{
+										headerShown: false,
+										animation: "slide_from_right",
+										contentStyle: {
+											backgroundColor: theme.colors.background
+										}
+									}}
+								>
+									<Stack.Screen
+										name="SignIn"
+										component={SignInScreen}
+										options={{
+											gestureEnabled: false
+										}}
+									/>
+									<Stack.Screen
+										name="SignUp"
+										component={SignUpScreen}
+										options={{
+											gestureEnabled: false
+										}}
+									/>
+									<Stack.Screen name="Home" component={HomeScreen} />
+								</Stack.Navigator>
+							)}
+						</ThemeConsumer>
 					</AuthProvider>
 				</ColorScheme>
 			</ThemeProvider>
