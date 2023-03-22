@@ -28,7 +28,7 @@ module.exports = {
 		"simple-import-sort/imports": "error",
 		"simple-import-sort/exports": "error",
 		"react/prop-types": "off",
-		"react-native/no-inline-styles": "warn"
+		"react-native/no-inline-styles": "off"
 	},
 	settings: {
 		react: {

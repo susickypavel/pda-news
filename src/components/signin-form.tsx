@@ -79,7 +79,12 @@ export const SignInForm: React.FC = () => {
 				name="password"
 			/>
 			<Button
-				buttonStyle={styles.submitButton}
+				buttonStyle={[
+					styles.submitButton,
+					{
+						justifyContent: isSubmitting ? "center" : "space-between"
+					}
+				]}
 				icon={<Icon name="login" type="material" />}
 				iconPosition="right"
 				loading={isSubmitting}
@@ -92,7 +97,6 @@ export const SignInForm: React.FC = () => {
 
 export const styles = StyleSheet.create({
 	submitButton: {
-		justifyContent: "space-between",
 		paddingHorizontal: 16
 	}
 });

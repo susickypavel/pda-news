@@ -106,7 +106,12 @@ export const SignUpForm: React.FC = () => {
 				name="passwordConfirmation"
 			/>
 			<Button
-				buttonStyle={styles.submitButton}
+				buttonStyle={[
+					styles.submitButton,
+					{
+						justifyContent: isSubmitting ? "center" : "space-between"
+					}
+				]}
 				icon={<Icon name="arrow-forward" type="material" />}
 				iconPosition="right"
 				loading={isSubmitting}
