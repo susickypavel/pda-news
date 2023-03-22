@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ThemeProvider } from "@rneui/themed";
 import { Session } from "@supabase/supabase-js";
+import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
 import { useCallback, useEffect, useState } from "react";
@@ -23,18 +24,19 @@ SplashScreen.preventAutoHideAsync();
 
 const App: React.FC = () => {
 	const [authSession, setAuthSession] = useState<Session | null>(null);
-	const [isLoading, setLoading] = useState(true);
 	const [initialRouteName, setRoute] = useState("SignIn");
+	const [isAuthStateLoaded, setAuthStateLoaded] = useState(false);
+	const [isFontLoaded] = useFonts({
+		InterTightBlack: require("@/assets/fonts/Black.ttf")
+	});
 
 	const onReady = useCallback(async () => {
-		if (!isLoading) {
+		if (isFontLoaded) {
 			await SplashScreen.hideAsync();
 		}
-	}, [isLoading]);
+	}, [isFontLoaded]);
 
 	useEffect(() => {
-		let loadingId: NodeJS.Timeout | null = null;
-
 		supabase.auth
 			.getSession()
 			.then(({ data }) => {
@@ -49,19 +51,11 @@ const App: React.FC = () => {
 				setAuthSession(null);
 			})
 			.finally(() => {
-				loadingId = setTimeout(() => {
-					setLoading(false);
-				}, 250);
+				setAuthStateLoaded(true);
 			});
-
-		return () => {
-			if (loadingId) {
-				clearTimeout(loadingId);
-			}
-		};
 	}, []);
 
-	if (isLoading) {
+	if (!isFontLoaded || !isAuthStateLoaded) {
 		return null;
 	}
 

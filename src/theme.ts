@@ -5,7 +5,7 @@ export const theme = createTheme({
 		background: "#000000"
 	},
 	lightColors: {
-		background: "#ffffff"
+		background: "#ffffff",
 	},
 	components: {
 		Button: {
@@ -14,6 +14,10 @@ export const theme = createTheme({
 			},
 			buttonStyle: {
 				paddingVertical: 16
+			},
+			titleStyle: {
+				fontFamily: "InterTightBlack",
+				fontWeight: "900",
 			}
 		},
 		Input: {
