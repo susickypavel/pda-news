@@ -2,6 +2,7 @@ import { useTheme } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
+import { LinkButton } from "@/components/common/button-link";
 import withHideKeyboard from "@/components/hoc/with-hide-keyboard";
 import { SignInForm } from "@/components/signin-form";
 
@@ -19,6 +20,15 @@ function Screen(props: object) {
 			{...props}
 		>
 			<SignInForm />
+			<LinkButton
+				href="/SignUp"
+				title="Create an account instead"
+				buttonProps={{
+					containerStyle: {
+						marginTop: 16
+					}
+				}}
+			/>
 		</View>
 	);
 }

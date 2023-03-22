@@ -67,7 +67,8 @@ const App: React.FC = () => {
 						<Stack.Navigator
 							initialRouteName={initialRouteName}
 							screenOptions={{
-								headerShown: false
+								headerShown: false,
+								animation: "slide_from_right"
 							}}
 						>
 							<Stack.Screen
