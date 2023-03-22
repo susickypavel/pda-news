@@ -1,19 +1,24 @@
-import { Text } from "@rneui/themed";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import { ArticlePreview } from "@/components/article-preview";
 
 export function ExploreTab() {
 	return (
-		<View style={styles.container}>
-			<Text>Explore Tab</Text>
-		</View>
+		<SafeAreaView>
+			<ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
+				{Array.from({ length: 10 }).map((_, i) => (
+					<ArticlePreview key={i} />
+				))}
+			</ScrollView>
+		</SafeAreaView>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
-		alignItems: "center",
-		flex: 1,
-		justifyContent: "center"
+		gap: 32,
+		padding: 8
 	}
 });
