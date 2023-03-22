@@ -1,6 +1,7 @@
 import { useTheme } from "@rneui/themed";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { LinkButton } from "@/components/common/button-link";
 import withHideKeyboard from "@/components/hoc/with-hide-keyboard";
@@ -10,7 +11,8 @@ function Screen(props: object) {
 	const { theme } = useTheme();
 
 	return (
-		<View
+		<KeyboardAvoidingView
+			behavior={Platform.OS === "ios" ? "padding" : "height"}
 			style={[
 				styles.container,
 				{
@@ -19,17 +21,19 @@ function Screen(props: object) {
 			]}
 			{...props}
 		>
-			<SignInForm />
-			<LinkButton
-				href="/SignUp"
-				title="Create an account instead"
-				buttonProps={{
-					containerStyle: {
-						marginTop: 16
-					}
-				}}
-			/>
-		</View>
+			<SafeAreaView style={styles.safe}>
+				<SignInForm />
+				<LinkButton
+					href="/SignUp"
+					title="Create an account instead"
+					buttonProps={{
+						containerStyle: {
+							marginTop: 16
+						}
+					}}
+				/>
+			</SafeAreaView>
+		</KeyboardAvoidingView>
 	);
 }
 
@@ -39,6 +43,9 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-end",
 		padding: 16
+	},
+	safe: {
+		width: "100%"
 	}
 });
 
