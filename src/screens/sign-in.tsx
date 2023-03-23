@@ -1,3 +1,4 @@
+import LottieView from "lottie-react-native";
 import React from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -13,6 +14,16 @@ function Screen(props: object) {
 			style={styles.container}
 			{...props}
 		>
+			<LottieView
+				style={{
+					maxHeight: 320,
+					position: "relative",
+					flex: 1
+				}}
+				source={require("@/assets/lottie/world.json")}
+				autoPlay={Platform.OS === "ios"}
+				loop
+			/>
 			<SafeAreaView style={styles.safe}>
 				<SignInForm />
 				<LinkButton
