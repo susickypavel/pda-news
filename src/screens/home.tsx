@@ -5,7 +5,7 @@ import { useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneMap, TabView } from "react-native-tab-view";
 
-import { RootStackParamList } from "../../App";
+import type { RootStackParamList } from "../app";
 import { ExploreTab } from "./tabs/explore";
 import { NewsTab } from "./tabs/news";
 import { ProfileTab } from "./tabs/profile";
