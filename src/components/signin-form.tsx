@@ -43,6 +43,7 @@ export const SignInForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<TextField
+						blurOnSubmit={false}
 						disabled={isSubmitting}
 						ref={ref}
 						returnKeyType="next"
@@ -64,6 +65,7 @@ export const SignInForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<TextField
+						blurOnSubmit={false}
 						disabled={isSubmitting}
 						ref={ref}
 						returnKeyType="done"

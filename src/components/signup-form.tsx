@@ -52,6 +52,7 @@ export const SignUpForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<TextField
+						blurOnSubmit={false}
 						disabled={isSubmitting}
 						ref={ref}
 						onSubmitEditing={() => setFocus("password")}
@@ -73,6 +74,7 @@ export const SignUpForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<TextField
+						blurOnSubmit={false}
 						disabled={isSubmitting}
 						ref={ref}
 						onSubmitEditing={() => setFocus("passwordConfirmation")}
@@ -91,6 +93,7 @@ export const SignUpForm: React.FC = () => {
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
 					<TextField
+						blurOnSubmit={false}
 						disabled={isSubmitting}
 						ref={ref}
 						value={value}
