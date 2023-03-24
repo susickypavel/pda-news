@@ -1,6 +1,6 @@
 import { StackActions, useNavigation } from "@react-navigation/native";
 import type { Session } from "@supabase/supabase-js";
-import React, { createContext, useContext, useEffect, useRef } from "react";
+import React, { createContext, useContext, useEffect } from "react";
 
 import { supabase } from "@/api/supabase";
 
@@ -13,11 +13,19 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children, value, onChange }) => {
-	const isMounted = useRef(false);
 	const navigation = useNavigation();
 
 	useEffect(() => {
-		const auth = supabase.auth.onAuthStateChange((_, session) => {
+		const auth = supabase.auth.onAuthStateChange((event, session) => {
+			switch (event) {
+				case "SIGNED_IN":
+					navigation.dispatch(StackActions.replace("Home"));
+					break;
+				case "SIGNED_OUT":
+					navigation.dispatch(StackActions.replace("SignIn"));
+					break;
+			}
+
 			onChange(session);
 		});
 
@@ -25,15 +33,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children, value, onC
 			auth.data.subscription.unsubscribe();
 		};
 	}, []);
-
-	useEffect(() => {
-		if (!isMounted.current) {
-			isMounted.current = true;
-			return;
-		}
-
-		navigation.dispatch(StackActions.replace(value?.user ? "Home" : "SignIn"));
-	}, [value]);
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
