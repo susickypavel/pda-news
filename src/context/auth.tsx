@@ -32,11 +32,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children, value, onC
 			return;
 		}
 
-		if (value?.user) {
-			navigation.dispatch(StackActions.replace("Home"));
-		} else {
-			navigation.dispatch(StackActions.replace("SignIn"));
-		}
+		navigation.dispatch(StackActions.replace(value?.user ? "Home" : "SignIn"));
 	}, [value]);
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
