@@ -4,6 +4,7 @@ export type RootStackParamList = {
 	Home: undefined;
 	SignIn: undefined;
 	SignUp: undefined;
+	ArticleDetail: undefined;
 };
 
 declare global {

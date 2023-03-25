@@ -1,9 +1,11 @@
-import { Text, useTheme } from "@rneui/themed";
+import { useNavigation } from "@react-navigation/native";
+import { Button, Text, useTheme } from "@rneui/themed";
 import React from "react";
 import { View } from "react-native";
 
 export const ArticlePreview: React.FC = () => {
 	const { theme } = useTheme();
+	const { navigate } = useNavigation();
 
 	return (
 		<View
@@ -14,6 +16,7 @@ export const ArticlePreview: React.FC = () => {
 			}}
 		>
 			<Text>Hello, World!</Text>
+			<Button title="Read" onPress={() => navigate("ArticleDetail")} />
 		</View>
 	);
 };

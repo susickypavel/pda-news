@@ -12,6 +12,7 @@ import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/api/supabase";
 import { ColorScheme } from "@/components/color-scheme";
 import { AuthProvider } from "@/context/auth";
+import { ArticleDetailScreen } from "@/screens/article-detail";
 import { HomeScreen } from "@/screens/home";
 import { SignInScreen } from "@/screens/sign-in";
 import { SignUpScreen } from "@/screens/sign-up";
@@ -80,6 +81,7 @@ const App: React.FC = () => {
 									<Stack.Screen name="SignIn" component={SignInScreen} />
 									<Stack.Screen name="SignUp" component={SignUpScreen} />
 									<Stack.Screen name="Home" component={HomeScreen} />
+									<Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} />
 								</Stack.Navigator>
 							)}
 						</ThemeConsumer>
