@@ -16,7 +16,7 @@ export function useScrollProgress(height: number, onEnd: () => void) {
 			hasReachedEnd.current = true;
 			onEnd();
 		}
-	}, [height, onEnd]);
+	}, [height, onEnd, scrollProgress]);
 
 	return { scrollProgress, onScroll };
 }
