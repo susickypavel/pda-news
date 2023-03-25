@@ -43,7 +43,7 @@ type RouteData = {
 	title: string;
 };
 
-export function HomeScreen(props: ProfileScreenProps) {
+export const HomeScreen: React.FC<ProfileScreenProps> = () => {
 	const layout = useWindowDimensions();
 
 	const [index, setIndex] = useState(0);
@@ -79,4 +79,4 @@ export function HomeScreen(props: ProfileScreenProps) {
 			)}
 		/>
 	);
-}
+};

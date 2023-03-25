@@ -10,7 +10,7 @@ const { height } = Dimensions.get("window");
 
 const SCROLL_INDICATOR_HEIGHT = 10;
 
-export function ExploreTab() {
+export const ExploreTab: React.FC = () => {
 	const { theme } = useTheme();
 	const [scrollIndicatorWidth, setScrollIndicatorWidth] = useState(1);
 	const { scrollProgress, onScroll } = useScrollProgress(height - SCROLL_INDICATOR_HEIGHT, () => {
@@ -49,7 +49,7 @@ export function ExploreTab() {
 			</Animated.ScrollView>
 		</SafeAreaView>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	container: {

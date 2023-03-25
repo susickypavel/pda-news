@@ -4,14 +4,14 @@ import { StyleSheet, View } from "react-native";
 
 import { supabase } from "@/api/supabase";
 
-export function ProfileTab() {
+export const ProfileTab: React.FC = () => {
 	return (
 		<View style={styles.container}>
 			<Text>Profile Tab</Text>
 			<Button onPress={() => supabase.auth.signOut()} title="Sign out" />
 		</View>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	container: {

@@ -13,7 +13,8 @@ module.exports = function (api) {
 						"@/api": "./src/api",
 						"@/context": "./src/context",
 						"@/assets": "./assets",
-						"@/hooks": "./src/hooks"
+						"@/hooks": "./src/hooks",
+						src: "./src"
 					}
 				}
 			]

@@ -1,12 +1,16 @@
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import type { RootStackParamList } from "src/app";
 
 import { LinkButton } from "@/components/common/button-link";
 import withHideKeyboard from "@/components/hoc/with-hide-keyboard";
 import { SignInForm } from "@/components/signin-form";
 
-function Screen(props: object) {
+type SignInScreenProps = NativeStackScreenProps<RootStackParamList, "SignIn">;
+
+const Screen: React.FC<SignInScreenProps> = props => {
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -27,7 +31,7 @@ function Screen(props: object) {
 			</SafeAreaView>
 		</KeyboardAvoidingView>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	container: {
