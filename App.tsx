@@ -79,7 +79,7 @@ const App: React.FC = () => {
 								>
 									<Stack.Screen name="SignIn" component={SignInScreen} />
 									<Stack.Screen name="SignUp" component={SignUpScreen} />
-									<Stack.Screen name="Home" component={HomeScreen} options={{}} />
+									<Stack.Screen name="Home" component={HomeScreen} />
 								</Stack.Navigator>
 							)}
 						</ThemeConsumer>

@@ -1,9 +1,10 @@
 import { useTheme } from "@rneui/themed";
-import React, { useCallback, useRef, useState } from "react";
-import { Animated, Dimensions, NativeScrollEvent, NativeSyntheticEvent, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { Animated, Dimensions, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { ArticlePreview } from "@/components/article-preview";
+import { useScrollProgress } from "@/hooks/useScrollProgress";
 
 const { height } = Dimensions.get("window");
 
@@ -12,27 +13,19 @@ const SCROLL_INDICATOR_HEIGHT = 10;
 export function ExploreTab() {
 	const { theme } = useTheme();
 	const [scrollIndicatorWidth, setScrollIndicatorWidth] = useState(1);
-	const scrollProgress = useRef(new Animated.Value(0)).current;
-
-	const onScroll = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
-		const { y } = e.nativeEvent.contentOffset;
-		const contentHeight = e.nativeEvent.contentSize.height;
-		const scrollViewHeight = height - SCROLL_INDICATOR_HEIGHT;
-
-		const newProgress = y / (contentHeight - scrollViewHeight);
-		scrollProgress.setValue(newProgress);
-	}, []);
+	const { scrollProgress, onScroll } = useScrollProgress(height - SCROLL_INDICATOR_HEIGHT, () => {
+		console.log("End reached");
+	});
 
 	return (
 		<SafeAreaView>
 			<Animated.View
-				onLayout={e => {
-					setScrollIndicatorWidth(-e.nativeEvent.layout.width);
-				}}
+				onLayout={e => setScrollIndicatorWidth(-e.nativeEvent.layout.width)}
 				style={{
 					width: "100%",
 					height: SCROLL_INDICATOR_HEIGHT,
 					backgroundColor: theme.colors.primary,
+					marginBottom: 8,
 					transform: [
 						{
 							translateX: scrollProgress.interpolate({
@@ -60,7 +53,7 @@ export function ExploreTab() {
 
 const styles = StyleSheet.create({
 	container: {
-		gap: 32,
+		gap: 8,
 		padding: 8
 	}
 });
