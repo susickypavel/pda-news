@@ -1,9 +1,9 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { Tab } from "@rneui/themed";
+import { Icon, useTheme } from "@rneui/themed";
 import React, { useState } from "react";
 import { useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { SceneMap, TabView } from "react-native-tab-view";
+import { SceneMap, TabBar, TabBarItem, TabView } from "react-native-tab-view";
 
 import type { RootStackParamList } from "../app";
 import { ExploreTab } from "./tabs/explore";
@@ -45,6 +45,7 @@ type RouteData = {
 
 export const HomeScreen: React.FC<ProfileScreenProps> = () => {
 	const layout = useWindowDimensions();
+	const { theme } = useTheme();
 
 	const [index, setIndex] = useState(0);
 	const [routes] = useState<RouteData[]>([
@@ -60,21 +61,29 @@ export const HomeScreen: React.FC<ProfileScreenProps> = () => {
 			onIndexChange={setIndex}
 			initialLayout={{ width: layout.width }}
 			tabBarPosition="bottom"
-			renderTabBar={({ navigationState, jumpTo }) => (
+			renderTabBar={props => (
 				<SafeAreaView edges={["bottom"]}>
-					<Tab value={index}>
-						{navigationState.routes.map(route => (
-							<Tab.Item
-								icon={icons[route.key]}
-								titleStyle={{
-									marginTop: 8
-								}}
-								title={route.title}
-								key={route.key}
-								onPressIn={() => jumpTo(route.key)}
-							/>
-						))}
-					</Tab>
+					<TabBar
+						renderTabBarItem={props => {
+							return (
+								<TabBarItem
+									{...props}
+									renderIcon={() => (
+										<Icon
+											style={{
+												marginBottom: 8
+											}}
+											{...icons[props.route.key]}
+										/>
+									)}
+								/>
+							);
+						}}
+						style={{
+							backgroundColor: theme.colors.background
+						}}
+						{...props}
+					/>
 				</SafeAreaView>
 			)}
 		/>
