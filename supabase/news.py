@@ -69,7 +69,10 @@ def insert_articles(country: str, category: str):
                 "source_id": domains_ids[article_data["source_id"]]
             }
 
-        supabase.table("articles").upsert([transform_data(article) for article in articles]).execute()
+        transformed_articles = [transform_data(article) for article in articles]
+        filtered_articles = [article for i, article in enumerate(transformed_articles) if article["title"] not in [a["title"] for a in articles[:i]]]
+
+        supabase.table("articles").upsert(filtered_articles).execute()
         logger.info(f"Inserted ({len(articles)}/{total_results_count}) articles for {country} and {category} category")
     except Exception as error:
         raise SystemExit(error)
