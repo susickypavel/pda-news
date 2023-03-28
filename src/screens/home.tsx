@@ -1,5 +1,5 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { Icon, useTheme } from "@rneui/themed";
+import { Icon, Text, useTheme } from "@rneui/themed";
 import React, { useState } from "react";
 import { useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -35,7 +35,7 @@ type IconData = {
 const icons = {
 	news: { type: "material-community", name: "newspaper" },
 	explore: { type: "material", name: "search" },
-	profile: { type: "material", name: "person" }
+	profile: { type: "material", name: "person-outline" }
 } satisfies IconData;
 
 type RouteData = {
@@ -64,15 +64,20 @@ export const HomeScreen: React.FC<ProfileScreenProps> = () => {
 			renderTabBar={props => (
 				<SafeAreaView edges={["bottom"]}>
 					<TabBar
+						renderIndicator={() => null}
+						activeColor={theme.colors.black}
+						inactiveColor={theme.colors.grey3}
 						renderTabBarItem={props => {
 							return (
 								<TabBarItem
 									{...props}
-									renderIcon={() => (
+									renderLabel={({ color }) => <Text style={{ color }}>{props.route.title}</Text>}
+									renderIcon={({ color }) => (
 										<Icon
 											style={{
 												marginBottom: 8
 											}}
+											iconStyle={{ color }}
 											{...icons[props.route.key]}
 										/>
 									)}

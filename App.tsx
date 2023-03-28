@@ -1,5 +1,9 @@
 import "react-native-url-polyfill/auto";
 
+// HACK: `react-native-tab-view` throws this error for non obvious reasons.
+import { LogBox } from "react-native";
+LogBox.ignoreLogs(["Sending `onAnimatedValueUpdate` with no listeners registered."]);
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ThemeConsumer, ThemeProvider } from "@rneui/themed";

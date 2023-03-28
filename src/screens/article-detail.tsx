@@ -20,24 +20,32 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = () => {
 
 	return (
 		<View>
-			<Animated.View
-				onLayout={e => setScrollIndicatorWidth(-e.nativeEvent.layout.width)}
+			<View
 				style={{
-					width: "100%",
+					backgroundColor: theme.colors.grey5,
 					height: SCROLL_INDICATOR_HEIGHT,
-					backgroundColor: theme.colors.primary,
-					marginBottom: 8,
-					transform: [
-						{
-							translateX: scrollProgress.interpolate({
-								inputRange: [0, 1],
-								outputRange: [scrollIndicatorWidth, 0],
-								extrapolate: "clamp"
-							})
-						}
-					]
+					overflow: "hidden"
 				}}
-			/>
+			>
+				<Animated.View
+					onLayout={e => setScrollIndicatorWidth(-e.nativeEvent.layout.width)}
+					style={{
+						width: "100%",
+						height: SCROLL_INDICATOR_HEIGHT,
+						backgroundColor: theme.colors.primary,
+						marginBottom: 8,
+						transform: [
+							{
+								translateX: scrollProgress.interpolate({
+									inputRange: [0, 1],
+									outputRange: [scrollIndicatorWidth, 0],
+									extrapolate: "clamp"
+								})
+							}
+						]
+					}}
+				/>
+			</View>
 			<Animated.ScrollView
 				scrollEventThrottle={16}
 				onScroll={onScroll}
@@ -45,7 +53,47 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = () => {
 				contentContainerStyle={styles.container}
 			>
 				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
+				<Text>ArticleDetail</Text>
 			</Animated.ScrollView>
+			<Text>ArticleDetail</Text>
 		</View>
 	);
 };
