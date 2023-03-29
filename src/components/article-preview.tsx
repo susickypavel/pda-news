@@ -3,7 +3,11 @@ import { Button, Text, useTheme } from "@rneui/themed";
 import React from "react";
 import { View } from "react-native";
 
-export const ArticlePreview: React.FC = () => {
+interface ArticlePreviewProps {
+	title: string;
+}
+
+export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ title }) => {
 	const { theme } = useTheme();
 	const { navigate } = useNavigation();
 
@@ -15,7 +19,7 @@ export const ArticlePreview: React.FC = () => {
 				backgroundColor: theme.colors.grey1
 			}}
 		>
-			<Text>Hello, World!</Text>
+			<Text>{title}</Text>
 			<Button title="Read" onPress={() => navigate("ArticleDetail")} />
 		</View>
 	);
