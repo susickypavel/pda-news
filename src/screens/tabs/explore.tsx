@@ -9,7 +9,13 @@ export const ExploreTab: React.FC = () => {
 	const { articles, init } = useExploreFeed();
 
 	useEffect(() => {
-		init();
+		async function fetchFeed() {
+			await init();
+
+			// TODO: Handle error
+		}
+
+		fetchFeed();
 	}, [init]);
 
 	return (

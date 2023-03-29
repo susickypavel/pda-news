@@ -11,6 +11,7 @@ type ArticleDetailsScreenProps = NativeStackScreenProps<RootStackParamList, "Art
 const { height } = Dimensions.get("window");
 
 const SCROLL_INDICATOR_HEIGHT = 10;
+
 export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = () => {
 	const [scrollIndicatorWidth, setScrollIndicatorWidth] = useState(1);
 	const { scrollProgress, onScroll } = useScrollProgress(height - SCROLL_INDICATOR_HEIGHT, () => {

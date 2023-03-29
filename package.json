@@ -12,7 +12,7 @@
 		"format": "prettier --write .",
 		"expo": "expo",
 		"supabase": "supabase",
-		"supabase:ts": "supabase gen types typescript --project-id qwguqckblmchloapqiux --schema public > src/types/supabase.ts"
+		"supabase:ts": "supabase gen types typescript --project-id qwguqckblmchloapqiux --schema public > src/types/supabase.d.ts"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^2.9.11",

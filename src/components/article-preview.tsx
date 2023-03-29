@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
-import { Button, Text, useTheme } from "@rneui/themed";
+import { Text, useTheme } from "@rneui/themed";
 import React from "react";
-import { View } from "react-native";
+import { TouchableWithoutFeedback, View } from "react-native";
 
 interface ArticlePreviewProps {
 	title: string;
@@ -12,16 +12,17 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ title }) => {
 	const { navigate } = useNavigation();
 
 	return (
-		<View
-			style={{
-				width: "100%",
-				height: 320,
-				backgroundColor: theme.colors.grey1
-			}}
-		>
-			<Text>{title}</Text>
-			<Button title="Read" onPress={() => navigate("ArticleDetail")} />
-		</View>
+		<TouchableWithoutFeedback onPress={() => navigate("ArticleDetail")}>
+			<View
+				style={{
+					width: "100%",
+					height: 320,
+					backgroundColor: theme.colors.grey1
+				}}
+			>
+				<Text>{title}</Text>
+			</View>
+		</TouchableWithoutFeedback>
 	);
 };
 
