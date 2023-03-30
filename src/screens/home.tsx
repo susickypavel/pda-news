@@ -8,21 +8,21 @@ import { SceneMap, TabBar, TabBarItem, TabView } from "react-native-tab-view";
 import type { RootStackParamList } from "../app";
 import { ExploreTab } from "./tabs/explore";
 import { NewsTab } from "./tabs/news";
-import { ProfileTab } from "./tabs/profile";
+import { PersonalTab } from "./tabs/personal";
 
 const renderScene = SceneMap({
 	news: NewsTab,
 	explore: ExploreTab,
-	profile: ProfileTab
+	personal: PersonalTab
 });
 
-type ProfileScreenRouteProp = RouteProp<RootStackParamList, "Home">;
+type PersonalScreenRouteProp = RouteProp<RootStackParamList, "Home">;
 
-type ProfileScreenNavigationProp = NavigationProp<RootStackParamList, "Home">;
+type PersonalScreenNavigationProp = NavigationProp<RootStackParamList, "Home">;
 
-type ProfileScreenProps = {
-	route: ProfileScreenRouteProp;
-	navigation: ProfileScreenNavigationProp;
+type PersonalScreenProps = {
+	route: PersonalScreenRouteProp;
+	navigation: PersonalScreenNavigationProp;
 };
 
 type IconData = {
@@ -35,7 +35,7 @@ type IconData = {
 const icons = {
 	news: { type: "material-community", name: "newspaper" },
 	explore: { type: "material", name: "search" },
-	profile: { type: "material", name: "person-outline" }
+	personal: { type: "material", name: "person-outline" }
 } satisfies IconData;
 
 type RouteData = {
@@ -43,7 +43,7 @@ type RouteData = {
 	title: string;
 };
 
-export const HomeScreen: React.FC<ProfileScreenProps> = () => {
+export const HomeScreen: React.FC<PersonalScreenProps> = () => {
 	const layout = useWindowDimensions();
 	const { theme } = useTheme();
 
@@ -51,7 +51,7 @@ export const HomeScreen: React.FC<ProfileScreenProps> = () => {
 	const [routes] = useState<RouteData[]>([
 		{ key: "news", title: "News" },
 		{ key: "explore", title: "Explore" },
-		{ key: "profile", title: "Profile" }
+		{ key: "personal", title: "Personal" }
 	]);
 
 	return (
