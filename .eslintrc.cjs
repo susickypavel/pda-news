@@ -30,7 +30,8 @@ module.exports = {
 		"simple-import-sort/exports": "error",
 		"react/prop-types": "off",
 		"react-native/no-inline-styles": "off",
-		"react-native/no-color-literals": "warn"
+		"react-native/no-color-literals": "warn",
+		"@typescript-eslint/ban-ts-comment": "warn"
 	},
 	settings: {
 		react: {

@@ -28,6 +28,7 @@ export const useDailyFeed = create<DailyFeed>(set => {
 
 				return response.error;
 			} else {
+				// @ts-ignore
 				set({ articles: response.data });
 			}
 
