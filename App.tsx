@@ -21,8 +21,8 @@ import { HomeScreen } from "@/screens/home";
 import { SignInScreen } from "@/screens/sign-in";
 import { SignUpScreen } from "@/screens/sign-up";
 
-import type { RootStackParamList } from "./src/app";
 import { theme } from "./src/theme";
+import type { RootStackParamList } from "./src/types/app";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

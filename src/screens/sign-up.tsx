@@ -2,11 +2,11 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { RootStackParamList } from "src/app";
 
 import { LinkButton } from "@/components/common/button-link";
 import withHideKeyboard from "@/components/hoc/with-hide-keyboard";
 import { SignUpForm } from "@/components/signup-form";
+import type { RootStackParamList } from "@/types/app";
 
 type SignUpScreenProps = NativeStackScreenProps<RootStackParamList, "SignUp">;
 

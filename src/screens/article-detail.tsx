@@ -3,9 +3,9 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Text, useTheme } from "@rneui/themed";
 import React, { useState } from "react";
 import { Animated, Dimensions, StyleSheet, View } from "react-native";
-import type { RootStackParamList } from "src/app";
 
 import { useScrollProgress } from "@/hooks/useScrollProgress";
+import type { RootStackParamList } from "@/types/app";
 
 type ArticleDetailsScreenProps = NativeStackScreenProps<RootStackParamList, "ArticleDetail">;
 
