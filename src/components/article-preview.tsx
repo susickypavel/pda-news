@@ -68,7 +68,9 @@ const styles = StyleSheet.create({
 		width: "100%"
 	},
 	title: {
-		fontSize: 26
+		fontFamily: "BitterSemiBold",
+		fontSize: 26,
+		lineHeight: 26 * 1.25
 	}
 });
 

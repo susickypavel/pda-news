@@ -33,7 +33,9 @@ const App: React.FC = () => {
 	const [initialRouteName, setRoute] = useState<keyof RootStackParamList>("SignIn");
 	const [isAuthStateLoaded, setAuthStateLoaded] = useState(false);
 	const [isFontLoaded] = useFonts({
-		InterTightBlack: require("@/assets/fonts/Black.ttf")
+		InterTightBlack: require("@/assets/fonts/inter-tight/Black.ttf"),
+		InterTightRegular: require("@/assets/fonts/inter-tight/Regular.ttf"),
+		BitterSemiBold: require("@/assets/fonts/bitter/SemiBold.ttf")
 	});
 
 	const onReady = useCallback(async () => {

@@ -27,6 +27,11 @@ export const theme = createTheme({
 		},
 		Icon: {
 			color: "#fff"
+		},
+		Text: {
+			style: {
+				fontFamily: "InterTightRegular"
+			}
 		}
 	}
 });
