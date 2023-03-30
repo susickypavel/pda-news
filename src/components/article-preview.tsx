@@ -1,29 +1,39 @@
 import { useNavigation } from "@react-navigation/native";
 import { Text, useTheme } from "@rneui/themed";
 import React from "react";
-import { TouchableWithoutFeedback, View } from "react-native";
+import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
-interface ArticlePreviewProps {
-	title: string;
-}
+import type { ArticleData } from "@/stores/explore-feed";
 
-export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ title }) => {
+type ArticlePreviewProps = ArticleData;
+
+export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	const { theme } = useTheme();
 	const { navigate } = useNavigation();
 
+	const { title } = props;
+
 	return (
-		<TouchableWithoutFeedback onPress={() => navigate("ArticleDetail")}>
+		<TouchableWithoutFeedback onPress={() => navigate("ArticleDetail", props)}>
 			<View
-				style={{
-					width: "100%",
-					height: 320,
-					backgroundColor: theme.colors.grey1
-				}}
+				style={[
+					styles.container,
+					{
+						backgroundColor: theme.colors.grey1
+					}
+				]}
 			>
 				<Text>{title}</Text>
 			</View>
 		</TouchableWithoutFeedback>
 	);
 };
+
+const styles = StyleSheet.create({
+	container: {
+		height: 320,
+		width: "100%"
+	}
+});
 
 ArticlePreview.displayName = "ArticlePreview";

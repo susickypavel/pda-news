@@ -1,3 +1,4 @@
+import { useFocusEffect } from "@react-navigation/native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Text, useTheme } from "@rneui/themed";
 import React, { useState } from "react";
@@ -12,12 +13,20 @@ const { height } = Dimensions.get("window");
 
 const SCROLL_INDICATOR_HEIGHT = 10;
 
-export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = () => {
+export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route, navigation }) => {
+	const { content } = route.params;
+
 	const [scrollIndicatorWidth, setScrollIndicatorWidth] = useState(1);
 	const { scrollProgress, onScroll } = useScrollProgress(height - SCROLL_INDICATOR_HEIGHT, () => {
 		console.log("End reached");
 	});
 	const { theme } = useTheme();
+
+	useFocusEffect(() => {
+		navigation.setOptions({
+			headerTitle: route.params.source_id.domain
+		});
+	});
 
 	return (
 		<View>
@@ -53,48 +62,8 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = () => {
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={styles.container}
 			>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
-				<Text>ArticleDetail</Text>
+				<Text>{content}</Text>
 			</Animated.ScrollView>
-			<Text>ArticleDetail</Text>
 		</View>
 	);
 };

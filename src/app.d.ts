@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
+import { ArticleData } from "./stores/explore-feed";
+
 export type RootStackParamList = {
 	Home: undefined;
 	SignIn: undefined;
 	SignUp: undefined;
-	ArticleDetail: undefined;
+	ArticleDetail: ArticleData;
 };
 
 declare global {
