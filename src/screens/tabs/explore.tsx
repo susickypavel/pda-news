@@ -1,37 +1,19 @@
-import React, { useEffect } from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useExploreFeed } from "src/stores/explore-feed";
-
-import { ArticlePreview } from "@/components/article-preview";
+import { Text } from "@rneui/themed";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
 export const ExploreTab: React.FC = () => {
-	const { articles, init } = useExploreFeed();
-
-	useEffect(() => {
-		async function fetchFeed() {
-			await init();
-
-			// TODO: Handle error
-		}
-
-		fetchFeed();
-	}, [init]);
-
 	return (
-		<SafeAreaView edges={["top"]}>
-			<ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
-				{articles.map((article, i) => (
-					<ArticlePreview {...article} key={i} />
-				))}
-			</ScrollView>
-		</SafeAreaView>
+		<View style={styles.container}>
+			<Text>Explore Tab</Text>
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
 	container: {
-		gap: 8,
-		padding: 8
+		alignItems: "center",
+		flex: 1,
+		justifyContent: "center"
 	}
 });

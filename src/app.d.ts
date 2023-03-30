@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
-import { ArticleData } from "./stores/explore-feed";
+import { ArticleData } from "./stores/daily-feed";
 
 export type RootStackParamList = {
 	Home: undefined;

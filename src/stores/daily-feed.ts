@@ -9,18 +9,19 @@ export interface ArticleData {
 		domain: string;
 	};
 	title: string;
+	category: string;
 }
 
-interface ExploreFeed {
+interface DailyFeed {
 	articles: ArticleData[];
 	init: () => Promise<PostgrestError | null>;
 }
 
-export const useExploreFeed = create<ExploreFeed>(set => {
+export const useDailyFeed = create<DailyFeed>(set => {
 	return {
 		articles: [],
 		async init() {
-			const response = await supabase.from("articles").select("title, content, source_id (domain)").limit(5);
+			const response = await supabase.from("articles").select("title, content, source_id (domain), category").limit(5);
 
 			if (response.error) {
 				console.log(response.error);
