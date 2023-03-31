@@ -35,6 +35,7 @@ const App: React.FC = () => {
 	const [isFontLoaded] = useFonts({
 		InterTightBlack: require("@/assets/fonts/inter-tight/Black.ttf"),
 		InterTightRegular: require("@/assets/fonts/inter-tight/Regular.ttf"),
+		InterTightMedium: require("@/assets/fonts/inter-tight/Medium.ttf"),
 		BitterSemiBold: require("@/assets/fonts/bitter/SemiBold.ttf")
 	});
 

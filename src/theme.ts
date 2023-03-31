@@ -32,6 +32,19 @@ export const theme = createTheme({
 			style: {
 				fontFamily: "InterTightRegular"
 			}
+		},
+		Badge: {
+			badgeStyle: {
+				height: "auto",
+				borderRadius: 999
+			},
+			textStyle: {
+				fontSize: 12,
+				fontFamily: "InterTightMedium",
+				textTransform: "capitalize",
+				paddingHorizontal: 12,
+				paddingVertical: 4,
+			}
 		}
 	}
 });

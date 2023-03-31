@@ -17,8 +17,14 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 		category
 	} = props;
 
+	const onPress = () => {
+		navigate("ArticleDetail", props);
+	};
+
+	const isExternal = !content;
+
 	return (
-		<TouchableWithoutFeedback onPress={() => navigate("ArticleDetail", props)}>
+		<TouchableWithoutFeedback onPress={onPress}>
 			<View style={styles.container}>
 				<Image
 					containerStyle={styles.thumbnail}
@@ -31,11 +37,13 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 					<Text style={styles.domain}>{domain}</Text>
 				</View>
 				<Text style={styles.title}>{title}</Text>
-				<View style={styles.excerptContainer}>
-					<Text style={styles.excerpt} numberOfLines={2}>
-						{content}
-					</Text>
-				</View>
+				{isExternal ? null : (
+					<View style={styles.excerptContainer}>
+						<Text style={styles.excerpt} numberOfLines={2}>
+							{content}
+						</Text>
+					</View>
+				)}
 			</View>
 		</TouchableWithoutFeedback>
 	);
@@ -63,7 +71,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 16
 	},
 	thumbnail: {
-		aspectRatio: 1,
+		aspectRatio: 16 / 9,
 		flex: 1,
 		width: "100%"
 	},
