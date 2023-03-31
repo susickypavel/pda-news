@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ThemeConsumer, ThemeProvider } from "@rneui/themed";
 import { Session } from "@supabase/supabase-js";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
@@ -27,6 +28,8 @@ import type { RootStackParamList } from "./src/types/app";
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 SplashScreen.preventAutoHideAsync();
+
+const queryClient = new QueryClient();
 
 const App: React.FC = () => {
 	const [authSession, setAuthSession] = useState<Session | null>(null);
@@ -73,31 +76,33 @@ const App: React.FC = () => {
 			<ThemeProvider theme={theme}>
 				<ColorScheme>
 					<AuthProvider value={authSession} onChange={setAuthSession}>
-						<ThemeConsumer>
-							{({ theme }) => (
-								<Stack.Navigator
-									initialRouteName={initialRouteName}
-									screenOptions={{
-										headerShown: false,
-										animation: "slide_from_right",
-										contentStyle: {
-											backgroundColor: theme.colors.background
-										}
-									}}
-								>
-									<Stack.Screen name="SignIn" component={SignInScreen} />
-									<Stack.Screen name="SignUp" component={SignUpScreen} />
-									<Stack.Screen name="Home" component={HomeScreen} />
-									<Stack.Screen
-										name="ArticleDetail"
-										component={ArticleDetailScreen}
-										options={{
-											headerShown: true
+						<QueryClientProvider client={queryClient}>
+							<ThemeConsumer>
+								{({ theme }) => (
+									<Stack.Navigator
+										initialRouteName={initialRouteName}
+										screenOptions={{
+											headerShown: false,
+											animation: "slide_from_right",
+											contentStyle: {
+												backgroundColor: theme.colors.background
+											}
 										}}
-									/>
-								</Stack.Navigator>
-							)}
-						</ThemeConsumer>
+									>
+										<Stack.Screen name="SignIn" component={SignInScreen} />
+										<Stack.Screen name="SignUp" component={SignUpScreen} />
+										<Stack.Screen name="Home" component={HomeScreen} />
+										<Stack.Screen
+											name="ArticleDetail"
+											component={ArticleDetailScreen}
+											options={{
+												headerShown: true
+											}}
+										/>
+									</Stack.Navigator>
+								)}
+							</ThemeConsumer>
+						</QueryClientProvider>
 					</AuthProvider>
 				</ColorScheme>
 			</ThemeProvider>
