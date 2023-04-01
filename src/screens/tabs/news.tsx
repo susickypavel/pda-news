@@ -3,10 +3,10 @@ import { FlashList } from "@shopify/flash-list";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import React, { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 import { supabase } from "@/api/supabase";
 import { ArticlePreview } from "@/components/article-preview";
+import withSafeArea from "@/components/hoc/with-safe-area";
 
 const PAGE_LIMIT = 5;
 
@@ -35,7 +35,7 @@ const Separator: React.FC = () => <View style={{ height: 32 }} />;
 
 // TODO: Indicator showing infinite scroll that it is loading more items
 
-export const NewsTab: React.FC = () => {
+const Tab: React.FC = () => {
 	const { data, isLoading, isError, hasNextPage, isFetchingNextPage, fetchNextPage } = useInfiniteQuery(
 		["daily-feed"],
 		fetchArticles,
@@ -57,41 +57,33 @@ export const NewsTab: React.FC = () => {
 		// TODO: Improve skeleton
 
 		return (
-			<SafeAreaView style={styles.container} edges={["top"]}>
-				<Skeleton
-					style={{
-						width: "100%",
-						height: 320
-					}}
-				/>
-			</SafeAreaView>
+			<Skeleton
+				style={{
+					width: "100%",
+					height: 320
+				}}
+			/>
 		);
 	}
 
 	if (isError) {
 		// TODO: Inform user, and retry button (?)
 
-		return (
-			<SafeAreaView style={styles.container} edges={["top"]}>
-				<Text>Error</Text>
-			</SafeAreaView>
-		);
+		return <Text>Error</Text>;
 	}
 
 	return (
-		<SafeAreaView style={styles.container} edges={["top"]}>
-			<FlashList
-				data={articles}
-				keyExtractor={item => item.id}
-				// @ts-ignore
-				renderItem={({ item }) => <ArticlePreview {...item} />}
-				ItemSeparatorComponent={Separator}
-				contentContainerStyle={styles.list}
-				estimatedItemSize={200}
-				onEndReached={onEndReached}
-				onEndReachedThreshold={0}
-			/>
-		</SafeAreaView>
+		<FlashList
+			data={articles}
+			keyExtractor={item => item.id}
+			// @ts-ignore
+			renderItem={({ item }) => <ArticlePreview {...item} />}
+			ItemSeparatorComponent={Separator}
+			contentContainerStyle={styles.list}
+			estimatedItemSize={200}
+			onEndReached={onEndReached}
+			onEndReachedThreshold={0}
+		/>
 	);
 };
 
@@ -103,5 +95,7 @@ const styles = StyleSheet.create({
 		padding: 8
 	}
 });
+
+export const NewsTab = withSafeArea(Tab, { edges: ["top"], style: styles.container });
 
 NewsTab.displayName = "NewsTab";
