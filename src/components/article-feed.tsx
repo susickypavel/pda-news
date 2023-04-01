@@ -1,4 +1,4 @@
-import { Skeleton, Text } from "@rneui/themed";
+import { Text } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import React, { useMemo } from "react";
@@ -9,33 +9,6 @@ import { ArticlePreview } from "@/components/article-preview";
 
 const PAGE_LIMIT = 5;
 
-async function fetchArticles({ pageParam = 0 }) {
-	const from = pageParam * PAGE_LIMIT;
-	const to = from + PAGE_LIMIT - 1;
-
-	const start = new Date();
-	start.setHours(0, 0, 0, 0);
-
-	const end = new Date();
-	end.setHours(23, 59, 59, 999);
-
-	const { data, error } = await supabase
-		.from("articles")
-		.select("id, title, content, source_id (name), category")
-		.gte("published_at", start.toUTCString())
-		.lte("published_at", end.toUTCString())
-		.order("published_at", {
-			ascending: false
-		})
-		.range(from, to);
-
-	if (error) {
-		throw new Error(error.message);
-	}
-
-	return data;
-}
-
 const Separator: React.FC = () => <View style={{ height: 32 }} />;
 
 // TODO: Design
@@ -45,18 +18,49 @@ const FetchingIndicator: React.FC = () => (
 	</View>
 );
 
-// TODO: Indicator showing infinite scroll that it is loading more items
-
 const EmptyList: React.FC = () => (
 	<View>
 		<Text>No news for today</Text>
 	</View>
 );
 
-export const ArticleFeed: React.FC = () => {
+const ListEnd: React.FC = () => (
+	<View>
+		<Text>End of the list</Text>
+	</View>
+);
+
+type ArticleFeedProps = {
+	currentDate: Date;
+};
+
+export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 	const { data, isLoading, isError, hasNextPage, isFetchingNextPage, fetchNextPage } = useInfiniteQuery(
-		["daily-feed"],
-		fetchArticles,
+		["daily-feed", currentDate.toDateString()],
+		async ({ pageParam = 0 }) => {
+			const from = pageParam * PAGE_LIMIT;
+			const to = from + PAGE_LIMIT - 1;
+
+			const start = new Date(currentDate);
+			const end = new Date(currentDate);
+			end.setHours(23, 59, 59, 999);
+
+			const { data, error } = await supabase
+				.from("articles")
+				.select("id, title, content, source_id (name), category, published_at")
+				.gte("published_at", start.toUTCString())
+				.lte("published_at", end.toUTCString())
+				.order("published_at", {
+					ascending: false
+				})
+				.range(from, to);
+
+			if (error) {
+				throw new Error(error.message);
+			}
+
+			return data;
+		},
 		{
 			getNextPageParam: (lastPages, pages) => {
 				if (lastPages.length < PAGE_LIMIT) {
@@ -78,14 +82,11 @@ export const ArticleFeed: React.FC = () => {
 	};
 
 	if (isLoading) {
-		// TODO: Improve skeleton
-
-		return <Skeleton style={styles.skeleton} />;
+		return null;
 	}
 
 	if (isError) {
 		// TODO: Inform user, and retry button (?)
-
 		return <Text>Error</Text>;
 	}
 
@@ -93,7 +94,6 @@ export const ArticleFeed: React.FC = () => {
 		<FlashList
 			data={articles}
 			keyExtractor={item => item.id}
-			// @ts-ignore
 			renderItem={({ item }) => <ArticlePreview {...item} />}
 			ListEmptyComponent={EmptyList}
 			ItemSeparatorComponent={Separator}
@@ -101,7 +101,7 @@ export const ArticleFeed: React.FC = () => {
 			estimatedItemSize={200}
 			onEndReached={onEndReached}
 			onEndReachedThreshold={0.25}
-			ListFooterComponent={isFetchingNextPage ? FetchingIndicator : null}
+			ListFooterComponent={isFetchingNextPage ? FetchingIndicator : hasNextPage ? null : ListEnd}
 		/>
 	);
 };
@@ -109,10 +109,6 @@ export const ArticleFeed: React.FC = () => {
 const styles = StyleSheet.create({
 	list: {
 		padding: 8
-	},
-	skeleton: {
-		height: 320,
-		width: "100%"
 	}
 });
 

@@ -49,18 +49,24 @@ export const theme = createTheme({
 				fontFamily: "InterTightRegular"
 			}
 		},
-		Badge: {
-			badgeStyle: {
-				height: "auto",
-				borderRadius: 999
-			},
-			textStyle: {
-				fontSize: 12,
-				fontFamily: "InterTightMedium",
-				textTransform: "capitalize",
-				paddingHorizontal: 12,
-				paddingVertical: 4,
+		Badge(props, theme) {
+			// @ts-ignore
+			const backgroundColor = props.badgeStyle?.backgroundColor || theme.colors.categories[props.value] || theme.colors.grey1
+
+			return {
+				badgeStyle: {
+					height: "auto",
+					borderRadius: 999,
+					backgroundColor
+				},
+				textStyle: {
+					fontSize: 12,
+					fontFamily: "InterTightMedium",
+					textTransform: "capitalize",
+					paddingHorizontal: 12,
+					paddingVertical: 4,
+				}
 			}
-		}
+		},
 	}
 });

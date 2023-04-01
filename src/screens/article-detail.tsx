@@ -14,7 +14,7 @@ const { height } = Dimensions.get("window");
 const SCROLL_INDICATOR_HEIGHT = 10;
 
 export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route, navigation }) => {
-	const { content } = route.params;
+	const { content, published_at } = route.params;
 
 	const [scrollIndicatorWidth, setScrollIndicatorWidth] = useState(1);
 	const { scrollProgress, onScroll } = useScrollProgress(height - SCROLL_INDICATOR_HEIGHT, () => {
@@ -62,6 +62,7 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={styles.container}
 			>
+				<Text>{published_at}</Text>
 				<Text>{content}</Text>
 			</Animated.ScrollView>
 		</View>
