@@ -1,11 +1,27 @@
 import { createTheme } from "@rneui/themed";
 
+const categories = {
+	business: "#000080",
+	entertainment: "#dc2626",
+	environment: "#84cc16",
+	food: "#ea580c",
+	health: "#15803d",
+	politics: "#000",
+	science: "#fff",
+	sports: "#eab308",
+	technology: "#2563eb"
+} as const;
+
 export const theme = createTheme({
 	darkColors: {
-		background: "#000000"
+		background: "#000000",
+		brand: "#9333ea",
+		categories
 	},
 	lightColors: {
-		background: "#ffffff"
+		background: "#ffffff",
+		brand: "#9333ea",
+		categories
 	},
 	components: {
 		Button: {

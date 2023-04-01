@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Badge, Image, Text } from "@rneui/themed";
+import { Badge, Image, Text, useTheme } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
@@ -7,6 +7,7 @@ type ArticlePreviewProps = any;
 
 export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	const { navigate } = useNavigation();
+	const { theme } = useTheme();
 
 	const {
 		title,
@@ -20,6 +21,39 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	};
 
 	const isExternal = !content;
+
+	const styles = StyleSheet.create({
+		author: {
+			alignItems: "center",
+			flexDirection: "row",
+			gap: 8
+		},
+		container: {
+			gap: 12,
+			width: "100%"
+		},
+		domain: {
+			fontSize: 16
+		},
+		excerpt: {
+			fontSize: 14
+		},
+		excerptContainer: {
+			borderColor: theme.colors.brand,
+			borderLeftWidth: 1,
+			paddingHorizontal: 16
+		},
+		thumbnail: {
+			aspectRatio: 16 / 9,
+			flex: 1,
+			width: "100%"
+		},
+		title: {
+			fontFamily: "BitterSemiBold",
+			fontSize: 26,
+			lineHeight: 26 * 1.25
+		}
+	});
 
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
@@ -46,38 +80,5 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 		</TouchableWithoutFeedback>
 	);
 };
-
-const styles = StyleSheet.create({
-	author: {
-		alignItems: "center",
-		flexDirection: "row",
-		gap: 8
-	},
-	container: {
-		gap: 12,
-		width: "100%"
-	},
-	domain: {
-		fontSize: 16
-	},
-	excerpt: {
-		fontSize: 14
-	},
-	excerptContainer: {
-		borderLeftColor: "#f00",
-		borderLeftWidth: 1,
-		paddingHorizontal: 16
-	},
-	thumbnail: {
-		aspectRatio: 16 / 9,
-		flex: 1,
-		width: "100%"
-	},
-	title: {
-		fontFamily: "BitterSemiBold",
-		fontSize: 26,
-		lineHeight: 26 * 1.25
-	}
-});
 
 ArticlePreview.displayName = "ArticlePreview";
