@@ -1,7 +1,7 @@
 import { Skeleton, Text } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import React, { useMemo } from "react";
+import React, { Fragment, useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { supabase } from "@/api/supabase";
@@ -18,7 +18,7 @@ async function fetchArticles({ pageParam = 0 }) {
 
 	const { data, error } = await supabase
 		.from("articles")
-		.select("id, title, content, source_id (domain), category")
+		.select("id, title, content, source_id (name), category")
 		.order("published_at", {
 			ascending: false
 		})
@@ -33,7 +33,15 @@ async function fetchArticles({ pageParam = 0 }) {
 
 const Separator: React.FC = () => <View style={{ height: 32 }} />;
 
+// TODO: Design
+const FetchingIndicator: React.FC = () => (
+	<View>
+		<Text>Getting more news</Text>
+	</View>
+);
+
 // TODO: Indicator showing infinite scroll that it is loading more items
+// TODO: When last pages were [] then there is no more data and we should return undefined from getNextPageParam
 
 const Tab: React.FC = () => {
 	const { data, isLoading, isError, hasNextPage, isFetchingNextPage, fetchNextPage } = useInfiniteQuery(
@@ -56,14 +64,7 @@ const Tab: React.FC = () => {
 	if (isLoading) {
 		// TODO: Improve skeleton
 
-		return (
-			<Skeleton
-				style={{
-					width: "100%",
-					height: 320
-				}}
-			/>
-		);
+		return <Skeleton style={styles.skeleton} />;
 	}
 
 	if (isError) {
@@ -73,17 +74,20 @@ const Tab: React.FC = () => {
 	}
 
 	return (
-		<FlashList
-			data={articles}
-			keyExtractor={item => item.id}
-			// @ts-ignore
-			renderItem={({ item }) => <ArticlePreview {...item} />}
-			ItemSeparatorComponent={Separator}
-			contentContainerStyle={styles.list}
-			estimatedItemSize={200}
-			onEndReached={onEndReached}
-			onEndReachedThreshold={0}
-		/>
+		<Fragment>
+			<FlashList
+				data={articles}
+				keyExtractor={item => item.id}
+				// @ts-ignore
+				renderItem={({ item }) => <ArticlePreview {...item} />}
+				ItemSeparatorComponent={Separator}
+				contentContainerStyle={styles.list}
+				estimatedItemSize={200}
+				onEndReached={onEndReached}
+				onEndReachedThreshold={0.25}
+				ListFooterComponent={isFetchingNextPage ? FetchingIndicator : null}
+			/>
+		</Fragment>
 	);
 };
 
@@ -93,6 +97,10 @@ const styles = StyleSheet.create({
 	},
 	list: {
 		padding: 8
+	},
+	skeleton: {
+		height: 320,
+		width: "100%"
 	}
 });
 

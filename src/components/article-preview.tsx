@@ -3,9 +3,7 @@ import { Badge, Image, Text } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
-import type { ArticleData } from "@/stores/daily-feed";
-
-type ArticlePreviewProps = ArticleData;
+type ArticlePreviewProps = any;
 
 export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	const { navigate } = useNavigation();
@@ -13,7 +11,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	const {
 		title,
 		content,
-		source_id: { domain },
+		source_id: { name },
 		category
 	} = props;
 
@@ -34,7 +32,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 				/>
 				<View style={styles.author}>
 					<Badge value={category} />
-					<Text style={styles.domain}>{domain}</Text>
+					<Text style={styles.domain}>{name}</Text>
 				</View>
 				<Text style={styles.title}>{title}</Text>
 				{isExternal ? null : (
