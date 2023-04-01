@@ -14,11 +14,17 @@ async function fetchArticles({ pageParam = 0 }) {
 	const from = pageParam * PAGE_LIMIT;
 	const to = from + PAGE_LIMIT - 1;
 
-	// TODO: Filter by date
+	const start = new Date();
+	start.setHours(0, 0, 0, 0);
+
+	const end = new Date();
+	end.setHours(23, 59, 59, 999);
 
 	const { data, error } = await supabase
 		.from("articles")
 		.select("id, title, content, source_id (name), category")
+		.gte("published_at", start.toUTCString())
+		.lte("published_at", end.toUTCString())
 		.order("published_at", {
 			ascending: false
 		})
@@ -41,14 +47,19 @@ const FetchingIndicator: React.FC = () => (
 );
 
 // TODO: Indicator showing infinite scroll that it is loading more items
-// TODO: When last pages were [] then there is no more data and we should return undefined from getNextPageParam
 
 const Tab: React.FC = () => {
 	const { data, isLoading, isError, hasNextPage, isFetchingNextPage, fetchNextPage } = useInfiniteQuery(
 		["daily-feed"],
 		fetchArticles,
 		{
-			getNextPageParam: (_, pages) => Math.floor(pages.flatMap(page => page).length / PAGE_LIMIT)
+			getNextPageParam: (lastPages, pages) => {
+				if (lastPages.length < PAGE_LIMIT) {
+					return undefined;
+				}
+
+				return Math.floor(pages.flatMap(page => page).length / PAGE_LIMIT);
+			}
 		}
 	);
 
