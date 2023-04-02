@@ -1,4 +1,4 @@
-import { ButtonGroup } from "@rneui/themed";
+import { ButtonGroup, useTheme } from "@rneui/themed";
 import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
 
 interface HistoryPickerProps {
@@ -8,6 +8,7 @@ interface HistoryPickerProps {
 const HISTORY_LENGTH = 7;
 
 export const HistoryPicker: React.FC<HistoryPickerProps> = ({ onChange }) => {
+	const { theme } = useTheme();
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const buttons = useMemo(() => {
@@ -20,14 +21,32 @@ export const HistoryPicker: React.FC<HistoryPickerProps> = ({ onChange }) => {
 				weekday: "short"
 			}).format(date);
 
-			return ` ${dayName}`;
+			return dayName;
 		});
 	}, []);
 
 	return (
 		<ButtonGroup
+			selectedButtonStyle={{
+				backgroundColor: theme.colors.brand,
+				borderRadius: 4
+			}}
+			buttonContainerStyle={{
+				flex: 1
+			}}
+			innerBorderStyle={{
+				width: 0
+			}}
 			containerStyle={{
-				flexDirection: "row-reverse"
+				backgroundColor: undefined,
+				borderRadius: 0,
+				borderWidth: 0,
+				flexDirection: "row-reverse",
+				marginLeft: 0,
+				marginRight: 0,
+				marginTop: 0,
+				marginBottom: 0,
+				padding: 8
 			}}
 			onPress={value => {
 				setSelectedIndex(value);
