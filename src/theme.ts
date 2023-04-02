@@ -57,7 +57,8 @@ export const theme = createTheme({
 				badgeStyle: {
 					height: "auto",
 					borderRadius: 999,
-					backgroundColor
+					backgroundColor,
+					borderWidth: 0
 				},
 				textStyle: {
 					fontSize: 12,
