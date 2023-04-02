@@ -72,7 +72,11 @@ export const HomeScreen: React.FC<PersonalScreenProps> = () => {
 							return (
 								<TabBarItem
 									{...props}
-									renderLabel={({ color }) => <Text style={{ color }}>{props.route.title}</Text>}
+									renderLabel={({ color }) => (
+										<Text style={{ color, fontFamily: "InterTightSemiBold" }}>
+											{props.route.title}
+										</Text>
+									)}
 									renderIcon={({ color }) => (
 										<Icon
 											style={{

@@ -39,6 +39,7 @@ const App: React.FC = () => {
 		InterTightBlack: require("@/assets/fonts/inter-tight/Black.ttf"),
 		InterTightRegular: require("@/assets/fonts/inter-tight/Regular.ttf"),
 		InterTightMedium: require("@/assets/fonts/inter-tight/Medium.ttf"),
+		InterTightSemiBold: require("@/assets/fonts/inter-tight/SemiBold.ttf"),
 		BitterSemiBold: require("@/assets/fonts/bitter/SemiBold.ttf")
 	});
 
