@@ -73,7 +73,7 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 	);
 
 	// NOTE: This is a premature optimization, I haven't tested real impact on performance.
-	const articles = useMemo(() => data?.pages.flatMap(page => page), [data]);
+	const articles = useMemo(() => data?.pages.flatMap(page => page) || [], [data]);
 
 	const onEndReached = () => {
 		if (hasNextPage && !isFetchingNextPage) {
@@ -92,6 +92,7 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 
 	return (
 		<FlashList
+			showsVerticalScrollIndicator={false}
 			data={articles}
 			keyExtractor={item => item.id}
 			renderItem={({ item }) => <ArticlePreview {...item} />}
@@ -101,7 +102,9 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 			estimatedItemSize={200}
 			onEndReached={onEndReached}
 			onEndReachedThreshold={0.25}
-			ListFooterComponent={isFetchingNextPage ? FetchingIndicator : hasNextPage ? null : ListEnd}
+			ListFooterComponent={
+				isFetchingNextPage ? FetchingIndicator : !hasNextPage && articles.length > 0 ? ListEnd : null
+			}
 		/>
 	);
 };
