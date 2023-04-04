@@ -1,0 +1,28 @@
+{
+	"React Native Screen Page": {
+		"prefix": "react-native-screen",
+		"body": [
+			"import { NavigationProp, RouteProp } from \"@react-navigation/native\";",
+			"import React from \"react\";",
+			"import { View } from \"react-native\";",
+			"import { RootStackParamList } from \"src/types/app\";",
+			"",
+			"type ${1:example}ScreenRouteProp = RouteProp<RootStackParamList, XXX>;",
+			"",
+			"type ${1:example}ScreenNavigationProp = NavigationProp<RootStackParamList, XXX>;",
+			"",
+			"type ${1:example}ScreenProps = {",
+			"  route: ${1:example}ScreenRouteProp;",
+			"  navigation: ${1:example}ScreenNavigationProp;",
+			"};",
+			"",
+			"export const ${1:example}Screen: React.FC<${1:example}ScreenProps> = () => {",
+			"  return <View />;",
+			"};",
+			"",
+			"${1:example}Screen.displayName = \"${1:example}Screen\";",
+			""
+		],
+		"description": "React Native Screen Page"
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"React Component": {
+		"prefix": "react-component",
+		"body": [
+			"import React, { PropsWithChildren } from \"react\";",
+			"import { View } from \"react-native\";",
+			"",
+			"type ComponentProps = PropsWithChildren<unknown>;",
+			"",
+			"export const Component: React.FC<ComponentProps> = () => {",
+			"  return <View />;",
+			"};",
+			"",
+			"Component.displayName = \"Component\";",
+			""
+		],
+		"description": "React Component"
+	}
+}
