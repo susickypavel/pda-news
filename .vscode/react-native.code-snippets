@@ -24,5 +24,16 @@
 			""
 		],
 		"description": "React Native Screen Page"
+	},
+	"Native StyleSheet": {
+		"prefix": "native-stylesheet",
+		"body": [
+			"import { StyleSheet } from \"react-native\";",
+			"",
+			"const styles = StyleSheet.create({",
+			"  container: {}",
+			"})"
+		],
+		"description": "Native StyleSheet"
 	}
 }
