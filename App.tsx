@@ -19,6 +19,11 @@ import { ColorScheme } from "@/components/color-scheme";
 import { AuthProvider } from "@/context/auth";
 import { ArticleDetailScreen } from "@/screens/article-detail";
 import { HomeScreen } from "@/screens/home";
+import { AccountSettingsScreen } from "@/screens/settings/account";
+import { InterestsSettingsScreen } from "@/screens/settings/interests";
+import { LocationSettingsScreen } from "@/screens/settings/location";
+import { NotificationsSettingsScreen } from "@/screens/settings/notifications";
+import { SettingsScreen } from "@/screens/settings/settings";
 import { SignInScreen } from "@/screens/sign-in";
 import { SignUpScreen } from "@/screens/sign-up";
 
@@ -100,6 +105,14 @@ const App: React.FC = () => {
 												headerShown: true
 											}}
 										/>
+										<Stack.Screen name="Settings" component={SettingsScreen} />
+										<Stack.Screen name="AccountSettings" component={AccountSettingsScreen} />
+										<Stack.Screen
+											name="NotificationsSettings"
+											component={NotificationsSettingsScreen}
+										/>
+										<Stack.Screen name="InterestsSettings" component={InterestsSettingsScreen} />
+										<Stack.Screen name="LocationSettings" component={LocationSettingsScreen} />
 									</Stack.Navigator>
 								)}
 							</ThemeConsumer>

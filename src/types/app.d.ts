@@ -7,10 +7,17 @@ export type RootStackParamList = {
 	SignIn: undefined;
 	SignUp: undefined;
 	ArticleDetail: ArticleData;
+	Settings: undefined;
+	AccountSettings: undefined;
+	InterestsSettings: undefined;
+	LocationSettings: undefined;
+	NotificationsSettings: undefined;
 };
+
+export type RootStackScreens = keyof RootStackParamList;
 
 declare global {
 	namespace ReactNavigation {
-		interface RootParamList extends RootStackParamList { }
+		interface RootParamList extends RootStackParamList {}
 	}
 }
