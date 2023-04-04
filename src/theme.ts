@@ -49,9 +49,18 @@ export const theme = createTheme({
 				fontFamily: "InterTightRegular"
 			}
 		},
+		Header(_, theme) {
+			return {
+				backgroundColor: theme.colors.background,
+				statusBarProps: {
+					barStyle: theme.mode === "dark" ? "light-content" : "dark-content"
+				}
+			};
+		},
 		Badge(props, theme) {
-			// @ts-ignore
-			const backgroundColor = props.badgeStyle?.backgroundColor || theme.colors.categories[props.value] || theme.colors.grey1
+			const backgroundColor =
+				// @ts-ignore
+				props.badgeStyle?.backgroundColor || theme.colors.categories[props.value] || theme.colors.grey1;
 
 			return {
 				badgeStyle: {
@@ -65,9 +74,9 @@ export const theme = createTheme({
 					fontFamily: "InterTightMedium",
 					textTransform: "capitalize",
 					paddingHorizontal: 12,
-					paddingVertical: 4,
+					paddingVertical: 4
 				}
-			}
-		},
+			};
+		}
 	}
 });
