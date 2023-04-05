@@ -1,25 +1,18 @@
 import { useNavigation } from "@react-navigation/native";
-import { Header } from "@rneui/themed";
+import { Header, Icon } from "@rneui/themed";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 export const PersonalTab: React.FC = () => {
 	const { navigate } = useNavigation();
 
 	return (
 		<Header
-			rightContainerStyle={styles.rightContainer}
-			rightComponent={{
-				icon: "settings",
-				size: 28,
-				onPress: () => navigate("Settings")
-			}}
+			rightComponent={
+				<TouchableOpacity activeOpacity={0.5} onPress={() => navigate("Settings")}>
+					<Icon name="settings" color="black" size={32} />
+				</TouchableOpacity>
+			}
 		/>
 	);
 };
-
-const styles = StyleSheet.create({
-	rightContainer: {
-		padding: 8
-	}
-});

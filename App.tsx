@@ -16,6 +16,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import { supabase } from "@/api/supabase";
 import { ColorScheme } from "@/components/color-scheme";
+import { SubScreenHeader } from "@/components/common/subscreen-header";
 import { AuthProvider } from "@/context/auth";
 import { ArticleDetailScreen } from "@/screens/article-detail";
 import { HomeScreen } from "@/screens/home";
@@ -88,6 +89,7 @@ const App: React.FC = () => {
 									<Stack.Navigator
 										initialRouteName={initialRouteName}
 										screenOptions={{
+											header: SubScreenHeader,
 											headerShown: false,
 											animation: "slide_from_right",
 											contentStyle: {
@@ -105,14 +107,41 @@ const App: React.FC = () => {
 												headerShown: true
 											}}
 										/>
-										<Stack.Screen name="Settings" component={SettingsScreen} />
-										<Stack.Screen name="AccountSettings" component={AccountSettingsScreen} />
+										<Stack.Screen
+											name="Settings"
+											component={SettingsScreen}
+											options={{
+												headerShown: true
+											}}
+										/>
+										<Stack.Screen
+											name="AccountSettings"
+											component={AccountSettingsScreen}
+											options={{
+												headerShown: true
+											}}
+										/>
 										<Stack.Screen
 											name="NotificationsSettings"
 											component={NotificationsSettingsScreen}
+											options={{
+												headerShown: true
+											}}
 										/>
-										<Stack.Screen name="InterestsSettings" component={InterestsSettingsScreen} />
-										<Stack.Screen name="LocationSettings" component={LocationSettingsScreen} />
+										<Stack.Screen
+											name="InterestsSettings"
+											component={InterestsSettingsScreen}
+											options={{
+												headerShown: true
+											}}
+										/>
+										<Stack.Screen
+											name="LocationSettings"
+											component={LocationSettingsScreen}
+											options={{
+												headerShown: true
+											}}
+										/>
 									</Stack.Navigator>
 								)}
 							</ThemeConsumer>
