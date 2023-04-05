@@ -52,8 +52,18 @@ export const theme = createTheme({
 		Header(_, theme) {
 			return {
 				backgroundColor: theme.colors.background,
+				containerStyle: {
+					borderBottomWidth: 0,
+					paddingHorizontal: 16,
+					paddingVertical: 8
+				},
+				style: {
+					marginBottom: 0,
+					marginEnd: 0,
+					marginVertical: 0,
+				},
 				statusBarProps: {
-					barStyle: theme.mode === "dark" ? "light-content" : "dark-content"
+					barStyle: theme.mode === "dark" ? "light-content" : "dark-content",
 				}
 			};
 		},
