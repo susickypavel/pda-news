@@ -18,7 +18,7 @@ import { supabase } from "@/api/supabase";
 import { ColorScheme } from "@/components/color-scheme";
 import { SubScreenHeader } from "@/components/common/subscreen-header";
 import { AuthProvider } from "@/context/auth";
-import { ArticleDetailScreen } from "@/screens/article-detail";
+import { ArticleDetailHeaderActions, ArticleDetailScreen } from "@/screens/article-detail";
 import { HomeScreen } from "@/screens/home";
 import { AccountSettingsScreen } from "@/screens/settings/account";
 import { InterestsSettingsScreen } from "@/screens/settings/interests";
@@ -104,6 +104,16 @@ const App: React.FC = () => {
 											name="ArticleDetail"
 											component={ArticleDetailScreen}
 											options={{
+												header(props) {
+													return (
+														<SubScreenHeader
+															{...props}
+															headerProps={{
+																rightComponent: <ArticleDetailHeaderActions />
+															}}
+														/>
+													);
+												},
 												headerShown: true
 											}}
 										/>

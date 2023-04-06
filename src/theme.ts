@@ -54,8 +54,6 @@ export const theme = createTheme({
 				backgroundColor: theme.colors.background,
 				containerStyle: {
 					borderBottomWidth: 0,
-					paddingHorizontal: 16,
-					paddingVertical: 8
 				},
 				style: {
 					marginBottom: 0,

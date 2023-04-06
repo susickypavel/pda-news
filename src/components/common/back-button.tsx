@@ -13,7 +13,6 @@ export const BackButton: React.FC<BackButtonProps> = ({ title = "Back" }) => {
 
 	const styles = StyleSheet.create({
 		buttonStyle: {
-			backgroundColor: undefined,
 			paddingHorizontal: 0,
 			paddingRight: 12,
 			paddingVertical: 8
@@ -26,7 +25,7 @@ export const BackButton: React.FC<BackButtonProps> = ({ title = "Back" }) => {
 	});
 
 	return (
-		<Button buttonStyle={styles.buttonStyle} onPress={goBack}>
+		<Button type="clear" buttonStyle={styles.buttonStyle} onPress={goBack}>
 			<Icon color={theme.colors.black} name="chevron-left" />
 			<Text style={styles.title}>{title}</Text>
 		</Button>
