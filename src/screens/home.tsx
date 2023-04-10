@@ -28,15 +28,16 @@ type PersonalScreenProps = {
 
 type IconData = {
 	[key: string]: {
-		type: "material" | "material-community";
+		type: "ionicon";
 		name: string;
+		nameActive: string;
 	};
 };
 
 const icons = {
-	news: { type: "material-community", name: "newspaper" },
-	explore: { type: "material", name: "search" },
-	personal: { type: "material", name: "person-outline" }
+	news: { type: "ionicon", name: "ios-newspaper-outline", nameActive: "ios-newspaper" },
+	explore: { type: "ionicon", name: "compass-outline", nameActive: "compass" },
+	personal: { type: "ionicon", name: "person-outline", nameActive: "person" }
 } satisfies IconData;
 
 type RouteData = {
@@ -77,13 +78,18 @@ export const HomeScreen: React.FC<PersonalScreenProps> = () => {
 											{props.route.title}
 										</Text>
 									)}
-									renderIcon={({ color }) => (
+									renderIcon={({ color, focused }) => (
 										<Icon
 											style={{
 												marginBottom: 8
 											}}
 											iconStyle={{ color }}
-											{...icons[props.route.key]}
+											type={icons[props.route.key].type}
+											name={
+												focused
+													? icons[props.route.key].nameActive
+													: icons[props.route.key].name
+											}
 										/>
 									)}
 								/>
