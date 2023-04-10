@@ -1,5 +1,6 @@
-import { ButtonGroup, useTheme } from "@rneui/themed";
+import { ButtonGroup, Text, useTheme } from "@rneui/themed";
 import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
+import { View } from "react-native";
 
 interface HistoryPickerProps {
 	onChange: Dispatch<SetStateAction<Date>>;
@@ -21,7 +22,21 @@ export const HistoryPicker: React.FC<HistoryPickerProps> = ({ onChange }) => {
 				weekday: "short"
 			}).format(date);
 
-			return dayName;
+			return {
+				element: () => (
+					<View
+						style={{
+							flex: 1,
+							height: "auto",
+							justifyContent: "center",
+							alignItems: "center"
+						}}
+					>
+						<Text>{date.getDate()}</Text>
+						<Text>{dayName}</Text>
+					</View>
+				)
+			};
 		});
 	}, []);
 
@@ -46,7 +61,8 @@ export const HistoryPicker: React.FC<HistoryPickerProps> = ({ onChange }) => {
 				marginRight: 0,
 				marginTop: 0,
 				marginBottom: 0,
-				padding: 8
+				padding: 8,
+				height: 64
 			}}
 			onPress={value => {
 				setSelectedIndex(value);
