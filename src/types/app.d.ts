@@ -12,12 +12,15 @@ export type RootStackParamList = {
 	InterestsSettings: undefined;
 	LocationSettings: undefined;
 	NotificationsSettings: undefined;
+	CategoryDetails: {
+		category: string
+	};
 };
 
 export type RootStackScreens = keyof RootStackParamList;
 
 declare global {
 	namespace ReactNavigation {
-		interface RootParamList extends RootStackParamList {}
+		interface RootParamList extends RootStackParamList { }
 	}
 }
