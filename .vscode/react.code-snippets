@@ -1,17 +1,17 @@
 {
 	"React Component": {
-		"prefix": "react-component",
+		"prefix": "component",
 		"body": [
 			"import React, { PropsWithChildren } from \"react\";",
 			"import { View } from \"react-native\";",
 			"",
-			"type ComponentProps = PropsWithChildren<unknown>;",
+			"type ${1:example}Props = PropsWithChildren<unknown>;",
 			"",
-			"export const Component: React.FC<ComponentProps> = () => {",
+			"export const ${1:example}: React.FC<${1:example}Props> = () => {",
 			"  return <View />;",
 			"};",
 			"",
-			"Component.displayName = \"Component\";",
+			"${1:example}.displayName = \"${1:example}\";",
 			""
 		],
 		"description": "React Component"
