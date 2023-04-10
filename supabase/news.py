@@ -2,6 +2,7 @@
 import json
 import os
 import requests
+import re
 
 from supabase import create_client, Client
 from dotenv import load_dotenv
@@ -14,6 +15,16 @@ SUPABASE_URL = os.environ.get("SUPABASE_URL")
 SUPABASE_SERVICE_ROLE = os.environ.get("SUPABASE_SERVICE_ROLE")
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE)
+
+URL_PATTERN = re.compile(
+    r'^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$')
+
+
+def is_valid_url(url):
+    if not isinstance(url, str):
+        return False
+
+    return URL_PATTERN.match(url)
 
 
 def insert_articles(country: str, category: str):
@@ -66,11 +77,13 @@ def insert_articles(country: str, category: str):
                 "region": country,
                 "category": category,
                 "original_url": article_data["link"],
-                "source_id": domains_ids[article_data["source_id"]]
+                "source_id": domains_ids[article_data["source_id"]],
+                "image_url": article_data["image_url"] if is_valid_url(article_data["image_url"]) else None
             }
 
         transformed_articles = [transform_data(article) for article in articles]
-        filtered_articles = [article for i, article in enumerate(transformed_articles) if article["title"] not in [a["title"] for a in articles[:i]]]
+        filtered_articles = [article for i, article in enumerate(transformed_articles) if article["title"] not in [
+            a["title"] for a in articles[:i]]]
 
         supabase.table("articles").upsert(filtered_articles).execute()
         logger.info(f"Inserted ({len(articles)}/{total_results_count}) articles for {country} and {category} category")
