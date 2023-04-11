@@ -8,7 +8,6 @@ export default {
 		orientation: "portrait",
 		icon: "./assets/icon.png",
 		userInterfaceStyle: "automatic",
-		backgroundColor: "blue",
 		splash: {
 			image: "./assets/splash.png",
 			resizeMode: "contain",
@@ -23,9 +22,6 @@ export default {
 				foregroundImage: "./assets/adaptive-icon.png",
 				backgroundColor: "#ffffff"
 			}
-		},
-		web: {
-			favicon: "./assets/favicon.png"
 		},
 		scheme: "myapp",
 		extra: {
