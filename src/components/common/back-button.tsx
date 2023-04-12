@@ -14,8 +14,8 @@ export const BackButton: React.FC<BackButtonProps> = ({ title = "Back" }) => {
 	const styles = StyleSheet.create({
 		buttonStyle: {
 			paddingHorizontal: 0,
-			paddingRight: 12,
-			paddingVertical: 8
+			paddingRight: 8,
+			paddingVertical: 16
 		},
 		title: {
 			fontFamily: "InterTightSemiBold",
