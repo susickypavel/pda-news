@@ -15,7 +15,7 @@ type SettingsScreenProps = {
 	navigation: SettingsScreenNavigationProp;
 };
 
-const menu: { title: string; icon: string; path: RootStackScreens }[] = [
+const menu = [
 	{
 		title: "Account",
 		icon: "person",
@@ -36,7 +36,7 @@ const menu: { title: string; icon: string; path: RootStackScreens }[] = [
 		icon: "gps-fixed",
 		path: "LocationSettings"
 	}
-];
+] satisfies { title: string; icon: string; path: RootStackScreens }[];
 
 export const SettingsScreen: React.FC<SettingsScreenProps> = () => {
 	const { theme } = useTheme();
