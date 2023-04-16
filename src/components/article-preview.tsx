@@ -55,13 +55,17 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 		}
 	});
 
+	// TODO: Add proper typings from supabase
+	// @ts-ignore
+	const imageBG = theme.colors.categories[category].substring(1);
+
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
 			<View style={styles.container}>
 				<Image
 					containerStyle={styles.thumbnail}
 					source={{
-						uri: "https://dummyimage.com/600x400/f59f00/000000"
+						uri: `https://dummyimage.com/600x400/${imageBG}/000000`
 					}}
 				/>
 				<View style={styles.author}>
