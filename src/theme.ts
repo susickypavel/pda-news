@@ -1,15 +1,15 @@
-import { createTheme } from "@rneui/themed";
+import { Colors, createTheme } from "@rneui/themed";
 
-const categories = {
-	business: "#000080",
-	entertainment: "#dc2626",
-	environment: "#84cc16",
-	food: "#ea580c",
-	health: "#15803d",
-	politics: "#000",
-	science: "#fff",
-	sports: "#eab308",
-	technology: "#2563eb"
+const categories: Colors["categories"] = {
+	business: { bg: "#000080", fg: "#000" },
+	entertainment: { bg: "#dc2626", fg: "#000" },
+	environment: { bg: "#00C474", fg: "#000" },
+	food: { bg: "#ea580c", fg: "#000" },
+	health: { bg: "#FF824A", fg: "#000" },
+	politics: { bg: "#9D9CDE", fg: "#000" },
+	science: { bg: "#fff", fg: "#000" },
+	sports: { bg: "#C8F85F", fg: "#000" },
+	technology: { bg: "#2563eb", fg: "#fff" }
 } as const;
 
 export const theme = createTheme({
@@ -53,28 +53,24 @@ export const theme = createTheme({
 			return {
 				backgroundColor: theme.colors.background,
 				containerStyle: {
-					borderBottomWidth: 0,
+					borderBottomWidth: 0
 				},
 				style: {
 					marginBottom: 0,
 					marginEnd: 0,
-					marginVertical: 0,
+					marginVertical: 0
 				},
 				statusBarProps: {
-					barStyle: theme.mode === "dark" ? "light-content" : "dark-content",
+					barStyle: theme.mode === "dark" ? "light-content" : "dark-content"
 				}
 			};
 		},
 		Badge(props, theme) {
-			const backgroundColor =
-				// @ts-ignore
-				props.badgeStyle?.backgroundColor || theme.colors.categories[props.value] || theme.colors.grey1;
-
 			return {
 				badgeStyle: {
 					height: "auto",
 					borderRadius: 999,
-					backgroundColor,
+					backgroundColor: props.category ? theme.colors.categories[props.category].bg : undefined,
 					borderWidth: 0
 				},
 				textStyle: {
@@ -82,7 +78,8 @@ export const theme = createTheme({
 					fontFamily: "InterTightMedium",
 					textTransform: "capitalize",
 					paddingHorizontal: 12,
-					paddingVertical: 4
+					paddingVertical: 4,
+					color: props.category ? theme.colors.categories[props.category].fg : undefined
 				}
 			};
 		}

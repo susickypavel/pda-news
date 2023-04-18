@@ -3,7 +3,14 @@ import { Badge, Image, Text, useTheme } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
-type ArticlePreviewProps = any;
+import { BadgeCategory } from "@/types/theme";
+
+interface ArticlePreviewProps {
+	title: string;
+	content: string;
+	source_id: { name: string };
+	category: BadgeCategory;
+}
 
 export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	const { navigate } = useNavigation();
@@ -55,9 +62,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 		}
 	});
 
-	// TODO: Add proper typings from supabase
-	// @ts-ignore
-	const imageBG = theme.colors.categories[category].substring(1);
+	const { bg: thumbnailBg, fg: thumbnailFg } = theme.colors.categories[category];
 
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
@@ -65,11 +70,11 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 				<Image
 					containerStyle={styles.thumbnail}
 					source={{
-						uri: `https://dummyimage.com/600x400/${imageBG}/000000`
+						uri: `https://dummyimage.com/600x400/${thumbnailBg}/${thumbnailFg}`
 					}}
 				/>
 				<View style={styles.author}>
-					<Badge value={category} />
+					<Badge value={category} category={category} />
 					<Text style={styles.domain}>{name}</Text>
 				</View>
 				<Text style={styles.title}>{title}</Text>
