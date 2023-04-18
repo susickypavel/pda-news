@@ -95,6 +95,8 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 			showsVerticalScrollIndicator={false}
 			data={articles}
 			keyExtractor={item => item.id}
+			// TODO: Extract better typings from supabase API
+			// @ts-ignore
 			renderItem={({ item }) => <ArticlePreview {...item} />}
 			ListEmptyComponent={EmptyList}
 			ItemSeparatorComponent={Separator}
