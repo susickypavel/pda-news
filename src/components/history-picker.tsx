@@ -23,22 +23,28 @@ export const HistoryPicker: React.FC<HistoryPickerProps> = ({ onChange }) => {
 			}).format(date);
 
 			return {
-				element: () => (
-					<View
-						style={{
-							flex: 1,
-							height: "auto",
-							justifyContent: "center",
-							alignItems: "center"
-						}}
-					>
-						<Text>{date.getDate()}</Text>
-						<Text>{dayName}</Text>
-					</View>
-				)
+				element: (props: { isSelected: boolean }) => {
+					const selectedTextStyle = {
+						color: props.isSelected ? "#fff" : theme.colors.black
+					};
+
+					return (
+						<View
+							style={{
+								flex: 1,
+								height: "auto",
+								justifyContent: "center",
+								alignItems: "center"
+							}}
+						>
+							<Text style={selectedTextStyle}>{date.getDate()}</Text>
+							<Text style={selectedTextStyle}>{dayName}</Text>
+						</View>
+					);
+				}
 			};
 		});
-	}, []);
+	}, [theme.colors.black]);
 
 	return (
 		<ButtonGroup
@@ -80,5 +86,3 @@ export const HistoryPicker: React.FC<HistoryPickerProps> = ({ onChange }) => {
 		/>
 	);
 };
-
-HistoryPicker.displayName = "HistoryPicker";

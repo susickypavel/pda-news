@@ -29,6 +29,8 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 
 	const isExternal = !content;
 
+	const { bg: thumbnailBg, fg: thumbnailFg } = theme.colors.categories[category];
+
 	const styles = StyleSheet.create({
 		author: {
 			alignItems: "center",
@@ -47,7 +49,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 		},
 		excerptContainer: {
 			borderColor: theme.colors.brand,
-			borderLeftWidth: 1,
+			borderLeftWidth: 3,
 			paddingHorizontal: 16
 		},
 		thumbnail: {
@@ -61,8 +63,6 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 			lineHeight: 26 * 1.25
 		}
 	});
-
-	const { bg: thumbnailBg, fg: thumbnailFg } = theme.colors.categories[category];
 
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
