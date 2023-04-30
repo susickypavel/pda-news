@@ -27,6 +27,7 @@ import { NotificationsSettingsScreen } from "@/screens/settings/notifications";
 import { SettingsScreen } from "@/screens/settings/settings";
 import { SignInScreen } from "@/screens/sign-in";
 import { SignUpScreen } from "@/screens/sign-up";
+import { InterestSubpageScreen } from "@/screens/tabs/explore/interest-subpage/interest-subpage";
 
 import { theme } from "./src/theme";
 import type { RootStackParamList } from "./src/types/app";
@@ -148,6 +149,13 @@ const App: React.FC = () => {
 										<Stack.Screen
 											name="LocationSettings"
 											component={LocationSettingsScreen}
+											options={{
+												headerShown: true
+											}}
+										/>
+										<Stack.Screen
+											name="InterestSubpage"
+											component={InterestSubpageScreen}
 											options={{
 												headerShown: true
 											}}
