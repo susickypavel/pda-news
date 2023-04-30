@@ -59,6 +59,7 @@ export const HomeScreen: React.FC<PersonalScreenProps> = () => {
 	return (
 		<TabView
 			navigationState={{ index, routes }}
+			swipeEnabled={false}
 			renderScene={renderScene}
 			onIndexChange={setIndex}
 			initialLayout={{ width: layout.width }}

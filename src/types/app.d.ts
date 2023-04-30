@@ -16,6 +16,7 @@ export type RootStackParamList = {
 	CategoryDetails: {
 		category: BadgeCategory;
 	};
+	InterestSubpage: undefined;
 };
 
 export type RootStackScreens = keyof RootStackParamList;

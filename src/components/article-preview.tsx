@@ -5,7 +5,7 @@ import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
 import { BadgeCategory } from "@/types/theme";
 
-interface ArticlePreviewProps {
+export interface ArticlePreviewProps {
 	title: string;
 	content: string;
 	source_id: { name: string };
