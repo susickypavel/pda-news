@@ -1,0 +1,302 @@
+{
+	"status": "success",
+	"results": [
+		{
+			"id": "novinky",
+			"name": "Novinky",
+			"url": "https://www.novinky.cz/",
+			"description": "Nejnovější zprávy z domova i ze světa na jednom místě. Novinky, mimořádné události, aktuální témata. Online zpravodajství na Novinky.cz.",
+			"category": ["top", "technology", "business", "science", "entertainment", "health", "politics"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "cnews",
+			"name": "Cnews.cz",
+			"url": "https://www.cnews.cz/",
+			"description": "IT zpravodajství o počítačích, mobilech, internetu a jiných moderních technologiích. Přinášíme podrobné testy, aktuální recenze a návody.",
+			"category": ["top", "technology", "business"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "irozhlas",
+			"name": "iROZHLAS",
+			"url": "https://www.irozhlas.cz/",
+			"description": "iROZHLAS - zpravodajský server Českého rozhlasu přináší ověřené zprávy z Česka i ze světa od svých zpravodajů.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "lidovky",
+			"name": "LIDOVKY",
+			"url": "https://www.lidovky.cz/",
+			"description": "Aktuální zprávy z domova i ze světa. Zprávy z ekonomiky, byznysu, kultury a sportu. Průvodce životním stylem. Lidovky.cz - aktuální zprávy.",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "svetandroida",
+			"name": "Svět Androida",
+			"url": "https://www.svetandroida.cz/",
+			"description": "Největší český pro operační systém Android a chytré mobilní telefony. Recenze, testy, návody, články, video, trendy, lifestyle a mnoho dalšího",
+			"category": ["technology"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "idnes",
+			"name": "iDNES",
+			"url": "https://www.idnes.cz/",
+			"description": "Nejnovější zprávy z vašeho kraje, České republiky a celého světa.",
+			"category": ["top", "sports", "technology", "business", "entertainment"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "lupa",
+			"name": "Lupa.cz",
+			"url": "https://www.lupa.cz/",
+			"description": "Svět IT, dění na trhu, bezpečnost na internetu, připojení k internetu, mobilní internet, online média a reklama, cloudové služby.",
+			"category": ["technology"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "ac24",
+			"name": "AC24.cz",
+			"url": "https://www.ac24.cz/",
+			"description": "Nezávislé zpravodajství nové doby AC24.cz, aktuální zprávy z domova i ze světa.",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "finance",
+			"name": "Finance.cz",
+			"url": "https://www.finance.cz/",
+			"description": "Články, aktuality, kurzy, měny, komodity, akcie, kalkulačky, seznami průvodci a rádci - to vše a mnohem víc jsou Finance.cz!",
+			"category": ["business"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "svethardware",
+			"name": "Svět hardware",
+			"url": "https://www.svethardware.cz/",
+			"description": "Magazín o počítačových komponentech a IT. Vlastní objektivní recenze a průběžné zpravodajství.",
+			"category": ["technology"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "respekt",
+			"name": "RESPEKT",
+			"url": "https://www.respekt.cz/",
+			"description": "Respekt je nezávislý týdeník komentující aktuální dění v domácí i zahraniční politice a ekonomice. Ohlíží se za historií, rozebírá současná…",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "ronnie",
+			"name": "Ronnie. cz",
+			"url": "https://www.ronnie.cz/",
+			"description": "Kulturistika, posilování, fitness a silový trojboj - největší webové stránky v ČR. Trenérská škola kulturistiky, obchod se sportovní výživou, diskusní fórum.",
+			"category": ["sports"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "blesk",
+			"name": "Blesk sport",
+			"url": "https://isport.blesk.cz/blesksport",
+			"description": "Zajímavosti, rozhovory, příběhy, vztahy i skandály ze světa sportu a sportovních celebrit. Nahlédněte do života hvězdě - Jágra, Vonnové a dalších.",
+			"category": ["sports"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "denik",
+			"name": "Denik",
+			"url": "https://www.denik.cz/",
+			"description": "Deník - Zprávy a publicistika z regionů České republiky i ze světa",
+			"category": ["top", "sports", "business"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "seznamzpravy",
+			"name": "Seznam Zpravy",
+			"url": "https://www.seznamzpravy.cz/",
+			"description": "Videa, články, aktuální zprávy z domova i ze světa. Zpravodajství a publicistika od redakce Seznam.cz.",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "patria",
+			"name": "Patria.cz",
+			"url": "https://www.patria.cz/",
+			"description": "kurz, akcie, burza, peníze, ekonomika, cenné papíry, makroekonomie, euro, Patria, finance, sazby, HDP, inflace, hospodářství, nezaměstnanost, kapitál, broker, investice, komodity, úrokové sazby\"",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "zive",
+			"name": "Živě.cz",
+			"url": "https://www.zive.cz/",
+			"description": "Nejčtenější web o počítačích, internetu, vědě a technice. Každý den články, aktuality a videa.",
+			"category": ["technology"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "aktualne",
+			"name": "Aktualne",
+			"url": "https://www.aktualne.cz/",
+			"description": "Aktuálně.cz - kompletní zpravodajství, zprávy z domova i ze světa",
+			"category": ["top", "sports", "business", "entertainment", "health"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "ceskenoviny",
+			"name": "Českénoviny.cz",
+			"url": "https://www.ceskenoviny.cz/",
+			"description": "The Czech Press Office is a public institution established by law. Its mission is to provide objective and versatile information for the free formation of opinions. It is not financed by the state, nor by concessionaire fees.",
+			"category": ["top", "sports", "business", "world"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "tyden",
+			"name": "Týden.cz",
+			"url": "https://www.tyden.cz/",
+			"description": "Týden.cz - Aktuální zpravodajství v souvislostech",
+			"category": ["top", "sports", "business", "science", "entertainment", "health", "food"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "smartmania",
+			"name": "SMARTmania.cz",
+			"url": "https://smartmania.cz/",
+			"description": "Váš průvodce světem technologií. Smartphony, počítače, automobily a chytrá domácnost.",
+			"category": ["technology"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "parlamentnilisty",
+			"name": "ParlamentniListy.cz",
+			"url": "https://parlamentnilisty.cz/",
+			"description": "Úvodní strana | ParlamentniListy.cz – politika ze všech stran",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "penize",
+			"name": "Peníze.cz",
+			"url": "https://www.penize.cz/",
+			"description": "Největší web o financích na českém internetu. Zpravodajství, rady a tipy, kalkulačky, recenze finančních produktů. Komplexní finanční servis on-line.\"",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "mobilmania",
+			"name": "MobilMania.cz",
+			"url": "https://mobilmania.zive.cz/",
+			"description": "Nejčtenější web o mobilním telefonování, mobilních telefonech a dalších kapesních zařízeních. Denně články, aktuality a videa.",
+			"category": ["technology"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "mobilenet",
+			"name": "mobilenet.cz",
+			"url": "https://mobilenet.cz/",
+			"description": "Internetový magazín o mobilních telefonech a jiné mobilní elektronice.",
+			"category": ["technology"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "bongda",
+			"name": "Bóng đá",
+			"url": "https://www.bongda.com.vn/",
+			"description": "BongDa.com.vn - cập nhật liên tục tin nhanh bóng đá, lịch thi đấu, kết quả, bảng xếp hạng tất cả các giải bóng đá, tin chuyển nhượng, hậu trường cầu thủ.",
+			"category": ["sports"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "metrocz",
+			"name": "Metro",
+			"url": "https://www.metro.cz/",
+			"description": "Nejnovější zprávy z Prahy a okolí",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "kurzy",
+			"name": "Kurzy.cz",
+			"url": "https://www.kurzy.cz/",
+			"description": "Nejnovější zprávy z domova i ze světa ✅. Novinky, RYCHLÉ ZPRÁVY, mimořádné události, aktuální témata, krimi zprávy. Zpravodajství a publicistika od redakce EuroZprávy.cz - Důvěryhodné a ověřené zprávy.",
+			"category": ["business", "world"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "e15",
+			"name": "E15",
+			"url": "https://www.e15.cz/",
+			"description": "Ekonomické i politické zprávy, nejnovější události, novinky ze světa byznysu, financí, burzovních zpráv a kurzů měn. Aktuální informace čtěte na webu e15.cz.",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "eurozpravy",
+			"name": "EuroZprávy.cz",
+			"url": "https://eurozpravy.cz/",
+			"description": "Nejnovější zprávy z domova i ze světa ✅. Novinky, RYCHLÉ ZPRÁVY, mimořádné události, aktuální témata, krimi zprávy. Zpravodajství a publicistika od redakce EuroZprávy.cz - Důvěryhodné a ověřené zprávy.",
+			"category": ["top", "sports", "technology", "business", "world"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "sport_cz",
+			"name": "SPORT.CZ",
+			"url": "https://www.sport.cz/",
+			"description": "Sportovní zpravodajský server Sport.cz nabízí informace a výsledky ze světa fotbalu, hokeje, motorsportu, lyžování, tenisu, atletiky, cyklistiky, golfu, florbalu, plavání a další sportů.",
+			"category": ["sports"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "reflex",
+			"name": "Reflex.cz",
+			"url": "https://www.reflex.cz/",
+			"description": "Reflex.cz je každodenní kritický průvodce aktuálním domácím i světovým děním. Názorový a autorský online magazín kultovního společenského týdeníku Reflex inteligentnímu čtenáři nabízí komentáře, glosy a originální články od vyhlášených autorů J.X. Doležala, Milana Tesaře, Bohumila Pečinky nebo Marka Stoniše. Za poplatek je na stránkách dostupný také unikátní archiv tištěného Reflexu, včetně aktuálního čísla.",
+			"category": ["top"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		},
+		{
+			"id": "mesec",
+			"name": "Měšec.cz",
+			"url": "https://www.mesec.cz/",
+			"description": "Aktuální zpravodajství a praktické rady ze světa osobních financí. Analýzy produktů, finanční kalkulačky i porovnání bank.",
+			"category": ["top", "business"],
+			"language": ["czech"],
+			"country": ["czech republic"]
+		}
+	]
+}

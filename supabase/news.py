@@ -93,9 +93,10 @@ def insert_articles(country: str, category: str):
 
 def main():
     result = supabase.table("categories").select("name").execute()
+    regions = supabase.table("regions").select("code").execute()
 
-    for category in [category["name"] for category in result.data]:
-        insert_articles("cz", category)
-
+    for region in [region["code"] for region in regions.data]:
+        for category in [category["name"] for category in result.data]:
+            insert_articles(region, category)
 
 main()

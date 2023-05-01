@@ -1,0 +1,969 @@
+{
+	"status": "success",
+	"results": [
+		{
+			"id": "247newsaroundtheworld",
+			"name": "247 News Around The World",
+			"url": "https://247newsaroundtheworld.com/",
+			"description": "247 News Around The World",
+			"category": ["top", "sports", "technology", "business", "entertainment", "health", "world"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "techbullion",
+			"name": "TechBullion",
+			"url": "https://techbullion.com/cryptocurrency/",
+			"description": "TechBullion is a Financial Technology News Website, focusing on Global Fintech News and Market. Get latest tech news and articles on TechBulli, Latest Cryptocurrency News and Articles on Bitcoin, Altcoins and Crypto Market. Cryptocurrency Innovations, Analysis and Interviews from Industry Experts.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "skysports",
+			"name": "Sky Sports",
+			"url": "https://www.skysports.com/",
+			"description": "Watch the best live coverage of your favourite sports: Football, Golf, Rugby, Cricket, F1, Boxing, NFL, NBA, plus the latest sports news, transfers, and scores.",
+			"category": ["sports"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "australia"]
+		},
+		{
+			"id": "insidexpress",
+			"name": "The Insidexpress A Central Magazine",
+			"url": "https://insidexpress.com/",
+			"description": "The Insidexpress is a centralized magazine for Lifestyle, Fashion, Beauty, DIY, Interior Design, Health, Relationships, Travel, HowTo & more.",
+			"category": ["top", "sports", "technology", "business", "entertainment", "health"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "9to5google",
+			"name": "9to5Google",
+			"url": "https://9to5google.com/",
+			"description": "Breaking news on all things Google and Android. We provide breaking Google Pixel news, everything Android, Google Home, Google apps, Chromebooks, and more!",
+			"category": ["technology"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "singapore", "canada"]
+		},
+		{
+			"id": "metro",
+			"name": "Metro",
+			"url": "https://metro.co.uk",
+			"description": "Metro.co.uk: News, Sport, Showbiz, Celebrities from Metro",
+			"category": ["top", "sports", "entertainment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "internetprotocol",
+			"name": "The Internet Protocol",
+			"url": "https://internetprotocol.co/",
+			"description": "The Internet Protocol is a safe harbor where our readers can feel tech-savvy, stay up to date, and simply enjoy refined news.",
+			"category": ["top", "entertainment", "health"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "gamespot",
+			"name": "GameSpot",
+			"url": "https://www.gamespot.com/",
+			"description": "GameSpot delivers the best and most comprehensive video game and entertainment coverage, including news, reviews, trailers, walkthroughs, and guides for PS4, Xbox One, Nintendo Switch, PC, and Google Stadia.",
+			"category": ["entertainment"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "singapore"]
+		},
+		{
+			"id": "coinjournal",
+			"name": "CoinJournal",
+			"url": "https://coinjournal.net/news/",
+			"description": "The Latest Bitcoin News,Bitcoin, blockchain & cryptocurrency news from CoinJournal.net,Latest Bitcoin, Ethereum & Crypto News.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "wireduk",
+			"name": "WIRED",
+			"url": "https://www.wired.co.uk/",
+			"description": "WIRED is where tomorrow is realised. It is the essential source of information and ideas that make sense of a world in constant transformation.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "necn",
+			"name": "NECN",
+			"url": "https://www.necn.com/",
+			"description": "Welcome to NECN, the place for news, lifestyle tips, weather and everything New England!",
+			"category": ["top", "business", "entertainment", "health", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "yorkpress",
+			"name": "The PRESS",
+			"url": "https://www.yorkpress.co.uk/",
+			"description": "The Press newspaper in York, providing news coverage for York, and North and East Yorkshire.",
+			"category": ["top", "sports", "business", "entertainment", "environment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "espn",
+			"name": "ESPN",
+			"url": "https://www.espn.com",
+			"description": "Visit ESPN to get up-to-the-minute sports news coverage, scores, highlights, and commentary for cricket, rugby, football, F1, kabaddi, and more.",
+			"category": ["sports"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "singapore", "canada"]
+		},
+		{
+			"id": "dailypolitics",
+			"name": "Daily Politics",
+			"url": "https://www.dailypolitics.com/",
+			"description": "Latest news, comments and analysis from the UK and around the world.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "gizmochina",
+			"name": "Gizmochina",
+			"url": "https://www.gizmochina.com/",
+			"description": "Gizmochina brings the best of Chinese Technology from emerging smartphone companies, innovative startups, crazy smart home products, and revolutionary technologies.",
+			"category": ["technology"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "singapore", "canada"]
+		},
+		{
+			"id": "chromeunboxed",
+			"name": "Chrome Unboxed",
+			"url": "https://chromeunboxed.com/",
+			"description": "A Space for All Things Chrome, Google, and More!",
+			"category": ["technology"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "canada"]
+		},
+		{
+			"id": "etonline",
+			"name": "ET",
+			"url": "https://www.etonline.com",
+			"description": "Entertainment Tonight (ET) is the authoritative source of entertainment and celebrity news with unprecedented access to Hollywood's biggest stars, upcoming movies, and TV shows.",
+			"category": ["entertainment"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "canada"]
+		},
+		{
+			"id": "pushsquare",
+			"name": "Push Square",
+			"url": "https://www.pushsquare.com/",
+			"description": "Push Square - PS5 News, PS4 Pro and PlayStation VR News, PS4 News Reviews, Screenshots, Trailers",
+			"category": ["entertainment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "thesportsrush",
+			"name": "The Sportsrush",
+			"url": "https://thesportsrush.com/",
+			"description": "Sports News: Get all the latest Sports News, Articles, and Videos from Cricket, Football, Basketball, F1, and many more at Thesportsrush.",
+			"category": ["sports"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia"]
+		},
+		{
+			"id": "belfasttelegraph",
+			"name": "Belfast Telegraph",
+			"url": "https://www.belfasttelegraph.co.uk/",
+			"description": "The Belfast Telegraph is a member of IPSO and subscribes to its Editors' Code of Practice.",
+			"category": ["top", "sports", "business", "entertainment", "health"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "northernirelandworld",
+			"name": "Northern Ireland World",
+			"url": "https://www.northernirelandworld.com/news",
+			"description": "This newspaper and its website is a member of the Independent Press Standards Organisation, the regulatory body for the press, and abides by its code of conduct.",
+			"category": ["sports", "business", "entertainment", "health", "politics", "environment", "food"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "newsanyway",
+			"name": "News Anyway",
+			"url": "https://www.newsanyway.com/",
+			"description": "The latest news and views from around the world",
+			"category": ["top", "technology", "business", "entertainment", "health", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "standarduk",
+			"name": "EVENING STANDARD",
+			"url": "https://www.standard.co.uk/",
+			"description": "The Evening Standard's journalism is supported by our readers. When you purchase through links on our site, we may earn an affiliate commission.",
+			"category": ["top", "sports", "technology", "business", "entertainment", "health", "food"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "rockpapershotgun",
+			"name": "Rock Paper Shotgun",
+			"url": "https://www.rockpapershotgun.com/",
+			"description": "Rock Paper Shotgun is about PC gaming news, previews, reviews, opinion.",
+			"category": ["technology"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "politicscouk",
+			"name": "Politics co uk",
+			"url": "https://www.politics.co.uk/",
+			"description": "Politics.co.uk has been online for more than 15 years, and in that time we have always sought to be different.",
+			"category": ["top", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "skynews",
+			"name": "Skynews",
+			"url": "http://www.news.sky.com",
+			"description": "",
+			"category": ["top", "technology", "business", "entertainment", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom", "singapore"]
+		},
+		{
+			"id": "investortimes",
+			"name": "Investor Times",
+			"url": "https://www.investortimes.co.uk/",
+			"description": "Investor News, Business News, Auto News, Property News and Lifestyle News from the UK and around the world.",
+			"category": ["top", "business", "science", "entertainment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "yahoo",
+			"name": "Yahoo! News",
+			"url": "https://news.yahoo.com/",
+			"description": "The latest news and headlines from Yahoo! News. Get breaking news stories and in-depth coverage with videos and photos.",
+			"category": ["top", "sports", "business", "science", "entertainment", "health"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "canada"]
+		},
+		{
+			"id": "pinknews",
+			"name": "Pink News",
+			"url": "https://www.pinknews.co.uk/",
+			"description": "Our mission is to inform, inspire change and empower people to be themselves.",
+			"category": ["top", "sports", "entertainment", "health", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "thecipherbrief",
+			"name": "The Cipher Brief",
+			"url": "https://www.thecipherbrief.com/",
+			"description": "Get a daily rundown of the top security stories delivered to your inbox Monday through Friday with exclusive briefs and columns on what matters most to you and your organization.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "reuters",
+			"name": "Reuters",
+			"url": "https://www.reuters.com/",
+			"description": "Find latest news from every corner of the globe at Reuters.com, your online source for breaking international news coverage.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": [
+				"united states of america",
+				"united kingdom",
+				"india",
+				"australia",
+				"singapore",
+				"saudi arabia",
+				"canada"
+			]
+		},
+		{
+			"id": "rt",
+			"name": "RT",
+			"url": "https://www.rt.com/rss/",
+			"description": "RT is the first Russian 24/7 English-language news channel that brings the Russian view on global news.",
+			"category": ["top", "sports", "business"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "charlieintel",
+			"name": "Charlie INTEL",
+			"url": "https://charlieintel.com/",
+			"description": "The leading source for Call of Duty news, leaks, images, videos, and guides, covering Warzone, Black Ops Cold War, CoD 2021, and more.",
+			"category": ["entertainment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "physicsworld",
+			"name": "PhysicsWorld",
+			"url": "https://physicsworld.com",
+			"description": "PhysicsWorld reflects the increasingly cross-disciplinary and international nature of scientific research through an independent and innovative science-communication programme that seeks to inform, educate, and connect a global scientific readership.",
+			"category": ["science"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "mashable",
+			"name": "Mashable",
+			"url": "https://sea.mashable.com/",
+			"description": "Mashable is a global, multi-platform media and entertainment company.",
+			"category": ["top", "technology", "science", "entertainment"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "singapore"]
+		},
+		{
+			"id": "autosport",
+			"name": "AUTOSPORT",
+			"url": "https://www.autosport.com/",
+			"description": "Daily Formula 1 and motorsport news from the leading weekly motor racing magazine. The authority on Formula One, F1, MotoGP, WRC, IndyCar, F2, WEC, Le Mans, NASCAR, and more.",
+			"category": ["sports"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "cambridgenews",
+			"name": "Cambridgeshire Live",
+			"url": "https://www.cambridge-news.co.uk/",
+			"description": "CambridgeshireLive is the leading news website for Cambridgeshire and is published from the office of the Cambridge News - which has been covering the area for more than 130 years.",
+			"category": ["top", "business", "entertainment", "health", "politics", "environment", "food"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "dexerto",
+			"name": "Dexerto",
+			"url": "https://www.dexerto.com/",
+			"description": "Award-winning esports, gaming and influencer coverage, including news, interviews, reviews, opinion, guides and tournament coverage.",
+			"category": ["top", "technology"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "racefans",
+			"name": "RaceFans",
+			"url": "https://www.racefans.net/",
+			"description": "F1 news and more independent motorsport new and feature coverage from RaceFans including IndyCar, WEC, Formula E and Formula Two.",
+			"category": ["sports"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "independentuk",
+			"name": "INDEPENDENT",
+			"url": "https://www.independent.co.uk/",
+			"description": "We work hard to answer queries and ensure your experience of The Independent is as good as we can possibly make it.",
+			"category": [
+				"top",
+				"sports",
+				"technology",
+				"business",
+				"science",
+				"health",
+				"world",
+				"politics",
+				"environment"
+			],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "thedailymash",
+			"name": "The daily mash",
+			"url": "https://www.thedailymash.co.uk/",
+			"description": "The Daily Mash is a satirical website which publishes spoof articles, i.e. it is all made-up and is not intended, in any way whatsoever, to be taken as factual.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "expresscouk",
+			"name": "EXPRESS",
+			"url": "https://www.express.co.uk/",
+			"description": "Express.co.uk is the digital arm of the Daily Express and Sunday Express - one of Britain’s most famous and trusted news brands.",
+			"category": ["top", "business", "science", "entertainment", "world", "politics", "environment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "hitc",
+			"name": "HITC",
+			"url": "https://www.hitc.com",
+			"description": "HITC is a fast-growing source of news and information on the web. The site is a trusted source of information for football, movies, and gaming. HITC also has two popular Youtube channels, HITC Sevens and HITC Sport.",
+			"category": ["top", "sports", "entertainment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "cnn",
+			"name": "CNN",
+			"url": "https://edition.cnn.com/",
+			"description": "CNN provides the latest breaking news and information on the top stories, weather, business, entertainment, politics, and more.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india"]
+		},
+		{
+			"id": "teslarati",
+			"name": "TeslaRati",
+			"url": "https://www.teslarati.com",
+			"description": "The leading source for Tesla news, rumors, and reviews. Also covering the latest developments in the world of SpaceX, Elon Musk, and the premium EV market.",
+			"category": ["technology", "science"],
+			"language": ["english"],
+			"country": [
+				"united states of america",
+				"united kingdom",
+				"india",
+				"australia",
+				"singapore",
+				"saudi arabia",
+				"canada"
+			]
+		},
+		{
+			"id": "thescarboroughnews",
+			"name": "The Scarborough News",
+			"url": "https://www.thescarboroughnews.co.uk/",
+			"description": "This newspaper and its website is a member of the Independent Press Standards Organisation, the regulatory body for the press, and abides by its code of conduct.",
+			"category": ["top", "sports", "business", "entertainment", "health", "environment", "food"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "manchestereveningnews",
+			"name": "Manchester Evening News",
+			"url": "https://www.manchestereveningnews.co.uk/",
+			"description": "manchestereveningnews.co.uk is the online edition of the Manchester Evening News.",
+			"category": ["top", "sports", "entertainment", "world"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "mirroruk",
+			"name": "Mirror",
+			"url": "https://www.mirror.co.uk/",
+			"description": "Mirror.co.uk is the online edition of The Mirror, one of Britain’s most trusted news brands.",
+			"category": ["top", "sports", "technology", "business", "entertainment", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "dailyrecord",
+			"name": "Daily Record",
+			"url": "https://www.dailyrecord.co.uk/news/",
+			"description": "dailyrecord.co.uk is the online edition of The Daily Record, one of Scotland's most trusted news brands.",
+			"category": ["top", "sports", "entertainment", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "dailyresearchplot",
+			"name": "Daily Research Plot",
+			"url": "https://dailyresearchplot.com/",
+			"description": "Entertainment, TV News, Shows Premiere Date, Release Date, Celebrity Gossips and Travel – We help our readers to know about everything running around the world in every field.",
+			"category": ["top", "entertainment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "blockonomi",
+			"name": "Blockonomi",
+			"url": "https://blockonomi.com/",
+			"description": "Cryptocurrency News &amp; Your Guide to the Blockchain Economy,A blog about Cryptocurrencies, Technology and the Blockchain Economy.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "theguardian",
+			"name": "The Guardian",
+			"url": "https://www.theguardian.com/",
+			"description": "Latest international news, sport, and comment from the Guardian.",
+			"category": [
+				"top",
+				"sports",
+				"technology",
+				"business",
+				"science",
+				"entertainment",
+				"health",
+				"environment",
+				"food"
+			],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "singapore", "canada"]
+		},
+		{
+			"id": "thepoke",
+			"name": "The poke time well wasted",
+			"url": "https://www.thepoke.co.uk/",
+			"description": "Our aim is to administer an antidote to the daily grind delivering a mix of homemade and hand-picked distractions.",
+			"category": ["top", "sports", "technology", "science", "entertainment", "politics", "environment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "engadget",
+			"name": "Engadget",
+			"url": "https://www.engadget.com/",
+			"description": "Engadget is the original home for technology news and reviews. Since its founding in 2004, we've grown from an exhaustive source for consumer tech news to a global multimedia organization covering the intersection of technology, gaming, and entertainment.",
+			"category": ["technology"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "singapore"]
+		},
+		{
+			"id": "appleinsider",
+			"name": "Apple Insider",
+			"url": "https://appleinsider.com/",
+			"description": "For Apple News, Rumors, Reviews, Prices, and Deals, trust AppleInsider. Serving Apple product enthusiasts since 1997.",
+			"category": ["technology"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "singapore", "canada"]
+		},
+		{
+			"id": "churchnewspaper",
+			"name": "The Church of England Newspaper",
+			"url": "https://www.churchnewspaper.com/",
+			"description": "The Church of England Newspaper is the original church newspaper and one of the oldest newspapers in the world, dating back to 1828",
+			"category": ["top", "business"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "finextra",
+			"name": "Finextra",
+			"url": "https://www.finextra.com/",
+			"description": "Latest financial technology news, fintech news, fin tech news, retail banking news, wholesale banking news, blogs opinion, analysis, jobs, videos, announcements and features.",
+			"category": ["top", "technology", "business"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "ft",
+			"name": "Financial Times",
+			"url": "https://www.ft.com/",
+			"description": "News, analysis and comment from the Financial Times, the worldʼs leading global business publication",
+			"category": ["top", "technology", "business", "entertainment", "world", "politics", "environment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "darkhorizons",
+			"name": "Dark Horizons",
+			"url": "https://www.darkhorizons.com",
+			"description": "One of the longest running and most respected online entertainment news sites. The latest movie trailers, movie news, TV news and movie reviews.",
+			"category": ["entertainment"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom"]
+		},
+		{
+			"id": "trueachievements",
+			"name": "TrueAchievements",
+			"url": "https://www.trueachievements.com/",
+			"description": "TrueAchievements is the home of Xbox achievements for Xbox Series X, Xbox One, and all other Xbox platforms. News, guides, leaderboards, reviews, and more.",
+			"category": ["technology"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "india", "australia", "singapore", "canada"]
+		},
+		{
+			"id": "ethereumblog",
+			"name": "Ethereum Blog",
+			"url": "https://blog.ethereum.org/",
+			"description": "Latest news and announcements about etherum and cryptocoins.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "traxnews",
+			"name": "TRAX NEWS",
+			"url": "https://traxnews.org/",
+			"description": "TRAX NEWS aims to create a social media news platform, where its members can create their own narrative of world events by contributing their own content. We aim to share different perspectives and encourage community",
+			"category": [
+				"top",
+				"sports",
+				"technology",
+				"business",
+				"science",
+				"entertainment",
+				"health",
+				"world",
+				"politics"
+			],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "theargus",
+			"name": "The Argus",
+			"url": "https://www.theargus.co.uk/",
+			"description": "This website and associated newspapers adhere to the Independent Press Standards Organisation's Editors' Code of Practice.",
+			"category": ["top", "sports", "business", "entertainment", "health", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "consettmagazine",
+			"name": "CONSETT MAGAZINE",
+			"url": "https://consettmagazine.com/",
+			"description": "We publish locally sourced positive content from Consett, County Durham.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "quintdaily",
+			"name": "Quint Daily",
+			"url": "https://quintdaily.com/",
+			"description": "Quintdaily.com is an online blog that covers every corner of Interesting stories and brings to its readers the latest in Tech, Software, Entertainment, Sports, Gadget, Food and Travels related stories and more.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "health", "world"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "cryptoslate",
+			"name": "CryptoSlate",
+			"url": "https://cryptoslate.com/",
+			"description": "Popular destination for crypto researchers — featuring blockchain news, coin rankings and a directory for people, companies, products and events.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "theweek",
+			"name": "The Week",
+			"url": "https://www.theweek.co.uk/",
+			"description": "The Week is part of Future plc, an international media group and leading digital publisher.",
+			"category": ["top", "sports", "business", "science", "entertainment", "health", "world", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "dailymailuk",
+			"name": "Mail Online",
+			"url": "https://www.dailymail.co.uk/home/index.html",
+			"description": "MailOnline - get the latest breaking news, showbiz & celebrity photos, sport news & rumours, viral videos and top stories from MailOnline, Daily Mail and Mail on Sunday newspapers.",
+			"category": ["top", "sports", "business", "science", "entertainment", "health", "food"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "newscouk",
+			"name": "New Uk",
+			"url": "https://www.news.co.uk/",
+			"description": "We tell the stories that matter. Seed ideas and stir emotion. Capture moments, meaning and magic. Make sense of the world.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "belfastlive",
+			"name": "BelfastLive",
+			"url": "https://www.belfastlive.co.uk/",
+			"description": "When BelfastLive was launched in Feburary 2015, our vision was to be the beating heart and a new voice for a vibrant, exciting city which has left the shackles of the past behind.",
+			"category": ["top", "sports", "entertainment", "health", "environment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "huffingtonpost",
+			"name": "HUFFPOST UK",
+			"url": "https://www.huffingtonpost.co.uk/",
+			"description": "We believe diversity – in who we are, how we tell our stories, and among the people we write for – is critical to our mission.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "positivenews",
+			"name": "Positive News",
+			"url": "https://www.positive.news/",
+			"description": "Positive News is the magazine for good journalism about good things.",
+			"category": ["top", "business", "science", "entertainment", "world"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "mediamole",
+			"name": "Media Mole",
+			"url": "https://www.mediamole.co.uk/",
+			"description": "Breaking Entertainment news, rumors, and gossip on Media Mole.",
+			"category": ["entertainment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "buzzfeeduk",
+			"name": "Buzzfeed",
+			"url": "https://www.buzzfeed.com/uk",
+			"description": "BuzzFeed has breaking news, vital journalism, quizzes, videos, celeb news, Tasty food videos, recipes, DIY hacks, and all the trending buzz you’ll want to share with your friends. Copyright BuzzFeed, Inc. All rights reserved.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "world", "food"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "bbc",
+			"name": "The BBC",
+			"url": "http://www.bbc.com",
+			"description": "Breaking news, sport, TV, radio, and a whole lot more. The BBC informs, educates, and entertains - wherever you are, whatever your age.",
+			"category": ["top", "technology", "business", "science", "entertainment", "health"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "protos",
+			"name": "Protos",
+			"url": "https://protos.com/",
+			"description": "Protos cuts through the noise to provide clear insight, considered expert opinion, and market-moving information on Bitcoin and crypto as efficiently as possible.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "csmonitor",
+			"name": "The Christian Science Monitor",
+			"url": "https://www.csmonitor.com/",
+			"description": "The Christian Science Monitor is an international news organization that helps you see news events as starting points for constructive conversations.",
+			"category": ["top", "science", "entertainment", "world", "politics", "environment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "whatculture",
+			"name": "WhatCulture",
+			"url": "https://whatculture.com",
+			"description": "WhatCulture offers news in the field of professional Films, TV, Gaming, Music, Comics, Wrestling, Video Games, and, Board Games.",
+			"category": ["sports", "entertainment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "surgezirc",
+			"name": "Surgezirc United Kingdom",
+			"url": "https://surgezirc.co.uk/",
+			"description": "SurgeZirc UK is the British edition of the SurgeZirc global multimedia blogging company. A digital media network that publishes news, politics, sports, entertainment, technology, lifestyle, and opinion.",
+			"category": ["top", "sports", "technology", "entertainment", "health", "world", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "newsbtc",
+			"name": "NewsBTC",
+			"url": "https://www.newsbtc.com/",
+			"description": "NewsBTC is a cryptocurrency news service that covers the latest bitcoin news today, technical analysis &amp; price for bitcoin and other altcoins.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "articleify",
+			"name": "Articleify Enlight Your Creative World",
+			"url": "https://articleify.com/",
+			"description": "ArticleIFY is your daily source of news, gossip, entertainment, sports, travel, tech with informative articles contributed by our community.",
+			"category": ["top", "sports", "technology", "business", "entertainment", "health", "politics"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom"]
+		},
+		{
+			"id": "economist",
+			"name": "The Economist",
+			"url": "https://www.economist.com/",
+			"description": "Published since September 1843 to take part in “a severe contest between intelligence, which presses forward, and an unworthy, timid ignorance obstructing our progress.”",
+			"category": ["top", "technology", "business", "science", "entertainment", "world"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "zycrypto",
+			"name": "ZyCrypto",
+			"url": "https://zycrypto.com/",
+			"description": "ZyCrypto is a Leading Cryptocurrency News and Information Website Focusing On Daily News, Expert Opinions, Coins Analysis and Reviews.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "portsmouth",
+			"name": "The News",
+			"url": "https://www.portsmouth.co.uk/",
+			"description": "news, sport, business, lifestyle and more, from Portsmouth's newspaper, The News.",
+			"category": ["top", "sports", "business", "entertainment", "health", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "financialtimes",
+			"name": "Financial Times",
+			"url": "https://www.ft.com/",
+			"description": "News, analysis, and comment from the Financial Times, the world's leading global business publication.",
+			"category": ["top", "technology", "business"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom"]
+		},
+		{
+			"id": "warontherocks",
+			"name": "War ON the Rocks",
+			"url": "https://warontherocks.com/",
+			"description": "War on the Rocks is a platform for analysis, commentary, debate and multimedia content on foreign policy and national security issues through a realist lens.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "kentonline",
+			"name": "KentOnline",
+			"url": "https://www.kentonline.co.uk",
+			"description": "Read the latest live breaking news, sport, business, and what's on in Kent and Medway - KentOnline from KM Media Group.",
+			"category": ["top", "sports", "business"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "talksport",
+			"name": "talkSPORT",
+			"url": "https://talksport.com/",
+			"description": "Tune in to the world's biggest sports radio station - Live Premier League football coverage, breaking sports news, transfer rumours, and exclusive interviews.",
+			"category": ["sports"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "newsnetscot",
+			"name": "NEWSNET",
+			"url": "https://newsnet.scot/",
+			"description": "News, current affairs and opinion from Scotland. Retweets are not endorsements.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "planetf1",
+			"name": "Planet F1",
+			"url": "https://www.planetf1.com/",
+			"description": "F1 News, Expert Technical Analysis, Results, Latest Standings and Video from PlanetF1. Coverage of every session in winter testing, practice, qualifying, and race day.",
+			"category": ["sports"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "heraldscotland",
+			"name": "The Herald",
+			"url": "https://www.heraldscotland.com/",
+			"description": "This website and associated newspapers adhere to the Independent Press Standards Organisation's Editors' Code of Practice.",
+			"category": [
+				"top",
+				"sports",
+				"business",
+				"entertainment",
+				"health",
+				"world",
+				"politics",
+				"environment",
+				"food"
+			],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "thesun",
+			"name": "THE Sun",
+			"url": "https://www.thesun.co.uk",
+			"description": "Get the latest news, exclusives, sport, celebrities, showbiz, politics, business, and lifestyle from The Sun.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "politics"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "deadlinenews",
+			"name": "Deadline",
+			"url": "https://www.deadlinenews.co.uk/",
+			"description": "Deadline News is the leading independent news and picture agency in Scotland.",
+			"category": ["top", "sports", "business", "entertainment", "environment"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "eurogamer",
+			"name": "Eurogamer",
+			"url": "https://www.eurogamer.net/",
+			"description": "Eurogamer.net is a website about video games, gaming culture and, bad puns since 1999.",
+			"category": ["technology"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "dorsetecho",
+			"name": "Dorset ECHO",
+			"url": "https://www.dorsetecho.co.uk/",
+			"description": "News and sport from the Dorset Echo for Weymouth, Portland, Dorchester, West Dorset and Purbeck, what's on, as well as jobs, homes and cars.",
+			"category": ["top", "sports", "entertainment", "health"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "slashgear",
+			"name": "SlashGear",
+			"url": "https://www.slashgear.com/",
+			"description": "SlashGear covers technology, science, automotive, gaming, and entertainment, bringing thought-provoking and independent insight since 2005.",
+			"category": ["top", "technology", "science", "entertainment"],
+			"language": ["english"],
+			"country": ["united states of america", "united kingdom", "singapore"]
+		},
+		{
+			"id": "glasgowtimes",
+			"name": "Glasgow Times",
+			"url": "https://www.glasgowtimes.co.uk",
+			"description": "All the latest Glasgow news, Celtic, Rangers, and other sport plus fashion, showbiz, and opinion from the Glasgow Times.",
+			"category": ["top", "sports", "entertainment", "health", "food"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "ispreview",
+			"name": "ISPreview",
+			"url": "http://ispreview.co.uk",
+			"description": "Independent UK Internet Service Provider reviews, daily top broadband ISP, news, guides, chat and compare hundreds of the best cheap ISP deals.",
+			"category": ["business"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "football365",
+			"name": "Football365",
+			"url": "https://www.football365.com/",
+			"description": "Football365 - Views, Live Matches, Gossip, and more.",
+			"category": ["sports"],
+			"language": ["english"],
+			"country": ["united kingdom"]
+		},
+		{
+			"id": "oilprice",
+			"name": "OIL Price",
+			"url": "https://oilprice.com/",
+			"description": "Crude oil prices & gas price charts. Oil price charts for Brent Crude, WTI & oil futures. Energy news covering oil, petroleum, natural gas, and investment advice.",
+			"category": ["business"],
+			"language": ["english"],
+			"country": [
+				"united states of america",
+				"united kingdom",
+				"india",
+				"australia",
+				"singapore",
+				"saudi arabia",
+				"canada"
+			]
+		}
+	]
+}

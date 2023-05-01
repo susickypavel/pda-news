@@ -1,0 +1,689 @@
+{
+	"status": "success",
+	"results": [
+		{
+			"id": "stadt-bremerhaven",
+			"name": "Caschy's Blog",
+			"url": "https://stadt-bremerhaven.de/",
+			"description": "Blog von Carsten Knobloch (caschy): Web, Software, Hardware, Mobile Computing & Co",
+			"category": ["business"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "finanzen",
+			"name": "FINANZEN",
+			"url": "https://www.finanzen.net/",
+			"description": "Aktien, Aktienkurse, Devisenkurse und Währungsrechner, Rohstoffkurse. Informationen rund um die Börse zu Aktie, Fonds und ETFs. Börsenkurse für Optionsscheine und Zertifikate. Aktienanalysen - finanzen.net",
+			"category": ["business"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "deutschlandfunk",
+			"name": "Deutschlandfunk",
+			"url": "https://www.deutschlandfunk.de/",
+			"description": "INTERVIEW Je nach Infektionslage und mit steigender Impfquote würden in den kommenden Wochen nach und nach viele Corona-Auflagen fallen, sagte Gesundheitsminister Jens Spahn (CDU) im Dlf. Das Tragen von Masken in Innenräumen könne man „notfalls bis in den Herbst hinein auch einem Geimpften zumuten.",
+			"category": ["sports", "business", "science", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "sueddeutsche",
+			"name": "Sueddeutsche Zeitung",
+			"url": "https://www.sueddeutsche.de/",
+			"description": "News aus Deutschland und aller Welt mit Kommentaren und Hintergrundberichten auf Süddeutsche.de.",
+			"category": ["top", "sports", "business", "science", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "derstandard",
+			"name": "DER STANDARD",
+			"url": "https://www.derstandard.de/",
+			"description": "Nachrichten, Kommentare und Analysen aus Deutschland und der Welt lesen Sie auf DER STANDARD, dem Angebot mit der größten Online-Community.",
+			"category": ["top", "sports", "business", "science", "entertainment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "spektrum",
+			"name": "Spektrum",
+			"url": "https://www.spektrum.de/",
+			"description": "Experten aus Wissenschaft und Forschung berichten über die aktuellen Erkenntnisse ihrer Fachgebiete - kompetent, authentisch und verständlich.",
+			"category": ["science"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "eurosport",
+			"name": "EUROSPORT",
+			"url": "https://www.eurosport.de/",
+			"description": "Eurosport ist Ihre Anlaufstelle für Sport News, Videos, Live-Kommentare und Highlights. Alle Infos rund um Ihre Lieblingsevents an einem Platz.",
+			"category": ["sports"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "bild",
+			"name": "Bild",
+			"url": "https://www.bild.de/",
+			"description": "BILD.de: Die Seite 1 für aktuelle Nachrichten und Themen, Bilder und Videos aus den Bereichen News, Wirtschaft, Politik, Show, Sport, und Promis.",
+			"category": ["top", "sports", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "newsitb",
+			"name": "ITB Berlin News",
+			"url": "https://news.itb.com/",
+			"description": "We provide you with daily insights & travel industry news. Stay tuned, stay smart.",
+			"category": ["top", "sports", "technology", "health"],
+			"language": ["english"],
+			"country": ["germany"]
+		},
+		{
+			"id": "lomazoma",
+			"name": "Loma News",
+			"url": "https://www.lomazoma.com/",
+			"description": "Loma News is a news search engine for all Arab news in one place and for all news, Saudi news, sports news, Egypt news, art news, and Eve news.",
+			"category": ["top"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "news_de",
+			"name": "news.de",
+			"url": "https://www.news.de/",
+			"description": "Promi News und Aktuelles aus Sport, TV & Web. Jetzt Sportnachrichten von Fußball bis Boxen und das Neueste aus Klatsch und Tratsch per Newsticker, Fotos & Videos verfolgen! Neben den aktuellen Nachrichten aus Politik und Wirtschaft unterhalten wir Sie mit Promi-News, live News zum Bundesliga-Endspurt und aktuellen TV-Events.",
+			"category": ["top", "sports", "technology", "business", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "heilpraxisnet",
+			"name": "Heilpraxis",
+			"url": "https://www.heilpraxisnet.de/",
+			"description": "Die Naturheilkunde ♥ betrachtet Symptome und Krankheiten aus einem anderen, natürlicheren Blickwinkel als die konventionelle Medizin und stellt die individuelle Gesundheit in den Mittelpunkt. Erfahren Sie hier mehr über Naturheilverfahren und Gesundhe",
+			"category": ["health"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "businessinsider_de",
+			"name": "Business Insider",
+			"url": "https://www.businessinsider.de/",
+			"description": "Aktuelle News von Business Insider. Wirtschaft, Tech und Politik sowie alles, was euch besser macht! Entdecke jetzt Business Insider Deutschland.",
+			"category": ["top", "technology", "business", "science", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "fcbinside",
+			"name": "FCBINSIDE",
+			"url": "https://fcbinside.de/",
+			"description": "Auf fcbinside findest du aktuelle FC Bayern News. Egal ob Transfergerüchte oder Neuigkeiten aus der Bundesliga, wir versorgen euch stets mit aktuellen News.",
+			"category": ["sports"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "tagesschau",
+			"name": "Tagesschau",
+			"url": "https://www.tagesschau.de/",
+			"description": "From A to Z : You can find overviews of all news topics from politics, culture, business and sport.",
+			"category": ["top"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "bz-berlin",
+			"name": "B.Z. Berlin",
+			"url": "https://www.bz-berlin.de/",
+			"description": "Aktuelle Nachrichten aus Berlin und Brandenburg: Top-News, 24h-Ticker, Hauptstadt-Sport, Kultur, Leute, Lifestyle, Ratgeber, Deutschland und Welt-News.",
+			"category": ["top", "sports", "entertainment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "inside-digital",
+			"name": "inside digital",
+			"url": "https://www.inside-digital.de/",
+			"description": "Egal ob zuhause oder unterwegs - egal ob Handy oder Entertainment, wir informieren dich über deine komplette digitale Welt. Schau rein!",
+			"category": ["technology"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "express_de",
+			"name": "EXPRESS",
+			"url": "https://www.express.de/",
+			"description": "Express - Aktuelle Nachrichten aus Köln, der Welt sowie Neues vom Sport und der Welt der Promis.",
+			"category": ["top", "sports", "business", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "btcecho",
+			"name": "BTC-ECHO",
+			"url": "https://www.btc-echo.de/",
+			"description": "BTC-ECHO: News zu Kryptowährungen wie Bitcoin und Ethereum ✓ Blockchain ✓ Investment mit Krypto ✓ Jetzt über Kurse und aktuelle Trends informieren!",
+			"category": ["top"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "finanz-szene",
+			"name": "finanz-szene",
+			"url": "https://finanz-szene.de/",
+			"description": "Die Top-Stories der deutschen Banken-und Fintech-Szene, News und Analysen aus dem kostenlosen morgendlichen Newsletter von Finanz-Szene.de",
+			"category": ["business"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "stern",
+			"name": "stern",
+			"url": "https://www.stern.de/",
+			"description": "Auf STERN.DE finden Sie News, spannende Hintergründe sowie bildstarke Reportagen aus allen Bereichen: Von Politik und Wirtschaft bis Kultur und Wissenschaft.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "krypto",
+			"name": "Krypto News",
+			"url": "https://news-krypto.de/",
+			"description": "Das führende Magazin für aktuelle Krypto News auf deutsch. Experten-Analysen, Prognosen, Nachrichten und Kurse zu allen Kryptowährungen.",
+			"category": ["top"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "nordbayern",
+			"name": "nordbayern",
+			"url": "https://www.nordbayern.de/",
+			"description": "Wir informieren Sie über Ihre Region. Aktuelle Nachrichten, Bilder und Videos aus Nordbayern und der Welt.",
+			"category": ["top", "sports", "business", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "deutschland",
+			"name": "Deutschland",
+			"url": "https://www.deutschland.de/en",
+			"description": "DEUTSCHLAND.de aims to present a comprehensive, modern and topical picture of Germany abroad. It offers multilingual services primarily targeting international users.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["germany"]
+		},
+		{
+			"id": "ruhr24",
+			"name": "RUHR24",
+			"url": "https://www.ruhr24.de/",
+			"description": "RUHR24: Aktuelle Nachrichten aus Dortmund, dem Ruhrgebiet, NRW - dazu Themen aus Service, Promi und TV und Fußball-News zu Borussia Dortmund und Schalke 04.",
+			"category": ["top"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "filmstarts",
+			"name": "FILMSTARTS",
+			"url": "https://www.filmstarts.de/",
+			"description": "Nutze kostenlos alle RSS-Feeds von FILMSTARTS.de und verpasse nie mehr interessante Updates. Alles Wissenswerte über Filme, TV-Serien, Trailer, Nachrichten, das aktuelle Kinoprogramm und mehr.",
+			"category": ["entertainment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "berliner-kurier",
+			"name": "BERLINER KURIER",
+			"url": "https://www.berliner-kurier.de/",
+			"description": "Berliner Kurier - Berlins ehrliche Boulevardzeitung im Netz",
+			"category": ["top", "sports", "technology", "business", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "scinexx",
+			"name": "scinexx",
+			"url": "https://www.scinexx.de/",
+			"description": "Die Welt der Wissenschaft und Forschung - aktuell, seriös und kostenlos berichten wir über spannende Forschungsergebnisse und Entdeckungen.",
+			"category": ["science"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "solinger-tageblatt",
+			"name": "Solinger Tageblatt",
+			"url": "https://www.solinger-tageblatt.de/",
+			"description": "Nachrichten aus Solingen, Deutschland und der Welt",
+			"category": ["top", "sports", "business", "entertainment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "derwesten",
+			"name": "DERWESTEN",
+			"url": "https://www.derwesten.de/",
+			"description": "Aktuelle Nachrichten aus dem Ruhrgebiet, NRW, Deutschland und der Welt! Außerdem alle News über Promis, TV-Shows, Politik und Wirtschaft.",
+			"category": ["top", "sports", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "presseportal",
+			"name": "PRESSEPORTAL",
+			"url": "https://www.presseportal.de/",
+			"description": "Die Plattform für Pressemitteilungen und Pressemeldungen",
+			"category": ["top"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "spiegel",
+			"name": "DER SPIEGEL",
+			"url": "https://www.spiegel.de/",
+			"description": "Deutschlands führende Nachrichtenseite. Alles Wichtige aus Politik, Wirtschaft, Sport, Kultur, Wissenschaft, Technik und mehr.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "anime2you",
+			"name": "ANIME2YOU",
+			"url": "https://www.anime2you.de/",
+			"description": "Anime2You versorgt dich jeden Tag mit den wichtigsten Anime- und Manga-News aus Deutschland und Japan. Immer aktuell, schnell und auf Deutsch!",
+			"category": ["entertainment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "hna",
+			"name": "HNA",
+			"url": "https://www.hna.de/",
+			"description": "Lokale Nachrichten, News und Meldungen aus der Region Kassel und Umgebung in Hessen von der HNA.de - Hessische Niedersächsische Allgemeine Zeitung",
+			"category": ["top", "sports", "business", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "computerbase",
+			"name": "ComputerBase",
+			"url": "https://www.computerbase.de/",
+			"description": "Unabhängiges Tech-Magazin. News und Tests zu Smartphones, Tablets, PC-Hardware, Software und IT. Große technikaffine Community hilft im Forum.",
+			"category": ["technology"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "sport1",
+			"name": "SPORT1",
+			"url": "https://www.sport1.de/",
+			"description": "SPORT1 ist die Nummer 1, wenn es um Sport geht: News, Ergebnisse, Livestreams, Liveticker und aktuelle Berichterstattung aus allen Bereichen des Sports.",
+			"category": ["sports"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "btc-echo",
+			"name": "BTC-ECHO",
+			"url": "https://www.btc-echo.de/",
+			"description": "BTC-ECHO: News zu Kryptowährungen wie Bitcoin und Ethereum ✓ Blockchain ✓ Investment mit Krypto ✓ Jetzt über Kurse und aktuelle Trends informieren!",
+			"category": ["top", "business"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "insuedthueringen",
+			"name": "in Suedthueringen",
+			"url": "https://www.insuedthueringen.de/",
+			"description": "Das Gemeinschaftsportal der Tageszeitungen Freies Wort, Südthüringer Zeitung und FW Meininger Tageblatt.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "ndr",
+			"name": "NDR",
+			"url": "https://www.ndr.de/",
+			"description": "Alles zum NDR Programm in Fernsehen und Radio. Regionale Nachrichten aus Norddeutschland, Sport, Ratgeber-Themen, Unterhaltung, Kultur und Geschichte.",
+			"category": ["top"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "play3",
+			"name": "Play3 DE",
+			"url": "https://www.play3.de/",
+			"description": "Willkommen auf der Facebook-Seite von PLAY3.DE – Deutschlands größtem PlayStation Online Magazin. News, Tests, Vorschauen für PS4, PS3, PSN, PSP, PS Vita.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["germany"]
+		},
+		{
+			"id": "tagesspiegel",
+			"name": "DER TAGESSPIEGEL",
+			"url": "https://www.tagesspiegel.de/",
+			"description": "Aktuelle News aus Berlin – Nachrichten aus Deutschland und der Welt – Kommentare, Hintergründe und Interviews aus Politik, Wirtschaft und Berlin.",
+			"category": ["top", "sports", "business", "science", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "chip",
+			"name": "CHIP",
+			"url": "https://www.chip.de/",
+			"description": "Deutschlands reichweitenstarkes Portal für News, Downloads, unabhängige Tests & Kaufberatung. Expertentipps rund um Tech- & Verbraucherthemen.",
+			"category": ["technology"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "agrarheute",
+			"name": "agrarheute",
+			"url": "https://www.agrarheute.com/",
+			"description": "agrarheute.com - DAS Nachrichtenportal für die Landwirtschaft! Top-News zu Pflanze, Tier, Technik und Betrieb. Detaillierte Marktpreise, Ratgeber, Fotos und Videos.",
+			"category": ["top", "technology", "business", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "techbook",
+			"name": "TECHBOOK",
+			"url": "https://www.techbook.de/",
+			"description": "Willkommen beim Technik- und Lifestyle-Portal TECHBOOK! Bei uns finden Sie Ratgeber, Tipps und Tests rund um Smartphones, Computer, Sound und Games.",
+			"category": ["technology", "entertainment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "tz",
+			"name": "tz",
+			"url": "https://www.tz.de/",
+			"description": "Auf tz.de finden Sie aktuelle News aus München und Umgebung, zum FC Bayern, TSV 1860 München sowie zu Politik, Wirtschaft & Stars.",
+			"category": ["top", "sports", "business", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "xboxdynasty",
+			"name": "XBOXDYNASTY",
+			"url": "https://www.xboxdynasty.de/",
+			"description": "Auf Xboxdynasty findet ihr alles zu Xbox Series X, Games with Gold und Xbox Game Pass Spielen, sowie Xbox LIVE mit Deals with Gold.",
+			"category": ["technology"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "speedweek",
+			"name": "SPEEDWEEK",
+			"url": "https://www.speedweek.com/",
+			"description": "SPEEDWEEK.COM - Der beste Motorsport: Formel1,DTM,Rallye,WRC,Tourenwagen,Sportwagen,MotoGP,Superbike,IDM,Motocross,Enduro,Supermoto,Bahnsport und viels mehr",
+			"category": ["sports"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "n-tv",
+			"name": "Ntv",
+			"url": "https://www.n-tv.de/",
+			"description": "Nachrichten seriös, schnell und kompetent. Artikel und Videos aus Politik, Wirtschaft, Börse, Sport und aller Welt.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "flugrevue",
+			"name": "FLUG REVUE",
+			"url": "https://www.flugrevue.de/",
+			"description": "FLUG REVUE berichtet zu allen Themen aus der Luftfahrt. Ob Flugzeuge, zivile Luftfahrt, Militärluftfahrt, Technik oder Raumfahrt: Bleiben Sie aktuell mit FLUG REVUE.",
+			"category": ["business"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "berliner-zeitung",
+			"name": "Berliner Zeitung",
+			"url": "https://www.berliner-zeitung.de/",
+			"description": "Berliner Zeitung - Nachrichten aus Berlin, Berliner Bezirken und Brandenburg sowie aus Deutschland und der Welt. Berichte, Kommentare und Analysen zu Politik, Kultur, Sport.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "munichnow",
+			"name": "Munich Now",
+			"url": "https://munichnow.com/",
+			"description": "Munich news headlines, sports, opinions, culture, and articles on life in Munich and Bavaria - all in English - for locals and expatriates.",
+			"category": ["top", "technology", "entertainment"],
+			"language": ["english"],
+			"country": ["germany"]
+		},
+		{
+			"id": "dw",
+			"name": "DW Akademie",
+			"url": "https://www.dw.com/",
+			"description": "German and European news, analysis, opinion and breaking news from Germany's international broadcaster",
+			"category": ["top", "sports", "business", "science", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "netzwelt",
+			"name": "NETZWELT",
+			"url": "https://www.netzwelt.de/",
+			"description": "Netzwelt.de bietet Testberichte, Downloads, Anleitungen und ausführliche Informationen wie Kaufberatungen &amp; Videos zu Smartphones, Tablet-PCs, Notebooks, Software, Fernseher und Smart Home.",
+			"category": ["top", "technology"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "golem",
+			"name": "Golem",
+			"url": "https://www.golem.de/",
+			"description": "Golem.de - Standig aktuelle IT-News fur Profis und Videos aus Politik, Wirtschaft und Wissenschaft uber Hardware, Software, Telekommunikation, Games",
+			"category": ["top", "technology", "business", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "auto-motor-und-sport",
+			"name": "auto motor sport",
+			"url": "https://www.auto-motor-und-sport.de/",
+			"description": "Hier finden Sie alles zum Thema Auto: ausführliche Tests, exklusive Erlkönig-Bilder, Kaufberatung, alles zu Verkehr & Politik, Formel 1 und aktuellen News.",
+			"category": ["sports"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "zeit",
+			"name": "Zeit",
+			"url": "https://www.zeit.de/",
+			"description": "Aktuelle Nachrichten, Kommentare, Analysen und Hintergrundberichte aus Politik, Wirtschaft, Gesellschaft, Wissen, Kultur und Sport lesen Sie auf ZEIT ONLINE.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "taz",
+			"name": "Taz",
+			"url": "https://taz.de/",
+			"description": "The companies of the taz group take the protection of personal data very seriously.",
+			"category": ["top", "sports", "science", "entertainment", "politics", "environment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "augsburger-allgemeine",
+			"name": "Augsburger Allgemeine",
+			"url": "https://www.augsburger-allgemeine.de/",
+			"description": "Aktuelle Nachrichten, Bilder und Videos aus Augsburg, Bayern, Deutschland und der Welt. News aus den Bereichen Wirtschaft, Politik, Kultur, Sport und Promis.",
+			"category": ["top", "sports", "business", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "frankenpost",
+			"name": "Frankenpost",
+			"url": "https://www.frankenpost.de/",
+			"description": "Die wichtigsten Sport Nachrichten: Aktuelle News zu Fußball, Eishockey, Basketball, Handball, Formel 1, Boxen und Tennis von der Tageszeitung Frankenpost",
+			"category": ["top", "sports", "technology", "business", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "watson",
+			"name": "watson",
+			"url": "https://www.watson.de/",
+			"description": "Hier findest du aktuelle Nachrichten sowie das Neuste aus Politik, Unterhaltung, Sport, Digital &amp; Games",
+			"category": [
+				"top",
+				"sports",
+				"technology",
+				"science",
+				"entertainment",
+				"health",
+				"politics",
+				"environment"
+			],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "faz",
+			"name": "Frankfurther Allgemeine Zeitung",
+			"url": "https://www.faz.net/",
+			"description": "News, Nachrichten und aktuelle Meldungen aus allen Ressorts. Politik, Wirtschaft, Sport, Feuilleton und Finanzen im Überblick.",
+			"category": ["top", "sports", "technology", "business", "science", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "futurezone_de",
+			"name": "FUTURE ZONE",
+			"url": "https://www.futurezone.de/",
+			"description": "Aktuelle Nachrichten aus den Bereichen Technologie, Netzpolitik, Digital Life, Gadgets, StartUps, Science und Games",
+			"category": ["technology", "science"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "promiflash",
+			"name": "Promiflash",
+			"url": "https://www.promiflash.de/",
+			"description": "Promiflash.de ist Deutschlands beliebteste Promiseite. Wir lieben Stars, Sternchen und ihre Sünden und schreiben deshalb hier täglich das Neuste für euch!",
+			"category": ["entertainment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "t-online",
+			"name": "t-online",
+			"url": "https://www.t-online.de/",
+			"description": "Aktuelle News aus Politik, Sport, Unterhaltung, Wirtschaft & Finanzen | Ratgeber Leben, Gesundheit und Heim & Garten | E-Mail und Shopping bei t-online.de.",
+			"category": ["top", "sports", "technology", "business", "entertainment", "health", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "noz",
+			"name": "NOZ",
+			"url": "https://www.noz.de/",
+			"description": "Aktuelle Nachrichten, Bilder und Videos ✔ Aktuelle Neuigkeiten aus der Region Osnabrück und Umgebung ✔ Immer aktuell informiert ➤ VfL-Osnabrück-Liveticker, Nachrichten aus Deutschland und der Welt - Bei uns alles auf einem Blick.",
+			"category": ["top", "business", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "wort",
+			"name": "Wort",
+			"url": "https://www.wort.lu/de",
+			"description": "Luxemburger Wort - Deutsche Ausgabe",
+			"category": ["top"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "merkur",
+			"name": "Merkur",
+			"url": "https://www.merkur.de/",
+			"description": "Der Münchner Merkur & seine Heimatzeitungen online. Nachrichten aus Bayern, Deutschland & der Welt, dazu Sport, Politik, Wirtschaft und Kultur.",
+			"category": ["top", "sports", "business", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "deichstube",
+			"name": "DEICH STUBE",
+			"url": "https://www.deichstube.de/",
+			"description": "Hier ist alles Grün-Weiß! Nachrichten und Berichte, Interviews und Geschichten rund um den SV Werder Bremen. Powered by kreiszeitung.de.",
+			"category": ["sports"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "cryptoticker",
+			"name": "CryptoTicker",
+			"url": "https://cryptoticker.io/en/",
+			"description": "CryptoTicker ist your platform for the most important Bitcoin, Ethereum and Blockchain news. You will find DeFi analyses, price predictions, and everything you need to get started with bitcoin.",
+			"category": ["top"],
+			"language": ["english"],
+			"country": ["germany"]
+		},
+		{
+			"id": "sportschau",
+			"name": "SPORTSCHAU",
+			"url": "https://www.sportschau.de/",
+			"description": "sportschau.de bietet aktuelle Sportnachrichten, Berichte aus der Fußball-Bundesliga, Live-Ticker und Ergebnisse, Bildergalerien und Videos sowie das Tor des Monats.",
+			"category": ["sports"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "swr",
+			"name": "SWR",
+			"url": "https://www.swr.de/",
+			"description": "Nachrichten aus Baden-Württemberg und Rheinland-Pfalz, das SWR-Programm in Radio und Fernsehen sowie die Mediathek mit aktuellen Videos.",
+			"category": ["top", "sports", "science", "entertainment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "heise",
+			"name": "Heise",
+			"url": "https://www.heise.de/",
+			"description": "News und Foren zu Computer, IT, Wissenschaft, Medien und Politik. Preisvergleich von Hardware und Software sowie Downloads bei Heise Medien.",
+			"category": ["top", "technology", "business", "science", "entertainment"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "focus",
+			"name": "Focus",
+			"url": "https://www.focus.de/",
+			"description": "Wir zeigen Ihnen hier ausgewählte Inhalte des Videoangebots von www.focus.de: Reportagen, Erklärvideos und Servicebeiträge aus den Ressorts Politik, Finanzen, Digital, Wissen, Gesundheit, Auto, Panorama.",
+			"category": ["top", "sports", "technology", "business", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "np-coburg",
+			"name": "Neue Presse",
+			"url": "https://www.np-coburg.de/",
+			"description": "Das Regionalportal der Tageszeitung Neue Presse mit den wichtigsten Nachrichten und Bildern aus  Coburg, Kronach, Lichtenfels und Hassberge.",
+			"category": ["top", "sports", "technology", "business", "science", "entertainment", "politics"],
+			"language": ["german"],
+			"country": ["germany"]
+		},
+		{
+			"id": "hsv24",
+			"name": "Hsv24",
+			"url": "https://hsv24.mopo.de/",
+			"description": "►Was passiert heute beim HSV? ►Wie läuft das Training? ►Wer hat sich verletzt? ►Was sagen die Protagonisten? Bei HSV24 erhalten Sie die Antworten!",
+			"category": ["sports"],
+			"language": ["german"],
+			"country": ["germany"]
+		}
+	]
+}

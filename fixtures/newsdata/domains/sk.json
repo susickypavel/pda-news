@@ -1,0 +1,284 @@
+{
+	"status": "success",
+	"results": [
+		{
+			"id": "24hod",
+			"name": "24hod",
+			"url": "http://www.24hod.sk/",
+			"description": "Správy 24hod.sk - online denník. Politika, ekonomika, technológie, šport, počítače, dovolenka, letenky, Slovensko. Pravidelne aktualizované informácie.",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "buongiorno",
+			"name": "BUONGIORNO SLOVACCHIA",
+			"url": "https://www.buongiornoslovacchia.sk/",
+			"description": "Buongiorno Slovacchia Visita l'articolo per saperne di più.",
+			"category": ["top", "sports", "business", "entertainment", "world", "politics", "tourism"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "sita",
+			"name": "SITA",
+			"url": "https://sita.sk/",
+			"description": "Aktuálne spravodajstvo zo Slovenska, sveta, športové novinky, ekonomika, kultúra a iné aktuality",
+			"category": ["top", "sports", "business", "science", "entertainment", "tourism"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "dnes24",
+			"name": "Dnes24",
+			"url": "https://www.dnes24.sk/sport",
+			"description": "Regionálny spravodajský portál",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "trnavskyhlas",
+			"name": "TRNAVSKÝ",
+			"url": "https://www.trnavskyhlas.sk/",
+			"description": "RNAVSKÝ HLAS - Trnava a okolie naživoc",
+			"category": ["top", "sports"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "rimava",
+			"name": "Rimava",
+			"url": "https://www.rimava.sk/",
+			"description": "Rimavsk\\u00e1 Sobota, spravodajsk\\u00fd port\\u00e1l, spr\\u00e1vy, inform\\u00e1cie z regi\\u00f3nu",
+			"category": ["top", "sports", "business", "health", "politics", "environment"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "podnikajte",
+			"name": "Podnikajte",
+			"url": "https://www.podnikajte.sk/",
+			"description": "Inšpiratívne príbehy, reálne podnikateľské skúsenosti, praktické príklady a špičkoví odborníci zdieľajúci svoje know-how.",
+			"category": ["business"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "trend",
+			"name": "Trend",
+			"url": "https://www.trend.sk/",
+			"description": "Aktuálne ekonomické spravodajstvo, komentáre, blogy analýzy. Všetko čo potrebujete pre orientáciu vo svete financií a biznisu.",
+			"category": ["top", "technology", "business", "politics"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "tyzden",
+			"name": "týždeň",
+			"url": "https://tyzden.sk/",
+			"description": "We wanted to create a space for free journalism. We are convinced that without such a space, not only public discussion but also the freedom of all of us declines.",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "bratislavskenoviny",
+			"name": "Bratislavske",
+			"url": "https://www.bratislavskenoviny.sk/",
+			"description": "",
+			"category": ["top", "sports", "environment"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "piestanskydennik",
+			"name": "Piešťanský",
+			"url": "https://www.piestanskydennik.sk/",
+			"description": "Internetové vydanie novín Piešťanský týždeň",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "profini",
+			"name": "Profini",
+			"url": "https://www.profini.sk/",
+			"description": "Informácie obsiahnuté na týchto stránkach sa zakladajú na informačných zdrojoch, o ktorých sme presvedčení, že sú hodnoverné. Vydavateľ nezodpovedá za správnosť a úplnosť uvádzaných informácií, ako aj nezodpovedá za žiadne škody vzniknuté pri využívaní informácií obsiahnutých na týchto stránkach. Publikovanie a rozmnožovanie materiálov www.profini.sk nie je možné bez písomného súhlasu vydavateľa",
+			"category": ["top", "technology", "business", "science", "entertainment", "health", "politics", "tourism"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "spectator",
+			"name": "Spectator",
+			"url": "https://spectator.sme.sk/",
+			"description": "Slovakia's English-language newspaper covering politics, business, culture, sport and opinion -- with real time news updates.",
+			"category": ["top", "sports", "business", "entertainment", "politics", "tourism"],
+			"language": ["english", "slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "topky",
+			"name": "Topky",
+			"url": "https://www.topky.sk/",
+			"description": "Politika, ekonomika, šport, novinky o celebritách a prominentoch - len zaujímavé správy. Počasie, TV program, horoskopy, hry a zábava.",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "startitup",
+			"name": "Startitup",
+			"url": "https://www.startitup.sk/",
+			"description": "Startitup.sk Portál o biznise, technológiách a štartovacia čiara pre množstvo mladých ľudí",
+			"category": ["top", "sports", "business", "entertainment", "health", "politics", "food"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "aktuality",
+			"name": "aktuality",
+			"url": "https://www.aktuality.sk/",
+			"description": "Denne aktualizované spravodajstvo z domova i zo sveta. Správy z oblasti ekonomiky, kultúry a spoločenského života. Predpoveď počasia, horoskopy, TV program a kurzový lístok.",
+			"category": ["top", "sports", "business"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "osporte",
+			"name": "Osporte",
+			"url": "https://www.osporte.sk/",
+			"description": "Osporte.tv is multi-channel network for Russian speaking sport fans",
+			"category": ["sports"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "news.sk",
+			"name": "News.sk",
+			"url": "https://www.news.sk/",
+			"description": "News.sk - vždy aktuálny prehľad kvalitných informácií z vybraných spravodajských portálov, firemných webov a kvalitných blogov slovenského aj českého internetu.",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "dnevnik_si",
+			"name": "Dnevnik",
+			"url": "https://www.dnevnik.si/",
+			"description": "Aktualne novice iz poslovnega sveta.",
+			"category": ["top", "sports", "business", "entertainment", "world", "politics"],
+			"language": ["slovenian"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "tvnoviny",
+			"name": "TVnoviny",
+			"url": "https://www.tvnoviny.sk/",
+			"description": "",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "pravda",
+			"name": "Pravda",
+			"url": "https://www.pravda.sk/",
+			"description": "www.pravda.sk - správy, ktorým môžete veriť. Prehľad aktuálnych správ a udalostí online. Z domova, zo zahraničia, politika, šport, Slovensko, Česko, Európska únia.",
+			"category": ["top", "sports", "technology", "science", "entertainment", "health"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "teraz",
+			"name": "Teraz",
+			"url": "https://www.teraz.sk/",
+			"description": "Teraz.sk - spravodajský portál tlačovej agentúry TASR. Sledujte, čo sa deje práve TERAZ.",
+			"category": ["top", "sports", "business", "health", "environment"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "dennikn",
+			"name": "DENNIKN",
+			"url": "https://dennikn.sk/",
+			"description": "Nezávislý denník",
+			"category": ["top", "sports", "science", "entertainment", "health"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "hnonline",
+			"name": "HNonline",
+			"url": "https://hnonline.sk/",
+			"description": "Aktuálne správy z domova aj zo sveta, škandály, krimi aj šport na jednom mieste. Najčerstvejšie informácie si prečítate online na titulke Čas.sk.",
+			"category": ["top", "business"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "webnoviny",
+			"name": "WebNoviny",
+			"url": "https://www.webnoviny.sk/",
+			"description": "Aktuálne spravodajstvo zo Slovenska, sveta, športové novinky, ekonomika, kultúra a iné aktuality",
+			"category": ["top", "sports", "business"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "novyny",
+			"name": "Новини",
+			"url": "https://novyny.sme.sk/",
+			"description": "Najčítanejší slovenský mienkotvorný denník a najväčší slovenský spravodajský web.",
+			"category": ["top", "entertainment"],
+			"language": ["ukrainian"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "sme",
+			"name": "SME",
+			"url": "https://www.sme.sk/",
+			"description": "Rýchle a dôveryhodné správy zo Slovenska, sveta i Vášho regiónu. Prihlásenie do Post.sk.",
+			"category": ["top", "sports", "technology", "business", "entertainment", "health"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "euractiv",
+			"name": "euractiv",
+			"url": "https://euractiv.sk/",
+			"description": "Európska únia v slovenskom kontexte",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "pluska",
+			"name": "Plus",
+			"url": "https://www1.pluska.sk/",
+			"description": "Plus 1 deň, správy z domova, správy zo zahraničia, správy zo showbiznisu, rozhovory",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "podkapotou",
+			"name": "Podkapotou",
+			"url": "https://podkapotou.zoznam.sk/",
+			"description": "Prehľad toho najzaujímavejšieho z motorizmu. Informácie z autosalónov, nové trendy vo výrobe automobilov a motoriek. Fotky, videá a zaujímavosti zo sveta auto moto.",
+			"category": ["top"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		},
+		{
+			"id": "korzar",
+			"name": "Korzár SME",
+			"url": "https://korzar.sme.sk/",
+			"description": "Všetko dôležité z východného Slovenska na jednom mieste.",
+			"category": ["top", "sports", "technology", "entertainment", "world"],
+			"language": ["slovak"],
+			"country": ["slovakia"]
+		}
+	]
+}
