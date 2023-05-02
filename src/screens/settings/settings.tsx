@@ -1,8 +1,7 @@
 import { NavigationProp, RouteProp, useNavigation } from "@react-navigation/native";
 import { Icon, ListItem, useTheme } from "@rneui/themed";
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { RootStackParamList, RootStackScreens } from "@/types/app";
 
@@ -52,7 +51,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = () => {
 	});
 
 	return (
-		<SafeAreaView style={styles.container}>
+		<View style={styles.container}>
 			{menu.map(item => (
 				<TouchableOpacity activeOpacity={0.5} key={item.path} onPress={() => navigate(item.path)}>
 					<ListItem style={styles.listItem}>
@@ -64,7 +63,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = () => {
 					</ListItem>
 				</TouchableOpacity>
 			))}
-		</SafeAreaView>
+		</View>
 	);
 };
 
