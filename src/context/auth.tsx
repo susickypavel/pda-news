@@ -22,7 +22,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children, value, onC
 					navigation.dispatch(StackActions.replace("Home"));
 					break;
 				case "SIGNED_OUT":
-					navigation.dispatch(StackActions.replace("SignIn"));
+					navigation.reset({
+						routes: [
+							{
+								name: "SignIn"
+							}
+						]
+					});
 					break;
 			}
 
