@@ -13,6 +13,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
 import { useCallback, useEffect, useState } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { supabase } from "@/api/supabase";
 import { ColorScheme } from "@/components/color-scheme";
@@ -86,73 +87,79 @@ const App: React.FC = () => {
 						<QueryClientProvider client={queryClient}>
 							<ThemeConsumer>
 								{({ theme }) => (
-									<Stack.Navigator
-										initialRouteName={initialRouteName}
-										screenOptions={{
-											header: SubScreenHeader,
-											headerShown: false,
-											animation: "slide_from_right",
-											contentStyle: {
-												backgroundColor: theme.colors.background
-											}
+									<GestureHandlerRootView
+										style={{
+											flex: 1
 										}}
 									>
-										<Stack.Screen name="SignIn" component={SignInScreen} />
-										<Stack.Screen name="SignUp" component={SignUpScreen} />
-										<Stack.Screen name="Home" component={HomeScreen} />
-										<Stack.Screen
-											name="ArticleDetail"
-											component={ArticleDetailScreen}
-											options={{
-												header(props) {
-													return (
-														<SubScreenHeader
-															{...props}
-															headerProps={{
-																rightComponent: <ArticleDetailHeaderActions />
-															}}
-														/>
-													);
-												},
-												headerShown: true
+										<Stack.Navigator
+											initialRouteName={initialRouteName}
+											screenOptions={{
+												header: SubScreenHeader,
+												headerShown: false,
+												animation: "slide_from_right",
+												contentStyle: {
+													backgroundColor: theme.colors.background
+												}
 											}}
-										/>
-										<Stack.Screen
-											name="Settings"
-											component={SettingsScreen}
-											options={{
-												headerShown: true
-											}}
-										/>
-										<Stack.Screen
-											name="AccountSettings"
-											component={AccountSettingsScreen}
-											options={{
-												headerShown: true
-											}}
-										/>
-										<Stack.Screen
-											name="NotificationsSettings"
-											component={NotificationsSettingsScreen}
-											options={{
-												headerShown: true
-											}}
-										/>
-										<Stack.Screen
-											name="InterestsSettings"
-											component={InterestsSettingsScreen}
-											options={{
-												headerShown: true
-											}}
-										/>
-										<Stack.Screen
-											name="LocationSettings"
-											component={LocationSettingsScreen}
-											options={{
-												headerShown: true
-											}}
-										/>
-									</Stack.Navigator>
+										>
+											<Stack.Screen name="SignIn" component={SignInScreen} />
+											<Stack.Screen name="SignUp" component={SignUpScreen} />
+											<Stack.Screen name="Home" component={HomeScreen} />
+											<Stack.Screen
+												name="ArticleDetail"
+												component={ArticleDetailScreen}
+												options={{
+													header(props) {
+														return (
+															<SubScreenHeader
+																{...props}
+																headerProps={{
+																	rightComponent: <ArticleDetailHeaderActions />
+																}}
+															/>
+														);
+													},
+													headerShown: true
+												}}
+											/>
+											<Stack.Screen
+												name="Settings"
+												component={SettingsScreen}
+												options={{
+													headerShown: true
+												}}
+											/>
+											<Stack.Screen
+												name="AccountSettings"
+												component={AccountSettingsScreen}
+												options={{
+													headerShown: true
+												}}
+											/>
+											<Stack.Screen
+												name="NotificationsSettings"
+												component={NotificationsSettingsScreen}
+												options={{
+													headerShown: true
+												}}
+											/>
+											<Stack.Screen
+												name="InterestsSettings"
+												component={InterestsSettingsScreen}
+												options={{
+													headerShown: true
+												}}
+											/>
+											<Stack.Screen
+												name="LocationSettings"
+												component={LocationSettingsScreen}
+												options={{
+													headerShown: true
+												}}
+											/>
+										</Stack.Navigator>
+									</GestureHandlerRootView>
 								)}
 							</ThemeConsumer>
 						</QueryClientProvider>

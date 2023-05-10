@@ -19,7 +19,8 @@ module.exports = function (api) {
 						"@/stores": "./src/stores"
 					}
 				}
-			]
+			],
+			"react-native-reanimated/plugin"
 		]
 	};
 };
