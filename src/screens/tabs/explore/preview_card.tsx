@@ -16,40 +16,12 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 	const { navigate } = useNavigation();
 	const navigateTo = "InterestSubpage";
 
-	const styles = StyleSheet.create({
-		author: {
-			alignItems: "center",
-			flexDirection: "row",
-			gap: 8,
-			marginVertical: 8
-		},
-		container: {
-			flex: 1,
-			height: 260,
-			marginRight: 8,
-			marginVertical: 12,
-			width: 160
-		},
-		descriptionContainer: {
-			marginLeft: 6
-		},
-		domain: {
-			fontSize: 16
-		},
-		thumbnailImg: {
-			borderRadius: 4,
-			height: 160,
-			width: 160
-		},
-		title: {
-			fontSize: 16,
-			fontWeight: "500",
-			lineHeight: 18
-		}
-	});
-
 	return (
-		<TouchableWithoutFeedback onPress={() => navigate("InterestSubpage")}>
+		<TouchableWithoutFeedback
+			onPress={() => {
+				// TODO: Pavel dodela se Supabase
+			}}
+		>
 			<View style={styles.container}>
 				<Image containerStyle={styles.thumbnailImg} source={{ uri: "https://dummyimage.com/160/f0e460/fff" }} />
 				<View style={styles.descriptionContainer}>
@@ -67,3 +39,35 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 };
 
 PreviewCard.displayName = "ArticlePreview";
+
+const styles = StyleSheet.create({
+	author: {
+		alignItems: "center",
+		flexDirection: "row",
+		gap: 8,
+		marginVertical: 8
+	},
+	container: {
+		flex: 1,
+		height: 260,
+		marginRight: 8,
+		marginVertical: 12,
+		width: 160
+	},
+	descriptionContainer: {
+		marginLeft: 6
+	},
+	domain: {
+		fontSize: 16
+	},
+	thumbnailImg: {
+		borderRadius: 4,
+		height: 160,
+		width: 160
+	},
+	title: {
+		fontSize: 16,
+		fontWeight: "500",
+		lineHeight: 18
+	}
+});
