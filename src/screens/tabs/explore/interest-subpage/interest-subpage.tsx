@@ -39,29 +39,11 @@ const articles: ArticlePreviewProps[] = [
 	}
 ];
 
-export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = () => {
-	const styles = StyleSheet.create({
-		scrollView: {
-			marginHorizontal: 10
-		},
-		title: {
-			fontSize: 32,
-			fontWeight: "500"
-		},
-		titleContainer: {
-			flexDirection: "row",
-			justifyContent: "space-between",
-			marginLeft: 20,
-			paddingBottom: 10
-		},
-		topContainer: {
-			// backgroundColor: "#D2F776"
-		}
-	});
+export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ route: { params } }) => {
 	return (
 		<View style={styles.topContainer}>
 			<View style={styles.titleContainer}>
-				<Text style={styles.title}>category</Text>
+				<Text style={styles.title}>{params.category}</Text>
 				{/* add Follow/Following button */}
 			</View>
 			<ScrollView style={styles.scrollView}>
@@ -74,3 +56,22 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = () =>
 };
 
 InterestSubpageScreen.displayName = "InterestSubpageScreen";
+
+const styles = StyleSheet.create({
+	scrollView: {
+		marginHorizontal: 10
+	},
+	title: {
+		fontSize: 32,
+		fontWeight: "500"
+	},
+	titleContainer: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		marginLeft: 20,
+		paddingBottom: 10
+	},
+	topContainer: {
+		// backgroundColor: "#D2F776"
+	}
+});

@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { Button, SearchBar } from "@rneui/base";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 import { ArticlePreviewProps } from "@/components/article-preview";
@@ -91,55 +91,21 @@ const articlesSports: ArticlePreviewProps[] = [
 ];
 
 export const ExploreTab: React.FC = () => {
-	const [searchVal, setSearchVal] = useState("");
+	const [query, setQuery] = useState("");
+	const [filteredArticles, setFilteredArticles] = useState(articles);
 
 	const { navigate } = useNavigation();
 
 	const onPress = (category: string) => {
-		navigate("InterestSubpage");
+		navigate("InterestSubpage", {
+			category
+		});
 	};
 
-	const styles = StyleSheet.create({
-		H2: {
-			color: "black",
-			fontSize: 24,
-			fontWeight: "500",
-			marginBottom: 10
-		},
-		container: {
-			flex: 1,
-			paddingTop: 50
-		},
-		interestBtn: {
-			borderRadius: 20,
-			marginRight: 5,
-			paddingLeft: 14,
-			paddingRight: 14
-		},
-		interestTitle: {
-			color: "#000000",
-			fontSize: 14
-		},
-
-		interestsContainer: {
-			flex: 1,
-			flexDirection: "row",
-			flexGrow: 0.1,
-			marginBottom: 10,
-			marginLeft: 6,
-			marginTop: 10
-		},
-		personalSelContainer: {
-			flex: 1,
-			flexGrow: 0.1,
-			marginHorizontal: 10,
-			marginTop: 30
-		},
-		text: {
-			color: "black",
-			fontSize: 14
-		}
-	});
+	useEffect(() => {
+		const filtered = articles.filter(article => article.title.toLowerCase().includes(query.toLowerCase()));
+		setFilteredArticles(filtered);
+	}, [query]);
 
 	return (
 		<View style={styles.container}>
@@ -151,14 +117,15 @@ export const ExploreTab: React.FC = () => {
 				leftIconContainerStyle={{}}
 				rightIconContainerStyle={{}}
 				loadingProps={{}}
-				onChangeText={newVal => setSearchVal(newVal)}
-				placeholder="Search articles"
+				onChangeText={newVal => setQuery(newVal)}
+				placeholder="Search articles..."
 				placeholderTextColor="#888"
 				cancelButtonTitle="Cancel"
 				cancelButtonProps={{}}
-				value={searchVal}
+				value={query}
 			/>
 			<ScrollView>
+				{/* TODO: Tady dodělat display článků na základě Search. Asi přes Supabse fetchnout články na základě query.  */}
 				<ScrollView horizontal style={styles.interestsContainer} showsHorizontalScrollIndicator={false}>
 					{interests.map(interest => (
 						<Button
@@ -191,3 +158,45 @@ export const ExploreTab: React.FC = () => {
 		</View>
 	);
 };
+
+const styles = StyleSheet.create({
+	H2: {
+		color: "black",
+		fontSize: 24,
+		fontWeight: "500",
+		marginBottom: 10
+	},
+	container: {
+		flex: 1,
+		paddingTop: 50
+	},
+	interestBtn: {
+		borderRadius: 20,
+		marginRight: 5,
+		paddingLeft: 14,
+		paddingRight: 14
+	},
+	interestTitle: {
+		color: "#000000",
+		fontSize: 14
+	},
+
+	interestsContainer: {
+		flex: 1,
+		flexDirection: "row",
+		flexGrow: 0.1,
+		marginBottom: 10,
+		marginLeft: 6,
+		marginTop: 10
+	},
+	personalSelContainer: {
+		flex: 1,
+		flexGrow: 0.1,
+		marginHorizontal: 10,
+		marginTop: 30
+	},
+	text: {
+		color: "black",
+		fontSize: 14
+	}
+});

@@ -12,46 +12,6 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 		category
 	} = props;
 
-	const styles = StyleSheet.create({
-		author: {
-			alignItems: "center",
-			flexDirection: "row",
-			gap: 8,
-			marginVertical: 8
-		},
-		container: {
-			flex: 1,
-			marginVertical: 10
-		},
-		containerLeftCol: {
-			flex: 1,
-			flexDirection: "column"
-		},
-		containerTopPart: {
-			flex: 1,
-			flexDirection: "row",
-			marginBottom: 10
-		},
-		content: {
-			fontSize: 12,
-			marginBottom: 30
-		},
-		domain: {
-			fontSize: 16
-		},
-		image: {
-			height: 116,
-			marginLeft: 10,
-			marginTop: 16,
-			width: 116
-		},
-		title: {
-			fontSize: 24,
-			fontWeight: "500",
-			lineHeight: 28
-		}
-	});
-
 	return (
 		<View style={styles.container}>
 			<View style={styles.containerTopPart}>
@@ -80,3 +40,43 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 };
 
 ArticleCard.displayName = "ArticlePreview";
+
+const styles = StyleSheet.create({
+	author: {
+		alignItems: "center",
+		flexDirection: "row",
+		gap: 8,
+		marginVertical: 8
+	},
+	container: {
+		flex: 1,
+		marginVertical: 10
+	},
+	containerLeftCol: {
+		flex: 1,
+		flexDirection: "column"
+	},
+	containerTopPart: {
+		flex: 1,
+		flexDirection: "row",
+		marginBottom: 10
+	},
+	content: {
+		fontSize: 12,
+		marginBottom: 30
+	},
+	domain: {
+		fontSize: 16
+	},
+	image: {
+		height: 116,
+		marginLeft: 10,
+		marginTop: 16,
+		width: 116
+	},
+	title: {
+		fontSize: 24,
+		fontWeight: "500",
+		lineHeight: 28
+	}
+});
