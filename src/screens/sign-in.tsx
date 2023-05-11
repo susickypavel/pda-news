@@ -23,9 +23,7 @@ const Screen: React.FC<SignInScreenProps> = props => {
 					href="/SignUp"
 					title="Create an account instead"
 					buttonProps={{
-						containerStyle: {
-							marginTop: 16
-						}
+						containerStyle: styles.link
 					}}
 				/>
 			</SafeAreaView>
@@ -39,6 +37,9 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-end",
 		padding: 16
+	},
+	link: {
+		marginTop: 16
 	},
 	safe: {
 		width: "100%"

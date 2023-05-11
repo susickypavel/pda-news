@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { Badge, Image } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
@@ -10,12 +11,15 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 		source_id: { name },
 		category
 	} = props;
+	const { navigate } = useNavigation();
 
 	return (
 		<TouchableWithoutFeedback
-			onPress={() => {
-				// TODO: Pavel dodela se Supabase
-			}}
+			onPress={() =>
+				navigate("ArticleDetail", {
+					original_url: props.original_url
+				})
+			}
 		>
 			<View style={styles.container}>
 				<Image containerStyle={styles.thumbnailImg} source={{ uri: "https://dummyimage.com/640/000/fff" }} />

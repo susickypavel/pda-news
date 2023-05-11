@@ -36,7 +36,7 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ ro
 	});
 
 	return (
-		<View>
+		<View style={styles.container}>
 			<View style={styles.titleContainer}>
 				<Text style={styles.title}>{params.category}</Text>
 			</View>
@@ -52,6 +52,9 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ ro
 InterestSubpageScreen.displayName = "InterestSubpageScreen";
 
 const styles = StyleSheet.create({
+	container: {
+		paddingBottom: 100
+	},
 	scrollView: {
 		marginHorizontal: 10
 	},

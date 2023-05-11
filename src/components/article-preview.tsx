@@ -30,8 +30,6 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 
 	const isExternal = !content;
 
-	// const { bg: thumbnailBg, fg: thumbnailFg } = theme.colors.categories[category];
-
 	const styles = StyleSheet.create({
 		author: {
 			alignItems: "center",
