@@ -1,6 +1,8 @@
+import { useNavigation } from "@react-navigation/native";
 import { Badge, Image } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 import { ArticlePreviewProps } from "@/components/article-preview";
 
@@ -12,24 +14,30 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 		category
 	} = props;
 
+	const { navigate } = useNavigation();
+
 	return (
-		<View style={styles.container}>
-			<View style={styles.containerTopPart}>
-				<View style={styles.containerLeftCol}>
-					<View style={styles.author}>
-						<Badge value={category} category={category} />
-						<Text style={styles.domain}>{name}</Text>
+		<TouchableWithoutFeedback onPress={() => navigate("ArticleDetail", props)}>
+			<View style={styles.container}>
+				<View style={styles.containerTopPart}>
+					<View style={styles.containerLeftCol}>
+						<View style={styles.author}>
+							<Badge value={category} category={category} />
+							<Text style={styles.domain}>{name}</Text>
+						</View>
+						<Text numberOfLines={3} style={styles.title}>
+							{title}
+						</Text>
 					</View>
-					<Text numberOfLines={3} style={styles.title}>
-						{title}
-					</Text>
+					<Image containerStyle={styles.image} source={{ uri: "https://dummyimage.com/480/000/fff" }} />
 				</View>
-				<Image containerStyle={styles.image} source={{ uri: "https://dummyimage.com/480/000/fff" }} />
+				{content ? (
+					<Text style={styles.content} numberOfLines={4}>
+						{content}
+					</Text>
+				) : null}
 			</View>
-			<Text style={styles.content} numberOfLines={4}>
-				{content}
-			</Text>
-		</View>
+		</TouchableWithoutFeedback>
 	);
 };
 
@@ -53,26 +61,29 @@ const styles = StyleSheet.create({
 		flexDirection: "column"
 	},
 	containerTopPart: {
+		alignItems: "center",
 		flex: 1,
 		flexDirection: "row",
-		marginBottom: 10
+		justifyContent: "center",
+		marginBottom: 20
 	},
 	content: {
 		fontSize: 12,
+		lineHeight: 18,
 		marginBottom: 30
 	},
 	domain: {
 		fontSize: 16
 	},
 	image: {
-		height: 116,
+		height: 120,
 		marginLeft: 10,
 		marginTop: 16,
-		width: 116
+		width: 120
 	},
 	title: {
 		fontSize: 24,
-		fontWeight: "500",
+		fontWeight: "bold",
 		lineHeight: 28
 	}
 });
