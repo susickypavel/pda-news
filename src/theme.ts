@@ -1,15 +1,15 @@
 import { Colors, createTheme } from "@rneui/themed";
 
 const categories: Colors["categories"] = {
-	business: { bg: "#000080", fg: "#000" },
+	business: { bg: "#7DA1F6", fg: "#000" },
 	entertainment: { bg: "#dc2626", fg: "#000" },
 	environment: { bg: "#00C474", fg: "#000" },
 	food: { bg: "#ea580c", fg: "#000" },
-	health: { bg: "#FF824A", fg: "#000" },
+	health: { bg: "#F08957", fg: "#000" },
 	politics: { bg: "#9D9CDE", fg: "#000" },
-	science: { bg: "#fff", fg: "#000" },
-	sports: { bg: "#C8F85F", fg: "#000" },
-	technology: { bg: "#2563eb", fg: "#fff" }
+	science: { bg: "#B68353", fg: "#000" },
+	sports: { bg: "#F2B040", fg: "#000" },
+	technology: { bg: "#F0E360", fg: "#000" }
 } as const;
 
 export const theme = createTheme({
