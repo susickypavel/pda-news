@@ -3,15 +3,15 @@ import { Badge, Image, Text, useTheme } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
-import { BadgeCategory } from "@/types/theme";
+export type ArticlePreviewProps = any;
 
-export interface ArticlePreviewProps {
-	id: string;
-	title: string;
-	content: string;
-	source_id: { name: string };
-	category: BadgeCategory;
-}
+// export interface ArticlePreviewProps {
+// 	id: string;
+// 	title: string;
+// 	content: string | null;
+// 	source_id: { name: string };
+// 	category: BadgeCategory;
+// }
 
 export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	const { navigate } = useNavigation();

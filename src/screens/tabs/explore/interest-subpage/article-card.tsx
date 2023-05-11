@@ -24,17 +24,11 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 						{title}
 					</Text>
 				</View>
-				<Image containerStyle={styles.image} source={{ uri: "https://dummyimage.com/160/f0e460/fff" }} />
+				<Image containerStyle={styles.image} source={{ uri: "https://dummyimage.com/480/000/fff" }} />
 			</View>
 			<Text style={styles.content} numberOfLines={4}>
 				{content}
 			</Text>
-			<View
-				style={{
-					borderBottomWidth: 1,
-					borderBottomColor: "#CCCCCC"
-				}}
-			/>
 		</View>
 	);
 };
@@ -49,6 +43,8 @@ const styles = StyleSheet.create({
 		marginVertical: 8
 	},
 	container: {
+		borderBottomColor: "#CCCCCC",
+		borderBottomWidth: 1,
 		flex: 1,
 		marginVertical: 10
 	},
