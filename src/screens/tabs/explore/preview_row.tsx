@@ -15,7 +15,7 @@ export const PreviewRow: React.FC<PreviewCardsProps> = props => {
 	return (
 		<ScrollView horizontal style={styles.container} showsHorizontalScrollIndicator={false}>
 			{articles.map(article => (
-				<PreviewCard {...article} key={article.title} />
+				<PreviewCard {...article} key={article.id} />
 			))}
 		</ScrollView>
 	);

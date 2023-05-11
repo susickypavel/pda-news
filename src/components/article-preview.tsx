@@ -6,6 +6,7 @@ import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { BadgeCategory } from "@/types/theme";
 
 export interface ArticlePreviewProps {
+	id: string;
 	title: string;
 	content: string;
 	source_id: { name: string };
@@ -29,7 +30,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 
 	const isExternal = !content;
 
-	const { bg: thumbnailBg, fg: thumbnailFg } = theme.colors.categories[category];
+	// const { bg: thumbnailBg, fg: thumbnailFg } = theme.colors.categories[category];
 
 	const styles = StyleSheet.create({
 		author: {
@@ -70,7 +71,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 				<Image
 					containerStyle={styles.thumbnail}
 					source={{
-						uri: `https://dummyimage.com/600x400/${thumbnailBg}/${thumbnailFg}`
+						uri: `https://dummyimage.com/600x400/000/fff`
 					}}
 				/>
 				<View style={styles.author}>

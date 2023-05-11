@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/native";
 import { Badge, Image } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
@@ -8,13 +7,9 @@ import { ArticlePreviewProps } from "@/components/article-preview";
 export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 	const {
 		title,
-		content,
 		source_id: { name },
 		category
 	} = props;
-
-	const { navigate } = useNavigation();
-	const navigateTo = "InterestSubpage";
 
 	return (
 		<TouchableWithoutFeedback
@@ -23,7 +18,7 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 			}}
 		>
 			<View style={styles.container}>
-				<Image containerStyle={styles.thumbnailImg} source={{ uri: "https://dummyimage.com/160/f0e460/fff" }} />
+				<Image containerStyle={styles.thumbnailImg} source={{ uri: "https://dummyimage.com/640/000/fff" }} />
 				<View style={styles.descriptionContainer}>
 					<View style={styles.author}>
 						<Badge value={category} category={category} />
