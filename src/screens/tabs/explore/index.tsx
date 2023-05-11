@@ -1,26 +1,28 @@
 import { useNavigation } from "@react-navigation/native";
 import { Button, SearchBar } from "@rneui/base";
+import { useTheme } from "@rneui/themed";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { CATEGORIES } from "src/constants";
 
 import { supabase } from "@/api/supabase";
 
 import { PreviewRow } from "./preview_row";
 
-const interests = [
-	{ color: "#F0E360", label: "Tech" },
-	{ color: "#7DA1F6", label: "Business" },
-	{ color: "#58C17B", label: "Climate" },
-	{ color: "#DDC0E7", label: "Culture" },
-	{ color: "#B68353", label: "Science" },
-	{ color: "#F2B040", label: "Sports" },
-	{ color: "#F08957", label: "Health" },
-	{ color: "#BEAD99", label: "Personal Growth" },
-	{ color: "#DF5B4B", label: "World Affairs" },
-	{ color: "#A7DEE4", label: "Finance" },
-	{ color: "#D2F776", label: "Economy" }
-];
+// const interests = [
+// 	{ color: "#F0E360", label: "Tech" },
+// 	{ color: "#7DA1F6", label: "Business" },
+// 	{ color: "#58C17B", label: "Climate" },
+// 	{ color: "#DDC0E7", label: "Culture" },
+// 	{ color: "#B68353", label: "Science" },
+// 	{ color: "#F2B040", label: "Sports" },
+// 	{ color: "#F08957", label: "Health" },
+// 	{ color: "#BEAD99", label: "Personal Growth" },
+// 	{ color: "#DF5B4B", label: "World Affairs" },
+// 	{ color: "#A7DEE4", label: "Finance" },
+// 	{ color: "#D2F776", label: "Economy" }
+// ];
 
 export const ExploreTab: React.FC = () => {
 	const [query, setQuery] = useState("");
@@ -35,6 +37,7 @@ export const ExploreTab: React.FC = () => {
 	});
 
 	const { navigate } = useNavigation();
+	const { theme } = useTheme();
 
 	const onPress = (category: string) => {
 		navigate("InterestSubpage", {
@@ -54,15 +57,18 @@ export const ExploreTab: React.FC = () => {
 			/>
 			<ScrollView>
 				<ScrollView horizontal style={styles.interestsContainer} showsHorizontalScrollIndicator={false}>
-					{interests.map(interest => (
+					{CATEGORIES.map(category => (
 						<Button
 							type="clear"
-							key={interest.color}
-							buttonStyle={[styles.interestBtn, { backgroundColor: interest.color }]}
+							key={category}
+							buttonStyle={[
+								styles.interestBtn,
+								{ backgroundColor: theme.colors.categories[category].bg }
+							]}
 							titleStyle={styles.interestTitle}
-							onPress={() => onPress(interest.label)}
+							onPress={() => onPress(category)}
 						>
-							{interest.label}
+							{category}
 						</Button>
 					))}
 				</ScrollView>
@@ -102,7 +108,8 @@ const styles = StyleSheet.create({
 	},
 	interestTitle: {
 		color: "#000000",
-		fontSize: 14
+		fontSize: 14,
+		textTransform: "capitalize"
 	},
 
 	interestsContainer: {
