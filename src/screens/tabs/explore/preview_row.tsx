@@ -28,8 +28,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: "row",
 		flexGrow: 0.5,
-		marginBottom: 10,
-		marginTop: 10,
-		paddingHorizontal: 10
+		margin: 10
 	}
 });

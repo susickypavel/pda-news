@@ -18,7 +18,7 @@ export type RootStackParamList = {
 		category: BadgeCategory;
 	};
 	InterestSubpage: {
-		category: string;
+		category: BadgeCategory;
 	};
 };
 

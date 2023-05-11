@@ -1,7 +1,8 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
+import { useTheme } from "@rneui/themed";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
 import { RootStackParamList } from "src/types/app";
 
 import { supabase } from "@/api/supabase";
@@ -34,9 +35,32 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ ro
 
 		return data;
 	});
+	const { theme } = useTheme();
+
+	const styles = StyleSheet.create({
+		container: {
+			paddingBottom: 100
+		},
+		scrollView: {
+			marginHorizontal: 10
+		},
+		title: {
+			fontSize: 32,
+			fontWeight: "500",
+			textTransform: "capitalize"
+		},
+		titleContainer: {
+			backgroundColor: theme.colors.categories[params.category].bg,
+			flexDirection: "row",
+			justifyContent: "space-between",
+			paddingBottom: 20,
+			paddingLeft: 20
+		}
+	});
 
 	return (
 		<View style={styles.container}>
+			<StatusBar backgroundColor={theme.colors.categories[params.category].bg} />
 			<View style={styles.titleContainer}>
 				<Text style={styles.title}>{params.category}</Text>
 			</View>
@@ -50,23 +74,3 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ ro
 };
 
 InterestSubpageScreen.displayName = "InterestSubpageScreen";
-
-const styles = StyleSheet.create({
-	container: {
-		paddingBottom: 100
-	},
-	scrollView: {
-		marginHorizontal: 10
-	},
-	title: {
-		fontSize: 32,
-		fontWeight: "500",
-		textTransform: "capitalize"
-	},
-	titleContainer: {
-		flexDirection: "row",
-		justifyContent: "space-between",
-		marginLeft: 20,
-		paddingBottom: 10
-	}
-});

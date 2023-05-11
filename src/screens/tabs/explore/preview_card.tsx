@@ -6,11 +6,7 @@ import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import { ArticlePreviewProps } from "@/components/article-preview";
 
 export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
-	const {
-		title,
-		source_id: { name },
-		category
-	} = props;
+	const { title, category } = props;
 	const { navigate } = useNavigation();
 
 	return (
@@ -26,7 +22,6 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 				<View style={styles.descriptionContainer}>
 					<View style={styles.author}>
 						<Badge value={category} category={category} />
-						<Text style={styles.domain}>{name}</Text>
 					</View>
 					<Text numberOfLines={3} style={styles.title}>
 						{title}
@@ -55,9 +50,6 @@ const styles = StyleSheet.create({
 	},
 	descriptionContainer: {
 		marginLeft: 6
-	},
-	domain: {
-		fontSize: 16
 	},
 	thumbnailImg: {
 		borderRadius: 4,
