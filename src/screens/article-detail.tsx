@@ -1,4 +1,3 @@
-import { useFocusEffect } from "@react-navigation/native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Button, Icon } from "@rneui/themed";
 import React from "react";
@@ -22,14 +21,8 @@ export const ArticleDetailHeaderActions: React.FC = () => {
 	);
 };
 
-export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route, navigation }) => {
+export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route }) => {
 	const { original_url } = route.params;
-
-	useFocusEffect(() => {
-		navigation.setOptions({
-			headerTitle: route.params.source_id.domain
-		});
-	});
 
 	return (
 		<WebView
