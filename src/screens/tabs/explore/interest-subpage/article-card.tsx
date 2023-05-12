@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Badge, Image } from "@rneui/themed";
+import { Badge, Image, useTheme } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
@@ -15,6 +15,55 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 	} = props;
 
 	const { navigate } = useNavigation();
+	const { theme } = useTheme();
+
+	const styles = StyleSheet.create({
+		author: {
+			alignItems: "center",
+			flexDirection: "row",
+			gap: 8,
+			marginVertical: 8
+		},
+		container: {
+			borderBottomColor: "#CCCCCC",
+			borderBottomWidth: 1,
+			flex: 1,
+			marginVertical: 10
+		},
+		containerLeftCol: {
+			flex: 1,
+			flexDirection: "column"
+		},
+		containerTopPart: {
+			alignItems: "flex-end",
+			flex: 1,
+			flexDirection: "row",
+			justifyContent: "flex-end",
+			marginBottom: 20
+		},
+		content: {
+			color: theme.colors.black,
+			fontSize: 12,
+			lineHeight: 18,
+			marginBottom: 30
+		},
+		domain: {
+			color: theme.colors.black,
+			fontSize: 16
+		},
+		image: {
+			height: 120,
+			marginLeft: 10,
+			marginTop: 16,
+			width: 120
+		},
+		title: {
+			color: theme.colors.black,
+			fontSize: 24,
+			fontWeight: "bold",
+			lineHeight: 28
+		}
+	});
 
 	return (
 		<TouchableWithoutFeedback onPress={() => navigate("ArticleDetail", props)}>
@@ -42,48 +91,3 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 };
 
 ArticleCard.displayName = "ArticlePreview";
-
-const styles = StyleSheet.create({
-	author: {
-		alignItems: "center",
-		flexDirection: "row",
-		gap: 8,
-		marginVertical: 8
-	},
-	container: {
-		borderBottomColor: "#CCCCCC",
-		borderBottomWidth: 1,
-		flex: 1,
-		marginVertical: 10
-	},
-	containerLeftCol: {
-		flex: 1,
-		flexDirection: "column"
-	},
-	containerTopPart: {
-		alignItems: "center",
-		flex: 1,
-		flexDirection: "row",
-		justifyContent: "center",
-		marginBottom: 20
-	},
-	content: {
-		fontSize: 12,
-		lineHeight: 18,
-		marginBottom: 30
-	},
-	domain: {
-		fontSize: 16
-	},
-	image: {
-		height: 120,
-		marginLeft: 10,
-		marginTop: 16,
-		width: 120
-	},
-	title: {
-		fontSize: 24,
-		fontWeight: "bold",
-		lineHeight: 28
-	}
-});

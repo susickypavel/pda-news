@@ -1,5 +1,5 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { useTheme } from "@rneui/themed";
+import { Skeleton, useTheme } from "@rneui/themed";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
@@ -19,7 +19,7 @@ type InterestSubpageScreenProps = {
 };
 
 export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ route: { params } }) => {
-	const { data } = useQuery(["category-articles", params.category], async () => {
+	const { data, isLoading } = useQuery(["category-articles", params.category], async () => {
 		const { data, error } = await supabase
 			.from("articles")
 			.select("*, source_id (name)")
@@ -40,6 +40,10 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ ro
 	const styles = StyleSheet.create({
 		container: {
 			paddingBottom: 100
+		},
+		loadingContainer: {
+			gap: 10,
+			margin: 10
 		},
 		scrollView: {
 			marginHorizontal: 10
@@ -64,11 +68,19 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ ro
 			<View style={styles.titleContainer}>
 				<Text style={styles.title}>{params.category}</Text>
 			</View>
-			<ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
-				{data?.map(article => (
-					<ArticleCard {...article} key={article.id} />
-				))}
-			</ScrollView>
+			{isLoading ? (
+				<View style={styles.loadingContainer}>
+					<Skeleton animation="pulse" height={250} />
+					<Skeleton animation="pulse" height={250} />
+					<Skeleton animation="pulse" height={250} />
+				</View>
+			) : (
+				<ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
+					{data?.map(article => (
+						<ArticleCard {...article} key={article.id} />
+					))}
+				</ScrollView>
+			)}
 		</View>
 	);
 };
