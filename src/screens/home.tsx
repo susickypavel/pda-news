@@ -9,7 +9,7 @@ import type { RootStackParamList } from "@/types/app";
 
 import { ExploreTab } from "./tabs/explore";
 import { NewsTab } from "./tabs/news";
-import { PersonalTab } from "./tabs/personal";
+import { PersonalTab } from "./tabs/personal/personal";
 
 const renderScene = SceneMap({
 	news: NewsTab,
