@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
-import { Badge, Image, useTheme } from "@rneui/themed";
+import { Badge, useTheme } from "@rneui/themed";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 import { ArticlePreviewProps } from "@/components/article-preview";
@@ -52,6 +52,8 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 			fontSize: 16
 		},
 		image: {
+			// @ts-ignore
+			backgroundColor: theme.colors.categories[category].bg,
 			height: 120,
 			marginLeft: 10,
 			marginTop: 16,
@@ -78,7 +80,16 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 							{title}
 						</Text>
 					</View>
-					<Image containerStyle={styles.image} source={{ uri: "https://dummyimage.com/480/000/fff" }} />
+					<Image
+						style={styles.image}
+						resizeMethod="scale"
+						resizeMode="cover"
+						source={
+							props.image_url
+								? { uri: props.image_url }
+								: require("@/assets/images/fallback-thumbnail.png")
+						}
+					/>
 				</View>
 				{content ? (
 					<Text style={styles.content} numberOfLines={4}>

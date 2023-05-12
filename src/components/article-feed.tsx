@@ -47,7 +47,7 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 
 			const { data, error } = await supabase
 				.from("articles")
-				.select("id, title, content, source_id (name), category, published_at, original_url")
+				.select("id, title, content, source_id (name), category, published_at, original_url, image_url")
 				.gte("published_at", start.toUTCString())
 				.lte("published_at", end.toUTCString())
 				.order("published_at", {

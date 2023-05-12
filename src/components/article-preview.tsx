@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
-import { Badge, Image, Text, useTheme } from "@rneui/themed";
+import { Badge, Text, useTheme } from "@rneui/themed";
 import React from "react";
-import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
 export type ArticlePreviewProps = any;
 
@@ -53,7 +53,10 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 		},
 		thumbnail: {
 			aspectRatio: 16 / 9,
+			// @ts-ignore
+			backgroundColor: theme.colors.categories[props.category].bg,
 			flex: 1,
+			height: undefined,
 			width: "100%"
 		},
 		title: {
@@ -67,10 +70,12 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 		<TouchableWithoutFeedback onPress={onPress}>
 			<View style={styles.container}>
 				<Image
-					containerStyle={styles.thumbnail}
-					source={{
-						uri: `https://dummyimage.com/600x400/000/fff`
-					}}
+					style={styles.thumbnail}
+					resizeMethod="scale"
+					resizeMode="cover"
+					source={
+						props.image_url ? { uri: props.image_url } : require("@/assets/images/fallback-thumbnail.png")
+					}
 				/>
 				<View style={styles.author}>
 					<Badge value={category} category={category} />
