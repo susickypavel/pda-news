@@ -1,6 +1,6 @@
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 import { Header, HeaderProps, useTheme } from "@rneui/themed";
-import React, { PropsWithChildren, useMemo } from "react";
+import React, { createElement, PropsWithChildren, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
 import { BackButton } from "./back-button";
@@ -9,10 +9,14 @@ type SubScreenHeaderProps = PropsWithChildren<NativeStackHeaderProps> & {
 	/**
 	 * @default {}
 	 */
-	headerProps?: Omit<HeaderProps, "leftComponent">;
+	headerProps?: Omit<HeaderProps, "leftComponent" | "rightComponent"> & {
+		rightComponent: any;
+	};
 };
 
-export const SubScreenHeader: React.FC<SubScreenHeaderProps> = ({ back, headerProps = {}, route }) => {
+export const SubScreenHeader: React.FC<SubScreenHeaderProps> = ({ back, headerProps: _headerProps = {}, route }) => {
+	const { rightComponent, ...headerProps } = _headerProps;
+
 	const { theme } = useTheme();
 	const styles = StyleSheet.create({
 		centerContainer: {
@@ -32,7 +36,7 @@ export const SubScreenHeader: React.FC<SubScreenHeaderProps> = ({ back, headerPr
 		}
 
 		return {
-			backgroundColor: undefined
+			backgroundColor: theme.colors.white
 		};
 	}, [route, theme]);
 
@@ -42,6 +46,7 @@ export const SubScreenHeader: React.FC<SubScreenHeaderProps> = ({ back, headerPr
 			centerContainerStyle={styles.centerContainer}
 			leftComponent={<BackButton title={back?.title} />}
 			containerStyle={headerStyles}
+			rightComponent={rightComponent ? createElement(rightComponent, { route }) : undefined}
 			{...headerProps}
 		/>
 	);

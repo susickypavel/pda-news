@@ -116,7 +116,7 @@ const App: React.FC = () => {
 															<SubScreenHeader
 																{...props}
 																headerProps={{
-																	rightComponent: <ArticleDetailHeaderActions />
+																	rightComponent: ArticleDetailHeaderActions
 																}}
 															/>
 														);
