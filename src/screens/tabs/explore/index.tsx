@@ -107,6 +107,8 @@ export const ExploreTab: React.FC = () => {
 					))}
 				</ScrollView>
 				{data?.map(({ category, articles }) => {
+					if (articles.length <= 0) return null;
+
 					return (
 						<React.Fragment key={category}>
 							<View style={styles.personalSelContainer}>
