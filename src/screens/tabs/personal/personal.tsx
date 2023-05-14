@@ -2,7 +2,7 @@ import { BottomSheetModal, BottomSheetModalProvider } from "@gorhom/bottom-sheet
 import { useNavigation } from "@react-navigation/native";
 import { Text } from "@rneui/base";
 import { Button, Divider, Header, Icon, SearchBar, useTheme } from "@rneui/themed";
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { Fragment, useCallback, useMemo, useRef, useState } from "react";
 import { Platform, StyleSheet, View } from "react-native";
 
 import CustomBackdrop from "./customs-for-bottomsheet/custom-backdrop";
@@ -49,7 +49,8 @@ export const PersonalTab: React.FC = () => {
 		container: {
 			alignItems: "center",
 			flex: 1,
-			justifyContent: "center"
+			justifyContent: "center",
+			paddingHorizontal: 8
 		},
 		contentContainer: {
 			alignContent: "flex-start",
@@ -67,6 +68,7 @@ export const PersonalTab: React.FC = () => {
 		filterIcon: {},
 		filterTitle: {
 			fontSize: 20,
+			fontWeight: "700",
 			paddingBottom: "5%"
 		},
 		searchBar: {
@@ -98,7 +100,7 @@ export const PersonalTab: React.FC = () => {
 	});
 
 	return (
-		<View style={styles.container}>
+		<Fragment>
 			<Header
 				rightComponent={
 					<Button type="clear" onPress={() => navigate("Settings")}>
@@ -111,66 +113,68 @@ export const PersonalTab: React.FC = () => {
 					</View>
 				}
 			/>
-			<View style={styles.searchContainer}>
-				<Icon
-					size={36}
-					name="filter-list-alt"
-					type="material"
-					color="black"
-					onPress={handlePresentModalPress}
-					style={styles.filterIcon}
-				/>
-				<SearchBar
-					containerStyle={styles.searchBar}
-					inputContainerStyle={styles.searchBarInput}
-					platform="ios"
-					onChangeText={newVal => setQuery(newVal)}
-					placeholder="Search bookmarks..."
-					placeholderTextColor="#888"
-					cancelButtonTitle="Cancel"
-					value={query}
-				/>
-			</View>
-			<BottomSheetModalProvider>
-				<View style={styles.container}>
-					<BottomSheetModal
-						ref={bottomSheetModalRef}
-						index={0}
-						snapPoints={snapPoints}
-						backdropComponent={CustomBackdrop}
-						style={styles.bottomSheetStyle}
-					>
-						<View style={styles.contentContainer}>
-							<Text style={styles.filterTitle}>Sort by</Text>
-							<Divider width={1} />
-							<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("lastAdded")}>
-								<Text style={styles.btnText}>Last Added</Text>
-								<Icon
-									name={selectedFilter == "lastAdded" ? "check-circle" : "square"}
-									type="feather"
-									color="black"
-								/>
-							</Button>
-							<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("a-z")}>
-								<Text style={styles.btnText}>Alphabetical (a-z)</Text>
-								<Icon
-									name={selectedFilter == "a-z" ? "check-circle" : "square"}
-									type="feather"
-									color="black"
-								/>
-							</Button>
-							<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("z-a")}>
-								<Text style={styles.btnText}>Alphabetical (z-a)</Text>
-								<Icon
-									name={selectedFilter == "z-a" ? "check-circle" : "square"}
-									type="feather"
-									color="black"
-								/>
-							</Button>
-						</View>
-					</BottomSheetModal>
+			<View style={styles.container}>
+				<View style={styles.searchContainer}>
+					<Icon
+						size={36}
+						name="filter-list-alt"
+						type="material"
+						color="black"
+						onPress={handlePresentModalPress}
+						style={styles.filterIcon}
+					/>
+					<SearchBar
+						containerStyle={styles.searchBar}
+						inputContainerStyle={styles.searchBarInput}
+						platform="ios"
+						onChangeText={newVal => setQuery(newVal)}
+						placeholder="Search bookmarks..."
+						placeholderTextColor="#888"
+						cancelButtonTitle="Cancel"
+						value={query}
+					/>
 				</View>
-			</BottomSheetModalProvider>
-		</View>
+				<BottomSheetModalProvider>
+					<View style={styles.container}>
+						<BottomSheetModal
+							ref={bottomSheetModalRef}
+							index={0}
+							snapPoints={snapPoints}
+							backdropComponent={CustomBackdrop}
+							style={styles.bottomSheetStyle}
+						>
+							<View style={styles.contentContainer}>
+								<Text style={styles.filterTitle}>Sort by</Text>
+								<Divider width={1} />
+								<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("lastAdded")}>
+									<Text style={styles.btnText}>Last added</Text>
+									<Icon
+										name={selectedFilter == "lastAdded" ? "check-circle" : "circle"}
+										type="feather"
+										color={selectedFilter == "lastAdded" ? theme.colors.brand : theme.colors.grey5}
+									/>
+								</Button>
+								<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("a-z")}>
+									<Text style={styles.btnText}>Alphabetical (a-z)</Text>
+									<Icon
+										name={selectedFilter == "a-z" ? "check-circle" : "circle"}
+										type="feather"
+										color={selectedFilter == "a-z" ? theme.colors.brand : theme.colors.grey5}
+									/>
+								</Button>
+								<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("z-a")}>
+									<Text style={styles.btnText}>Alphabetical (z-a)</Text>
+									<Icon
+										name={selectedFilter == "z-a" ? "check-circle" : "circle"}
+										type="feather"
+										color={selectedFilter == "z-a" ? theme.colors.brand : theme.colors.grey5}
+									/>
+								</Button>
+							</View>
+						</BottomSheetModal>
+					</View>
+				</BottomSheetModalProvider>
+			</View>
+		</Fragment>
 	);
 };
