@@ -6,10 +6,11 @@ import { StyleSheet, View } from "react-native";
 
 import { supabase } from "@/api/supabase";
 import { ArticlePreview } from "@/components/article-preview";
+import { useAuth } from "@/context/auth";
 
 const PAGE_LIMIT = 5;
 
-const Separator: React.FC = () => <View style={{ height: 32 }} />;
+export const ArticleFeedSeparator: React.FC = () => <View style={{ height: 32 }} />;
 
 // TODO: Design
 const FetchingIndicator: React.FC = () => (
@@ -35,6 +36,7 @@ type ArticleFeedProps = {
 };
 
 export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
+	const { user } = useAuth();
 	const { data, isLoading, isError, hasNextPage, isFetchingNextPage, fetchNextPage } = useInfiniteQuery(
 		["daily-feed", currentDate.toDateString()],
 		async ({ pageParam = 0 }) => {
@@ -46,8 +48,9 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 			end.setHours(23, 59, 59, 999);
 
 			const { data, error } = await supabase
-				.from("articles")
-				.select("id, title, content, source_id (name), category, published_at, original_url, image_url")
+				.rpc("get_user_feed", {
+					user_id: user.id
+				})
 				.gte("published_at", start.toUTCString())
 				.lte("published_at", end.toUTCString())
 				.order("published_at", {
@@ -95,7 +98,7 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 			keyExtractor={item => item.id}
 			renderItem={({ item }) => <ArticlePreview {...item} />}
 			ListEmptyComponent={EmptyList}
-			ItemSeparatorComponent={Separator}
+			ItemSeparatorComponent={ArticleFeedSeparator}
 			contentContainerStyle={styles.list}
 			estimatedItemSize={200}
 			onEndReached={onEndReached}

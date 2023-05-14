@@ -3,7 +3,9 @@ import { useNavigation } from "@react-navigation/native";
 import { Text } from "@rneui/base";
 import { Button, Divider, Header, Icon, SearchBar, useTheme } from "@rneui/themed";
 import React, { Fragment, useCallback, useMemo, useRef, useState } from "react";
-import { Platform, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+
+import { SavedArticlesFeed } from "@/components/saved-articles-feed";
 
 import CustomBackdrop from "./customs-for-bottomsheet/custom-backdrop";
 
@@ -134,45 +136,44 @@ export const PersonalTab: React.FC = () => {
 						value={query}
 					/>
 				</View>
+				<SavedArticlesFeed />
 				<BottomSheetModalProvider>
-					<View style={styles.container}>
-						<BottomSheetModal
-							ref={bottomSheetModalRef}
-							index={0}
-							snapPoints={snapPoints}
-							backdropComponent={CustomBackdrop}
-							style={styles.bottomSheetStyle}
-						>
-							<View style={styles.contentContainer}>
-								<Text style={styles.filterTitle}>Sort by</Text>
-								<Divider width={1} />
-								<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("lastAdded")}>
-									<Text style={styles.btnText}>Last added</Text>
-									<Icon
-										name={selectedFilter == "lastAdded" ? "check-circle" : "circle"}
-										type="feather"
-										color={selectedFilter == "lastAdded" ? theme.colors.brand : theme.colors.grey5}
-									/>
-								</Button>
-								<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("a-z")}>
-									<Text style={styles.btnText}>Alphabetical (a-z)</Text>
-									<Icon
-										name={selectedFilter == "a-z" ? "check-circle" : "circle"}
-										type="feather"
-										color={selectedFilter == "a-z" ? theme.colors.brand : theme.colors.grey5}
-									/>
-								</Button>
-								<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("z-a")}>
-									<Text style={styles.btnText}>Alphabetical (z-a)</Text>
-									<Icon
-										name={selectedFilter == "z-a" ? "check-circle" : "circle"}
-										type="feather"
-										color={selectedFilter == "z-a" ? theme.colors.brand : theme.colors.grey5}
-									/>
-								</Button>
-							</View>
-						</BottomSheetModal>
-					</View>
+					<BottomSheetModal
+						ref={bottomSheetModalRef}
+						index={0}
+						snapPoints={snapPoints}
+						backdropComponent={CustomBackdrop}
+						style={styles.bottomSheetStyle}
+					>
+						<View style={styles.contentContainer}>
+							<Text style={styles.filterTitle}>Sort by</Text>
+							<Divider width={1} />
+							<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("lastAdded")}>
+								<Text style={styles.btnText}>Last added</Text>
+								<Icon
+									name={selectedFilter == "lastAdded" ? "check-circle" : "circle"}
+									type="feather"
+									color={selectedFilter == "lastAdded" ? theme.colors.brand : theme.colors.grey5}
+								/>
+							</Button>
+							<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("a-z")}>
+								<Text style={styles.btnText}>Alphabetical (a-z)</Text>
+								<Icon
+									name={selectedFilter == "a-z" ? "check-circle" : "circle"}
+									type="feather"
+									color={selectedFilter == "a-z" ? theme.colors.brand : theme.colors.grey5}
+								/>
+							</Button>
+							<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("z-a")}>
+								<Text style={styles.btnText}>Alphabetical (z-a)</Text>
+								<Icon
+									name={selectedFilter == "z-a" ? "check-circle" : "circle"}
+									type="feather"
+									color={selectedFilter == "z-a" ? theme.colors.brand : theme.colors.grey5}
+								/>
+							</Button>
+						</View>
+					</BottomSheetModal>
 				</BottomSheetModalProvider>
 			</View>
 		</Fragment>

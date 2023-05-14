@@ -20,6 +20,7 @@ type InterestSubpageScreenProps = {
 
 export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ route: { params } }) => {
 	const { data, isLoading } = useQuery(["category-articles", params.category], async () => {
+		// TODO: Fetch bookmark endpoint
 		const { data, error } = await supabase
 			.from("articles")
 			.select("*, source_id (name)")

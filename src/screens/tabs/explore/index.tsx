@@ -3,7 +3,7 @@ import { Button, SearchBar } from "@rneui/base";
 import { useTheme } from "@rneui/themed";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { Platform, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { CATEGORIES } from "src/constants";
 import { BadgeCategory } from "src/types/theme";
 
@@ -14,6 +14,7 @@ import { PreviewRow } from "./preview_row";
 export const ExploreTab: React.FC = () => {
 	const [query, setQuery] = useState("");
 	const { data } = useQuery(["category-articles"], async () => {
+		// TODO: Fetch bookmark endpoint
 		const { data, error } = await supabase.from("category_articles").select("*");
 
 		if (error) {
