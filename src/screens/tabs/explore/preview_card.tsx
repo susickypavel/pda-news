@@ -46,7 +46,8 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 		<TouchableWithoutFeedback
 			onPress={() =>
 				navigate("ArticleDetail", {
-					original_url: props.original_url
+					original_url: props.original_url,
+					title: props.title
 				})
 			}
 		>

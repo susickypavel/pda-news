@@ -65,7 +65,10 @@ export const PersonalTab: React.FC = () => {
 		filterBtn: {
 			backgroundColor: theme.colors.white,
 			borderRadius: 5,
-			justifyContent: "space-between"
+			justifyContent: "space-between",
+			marginTop: 32,
+			paddingHorizontal: 0,
+			paddingVertical: 0
 		},
 		searchBar: {
 			backgroundColor: theme.colors.white,
