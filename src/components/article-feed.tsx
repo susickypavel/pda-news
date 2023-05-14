@@ -72,7 +72,6 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 		}
 	);
 
-	// NOTE: This is a premature optimization, I haven't tested real impact on performance.
 	const articles = useMemo(() => data?.pages.flatMap(page => page) || [], [data]);
 
 	const onEndReached = () => {
@@ -86,7 +85,6 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 	}
 
 	if (isError) {
-		// TODO: Inform user, and retry button (?)
 		return <Text>Error</Text>;
 	}
 
@@ -95,8 +93,6 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 			showsVerticalScrollIndicator={false}
 			data={articles}
 			keyExtractor={item => item.id}
-			// TODO: Extract better typings from supabase API
-			// @ts-ignore
 			renderItem={({ item }) => <ArticlePreview {...item} />}
 			ListEmptyComponent={EmptyList}
 			ItemSeparatorComponent={Separator}

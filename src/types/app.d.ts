@@ -9,6 +9,7 @@ export type RootStackParamList = {
 	ArticleDetail: {
 		title: string;
 		original_url: string;
+		id: string;
 	};
 	Settings: undefined;
 	AccountSettings: undefined;

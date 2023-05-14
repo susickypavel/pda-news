@@ -47,7 +47,8 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 			onPress={() =>
 				navigate("ArticleDetail", {
 					original_url: props.original_url,
-					title: props.title
+					title: props.title,
+					id: props.id
 				})
 			}
 		>

@@ -82,7 +82,7 @@ export const ExploreTab: React.FC = () => {
 		<View style={styles.container}>
 			<SearchBar
 				containerStyle={styles.searchBar}
-				platform={Platform.OS === "ios" ? "ios" : "android"}
+				platform="ios"
 				onChangeText={newVal => setQuery(newVal)}
 				placeholder="Search articles..."
 				placeholderTextColor="#888"
