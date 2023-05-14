@@ -21,6 +21,9 @@ declare module "@rneui/themed" {
 				bg: string;
 			}
 		>;
+		misc: {
+			backdrop: string;
+		}
 	}
 
 	export interface BadgeProps {

@@ -42,10 +42,17 @@ export const PersonalTab: React.FC = () => {
 	}, []);
 
 	const styles = StyleSheet.create({
+		bottomSheetBackground: {
+			backgroundColor: theme.mode === "dark" ? "#222" : "#fff"
+		},
+		bottomSheetIndicator: {
+			backgroundColor: theme.colors.black
+		},
 		bottomSheetStyle: {
 			borderRadius: 100
 		},
 		btnText: {
+			color: theme.colors.black,
 			fontSize: 16
 		},
 		container: {
@@ -60,15 +67,15 @@ export const PersonalTab: React.FC = () => {
 			paddingHorizontal: 20
 		},
 		filterBtn: {
-			backgroundColor: theme.colors.white,
+			backgroundColor: undefined,
 			borderRadius: 5,
 			justifyContent: "space-between",
-			marginTop: 32,
 			paddingHorizontal: 0,
-			paddingVertical: 0
+			paddingVertical: 16
 		},
 		filterIcon: {},
 		filterTitle: {
+			color: theme.colors.black,
 			fontSize: 20,
 			fontWeight: "700",
 			paddingBottom: "5%"
@@ -91,6 +98,7 @@ export const PersonalTab: React.FC = () => {
 			width: "100%"
 		},
 		title: {
+			color: theme.colors.black,
 			fontSize: 20,
 			fontWeight: "700"
 		},
@@ -121,7 +129,7 @@ export const PersonalTab: React.FC = () => {
 						size={36}
 						name="filter-list-alt"
 						type="material"
-						color="black"
+						color={theme.colors.black}
 						onPress={handlePresentModalPress}
 						style={styles.filterIcon}
 					/>
@@ -139,6 +147,8 @@ export const PersonalTab: React.FC = () => {
 				<SavedArticlesFeed />
 				<BottomSheetModalProvider>
 					<BottomSheetModal
+						handleIndicatorStyle={styles.bottomSheetIndicator}
+						backgroundStyle={styles.bottomSheetBackground}
 						ref={bottomSheetModalRef}
 						index={0}
 						snapPoints={snapPoints}
@@ -147,7 +157,13 @@ export const PersonalTab: React.FC = () => {
 					>
 						<View style={styles.contentContainer}>
 							<Text style={styles.filterTitle}>Sort by</Text>
-							<Divider width={1} />
+							<Divider
+								color={theme.colors.black}
+								style={{
+									marginBottom: 16
+								}}
+								width={1}
+							/>
 							<Button buttonStyle={styles.filterBtn} onPress={() => setSelectedFilter("lastAdded")}>
 								<Text style={styles.btnText}>Last added</Text>
 								<Icon

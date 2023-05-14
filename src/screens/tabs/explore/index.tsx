@@ -14,7 +14,7 @@ import { PreviewRow } from "./preview_row";
 export const ExploreTab: React.FC = () => {
 	const [query, setQuery] = useState("");
 	const { data } = useQuery(["category-articles"], async () => {
-		// TODO: Fetch bookmark endpoint
+		// TODO: Fetch bookmark
 		const { data, error } = await supabase.from("category_articles").select("*");
 
 		if (error) {

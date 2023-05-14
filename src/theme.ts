@@ -16,12 +16,18 @@ export const theme = createTheme({
 	darkColors: {
 		background: "#000000",
 		brand: "#9333ea",
-		categories
+		categories,
+		misc: {
+			backdrop: "rgba(0, 0, 0, 0.5)"
+		}
 	},
 	lightColors: {
 		background: "#ffffff",
 		brand: "#9333ea",
-		categories
+		categories,
+		misc: {
+			backdrop: "rgba(255, 255, 255, 0.5)"
+		}
 	},
 	components: {
 		Button: {

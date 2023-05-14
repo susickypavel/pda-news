@@ -72,6 +72,7 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route
 	return (
 		<WebView
 			style={styles.webview}
+			originWhitelist={["*"]}
 			source={{
 				uri: original_url
 			}}
