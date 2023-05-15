@@ -1,5 +1,6 @@
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Button, Icon, useTheme } from "@rneui/themed";
+import { useQueryClient } from "@tanstack/react-query";
 import React, { useMemo } from "react";
 import { Share, StyleSheet, View } from "react-native";
 import { WebView } from "react-native-webview";
@@ -14,6 +15,7 @@ type ArticleDetailsScreenProps = NativeStackScreenProps<RootStackParamList, "Art
 export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = ({ route }) => {
 	const { user } = useAuth();
 	const { theme } = useTheme();
+	const queryClient = useQueryClient();
 	const { id, title, original_url, is_bookmarked } = route.params;
 	const [bookmarks, toggleBookmark] = useBookmarkStore(state => [state.bookmarks, state.toggleBookmark]);
 
@@ -48,6 +50,10 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 				console.error("Error creating bookmark", error.message);
 			}
 		}
+
+		queryClient.invalidateQueries({
+			queryKey: ["saved-articles", user.id]
+		});
 	};
 
 	return (
