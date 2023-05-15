@@ -4,7 +4,7 @@ import "react-native-url-polyfill/auto";
 import { LogBox } from "react-native";
 LogBox.ignoreLogs(["Sending `onAnimatedValueUpdate` with no listeners registered."]);
 
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, NavigationContainerRef } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ThemeConsumer, ThemeProvider } from "@rneui/themed";
 import { Session } from "@supabase/supabase-js";
@@ -40,6 +40,7 @@ SplashScreen.preventAutoHideAsync();
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
+	const navigationRef = React.useRef<NavigationContainerRef<ReactNavigation.RootParamList>>(null);
 	const [authSession, setAuthSession] = useState<Session | null>(null);
 	const [initialRouteName, setRoute] = useState<keyof RootStackParamList>("SignIn");
 	const [isAuthStateLoaded, setAuthStateLoaded] = useState(false);
@@ -76,18 +77,51 @@ const App: React.FC = () => {
 			});
 	}, []);
 
+	useEffect(() => {
+		if (!navigationRef.current?.isReady) return;
+
+		const auth = supabase.auth.onAuthStateChange((event, session) => {
+			setAuthSession(session);
+
+			switch (event) {
+				case "SIGNED_IN":
+					navigationRef.current?.reset({
+						routes: [
+							{
+								name: "Home"
+							}
+						]
+					});
+					break;
+				case "SIGNED_OUT":
+					navigationRef.current?.reset({
+						routes: [
+							{
+								name: "SignIn"
+							}
+						]
+					});
+					break;
+			}
+		});
+
+		return () => {
+			auth.data.subscription.unsubscribe();
+		};
+	}, []);
+
 	if (!isFontLoaded || !isAuthStateLoaded) {
 		return null;
 	}
 
 	return (
-		<NavigationContainer onReady={onReady}>
+		<AuthProvider value={authSession} onChange={setAuthSession}>
 			<ThemeProvider theme={theme}>
 				<ColorScheme>
-					<AuthProvider value={authSession} onChange={setAuthSession}>
-						<QueryClientProvider client={queryClient}>
-							<ThemeConsumer>
-								{({ theme }) => (
+					<QueryClientProvider client={queryClient}>
+						<ThemeConsumer>
+							{({ theme }) => (
+								<NavigationContainer onReady={onReady} ref={navigationRef}>
 									<GestureHandlerRootView
 										style={{
 											flex: 1
@@ -168,13 +202,13 @@ const App: React.FC = () => {
 											/>
 										</Stack.Navigator>
 									</GestureHandlerRootView>
-								)}
-							</ThemeConsumer>
-						</QueryClientProvider>
-					</AuthProvider>
+								</NavigationContainer>
+							)}
+						</ThemeConsumer>
+					</QueryClientProvider>
 				</ColorScheme>
 			</ThemeProvider>
-		</NavigationContainer>
+		</AuthProvider>
 	);
 };
 
