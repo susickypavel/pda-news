@@ -3,6 +3,7 @@ import { FlashList } from "@shopify/flash-list";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { Image } from "react-native";
 
 import { supabase } from "@/api/supabase";
 import { useAuth } from "@/context/auth";
@@ -10,7 +11,17 @@ import { useAuth } from "@/context/auth";
 import { ArticleFeedSeparator } from "./article-feed";
 import { ArticlePreview } from "./article-preview";
 
-const NoBookmarks = () => <Text>No bookmarks :(</Text>;
+const NoBookmarks = () => (
+	<View style={styles.illustrationContainer}>
+		<Image style={styles.illustration} source={require("@/assets/images/noBookmarks.png")} />
+		<View style={{ width: "38%" }}>
+			<Text style={{ fontWeight: "bold", fontSize: 25 }}>You don&apos;t have any articles saved. </Text>
+			<Text style={{ paddingTop: 6 }}>
+				Go back exploring and save some articles so you can get back to them whenever you want!
+			</Text>
+		</View>
+	</View>
+);
 
 export const SavedArticlesFeed: React.FC = () => {
 	const { user } = useAuth();
@@ -25,14 +36,6 @@ export const SavedArticlesFeed: React.FC = () => {
 	if (isError) return null;
 
 	if (isLoading) return null;
-
-	const styles = StyleSheet.create({
-		container: {
-			flex: 1,
-			width: "100%"
-		},
-		list: {}
-	});
 
 	return (
 		<View style={styles.container}>
@@ -57,3 +60,21 @@ export const SavedArticlesFeed: React.FC = () => {
 };
 
 SavedArticlesFeed.displayName = "SavedArticlesFeed";
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		width: "100%"
+	},
+	illustration: {
+		height: 250,
+		resizeMode: "contain",
+		width: "58%"
+	},
+	illustrationContainer: {
+		alignItems: "center",
+		display: "flex",
+		flexDirection: "row"
+	},
+	list: {}
+});

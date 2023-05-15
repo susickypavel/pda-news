@@ -1,7 +1,9 @@
+import { Divider } from "@rneui/base";
 import { Text } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import React, { useMemo } from "react";
+import { Image } from "react-native";
 import { StyleSheet, View } from "react-native";
 
 import { supabase } from "@/api/supabase";
@@ -20,14 +22,24 @@ const FetchingIndicator: React.FC = () => (
 );
 
 const EmptyList: React.FC = () => (
-	<View>
-		<Text>No news for today</Text>
+	<View style={styles.illustrationContainer}>
+		<Image style={styles.illustration} source={require("@/assets/images/noNewsToday.png")} />
+		<View style={{ width: "38%" }}>
+			<Text style={{ fontWeight: "bold", fontSize: 25 }}>We are sorry!</Text>
+			<Text style={{ paddingVertical: 6 }}>There are no news for this day.</Text>
+			<Text>Choose another date to dive into hot topics!</Text>
+		</View>
 	</View>
 );
 
 const ListEnd: React.FC = () => (
-	<View>
-		<Text>End of the list</Text>
+	<View style={styles.illustrationContainer}>
+		<Image style={styles.illustration} source={require("@/assets/images/endOfList.png")} />
+		<View style={{ width: "38%" }}>
+			<Text style={{ fontWeight: "bold", fontSize: 25 }}>Great job!</Text>
+			<Text style={{ paddingVertical: 6 }}>You have finished all the news for this day.</Text>
+			<Text>Come back tommorow for more stories!</Text>
+		</View>
 	</View>
 );
 
@@ -111,6 +123,16 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 };
 
 const styles = StyleSheet.create({
+	illustration: {
+		height: 250,
+		resizeMode: "contain",
+		width: "58%"
+	},
+	illustrationContainer: {
+		alignItems: "center",
+		display: "flex",
+		flexDirection: "row"
+	},
 	list: {
 		padding: 8
 	}
