@@ -16,6 +16,7 @@ export const theme = createTheme({
 	darkColors: {
 		background: "#000000",
 		brand: "#9333ea",
+		primary: "#9333ea",
 		categories,
 		misc: {
 			backdrop: "rgba(0, 0, 0, 0.5)"
@@ -24,6 +25,7 @@ export const theme = createTheme({
 	lightColors: {
 		background: "#ffffff",
 		brand: "#9333ea",
+		primary: "#9333ea",
 		categories,
 		misc: {
 			backdrop: "rgba(255, 255, 255, 0.5)"
