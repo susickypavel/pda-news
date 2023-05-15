@@ -1,4 +1,3 @@
-import { Divider } from "@rneui/base";
 import { Text } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import { useInfiniteQuery } from "@tanstack/react-query";
