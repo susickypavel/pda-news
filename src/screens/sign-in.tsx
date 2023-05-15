@@ -1,6 +1,8 @@
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { Text } from "@rneui/base";
 import React from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
+import { Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { LinkButton } from "@/components/common/button-link";
@@ -17,6 +19,7 @@ const Screen: React.FC<SignInScreenProps> = props => {
 			style={styles.container}
 			{...props}
 		>
+			<Image style={styles.illustration} source={require("@/assets/images/login.png")} />
 			<SafeAreaView style={styles.safe}>
 				<SignInForm />
 				<LinkButton
@@ -37,6 +40,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-end",
 		padding: 16
+	},
+	illustration: {
+		height: 300,
+		resizeMode: "contain",
+		width: "100%"
 	},
 	link: {
 		marginTop: 16
