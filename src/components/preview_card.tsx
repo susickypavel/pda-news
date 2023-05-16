@@ -51,4 +51,4 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 	);
 };
 
-PreviewCard.displayName = "ArticlePreview";
+PreviewCard.displayName = "PreviewCard";

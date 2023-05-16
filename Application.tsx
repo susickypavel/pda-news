@@ -9,7 +9,7 @@ import { AccountSettingsScreen } from "@/screens/settings/account";
 import { SettingsScreen } from "@/screens/settings/settings";
 import { SignInScreen } from "@/screens/sign-in";
 import { SignUpScreen } from "@/screens/sign-up";
-import { InterestSubpageScreen } from "@/screens/tabs/explore/interest-subpage/interest-subpage";
+import { InterestSubpageScreen } from "@/screens/tabs/explore/interest-subpage";
 import { RootStackParamList } from "@/types/app";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

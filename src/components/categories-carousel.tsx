@@ -3,7 +3,8 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import { useExploreFeed } from "@/api/queries/articles";
-import { PreviewRow } from "@/screens/tabs/explore/preview_row";
+
+import { PreviewRow } from "./preview_row";
 
 type CategoriesCarouselProps = {
 	data: ReturnType<typeof useExploreFeed>["data"];

@@ -29,4 +29,4 @@ export const PreviewRow: React.FC<PreviewCardsProps> = props => {
 	);
 };
 
-PreviewRow.displayName = "ArticlePreview";
+PreviewRow.displayName = "PreviewRow";
