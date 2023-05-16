@@ -87,9 +87,14 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route
 
 	return (
 		<Fragment>
-			<Header containerStyle={styles.header}>
-				<ArticleDetailHeaderActions route={route} navigation={navigation} />
-			</Header>
+			<Header
+				statusBarProps={{
+					// @ts-ignore
+					backgroundColor: theme.colors.categories[category].bg
+				}}
+				containerStyle={styles.header}
+				rightComponent={<ArticleDetailHeaderActions route={route} navigation={navigation} />}
+			/>
 			<WebView
 				style={styles.webview}
 				originWhitelist={["*"]}

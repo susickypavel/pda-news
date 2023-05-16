@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
 import { useEffect } from "react";
+import { Platform } from "react-native";
 
 import { useAuth } from "@/context/auth";
 import { ArticleDetailScreen } from "@/screens/article-detail";
@@ -14,10 +15,6 @@ import { InterestSubpageScreen } from "@/screens/tabs/explore/interest-subpage";
 import { RootStackParamList } from "@/types/app";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-const defaultScreenOptions = {
-	headerShown: false
-};
 
 export const ApplicationRoot: React.FC = () => {
 	const session = useAuth();
@@ -32,7 +29,12 @@ export const ApplicationRoot: React.FC = () => {
 
 	if (!session) {
 		return (
-			<Stack.Navigator initialRouteName="SignIn" screenOptions={defaultScreenOptions}>
+			<Stack.Navigator
+				initialRouteName="SignIn"
+				screenOptions={{
+					headerShown: false
+				}}
+			>
 				<Stack.Screen name="SignIn" component={SignInScreen} />
 				<Stack.Screen name="SignUp" component={SignUpScreen} />
 			</Stack.Navigator>
@@ -40,7 +42,13 @@ export const ApplicationRoot: React.FC = () => {
 	}
 
 	return (
-		<Stack.Navigator initialRouteName="Home" screenOptions={defaultScreenOptions}>
+		<Stack.Navigator
+			initialRouteName="Home"
+			screenOptions={{
+				headerShown: false,
+				animation: Platform.OS === "ios" ? "simple_push" : "default"
+			}}
+		>
 			<Stack.Screen name="Home" component={HomeScreen} />
 			<Stack.Screen name="Settings" component={SettingsScreen} />
 			<Stack.Screen name="AccountSettings" component={AccountSettingsScreen} />
