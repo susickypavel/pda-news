@@ -4,6 +4,7 @@ import * as React from "react";
 import { useEffect } from "react";
 
 import { useAuth } from "@/context/auth";
+import { ArticleDetailScreen } from "@/screens/article-detail";
 import { HomeScreen } from "@/screens/home";
 import { AccountSettingsScreen } from "@/screens/settings/account";
 import { SettingsScreen } from "@/screens/settings/settings";
@@ -44,6 +45,7 @@ export const ApplicationRoot: React.FC = () => {
 			<Stack.Screen name="Settings" component={SettingsScreen} />
 			<Stack.Screen name="AccountSettings" component={AccountSettingsScreen} />
 			<Stack.Screen name="InterestSubpage" component={InterestSubpageScreen} />
+			<Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} />
 		</Stack.Navigator>
 	);
 };

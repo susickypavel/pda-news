@@ -1,7 +1,8 @@
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Button, Icon, useTheme } from "@rneui/themed";
+import { Button, Header, Icon, useTheme, useThemeMode } from "@rneui/themed";
 import { useQueryClient } from "@tanstack/react-query";
-import React, { useMemo } from "react";
+import { StatusBar } from "expo-status-bar";
+import React, { Fragment, useMemo } from "react";
 import { Share, StyleSheet, View } from "react-native";
 import { WebView } from "react-native-webview";
 
@@ -53,6 +54,12 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 		});
 	};
 
+	const styles = StyleSheet.create({
+		headerButton: {
+			width: "auto"
+		}
+	});
+
 	return (
 		<View style={{ flexDirection: "row" }}>
 			<Button type="clear" containerStyle={styles.headerButton} onPress={onBookmark}>
@@ -65,25 +72,38 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 	);
 };
 
-export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route }) => {
-	const { original_url } = route.params;
+export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route, navigation }) => {
+	const { original_url, category } = route.params;
+	const { theme } = useTheme();
+
+	const styles = StyleSheet.create({
+		header: {
+			// @ts-ignore
+			backgroundColor: theme.colors.categories[category].bg
+		},
+		webview: {
+			flex: 1
+		}
+	});
 
 	return (
-		<WebView
-			style={styles.webview}
-			originWhitelist={["*"]}
-			source={{
-				uri: original_url
-			}}
-		/>
+		<Fragment>
+			<Header
+				containerStyle={styles.header}
+				statusBarProps={{
+					// @ts-ignore
+					backgroundColor: theme.colors.categories[category].bg
+				}}
+			>
+				<ArticleDetailHeaderActions route={route} navigation={navigation} />
+			</Header>
+			<WebView
+				style={styles.webview}
+				originWhitelist={["*"]}
+				source={{
+					uri: original_url
+				}}
+			/>
+		</Fragment>
 	);
 };
-
-const styles = StyleSheet.create({
-	headerButton: {
-		width: "auto"
-	},
-	webview: {
-		flex: 1
-	}
-});
