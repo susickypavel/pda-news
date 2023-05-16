@@ -1,4 +1,4 @@
-import { Text } from "@rneui/themed";
+import { Text, useTheme } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import React from "react";
 import { StyleSheet, View } from "react-native";
@@ -12,6 +12,7 @@ const NoBookmarks = () => <Text>No bookmarks :(</Text>;
 
 export const SavedArticlesFeed: React.FC = () => {
 	const { data, isLoading, isError, refetch, isRefetching } = useBookmarkedArticles();
+	const { theme } = useTheme();
 
 	if (isError) return null;
 
@@ -20,7 +21,7 @@ export const SavedArticlesFeed: React.FC = () => {
 	const styles = StyleSheet.create({
 		container: {
 			flex: 1,
-			width: "100%"
+			padding: theme.spacing.sm
 		}
 	});
 
@@ -39,7 +40,6 @@ export const SavedArticlesFeed: React.FC = () => {
 				refreshing={isRefetching}
 				ListEmptyComponent={NoBookmarks}
 				ItemSeparatorComponent={ArticleFeedSeparator}
-				ListFooterComponent={ArticleFeedSeparator}
 			/>
 		</View>
 	);

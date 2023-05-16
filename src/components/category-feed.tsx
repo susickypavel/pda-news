@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
 import { Badge, Icon, Text, useTheme } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { useBookmarkStore } from "src/stores/bookmark-store";
 
 import { useCategoryFeed } from "@/queries/articles";
 import { BadgeCategory } from "@/types/theme";
@@ -26,8 +29,13 @@ const CategoryFeedSeparator = () => (
 	/>
 );
 
-const CategoryFeedItem: React.FC<CategoryFeedItemProps> = ({ is_bookmarked, content, title, image_url, source_id, category }) => {
+const CategoryFeedItem: React.FC<CategoryFeedItemProps> = props => {
+	const { is_bookmarked, content, title, id, image_url, source_id, category } = props;
 	const { theme } = useTheme();
+	const { navigate } = useNavigation();
+	const bookmarks = useBookmarkStore(state => state.bookmarks);
+
+	const isBookmarked = typeof bookmarks[id] === "undefined" ? is_bookmarked : bookmarks[id];
 
 	const styles = StyleSheet.create({
 		container: {
@@ -69,32 +77,36 @@ const CategoryFeedItem: React.FC<CategoryFeedItemProps> = ({ is_bookmarked, cont
 		}
 	});
 
+	const onPress = () => navigate("ArticleDetail", props);
+
 	return (
-		<View style={styles.container}>
-			<View style={styles.header}>
-				<View style={styles.leftPanel}>
-					<Text>{source_id.name}</Text>
-					<Text style={styles.heading} numberOfLines={3}>
-						{title}
-					</Text>
+		<TouchableWithoutFeedback onPress={onPress}>
+			<View style={styles.container}>
+				<View style={styles.header}>
+					<View style={styles.leftPanel}>
+						<Text>{source_id.name}</Text>
+						<Text style={styles.heading} numberOfLines={3}>
+							{title}
+						</Text>
+					</View>
+					<Image
+						style={styles.thumbnail}
+						resizeMethod="scale"
+						resizeMode="cover"
+						source={image_url ? { uri: image_url } : require("@/assets/images/fallback-thumbnail.png")}
+					/>
 				</View>
-				<Image
-					style={styles.thumbnail}
-					resizeMethod="scale"
-					resizeMode="cover"
-					source={image_url ? { uri: image_url } : require("@/assets/images/fallback-thumbnail.png")}
-				/>
+				{content ? (
+					<Text style={styles.description} numberOfLines={3}>
+						{content}
+					</Text>
+				) : null}
+				<View style={styles.footer}>
+					<Badge value={category} category={category as BadgeCategory} />
+					<Icon name={isBookmarked ? "bookmark" : "bookmark-border"} color="black" size={32} />
+				</View>
 			</View>
-			{content ? (
-				<Text style={styles.description} numberOfLines={3}>
-					{content}
-				</Text>
-			) : null}
-			<View style={styles.footer}>
-				<Badge value={category} category={category as BadgeCategory} />
-				<Icon name={is_bookmarked ? "bookmark" : "bookmark-border"} color="black" size={32} />
-			</View>
-		</View>
+		</TouchableWithoutFeedback>
 	);
 };
 
