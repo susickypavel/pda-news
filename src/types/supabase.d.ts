@@ -144,6 +144,20 @@ export interface Database {
 					user_id?: string
 				}
 			}
+			user_categories: {
+				Row: {
+					category: string
+					user_id: string
+				}
+				Insert: {
+					category: string
+					user_id: string
+				}
+				Update: {
+					category?: string
+					user_id?: string
+				}
+			}
 			user_preferences: {
 				Row: {
 					theme: string | null
@@ -209,6 +223,25 @@ export interface Database {
 			}
 		}
 		Functions: {
+			get_category_feed: {
+				Args: {
+					user_id: string
+					category: string
+				}
+				Returns: {
+					category: string
+					content: string
+					created_at: string
+					id: string
+					image_url: string
+					is_bookmarked: boolean
+					original_url: string
+					published_at: string
+					region: string
+					source_id: string
+					title: string
+				}[]
+			}
 			get_user_feed: {
 				Args: {
 					user_id: string

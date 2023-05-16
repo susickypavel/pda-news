@@ -70,27 +70,42 @@ export function useExploreFeed() {
 
 
 export function useCategoryFeed(category: BadgeCategory) {
-	const query = useQuery(["category-articles", category], async () => {
-		// TODO: Fetch bookmark endpoint
-		const { data, error } = await supabase
-			.from("articles")
-			.select("*, source_id (name)")
-			.eq("category", category)
-			.order("published_at", {
-				ascending: false
-			})
-			.limit(10);
+	const { user } = useAuthSafe()
+	const { data, ...query } = useInfiniteQuery(
+		["category-articles", user.id, category],
+		async ({ pageParam = 0 }) => {
+			const from = pageParam * ARTICLES_LIMIT_PER_LOAD;
+			const to = from + ARTICLES_LIMIT_PER_LOAD - 1;
 
-		if (error) {
-			throw new Error(error.message);
+			const { data, error } = await supabase
+				.rpc("get_category_feed", {
+					user_id: user.id,
+					category
+				})
+				.select("*, source_id (name)")
+				.range(from, to);
+
+			if (error) {
+				throw new Error(error.message);
+			}
+
+			return data;
+		},
+		{
+			getNextPageParam: (lastPages, pages) => {
+				if (lastPages.length < ARTICLES_LIMIT_PER_LOAD) {
+					return undefined;
+				}
+
+				return Math.floor(pages.flatMap(page => page).length / ARTICLES_LIMIT_PER_LOAD);
+			}
 		}
+	);
 
-		return data;
-	});
+	const articles = useMemo(() => data?.pages.flatMap(page => page) || [], [data]);
 
-	return query;
+	return [articles, query] as const;
 }
-
 
 export function useBookmarkedArticles() {
 	const { user } = useAuthSafe()
