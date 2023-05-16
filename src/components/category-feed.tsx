@@ -61,8 +61,8 @@ const CategoryFeedItem: React.FC<CategoryFeedItemProps> = props => {
 			gap: theme.spacing.xl
 		},
 		heading: {
-			fontSize: 20,
-			fontWeight: "700"
+			fontFamily: "InterTightBold",
+			fontSize: 20
 		},
 		leftPanel: {
 			flex: 1,

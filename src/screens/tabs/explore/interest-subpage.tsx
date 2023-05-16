@@ -29,8 +29,8 @@ const Screen: React.FC<InterestSubpageScreenProps> = ({ route: { params } }) => 
 			padding: 20
 		},
 		heading: {
+			fontFamily: "InterTightBold",
 			fontSize: 32,
-			fontWeight: "700",
 			textTransform: "capitalize"
 		}
 	});

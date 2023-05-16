@@ -27,8 +27,8 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 		},
 		title: {
 			color: theme.colors.black,
+			fontFamily: "InterTightMedium",
 			fontSize: 16,
-			fontWeight: "500",
 			lineHeight: 20
 		}
 	});
