@@ -1,54 +1,48 @@
-import { StackActions, useNavigation } from "@react-navigation/native";
 import type { Session } from "@supabase/supabase-js";
-import React, { createContext, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { supabase } from "@/api/supabase";
 
-export const AuthContext = createContext<Session | null>(null);
+export const AuthContext = createContext<Session | null | undefined>(null);
 
 interface AuthProviderProps {
 	children: React.ReactNode;
-	onChange: (value: Session | null) => void;
-	value: Session | null;
+	onAuthStateLoad: (isLoaded: boolean) => void;
 }
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children, value, onChange }) => {
-	const navigation = useNavigation();
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children, onAuthStateLoad }) => {
+	const [session, setAuthSession] = useState<Session | null | undefined>(undefined);
 
 	useEffect(() => {
-		const auth = supabase.auth.onAuthStateChange((event, session) => {
-			switch (event) {
-				case "SIGNED_IN":
-					navigation.dispatch(StackActions.replace("Home"));
-					break;
-				case "SIGNED_OUT":
-					navigation.reset({
-						routes: [
-							{
-								name: "SignIn"
-							}
-						]
-					});
-					break;
-			}
+		supabase.auth
+			.getSession()
+			.then(({ data }) => {
+				setAuthSession(data.session);
+			})
+			.catch(reason => {
+				console.log(`ERROR: Couldn't fetch session status. (${reason})`);
+				setAuthSession(null);
+			})
+			.finally(() => {
+				onAuthStateLoad(true);
+			});
 
-			onChange(session);
+		const { data } = supabase.auth.onAuthStateChange((_, session) => {
+			setAuthSession(session);
 		});
 
-		return () => {
-			auth.data.subscription.unsubscribe();
-		};
-	}, []);
+		return data.subscription.unsubscribe;
+	}, [onAuthStateLoad]);
 
-	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+	return <AuthContext.Provider value={session}>{children}</AuthContext.Provider>;
 };
 
 export function useAuth() {
-	const context = useContext(AuthContext);
+	const session = useContext(AuthContext);
 
-	if (!context) {
-		throw Error("useAuth must be used within AuthProvider");
+	if (typeof session === "undefined") {
+		throw new Error("Session is not available.");
 	}
 
-	return context;
+	return session;
 }
