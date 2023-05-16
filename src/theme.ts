@@ -47,8 +47,7 @@ export const theme = createTheme({
 				paddingVertical: 16
 			},
 			titleStyle: {
-				fontFamily: "InterTightBlack",
-				fontWeight: "900"
+				fontFamily: "InterTightBlack"
 			}
 		},
 		Input: {

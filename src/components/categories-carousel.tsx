@@ -15,8 +15,8 @@ export const CategoriesCarousel: React.FC<CategoriesCarouselProps> = ({ data }) 
 	const styles = StyleSheet.create({
 		heading: {
 			color: theme.colors.black,
+			fontFamily: "InterTightMedium",
 			fontSize: 24,
-			fontWeight: "500",
 			marginBottom: theme.spacing.sm,
 			textTransform: "capitalize"
 		},
