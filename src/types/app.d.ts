@@ -25,6 +25,6 @@ export type RootStackScreens = keyof RootStackParamList;
 
 declare global {
 	namespace ReactNavigation {
-		interface RootParamList extends RootStackParamList { }
+		interface RootParamList extends RootStackParamList {}
 	}
 }

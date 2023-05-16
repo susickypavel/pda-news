@@ -10,8 +10,6 @@ import { supabase } from "@/api/supabase";
 import { TextField } from "./common/textfield";
 import { styles } from "./signin-form";
 
-// TODO: Proper copywriting
-
 const REGISTER_SCHEMA = z
 	.object({
 		email: z.string().email("Invalid email").trim(),
