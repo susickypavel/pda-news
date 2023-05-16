@@ -90,3 +90,18 @@ export function useCategoryFeed(category: BadgeCategory) {
 
 	return query;
 }
+
+
+export function useBookmarkedArticles() {
+	const { user } = useAuthSafe()
+
+	const query = useQuery(["saved-articles", user.id], async () => {
+		const response = await supabase.rpc("get_user_saved_articles", {
+			user_id: user.id
+		});
+
+		return response.data;
+	});
+
+	return query;
+}

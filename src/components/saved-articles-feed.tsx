@@ -1,11 +1,9 @@
 import { Text } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { supabase } from "@/api/supabase";
-import { useAuth } from "@/context/auth";
+import { useBookmarkedArticles } from "@/api/queries/articles";
 
 import { ArticleFeedSeparator } from "./article-feed";
 import { ArticlePreview } from "./article-preview";
@@ -13,14 +11,7 @@ import { ArticlePreview } from "./article-preview";
 const NoBookmarks = () => <Text>No bookmarks :(</Text>;
 
 export const SavedArticlesFeed: React.FC = () => {
-	const { user } = useAuth();
-	const { data, isLoading, isError, refetch, isRefetching } = useQuery(["saved-articles", user.id], async () => {
-		const response = await supabase.rpc("get_user_saved_articles", {
-			user_id: user.id
-		});
-
-		return response.data;
-	});
+	const { data, isLoading, isError, refetch, isRefetching } = useBookmarkedArticles();
 
 	if (isError) return null;
 
@@ -30,8 +21,7 @@ export const SavedArticlesFeed: React.FC = () => {
 		container: {
 			flex: 1,
 			width: "100%"
-		},
-		list: {}
+		}
 	});
 
 	return (
@@ -41,7 +31,6 @@ export const SavedArticlesFeed: React.FC = () => {
 				data={data}
 				keyExtractor={item => item.id}
 				renderItem={({ item }) => <ArticlePreview {...item} is_bookmarked={true} />}
-				contentContainerStyle={styles.list}
 				estimatedItemSize={10}
 				onEndReachedThreshold={0.25}
 				onRefresh={async () => {
