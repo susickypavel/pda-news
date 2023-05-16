@@ -1,7 +1,6 @@
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Button, Header, Icon, useTheme, useThemeMode } from "@rneui/themed";
+import { Button, Header, Icon, useTheme } from "@rneui/themed";
 import { useQueryClient } from "@tanstack/react-query";
-import { StatusBar } from "expo-status-bar";
 import React, { Fragment, useMemo } from "react";
 import { Share, StyleSheet, View } from "react-native";
 import { WebView } from "react-native-webview";
@@ -88,13 +87,7 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route
 
 	return (
 		<Fragment>
-			<Header
-				containerStyle={styles.header}
-				statusBarProps={{
-					// @ts-ignore
-					backgroundColor: theme.colors.categories[category].bg
-				}}
-			>
+			<Header containerStyle={styles.header}>
 				<ArticleDetailHeaderActions route={route} navigation={navigation} />
 			</Header>
 			<WebView

@@ -1,11 +1,11 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { useTheme } from "@rneui/themed";
-import React from "react";
+import { Header, useTheme } from "@rneui/themed";
+import React, { Fragment } from "react";
 import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { RootStackParamList } from "src/types/app";
 
 import { CategoryFeed } from "@/components/category-feed";
-import withSafeArea from "@/components/hoc/with-safe-area";
 
 type InterestSubpageScreenRouteProp = RouteProp<RootStackParamList, "InterestSubpage">;
 
@@ -16,40 +16,37 @@ type InterestSubpageScreenProps = {
 	navigation: InterestSubpageScreenNavigationProp;
 };
 
-const Screen: React.FC<InterestSubpageScreenProps> = ({ route: { params } }) => {
+export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ route: { params } }) => {
 	const { theme } = useTheme();
 
 	const styles = StyleSheet.create({
-		container: {
-			flex: 1
+		center: {
+			flex: 0
 		},
-		header: {
-			backgroundColor: theme.colors.categories[params.category].bg,
-			gap: theme.spacing.sm,
-			padding: 20
-		},
+
 		heading: {
 			fontFamily: "InterTightBold",
 			fontSize: 32,
 			textTransform: "capitalize"
+		},
+		left: {
+			paddingHorizontal: theme.spacing.sm,
+			paddingVertical: 20
 		}
 	});
 
 	return (
-		<View style={styles.container}>
-			<StatusBar backgroundColor={theme.colors.categories[params.category].bg} />
-			<View style={styles.header}>
-				<Text style={styles.heading}>{params.category}</Text>
-			</View>
+		<Fragment>
+			<Header
+				leftContainerStyle={styles.left}
+				rightContainerStyle={styles.center}
+				centerContainerStyle={styles.center}
+				leftComponent={<Text style={styles.heading}>{params.category}</Text>}
+				backgroundColor={theme.colors.categories[params.category].bg}
+			/>
 			<CategoryFeed category={params.category} />
-		</View>
+		</Fragment>
 	);
 };
 
-export const InterestSubpageScreen = withSafeArea(Screen, {
-	style: {
-		flex: 1
-	}
-});
-
-Screen.displayName = "InterestSubpageScreen";
+InterestSubpageScreen.displayName = "InterestSubpageScreen";
