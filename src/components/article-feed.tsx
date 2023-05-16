@@ -1,18 +1,13 @@
 import { Text } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
-import { useInfiniteQuery } from "@tanstack/react-query";
-import React, { useMemo } from "react";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { supabase } from "@/api/supabase";
 import { ArticlePreview } from "@/components/article-preview";
-import { useAuth, useAuthSafe } from "@/context/auth";
+import { useArticleFeed } from "@/queries/articles";
 
-const PAGE_LIMIT = 5;
+export const ArticleFeedSeparator: React.FC = () => <View style={styles.separator} />;
 
-export const ArticleFeedSeparator: React.FC = () => <View style={{ height: 32 }} />;
-
-// TODO: Design
 const FetchingIndicator: React.FC = () => (
 	<View>
 		<Text>Getting more news</Text>
@@ -36,46 +31,8 @@ type ArticleFeedProps = {
 };
 
 export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
-	const { user } = useAuthSafe();
-	const { data, isLoading, isError, hasNextPage, isFetchingNextPage, fetchNextPage } = useInfiniteQuery(
-		["daily-feed", currentDate.toDateString()],
-		async ({ pageParam = 0 }) => {
-			const from = pageParam * PAGE_LIMIT;
-			const to = from + PAGE_LIMIT - 1;
-
-			const start = new Date(currentDate);
-			const end = new Date(currentDate);
-			end.setHours(23, 59, 59, 999);
-
-			const { data, error } = await supabase
-				.rpc("get_user_feed", {
-					user_id: user.id
-				})
-				.gte("published_at", start.toUTCString())
-				.lte("published_at", end.toUTCString())
-				.order("published_at", {
-					ascending: false
-				})
-				.range(from, to);
-
-			if (error) {
-				throw new Error(error.message);
-			}
-
-			return data;
-		},
-		{
-			getNextPageParam: (lastPages, pages) => {
-				if (lastPages.length < PAGE_LIMIT) {
-					return undefined;
-				}
-
-				return Math.floor(pages.flatMap(page => page).length / PAGE_LIMIT);
-			}
-		}
-	);
-
-	const articles = useMemo(() => data?.pages.flatMap(page => page) || [], [data]);
+	const [articles, { hasNextPage, isFetchingNextPage, fetchNextPage, isError, isLoading }] =
+		useArticleFeed(currentDate);
 
 	const onEndReached = () => {
 		if (hasNextPage && !isFetchingNextPage) {
@@ -113,6 +70,9 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 const styles = StyleSheet.create({
 	list: {
 		padding: 8
+	},
+	separator: {
+		height: 32
 	}
 });
 
