@@ -9,6 +9,8 @@ import { useBookmarkStore } from "src/stores/bookmark-store";
 import { useCategoryFeed } from "@/queries/articles";
 import { BadgeCategory } from "@/types/theme";
 
+import { EmptyList, FetchingIndicator, ListEnd } from "./article-feed";
+
 type CategoryFeedProps = {
 	category: BadgeCategory;
 };
@@ -113,7 +115,9 @@ const CategoryFeedItem: React.FC<CategoryFeedItemProps> = props => {
 export const CategoryFeed: React.FC<CategoryFeedProps> = ({ category }) => {
 	const [data, { isLoading, hasNextPage, isFetchingNextPage, fetchNextPage }] = useCategoryFeed(category);
 
-	if (isLoading) return null;
+	if (isLoading) {
+		return <FetchingIndicator />;
+	}
 
 	const onEndReached = () => {
 		if (hasNextPage && !isFetchingNextPage) {
@@ -130,7 +134,11 @@ export const CategoryFeed: React.FC<CategoryFeedProps> = ({ category }) => {
 			estimatedItemSize={200}
 			onEndReached={onEndReached}
 			ItemSeparatorComponent={CategoryFeedSeparator}
-			onEndReachedThreshold={0.25}
+			onEndReachedThreshold={0.5}
+			ListEmptyComponent={EmptyList}
+			ListFooterComponent={
+				isFetchingNextPage ? FetchingIndicator : !hasNextPage && data.length > 0 ? ListEnd : null
+			}
 		/>
 	);
 };

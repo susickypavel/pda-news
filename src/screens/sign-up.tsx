@@ -18,7 +18,7 @@ const Screen: React.FC<SignUpScreenProps> = props => {
 			style={styles.container}
 			{...props}
 		>
-			<Image style={styles.illustration} source={require("@/assets/images/signUp.png")} />
+			<Image style={styles.illustration} source={require("@/assets/images/illustrations/sign-up.png")} />
 			<SafeAreaView style={styles.safe}>
 				<SignUpForm />
 				<LinkButton

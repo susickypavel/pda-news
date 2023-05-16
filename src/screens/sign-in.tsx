@@ -1,5 +1,4 @@
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Text } from "@rneui/base";
 import React from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
 import { Image } from "react-native";
@@ -19,7 +18,7 @@ const Screen: React.FC<SignInScreenProps> = props => {
 			style={styles.container}
 			{...props}
 		>
-			<Image style={styles.illustration} source={require("@/assets/images/login.png")} />
+			<Image style={styles.illustration} source={require("@/assets/images/illustrations/sign-in.png")} />
 			<SafeAreaView style={styles.safe}>
 				<SignInForm />
 				<LinkButton

@@ -72,9 +72,13 @@ export function useExploreFeed() {
 
 export function useCategoryFeed(category: BadgeCategory) {
 	const { user } = useAuthSafe()
+
 	const { data, ...query } = useInfiniteQuery(
 		["category-articles", user.id, category],
 		async ({ pageParam = 0 }) => {
+			// NOTE: For demonstration purposes only
+			await new Promise(resolve => setTimeout(resolve, 500))
+
 			const from = pageParam * ARTICLES_LIMIT_PER_LOAD;
 			const to = from + ARTICLES_LIMIT_PER_LOAD - 1;
 

@@ -1,29 +1,41 @@
-import { Text } from "@rneui/themed";
+import { Text, useTheme } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 
 import { ArticlePreview } from "@/components/article-preview";
 import { useArticleFeed } from "@/queries/articles";
 
+import { IllustrationTemplate } from "./common/illustration";
+
 export const ArticleFeedSeparator: React.FC = () => <View style={styles.separator} />;
 
-const FetchingIndicator: React.FC = () => (
-	<View>
-		<Text>Getting more news</Text>
-	</View>
+export const FetchingIndicator: React.FC = () => {
+	const { theme } = useTheme();
+
+	return (
+		<ActivityIndicator
+			size="large"
+			color={theme.colors.brand}
+			style={{
+				marginVertical: 32
+			}}
+		/>
+	);
+};
+
+export const EmptyList: React.FC = () => (
+	<IllustrationTemplate title="We are sorry!" image={require("@/assets/images/illustrations/no-news-today.png")}>
+		<Text>There are no news for this day, yet.</Text>
+		<Text>Choose another date to dive into hot topics!</Text>
+	</IllustrationTemplate>
 );
 
-const EmptyList: React.FC = () => (
-	<View>
-		<Text>No news for today</Text>
-	</View>
-);
-
-const ListEnd: React.FC = () => (
-	<View>
-		<Text>End of the list</Text>
-	</View>
+export const ListEnd: React.FC = () => (
+	<IllustrationTemplate title="Great job!" image={require("@/assets/images/illustrations/end-of-list.png")}>
+		<Text>You have finished all the news for this day.</Text>
+		<Text>Come back tommorow for more stories!</Text>
+	</IllustrationTemplate>
 );
 
 type ArticleFeedProps = {
@@ -34,14 +46,14 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 	const [articles, { hasNextPage, isFetchingNextPage, fetchNextPage, isError, isLoading }] =
 		useArticleFeed(currentDate);
 
-	const onEndReached = () => {
+	const onEndReached = async () => {
 		if (hasNextPage && !isFetchingNextPage) {
 			fetchNextPage();
 		}
 	};
 
 	if (isLoading) {
-		return null;
+		return <FetchingIndicator />;
 	}
 
 	if (isError) {
@@ -56,10 +68,9 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 			renderItem={({ item }: any) => <ArticlePreview {...item} />}
 			ListEmptyComponent={EmptyList}
 			ItemSeparatorComponent={ArticleFeedSeparator}
-			contentContainerStyle={styles.list}
 			estimatedItemSize={200}
 			onEndReached={onEndReached}
-			onEndReachedThreshold={0.25}
+			onEndReachedThreshold={0.5}
 			ListFooterComponent={
 				isFetchingNextPage ? FetchingIndicator : !hasNextPage && articles.length > 0 ? ListEnd : null
 			}
@@ -68,9 +79,6 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 };
 
 const styles = StyleSheet.create({
-	list: {
-		padding: 8
-	},
 	separator: {
 		height: 32
 	}

@@ -66,9 +66,8 @@ export const HistoryPicker: React.FC<HistoryPickerProps> = ({ onChange }) => {
 				marginLeft: 0,
 				marginRight: 0,
 				marginTop: 0,
-				marginBottom: 0,
-				padding: 8,
-				height: 64
+				marginBottom: 8,
+				height: 48
 			}}
 			onPress={value => {
 				setSelectedIndex(value);
