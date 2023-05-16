@@ -29,6 +29,7 @@ export function useArticleFeed(currentDate: Date) {
 				.order("published_at", {
 					ascending: false
 				})
+				.select("*, source_id (name)")
 				.range(from, to);
 
 			if (error) {

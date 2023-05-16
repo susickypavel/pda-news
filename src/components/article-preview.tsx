@@ -1,28 +1,34 @@
 import { useNavigation } from "@react-navigation/native";
-import { Badge, Text, useTheme } from "@rneui/themed";
+import { Badge, Icon, Text, useTheme } from "@rneui/themed";
 import React from "react";
 import { Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { useBookmarkStore } from "src/stores/bookmark-store";
 
-export type ArticlePreviewProps = any;
+import { useArticleFeed } from "@/api/queries/articles";
+import { BadgeCategory } from "@/types/theme";
 
-// export interface ArticlePreviewProps {
-// 	id: string;
-// 	title: string;
-// 	content: string | null;
-// 	source_id: { name: string };
-// 	category: BadgeCategory;
-// }
+export type ArticlePreviewProps = ReturnType<typeof useArticleFeed>[0][0] & {
+	category: BadgeCategory;
+	source_id: {
+		name: string;
+	};
+};
 
 export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	const { navigate } = useNavigation();
 	const { theme } = useTheme();
+	const bookmarks = useBookmarkStore(state => state.bookmarks);
 
 	const {
 		title,
 		content,
 		source_id: { name },
-		category
+		category,
+		is_bookmarked,
+		id
 	} = props;
+
+	const isBookmarked = typeof bookmarks[id] === "undefined" ? is_bookmarked : bookmarks[id];
 
 	const onPress = () => {
 		navigate("ArticleDetail", props);
@@ -41,7 +47,8 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 			width: "100%"
 		},
 		domain: {
-			fontSize: 16
+			fontSize: 16,
+			marginRight: "auto"
 		},
 		excerpt: {
 			fontSize: 14
@@ -77,10 +84,6 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 						props.image_url ? { uri: props.image_url } : require("@/assets/images/fallback-thumbnail.png")
 					}
 				/>
-				<View style={styles.author}>
-					<Badge value={category} category={category} />
-					<Text style={styles.domain}>{name}</Text>
-				</View>
 				<Text style={styles.title}>{title}</Text>
 				{isExternal ? null : (
 					<View style={styles.excerptContainer}>
@@ -89,6 +92,11 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 						</Text>
 					</View>
 				)}
+				<View style={styles.author}>
+					<Badge value={category} category={category} />
+					<Text style={styles.domain}>{name}</Text>
+					<Icon name={isBookmarked ? "bookmark" : "bookmark-border"} color="black" size={32} />
+				</View>
 			</View>
 		</TouchableWithoutFeedback>
 	);

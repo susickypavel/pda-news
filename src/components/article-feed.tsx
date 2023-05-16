@@ -53,7 +53,7 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 			showsVerticalScrollIndicator={false}
 			data={articles}
 			keyExtractor={item => item.id}
-			renderItem={({ item }) => <ArticlePreview {...item} />}
+			renderItem={({ item }: any) => <ArticlePreview {...item} />}
 			ListEmptyComponent={EmptyList}
 			ItemSeparatorComponent={ArticleFeedSeparator}
 			contentContainerStyle={styles.list}
