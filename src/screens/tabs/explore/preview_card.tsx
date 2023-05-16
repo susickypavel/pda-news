@@ -11,21 +11,12 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 	const { theme } = useTheme();
 
 	const styles = StyleSheet.create({
-		author: {
-			alignItems: "center",
-			flexDirection: "row",
-			gap: 8,
-			marginVertical: 8
+		badge: {
+			flexDirection: "row"
 		},
 		container: {
-			flex: 1,
-			height: 260,
-			marginRight: 8,
-			marginVertical: 12,
+			gap: theme.spacing.sm,
 			width: 160
-		},
-		descriptionContainer: {
-			marginLeft: 6
 		},
 		thumbnailImg: {
 			// @ts-ignore
@@ -38,35 +29,23 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 			color: theme.colors.black,
 			fontSize: 16,
 			fontWeight: "500",
-			lineHeight: 18
+			lineHeight: 20
 		}
 	});
 
+	const onPress = () => navigate("ArticleDetail", props);
+
 	return (
-		<TouchableWithoutFeedback
-			onPress={() =>
-				navigate("ArticleDetail", {
-					original_url: props.original_url,
-					title: props.title,
-					id: props.id
-				})
-			}
-		>
+		<TouchableWithoutFeedback onPress={onPress}>
 			<View style={styles.container}>
 				<Image
 					style={styles.thumbnailImg}
-					source={
-						props.image_url ? { uri: props.image_url } : require("@/assets/images/fallback-thumbnail.png")
-					}
+					source={props.image_url ? { uri: props.image_url } : require("@/assets/images/fallback-thumbnail.png")}
 				/>
-				<View style={styles.descriptionContainer}>
-					<View style={styles.author}>
-						<Badge value={category} category={category} />
-					</View>
-					<Text numberOfLines={3} style={styles.title}>
-						{title}
-					</Text>
-				</View>
+				<Badge value={category} category={category} containerStyle={styles.badge} />
+				<Text numberOfLines={3} style={styles.title}>
+					{title}
+				</Text>
 			</View>
 		</TouchableWithoutFeedback>
 	);

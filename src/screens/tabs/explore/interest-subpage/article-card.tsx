@@ -20,15 +20,15 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 	const styles = StyleSheet.create({
 		author: {
 			alignItems: "center",
-			flexDirection: "row",
-			gap: 8,
-			marginVertical: 8
+			flexDirection: "row"
+			// gap: 8
+			// marginVertical: 8
 		},
 		container: {
 			borderBottomColor: "#CCCCCC",
 			borderBottomWidth: 1,
-			flex: 1,
-			marginVertical: 10
+			flex: 1
+			// marginVertical: 10
 		},
 		containerLeftCol: {
 			flex: 1,
@@ -38,14 +38,14 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 			alignItems: "flex-end",
 			flex: 1,
 			flexDirection: "row",
-			justifyContent: "flex-end",
-			marginBottom: 20
+			justifyContent: "flex-end"
+			// marginBottom: 20
 		},
 		content: {
 			color: theme.colors.black,
 			fontSize: 12,
-			lineHeight: 18,
-			marginBottom: 30
+			lineHeight: 18
+			// marginBottom: 30
 		},
 		domain: {
 			color: theme.colors.black,
@@ -55,8 +55,8 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 			// @ts-ignore
 			backgroundColor: theme.colors.categories[category].bg,
 			height: 120,
-			marginLeft: 10,
-			marginTop: 16,
+			// marginLeft: 10,
+			// marginTop: 16,
 			width: 120
 		},
 		title: {
@@ -84,11 +84,7 @@ export const ArticleCard: React.FC<ArticlePreviewProps> = props => {
 						style={styles.image}
 						resizeMethod="scale"
 						resizeMode="cover"
-						source={
-							props.image_url
-								? { uri: props.image_url }
-								: require("@/assets/images/fallback-thumbnail.png")
-						}
+						source={props.image_url ? { uri: props.image_url } : require("@/assets/images/fallback-thumbnail.png")}
 					/>
 				</View>
 				{content ? (

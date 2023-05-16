@@ -1,3 +1,4 @@
+import { useTheme } from "@rneui/themed";
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 
@@ -10,10 +11,17 @@ type PreviewCardsProps = {
 };
 
 export const PreviewRow: React.FC<PreviewCardsProps> = props => {
+	const { theme } = useTheme();
 	const { articles } = props;
 
+	const styles = StyleSheet.create({
+		container: {
+			gap: theme.spacing.sm
+		}
+	});
+
 	return (
-		<ScrollView horizontal style={styles.container} showsHorizontalScrollIndicator={false}>
+		<ScrollView horizontal contentContainerStyle={styles.container} showsHorizontalScrollIndicator={false}>
 			{articles.map(article => (
 				<PreviewCard {...article} key={article.id} />
 			))}
@@ -22,12 +30,3 @@ export const PreviewRow: React.FC<PreviewCardsProps> = props => {
 };
 
 PreviewRow.displayName = "ArticlePreview";
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		flexDirection: "row",
-		flexGrow: 0.5,
-		margin: 10
-	}
-});

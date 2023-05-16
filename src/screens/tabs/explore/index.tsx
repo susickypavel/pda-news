@@ -14,6 +14,10 @@ const Tab: React.FC = () => {
 	const { theme } = useTheme();
 
 	const styles = StyleSheet.create({
+		scrollView: {
+			marginBottom: 75,
+			padding: theme.spacing.sm
+		},
 		searchBar: {
 			backgroundColor: theme.colors.white
 		}
@@ -29,7 +33,7 @@ const Tab: React.FC = () => {
 				cancelButtonTitle="Cancel"
 				value={query}
 			/>
-			<ScrollView showsVerticalScrollIndicator={false}>
+			<ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
 				<CategoryPicker />
 				<CategoriesCarousel data={data} />
 			</ScrollView>

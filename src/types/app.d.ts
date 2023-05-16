@@ -13,9 +13,6 @@ export type RootStackParamList = {
 	InterestsSettings: undefined;
 	LocationSettings: undefined;
 	NotificationsSettings: undefined;
-	CategoryDetails: {
-		category: BadgeCategory;
-	};
 	InterestSubpage: {
 		category: BadgeCategory;
 	};
@@ -25,6 +22,6 @@ export type RootStackScreens = keyof RootStackParamList;
 
 declare global {
 	namespace ReactNavigation {
-		interface RootParamList extends RootStackParamList {}
+		interface RootParamList extends RootStackParamList { }
 	}
 }
