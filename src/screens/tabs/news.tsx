@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
 	}
 });
 
-export const NewsTab = withSafeArea(Tab, { edges: ["top"], style: styles.container });
+export const NewsTab = withSafeArea(Tab, {
+	edges: ["top"],
+	style: styles.container
+});
 
 NewsTab.displayName = "NewsTab";

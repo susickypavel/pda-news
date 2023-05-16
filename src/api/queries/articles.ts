@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 
 import { useAuthSafe } from "@/context/auth";
@@ -50,4 +50,19 @@ export function useArticleFeed(currentDate: Date) {
 	const articles = useMemo(() => data?.pages.flatMap(page => page) || [], [data]);
 
 	return [articles, query] as const;
+}
+
+export function useExploreFeed() {
+	const query = useQuery(["category-articles"], async () => {
+		// TODO: Fetch bookmark
+		const { data, error } = await supabase.from("category_articles").select("*");
+
+		if (error) {
+			throw new Error(error.message);
+		}
+
+		return data;
+	});
+
+	return query;
 }
