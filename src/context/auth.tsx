@@ -46,3 +46,8 @@ export function useAuth() {
 
 	return session;
 }
+
+export function useAuthSafe() {
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	return useContext(AuthContext)!;
+}

@@ -6,7 +6,7 @@ import { StyleSheet, View } from "react-native";
 
 import { supabase } from "@/api/supabase";
 import { ArticlePreview } from "@/components/article-preview";
-import { useAuth } from "@/context/auth";
+import { useAuth, useAuthSafe } from "@/context/auth";
 
 const PAGE_LIMIT = 5;
 
@@ -36,7 +36,7 @@ type ArticleFeedProps = {
 };
 
 export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
-	const { user } = useAuth();
+	const { user } = useAuthSafe();
 	const { data, isLoading, isError, hasNextPage, isFetchingNextPage, fetchNextPage } = useInfiniteQuery(
 		["daily-feed", currentDate.toDateString()],
 		async ({ pageParam = 0 }) => {
