@@ -32,6 +32,9 @@
 			],
 			"@/stores/*": [
 				"./src/stores/*"
+			],
+			"@/queries/*": [
+				"./src/api/queries/*"
 			]
 		}
 	},
