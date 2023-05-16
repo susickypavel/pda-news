@@ -16,37 +16,35 @@ export const CategoriesCarousel: React.FC<CategoriesCarouselProps> = ({ data }) 
 			color: theme.colors.black,
 			fontSize: 24,
 			fontWeight: "500",
-			marginBottom: 10,
+			marginBottom: theme.spacing.sm,
 			textTransform: "capitalize"
-		},
-		personalSelContainer: {
-			flex: 1,
-			flexGrow: 0.1,
-			marginHorizontal: 10,
-			marginTop: 30
 		},
 		text: {
 			color: theme.colors.black,
-			fontSize: 14
+			fontSize: 16,
+			marginBottom: theme.spacing.md
 		}
 	});
 
 	return (
-		<React.Fragment>
+		<View
+			style={{
+				gap: theme.spacing.xl,
+				marginVertical: theme.spacing.xl
+			}}
+		>
 			{data?.map(({ category, articles }) => {
 				if (articles.length <= 0) return null;
 
 				return (
-					<React.Fragment key={category}>
-						<View style={styles.personalSelContainer}>
-							<Text style={styles.heading}>{category}</Text>
-							<Text style={styles.text}>Latest {category} news</Text>
-						</View>
+					<View key={category}>
+						<Text style={styles.heading}>{category}</Text>
+						<Text style={styles.text}>Latest {category} news</Text>
 						<PreviewRow articles={articles} />
-					</React.Fragment>
+					</View>
 				);
 			})}
-		</React.Fragment>
+		</View>
 	);
 };
 

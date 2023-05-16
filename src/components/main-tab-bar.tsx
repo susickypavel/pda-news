@@ -35,9 +35,7 @@ const MainTabBarItem: React.FC<MainTabBarItemProps> = props => {
 	return (
 		<TabBarItem
 			{...props}
-			renderLabel={({ color }) => (
-				<Text style={{ color, fontFamily: "InterTightSemiBold" }}>{props.route.title}</Text>
-			)}
+			renderLabel={({ color }) => <Text style={{ color, fontFamily: "InterTightSemiBold" }}>{props.route.title}</Text>}
 			renderIcon={({ color, focused }) => (
 				<Icon
 					style={{

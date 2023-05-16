@@ -1,5 +1,6 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
+import { BadgeCategory } from "src/types/theme";
 
 import { useAuthSafe } from "@/context/auth";
 
@@ -56,6 +57,29 @@ export function useExploreFeed() {
 	const query = useQuery(["category-articles"], async () => {
 		// TODO: Fetch bookmark
 		const { data, error } = await supabase.from("category_articles").select("*");
+
+		if (error) {
+			throw new Error(error.message);
+		}
+
+		return data;
+	});
+
+	return query;
+}
+
+
+export function useCategoryFeed(category: BadgeCategory) {
+	const query = useQuery(["category-articles", category], async () => {
+		// TODO: Fetch bookmark endpoint
+		const { data, error } = await supabase
+			.from("articles")
+			.select("*, source_id (name)")
+			.eq("category", category)
+			.order("published_at", {
+				ascending: false
+			})
+			.limit(10);
 
 		if (error) {
 			throw new Error(error.message);

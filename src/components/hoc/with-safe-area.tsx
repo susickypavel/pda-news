@@ -6,10 +6,7 @@ interface Props extends ViewProps {
 	safeAreaProps?: SafeAreaViewProps;
 }
 
-const withSafeArea = <P extends object>(
-	WrappedComponent: ComponentType<P>,
-	safeAreaProps?: SafeAreaViewProps
-): FC<P & Props> => {
+const withSafeArea = <P extends object>(WrappedComponent: ComponentType<P>, safeAreaProps?: SafeAreaViewProps): FC<P & Props> => {
 	const WithSafeArea = (props: P & Props) => {
 		const { safeAreaProps: additionalSafeAreaProps, ...rest } = props;
 		return (

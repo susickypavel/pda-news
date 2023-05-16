@@ -15,24 +15,18 @@ export const CategoryPicker: React.FC<CategoryPickerProps> = () => {
 	const { navigate } = useNavigation();
 
 	const styles = StyleSheet.create({
-		interestBtn: {
-			borderRadius: 20,
-			marginRight: 5,
-			paddingLeft: 14,
-			paddingRight: 14
+		interestButton: {
+			borderRadius: 20
 		},
 		interestTitle: {
 			color: theme.colors.categories.politics.fg,
 			fontSize: 14,
+			lineHeight: 21,
+			paddingVertical: 0,
 			textTransform: "capitalize"
 		},
 		interestsContainer: {
-			flex: 1,
-			flexDirection: "row",
-			flexGrow: 0.1,
-			marginBottom: 10,
-			marginLeft: 6,
-			marginTop: 10
+			gap: theme.spacing.xs
 		}
 	});
 
@@ -43,12 +37,13 @@ export const CategoryPicker: React.FC<CategoryPickerProps> = () => {
 	};
 
 	return (
-		<ScrollView horizontal style={styles.interestsContainer} showsHorizontalScrollIndicator={false}>
+		<ScrollView horizontal contentContainerStyle={styles.interestsContainer} showsHorizontalScrollIndicator={false}>
 			{CATEGORIES.map(category => (
 				<Button
 					type="clear"
 					key={category}
-					buttonStyle={[styles.interestBtn, { backgroundColor: theme.colors.categories[category].bg }]}
+					containerStyle={styles.interestButton}
+					buttonStyle={{ backgroundColor: theme.colors.categories[category].bg, paddingHorizontal: theme.spacing.lg }}
 					titleStyle={styles.interestTitle}
 					onPress={() => onPress(category)}
 				>

@@ -1,11 +1,11 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
 import { Skeleton, useTheme } from "@rneui/themed";
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
 import { RootStackParamList } from "src/types/app";
 
-import { supabase } from "@/api/supabase";
+import { useCategoryFeed } from "@/api/queries/articles";
+import withSafeArea from "@/components/hoc/with-safe-area";
 
 import { ArticleCard } from "./article-card";
 
@@ -18,24 +18,8 @@ type InterestSubpageScreenProps = {
 	navigation: InterestSubpageScreenNavigationProp;
 };
 
-export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ route: { params } }) => {
-	const { data, isLoading } = useQuery(["category-articles", params.category], async () => {
-		// TODO: Fetch bookmark endpoint
-		const { data, error } = await supabase
-			.from("articles")
-			.select("*, source_id (name)")
-			.eq("category", params.category)
-			.order("published_at", {
-				ascending: false
-			})
-			.limit(10);
-
-		if (error) {
-			throw new Error(error.message);
-		}
-
-		return data;
-	});
+const Screen: React.FC<InterestSubpageScreenProps> = ({ route: { params } }) => {
+	const { data, isLoading } = useCategoryFeed(params.category);
 	const { theme } = useTheme();
 
 	const styles = StyleSheet.create({
@@ -47,7 +31,7 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ ro
 			margin: 10
 		},
 		scrollView: {
-			marginHorizontal: 10
+			// marginHorizontal: 10
 		},
 		title: {
 			fontSize: 32,
@@ -57,9 +41,9 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ ro
 		titleContainer: {
 			backgroundColor: theme.colors.categories[params.category].bg,
 			flexDirection: "row",
-			justifyContent: "space-between",
-			paddingBottom: 20,
-			paddingLeft: 20
+			justifyContent: "space-between"
+			// paddingBottom: 20,
+			// paddingLeft: 20
 		}
 	});
 
@@ -86,4 +70,6 @@ export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ ro
 	);
 };
 
-InterestSubpageScreen.displayName = "InterestSubpageScreen";
+export const InterestSubpageScreen = withSafeArea(Screen);
+
+Screen.displayName = "InterestSubpageScreen";
