@@ -1,8 +1,7 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
 import { Header, useTheme } from "@rneui/themed";
 import React, { Fragment } from "react";
-import { StatusBar, StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, Text } from "react-native";
 import { RootStackParamList } from "src/types/app";
 
 import { CategoryFeed } from "@/components/category-feed";
