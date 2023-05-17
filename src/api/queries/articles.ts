@@ -111,16 +111,45 @@ export function useCategoryFeed(category: BadgeCategory) {
 	return [articles, query] as const;
 }
 
-export function useBookmarkedArticles() {
+export type BookmarkSortOrder = "desc" | "asc" | "a-z" | "z-a"
+
+export function useBookmarkedArticles(searchTerm = "", order: BookmarkSortOrder) {
 	const { user } = useAuthSafe()
 
-	const query = useQuery(["saved-articles", user.id], async () => {
-		const response = await supabase.rpc("get_user_saved_articles", {
-			user_id: user.id
-		});
+	const query = useQuery({
+		enabled: searchTerm.length === 0 || searchTerm.length > 2,
+		queryKey: ["saved-articles", user.id, searchTerm, order],
+		queryFn: async () => {
+			let request = supabase.rpc("get_user_saved_articles", {
+				user_id: user.id
+			});
 
-		return response.data;
-	});
+			if (searchTerm) {
+				request = request.textSearch("title", searchTerm, {
+					type: "websearch"
+				});
+			}
+
+			switch (order) {
+				case "a-z":
+				case "z-a":
+					request = request.order("title", {
+						ascending: order === "a-z",
+					})
+					break;
+				case "desc":
+				case "asc":
+					request = request.order("published_at", {
+						ascending: order === "asc",
+					})
+					break;
+			}
+
+			const response = await request;
+
+			return response.data;
+		}
+	})
 
 	return query;
 }
