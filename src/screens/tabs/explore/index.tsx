@@ -26,7 +26,7 @@ const Tab: React.FC = () => {
 			justifyContent: "flex-start"
 		},
 		searchButtonTitle: {
-			fontFamily: "InterTightBold"
+			fontFamily: "InterTightSemiBold"
 		}
 	});
 

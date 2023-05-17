@@ -17,8 +17,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isVisible, onClose }) 
 	const { theme } = useTheme();
 
 	const styles = StyleSheet.create({
+		cancelButton: {
+			color: theme.colors.primary
+		},
 		container: {
-			backgroundColor: "rgba(0, 0, 0, 0.9)",
+			backgroundColor: "#fff",
 			flex: 1,
 			justifyContent: "flex-start"
 		},
@@ -36,6 +39,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isVisible, onClose }) 
 							<SearchBar
 								onChangeText={setSearchTerm}
 								loadingProps={styles.loading}
+								cancelButtonProps={{
+									buttonTextStyle: styles.cancelButton
+								}}
 								showLoading={isFetching && !isFetchingNextPage}
 								value={searchTerm || ""}
 								platform={Platform.OS === "ios" ? "ios" : "android"}
