@@ -31,7 +31,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isVisible, onClose }) 
 	});
 
 	return (
-		<Modal statusBarTranslucent visible={isVisible} animationType="fade" transparent={true}>
+		<Modal
+			statusBarTranslucent
+			visible={isVisible}
+			animationType="fade"
+			transparent={true}
+			onRequestClose={onClose}
+		>
 			<SafeAreaProvider>
 				<SafeAreaView edges={["top", "bottom"]} style={styles.container}>
 					<SearchFeed searchTerm={debouncedSearchTerm} onRedirect={onClose}>

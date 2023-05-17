@@ -3,7 +3,7 @@ import { Button, ListItem, useTheme } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import { useQueryClient } from "@tanstack/react-query";
 import React, { Fragment } from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, Platform, StyleSheet, TouchableHighlight, TouchableNativeFeedback } from "react-native";
 
 import { supabase } from "@/api/supabase";
 import { useAuthSafe } from "@/context/auth";
@@ -21,11 +21,14 @@ type SearchFeedProps = {
 };
 
 type SearchFeedItemProps = SearchResult[0][0] & {
+	source_id: {
+		name: string;
+	};
 	onRedirect: () => void;
 };
 
 const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props }) => {
-	const { title, published_at, image_url, category, id } = props;
+	const { title, published_at, image_url, category, id, source_id } = props;
 	const { user } = useAuthSafe();
 	const { theme } = useTheme();
 	const { navigate } = useNavigation();
@@ -37,16 +40,17 @@ const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props })
 			minHeight: "100%"
 		},
 		container: {
-			justifyContent: "flex-start"
+			justifyContent: "flex-start",
+			padding: theme.spacing.sm
 		},
 		content: {
-			gap: theme.spacing.sm
+			gap: theme.spacing.xs
 		},
 		thumbnailImage: {
 			// @ts-ignore
 			backgroundColor: theme.colors.categories[category].bg,
-			height: 80,
-			width: 80
+			height: 100,
+			width: 100
 		},
 		title: {
 			fontFamily: "InterTightBold"
@@ -77,6 +81,7 @@ const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props })
 
 	return (
 		<ListItem.Swipeable
+			Component={Platform.OS == "android" ? TouchableNativeFeedback : TouchableHighlight}
 			rightContent={reset => (
 				<Button
 					buttonStyle={styles.bookmarkButton}
@@ -88,7 +93,7 @@ const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props })
 					icon={{ name: "bookmark", color: "white" }}
 				/>
 			)}
-			style={styles.container}
+			containerStyle={styles.container}
 			onPress={onPress}
 		>
 			<Image
@@ -100,6 +105,7 @@ const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props })
 				<ListItem.Title style={styles.title} numberOfLines={2}>
 					{title}
 				</ListItem.Title>
+				<ListItem.Subtitle>{source_id.name}</ListItem.Subtitle>
 				<ListItem.Subtitle>{new Date(published_at).toLocaleDateString()}</ListItem.Subtitle>
 			</ListItem.Content>
 		</ListItem.Swipeable>
@@ -120,11 +126,12 @@ export const SearchFeed: React.FC<SearchFeedProps> = ({ searchTerm, children, on
 		<Fragment>
 			{children(query)}
 			<FlashList
+				keyboardShouldPersistTaps="handled"
 				bounces={false}
 				showsVerticalScrollIndicator={false}
 				data={data}
 				keyExtractor={item => item.id}
-				renderItem={({ item }) => <SearchFeedItem {...item} onRedirect={onRedirect} />}
+				renderItem={({ item }: any) => <SearchFeedItem {...item} onRedirect={onRedirect} />}
 				ListEmptyComponent={isFetched ? EmptyList : null}
 				estimatedItemSize={10}
 				onEndReached={onEndReached}

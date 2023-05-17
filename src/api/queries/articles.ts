@@ -135,7 +135,7 @@ export function useSearchArticles(searchTerm: string) {
 
 			const { data, error } = await supabase
 				.from("articles")
-				.select("*")
+				.select("*, source_id (name)")
 				.textSearch("title", searchTerm, {
 					type: "websearch"
 				})
