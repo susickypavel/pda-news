@@ -1,5 +1,6 @@
 import "react-native-url-polyfill/auto";
 
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "@rneui/themed";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -38,7 +39,9 @@ const ApplicationEntry: React.FC = () => {
 					<NavigationContainer>
 						{isFontLoaded && isAuthStateLoaded ? (
 							<ThemeProvider theme={theme}>
-								<ApplicationRoot />
+								<BottomSheetModalProvider>
+									<ApplicationRoot />
+								</BottomSheetModalProvider>
 							</ThemeProvider>
 						) : null}
 					</NavigationContainer>
