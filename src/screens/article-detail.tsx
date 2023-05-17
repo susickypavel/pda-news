@@ -19,7 +19,10 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 	const { id, title, original_url, is_bookmarked } = route.params;
 	const [bookmarks, toggleBookmark] = useBookmarkStore(state => [state.bookmarks, state.toggleBookmark]);
 
-	const isBookmarked = useMemo(() => (typeof bookmarks[id] === "undefined" ? is_bookmarked : bookmarks[id]), [bookmarks, id, is_bookmarked]);
+	const isBookmarked = useMemo(
+		() => (typeof bookmarks[id] === "undefined" ? is_bookmarked : bookmarks[id]),
+		[bookmarks, id, is_bookmarked]
+	);
 
 	const onShare = () => {
 		Share.share({
@@ -62,7 +65,11 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 	return (
 		<View style={{ flexDirection: "row" }}>
 			<Button type="clear" containerStyle={styles.headerButton} onPress={onBookmark}>
-				<Icon name={isBookmarked ? "bookmark" : "bookmark-border"} color={isBookmarked ? theme.colors.brand : "black"} size={32} />
+				<Icon
+					name={isBookmarked ? "bookmark" : "bookmark-border"}
+					color={isBookmarked ? theme.colors.brand : "black"}
+					size={32}
+				/>
 			</Button>
 			<Button type="clear" containerStyle={styles.headerButton} onPress={onShare}>
 				<Icon name="ios-share" color="black" size={32} />
@@ -77,7 +84,6 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route
 
 	const styles = StyleSheet.create({
 		header: {
-			// @ts-ignore
 			backgroundColor: theme.colors.categories[category].bg
 		},
 		webview: {
@@ -89,7 +95,6 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route
 		<Fragment>
 			<Header
 				statusBarProps={{
-					// @ts-ignore
 					backgroundColor: theme.colors.categories[category].bg
 				}}
 				containerStyle={styles.header}

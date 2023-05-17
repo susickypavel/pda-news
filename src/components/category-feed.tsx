@@ -19,6 +19,7 @@ type CategoryFeedItemProps = ReturnType<typeof useCategoryFeed>[0][0] & {
 	source_id: {
 		name: string;
 	};
+	category: BadgeCategory;
 };
 
 const CategoryFeedSeparator = () => (
@@ -71,7 +72,6 @@ const CategoryFeedItem: React.FC<CategoryFeedItemProps> = props => {
 			gap: theme.spacing.sm
 		},
 		thumbnail: {
-			// @ts-ignore
 			backgroundColor: theme.colors.categories[category].bg,
 			borderRadius: 4,
 			height: 120,
