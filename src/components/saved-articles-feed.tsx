@@ -3,9 +3,9 @@ import { FlashList } from "@shopify/flash-list";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { useBookmarkedArticles } from "@/api/queries/articles";
+import { BookmarkSortOrder, useBookmarkedArticles } from "@/queries/articles";
 
-import { ArticleFeedSeparator } from "./article-feed";
+import { ArticleFeedSeparator, FetchingIndicator } from "./article-feed";
 import { ArticlePreview } from "./article-preview";
 import { IllustrationTemplate } from "./common/illustration";
 
@@ -18,13 +18,15 @@ const NoBookmarks = () => (
 	</IllustrationTemplate>
 );
 
-export const SavedArticlesFeed: React.FC = () => {
-	const { data, isLoading, isError, refetch, isRefetching } = useBookmarkedArticles();
+interface SavedArticlesFeedProps {
+	searchTerm: string;
+	order: BookmarkSortOrder;
+}
+
+export const SavedArticlesFeed: React.FC<SavedArticlesFeedProps> = ({ searchTerm, order }) => {
+	const query = useBookmarkedArticles(searchTerm, order);
+	const { data, isLoading } = query;
 	const { theme } = useTheme();
-
-	if (isError) return null;
-
-	if (isLoading) return null;
 
 	const styles = StyleSheet.create({
 		container: {
@@ -41,12 +43,7 @@ export const SavedArticlesFeed: React.FC = () => {
 				keyExtractor={item => item.id}
 				renderItem={({ item }: any) => <ArticlePreview {...item} is_bookmarked={true} />}
 				estimatedItemSize={10}
-				onEndReachedThreshold={0.25}
-				onRefresh={async () => {
-					await refetch();
-				}}
-				refreshing={isRefetching}
-				ListEmptyComponent={NoBookmarks}
+				ListEmptyComponent={isLoading ? FetchingIndicator : NoBookmarks}
 				ItemSeparatorComponent={ArticleFeedSeparator}
 			/>
 		</View>
