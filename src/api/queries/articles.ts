@@ -69,7 +69,6 @@ export function useExploreFeed() {
 	return query;
 }
 
-
 export function useCategoryFeed(category: BadgeCategory) {
 	const { user } = useAuthSafe()
 
@@ -124,4 +123,43 @@ export function useBookmarkedArticles() {
 	});
 
 	return query;
+}
+
+export function useSearchArticles(searchTerm: string) {
+	const { data, ...query } = useInfiniteQuery({
+		enabled: searchTerm.length > 2,
+		queryKey: ["search-articles", searchTerm],
+		queryFn: async ({ pageParam = 0 }) => {
+			const from = pageParam * ARTICLES_LIMIT_PER_LOAD;
+			const to = from + ARTICLES_LIMIT_PER_LOAD - 1;
+
+			const { data, error } = await supabase
+				.from("articles")
+				.select("*")
+				.textSearch("title", searchTerm, {
+					type: "websearch"
+				})
+				.range(from, to)
+				.order("published_at", {
+					ascending: false
+				});
+
+			if (error) {
+				throw new Error(error.message);
+			}
+
+			return data;
+		},
+		getNextPageParam: (lastPages, pages) => {
+			if (lastPages.length < ARTICLES_LIMIT_PER_LOAD) {
+				return undefined;
+			}
+
+			return Math.floor(pages.flatMap(page => page).length / ARTICLES_LIMIT_PER_LOAD);
+		}
+	})
+
+	const articles = useMemo(() => data?.pages.flatMap(page => page) || [], [data]);
+
+	return [articles, query] as const;
 }

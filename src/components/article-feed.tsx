@@ -46,7 +46,7 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
 	const [articles, { hasNextPage, isFetchingNextPage, fetchNextPage, isError, isLoading }] =
 		useArticleFeed(currentDate);
 
-	const onEndReached = async () => {
+	const onEndReached = () => {
 		if (hasNextPage && !isFetchingNextPage) {
 			fetchNextPage();
 		}
