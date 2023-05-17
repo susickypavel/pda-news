@@ -3,6 +3,7 @@ import React, { Fragment, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { useDebounce } from "use-debounce";
 
+import { FilterSheet } from "@/components/filter-sheet";
 import withSafeArea from "@/components/hoc/with-safe-area";
 import { SavedArticlesFeed } from "@/components/saved-articles-feed";
 import { BookmarkSortOrder } from "@/queries/articles";
@@ -43,7 +44,18 @@ const Tab: React.FC = () => {
 	return (
 		<Fragment>
 			<View style={styles.searchBarContainer}>
-				<Icon name="filter-list-alt" type="material" size={40} iconStyle={styles.filterButton} color="black" />
+				<FilterSheet onChange={setOrder} currentFilter={order}>
+					{onPress => (
+						<Icon
+							name="filter-list-alt"
+							type="material"
+							size={40}
+							iconStyle={styles.filterButton}
+							color="black"
+							onPress={onPress}
+						/>
+					)}
+				</FilterSheet>
 				<SearchBar
 					containerStyle={styles.searchBar}
 					inputContainerStyle={styles.searchBarInput}
