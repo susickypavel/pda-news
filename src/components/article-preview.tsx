@@ -60,7 +60,6 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 		},
 		thumbnail: {
 			aspectRatio: 16 / 9,
-			// @ts-ignore
 			backgroundColor: theme.colors.categories[props.category].bg,
 			flex: 1,
 			height: undefined,

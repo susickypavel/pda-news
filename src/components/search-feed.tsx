@@ -9,6 +9,7 @@ import { supabase } from "@/api/supabase";
 import { useAuthSafe } from "@/context/auth";
 import { useSearchArticles } from "@/queries/articles";
 import { useBookmarkStore } from "@/stores/bookmark-store";
+import { BadgeCategory } from "@/types/theme";
 
 import { EmptyList, FetchingIndicator } from "./article-feed";
 
@@ -24,6 +25,7 @@ type SearchFeedItemProps = SearchResult[0][0] & {
 	source_id: {
 		name: string;
 	};
+	category: BadgeCategory;
 	onRedirect: () => void;
 };
 
@@ -47,7 +49,6 @@ const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props })
 			gap: theme.spacing.xs
 		},
 		thumbnailImage: {
-			// @ts-ignore
 			backgroundColor: theme.colors.categories[category].bg,
 			height: 100,
 			width: 100

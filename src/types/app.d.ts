@@ -7,7 +7,9 @@ export type RootStackParamList = {
 	Home: undefined;
 	SignIn: undefined;
 	SignUp: undefined;
-	ArticleDetail: Database["public"]["Functions"]["get_user_feed"]["Returns"][0];
+	ArticleDetail: Database["public"]["Functions"]["get_user_feed"]["Returns"][0] & {
+		category: BadgeCategory
+	};
 	Settings: undefined;
 	AccountSettings: undefined;
 	InterestsSettings: undefined;
