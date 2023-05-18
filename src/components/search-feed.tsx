@@ -107,7 +107,6 @@ export const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...p
 				style={styles.thumbnailImage}
 				source={image_url ? { uri: image_url } : require("@/assets/images/fallback-thumbnail.png")}
 			/>
-
 			<ListItem.Content style={styles.content}>
 				<ListItem.Title style={styles.title} numberOfLines={2}>
 					{title}
@@ -133,7 +132,7 @@ export const SearchFeed: React.FC<SearchFeedProps> = ({ searchTerm, children, on
 		<Fragment>
 			{children(query)}
 			<FlashList
-				contentContainerStyle={{ paddingTop: 8 }}
+				contentContainerStyle={{ padding: 8 }}
 				keyboardShouldPersistTaps="handled"
 				bounces={false}
 				showsVerticalScrollIndicator={false}

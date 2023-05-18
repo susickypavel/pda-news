@@ -31,6 +31,22 @@ export const TextField = forwardRef<any, TextFieldProps>(
 			}
 		};
 
+		const styles = StyleSheet.create({
+			errorMessage: {
+				color: theme.colors.error,
+				fontFamily: "InterTightSemiBold",
+				position: "absolute",
+				right: 0,
+				top: 0
+			},
+			errorStyle: {
+				display: "none"
+			},
+			label: {
+				color: theme.colors.black
+			}
+		});
+
 		return (
 			<View>
 				<Input
@@ -41,13 +57,13 @@ export const TextField = forwardRef<any, TextFieldProps>(
 							? theme.colors.error
 							: undefined
 					}}
-					errorStyle={{
-						display: "none"
-					}}
+					errorStyle={styles.errorStyle}
+					labelStyle={styles.label}
 					ref={ref}
 					onFocus={handleOnFocus}
 					onBlur={handleOnBlur}
-					leftIcon={leftIcon ? <Icon name={leftIcon} size={24} color={theme.colors.grey4} /> : undefined}
+					selectionColor={theme.colors.primary}
+					leftIcon={leftIcon ? <Icon name={leftIcon} size={24} color={theme.colors.black} /> : undefined}
 					rightIcon={
 						props.errorMessage ? (
 							<Icon onPress={rightIconOnPress} size={24} name={rightIcon ?? "error"} color="#dc2626" />
@@ -62,15 +78,5 @@ export const TextField = forwardRef<any, TextFieldProps>(
 		);
 	}
 );
-
-const styles = StyleSheet.create({
-	errorMessage: {
-		color: "#dc2626",
-		fontFamily: "InterTightSemiBold",
-		position: "absolute",
-		right: 0,
-		top: 0
-	}
-});
 
 TextField.displayName = "TextField";
