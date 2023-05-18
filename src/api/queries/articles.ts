@@ -8,10 +8,10 @@ import { supabase } from "../supabase";
 
 const ARTICLES_LIMIT_PER_LOAD = 5;
 
-export function useArticleFeed(currentDate: Date) {
+export function useArticleFeed(currentDate: Date, region: string) {
 	const { user } = useAuthSafe();
 	const { data, ...query } = useInfiniteQuery(
-		["daily-feed", currentDate.toDateString()],
+		["daily-feed", currentDate.toDateString(), region],
 		async ({ pageParam = 0 }) => {
 			const from = pageParam * ARTICLES_LIMIT_PER_LOAD;
 			const to = from + ARTICLES_LIMIT_PER_LOAD - 1;
@@ -24,6 +24,7 @@ export function useArticleFeed(currentDate: Date) {
 				.rpc("get_user_feed", {
 					user_id: user.id
 				})
+				.eq("region", region)
 				.gte("published_at", start.toUTCString())
 				.lte("published_at", end.toUTCString())
 				.order("published_at", {

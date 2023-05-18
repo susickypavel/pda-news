@@ -50,7 +50,10 @@ export const ApplicationRoot: React.FC = () => {
 				headerShown: false,
 				headerShadowVisible: false,
 				headerTintColor: theme.colors.primary,
-				animation: Platform.OS === "ios" ? "flip" : "default"
+				animation: Platform.OS === "ios" ? "flip" : "default",
+				contentStyle: {
+					backgroundColor: theme.colors.background
+				}
 			}}
 		>
 			<Stack.Screen name="Home" component={HomeScreen} />

@@ -40,11 +40,14 @@ export const ListEnd: React.FC = () => (
 
 type ArticleFeedProps = {
 	currentDate: Date;
+	region?: string;
 };
 
-export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate }) => {
-	const [articles, { hasNextPage, isFetchingNextPage, fetchNextPage, isError, isLoading }] =
-		useArticleFeed(currentDate);
+export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate, region = "gb" }) => {
+	const [articles, { hasNextPage, isFetchingNextPage, fetchNextPage, isError, isLoading }] = useArticleFeed(
+		currentDate,
+		region
+	);
 
 	const onEndReached = () => {
 		if (hasNextPage && !isFetchingNextPage) {
