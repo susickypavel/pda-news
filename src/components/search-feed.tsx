@@ -3,7 +3,7 @@ import { Button, ListItem, useTheme } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import { useQueryClient } from "@tanstack/react-query";
 import React, { Fragment } from "react";
-import { Image, Platform, StyleSheet, TouchableHighlight, TouchableNativeFeedback } from "react-native";
+import { Image, Platform, StyleSheet, TouchableHighlight, TouchableNativeFeedback, View } from "react-native";
 
 import { supabase } from "@/api/supabase";
 import { useAuthSafe } from "@/context/auth";
@@ -26,11 +26,14 @@ type SearchFeedItemProps = SearchResult[0][0] & {
 		name: string;
 	};
 	category: BadgeCategory;
-	onRedirect: () => void;
+	onRedirect?: () => void;
+	is_bookmarked?: boolean;
 };
 
-const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props }) => {
-	const { title, published_at, image_url, category, id, source_id } = props;
+export const SearchFeedSeparator = () => <View style={{ height: 8 }} />;
+
+export const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props }) => {
+	const { title, published_at, image_url, category, id, source_id, is_bookmarked = false } = props;
 	const { user } = useAuthSafe();
 	const { theme } = useTheme();
 	const { navigate } = useNavigation();
@@ -43,7 +46,7 @@ const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props })
 		},
 		container: {
 			justifyContent: "flex-start",
-			padding: theme.spacing.sm
+			padding: 0
 		},
 		content: {
 			gap: theme.spacing.xs
@@ -59,8 +62,11 @@ const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props })
 	});
 
 	const onPress = () => {
-		onRedirect();
-		navigate("ArticleDetail", { ...props, is_bookmarked: false } as any);
+		if (onRedirect) {
+			onRedirect();
+		}
+
+		navigate("ArticleDetail", { ...props, is_bookmarked } as any);
 	};
 
 	const onBookmarkButtonPress = async () => {
@@ -127,6 +133,7 @@ export const SearchFeed: React.FC<SearchFeedProps> = ({ searchTerm, children, on
 		<Fragment>
 			{children(query)}
 			<FlashList
+				contentContainerStyle={{ paddingTop: 8 }}
 				keyboardShouldPersistTaps="handled"
 				bounces={false}
 				showsVerticalScrollIndicator={false}
@@ -138,6 +145,7 @@ export const SearchFeed: React.FC<SearchFeedProps> = ({ searchTerm, children, on
 				onEndReached={onEndReached}
 				onEndReachedThreshold={0.5}
 				ListFooterComponent={isFetchingNextPage ? FetchingIndicator : null}
+				ItemSeparatorComponent={SearchFeedSeparator}
 			/>
 		</Fragment>
 	);

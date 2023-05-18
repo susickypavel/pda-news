@@ -14,33 +14,36 @@ const Tab: React.FC = () => {
 	const { theme } = useTheme();
 
 	const styles = StyleSheet.create({
+		button: {
+			gap: theme.spacing.sm,
+			justifyContent: "flex-start",
+			marginBottom: theme.spacing.sm
+		},
+		buttonTitle: {
+			color: theme.colors.black,
+			fontFamily: "InterTightSemiBold"
+		},
 		container: {
 			padding: theme.spacing.sm
 		},
 		scrollView: {
-			marginBottom: 75,
-			marginTop: theme.spacing.sm
-		},
-		searchButton: {
-			gap: theme.spacing.md,
-			justifyContent: "flex-start"
-		},
-		searchButtonTitle: {
-			fontFamily: "InterTightSemiBold"
+			marginBottom: 100
 		}
 	});
 
 	return (
 		<View style={styles.container}>
 			<Button
-				buttonStyle={styles.searchButton}
-				titleStyle={styles.searchButtonTitle}
-				icon={<Icon name="search" type="ionicon" />}
+				icon={<Icon name="search" color={theme.colors.black} />}
+				iconPosition="left"
+				type="clear"
+				buttonStyle={styles.button}
+				titleStyle={styles.buttonTitle}
 				title="Search articles..."
-				onPressIn={() => setModalVisiblity(true)}
+				onPress={() => setModalVisiblity(true)}
 			/>
 			<SearchModal isVisible={isSearchModalVisible} onClose={() => setModalVisiblity(false)} />
-			<ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+			<ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} bounces={false}>
 				<CategoryPicker />
 				<CategoriesCarousel data={data} />
 			</ScrollView>

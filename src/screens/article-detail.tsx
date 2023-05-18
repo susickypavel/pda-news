@@ -1,8 +1,9 @@
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Button, Header, Icon, useTheme } from "@rneui/themed";
+import { Button, Icon, useTheme } from "@rneui/themed";
 import { useQueryClient } from "@tanstack/react-query";
-import React, { Fragment, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Share, StyleSheet, View } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { WebView } from "react-native-webview";
 
 import { supabase } from "@/api/supabase";
@@ -57,23 +58,20 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 	};
 
 	const styles = StyleSheet.create({
-		headerButton: {
-			width: "auto"
+		container: {
+			flexDirection: "row",
+			gap: theme.spacing.md
 		}
 	});
 
 	return (
-		<View style={{ flexDirection: "row" }}>
-			<Button type="clear" containerStyle={styles.headerButton} onPress={onBookmark}>
-				<Icon
-					name={isBookmarked ? "bookmark" : "bookmark-border"}
-					color={isBookmarked ? theme.colors.brand : "black"}
-					size={32}
-				/>
-			</Button>
-			<Button type="clear" containerStyle={styles.headerButton} onPress={onShare}>
-				<Icon name="ios-share" color="black" size={32} />
-			</Button>
+		<View style={styles.container}>
+			<TouchableOpacity onPress={onBookmark}>
+				<Icon name={isBookmarked ? "bookmark" : "bookmark-border"} color="black" size={28} />
+			</TouchableOpacity>
+			<TouchableOpacity onPress={onShare}>
+				<Icon name="ios-share" color="black" size={28} />
+			</TouchableOpacity>
 		</View>
 	);
 };
@@ -83,30 +81,27 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route
 	const { theme } = useTheme();
 
 	const styles = StyleSheet.create({
-		header: {
-			backgroundColor: theme.colors.categories[category].bg
-		},
 		webview: {
 			flex: 1
 		}
 	});
 
+	useEffect(() => {
+		navigation.setOptions({
+			headerStyle: {
+				backgroundColor: theme.colors.categories[category].bg
+			},
+			headerRight: () => <ArticleDetailHeaderActions route={route} navigation={navigation} />
+		});
+	}, [navigation, theme, category]);
+
 	return (
-		<Fragment>
-			<Header
-				statusBarProps={{
-					backgroundColor: theme.colors.categories[category].bg
-				}}
-				containerStyle={styles.header}
-				rightComponent={<ArticleDetailHeaderActions route={route} navigation={navigation} />}
-			/>
-			<WebView
-				style={styles.webview}
-				originWhitelist={["*"]}
-				source={{
-					uri: original_url
-				}}
-			/>
-		</Fragment>
+		<WebView
+			style={styles.webview}
+			originWhitelist={["*"]}
+			source={{
+				uri: original_url
+			}}
+		/>
 	);
 };

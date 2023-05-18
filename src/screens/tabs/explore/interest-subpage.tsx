@@ -1,6 +1,6 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
 import { Header, useTheme } from "@rneui/themed";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { StyleSheet, Text } from "react-native";
 import { RootStackParamList } from "src/types/app";
 
@@ -15,34 +15,20 @@ type InterestSubpageScreenProps = {
 	navigation: InterestSubpageScreenNavigationProp;
 };
 
-export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ route: { params } }) => {
+export const InterestSubpageScreen: React.FC<InterestSubpageScreenProps> = ({ route: { params }, navigation }) => {
 	const { theme } = useTheme();
 
-	const styles = StyleSheet.create({
-		center: {
-			flex: 0
-		},
-
-		heading: {
-			fontFamily: "InterTightBold",
-			fontSize: 32,
-			textTransform: "capitalize"
-		},
-		left: {
-			paddingHorizontal: theme.spacing.sm,
-			paddingVertical: 20
-		}
-	});
+	useEffect(() => {
+		navigation.setOptions({
+			headerTitle: params.category.charAt(0).toUpperCase() + params.category.slice(1),
+			headerStyle: {
+				backgroundColor: theme.colors.categories[params.category].bg
+			}
+		});
+	}, [navigation, params.category, theme]);
 
 	return (
 		<Fragment>
-			<Header
-				leftContainerStyle={styles.left}
-				rightContainerStyle={styles.center}
-				centerContainerStyle={styles.center}
-				leftComponent={<Text style={styles.heading}>{params.category}</Text>}
-				backgroundColor={theme.colors.categories[params.category].bg}
-			/>
 			<CategoryFeed category={params.category} />
 		</Fragment>
 	);

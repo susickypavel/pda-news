@@ -35,7 +35,7 @@ const menu = [
 		icon: "gps-fixed",
 		path: "LocationSettings"
 	}
-] satisfies { title: string; icon: string; path: RootStackScreens }[];
+] satisfies { title: string; icon: string; path: RootStackScreens; disabled?: boolean }[];
 
 export const SettingsScreen: React.FC<SettingsScreenProps> = () => {
 	const { theme } = useTheme();

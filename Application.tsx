@@ -53,12 +53,29 @@ export const ApplicationRoot: React.FC = () => {
 				animation: Platform.OS === "ios" ? "flip" : "default",
 				contentStyle: {
 					backgroundColor: theme.colors.background
+				},
+				headerTitleStyle: {
+					fontFamily: "InterTightBold"
 				}
 			}}
 		>
 			<Stack.Screen name="Home" component={HomeScreen} />
-			<Stack.Screen name="InterestSubpage" component={InterestSubpageScreen} />
-			<Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} />
+			<Stack.Screen
+				name="InterestSubpage"
+				component={InterestSubpageScreen}
+				options={{
+					headerShown: true,
+					headerTintColor: theme.colors.black
+				}}
+			/>
+			<Stack.Screen
+				name="ArticleDetail"
+				component={ArticleDetailScreen}
+				options={{
+					headerShown: true,
+					headerTintColor: theme.colors.black
+				}}
+			/>
 			<Stack.Screen
 				name="Settings"
 				component={SettingsScreen}

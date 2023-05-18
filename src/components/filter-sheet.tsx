@@ -4,7 +4,6 @@ import React, { Fragment, useCallback, useRef } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { BookmarkSortOrder } from "@/api/queries/articles";
-import CustomBackdrop from "@/components/custom-backdrop";
 
 type FilterSheetProps = {
 	currentFilter: BookmarkSortOrder;
@@ -25,6 +24,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({ filter, title, onChange, cu
 	const styles = StyleSheet.create({
 		btnText: {
 			color: theme.colors.black,
+			fontFamily: "InterTightMedium",
 			fontSize: 16
 		},
 		filterBtn: {
@@ -32,7 +32,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({ filter, title, onChange, cu
 			borderRadius: 5,
 			justifyContent: "space-between",
 			paddingHorizontal: 0,
-			paddingVertical: 16
+			paddingVertical: theme.spacing.lg
 		}
 	});
 
@@ -60,7 +60,15 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({ onChange, currentFilte
 			backgroundColor: theme.colors.black
 		},
 		bottomSheetStyle: {
-			borderRadius: 100
+			backgroundColor: theme.colors.background,
+			borderRadius: 100,
+			shadowColor: "#000",
+			shadowOffset: {
+				width: 0,
+				height: 0
+			},
+			shadowOpacity: 0.25,
+			shadowRadius: 16
 		},
 		contentContainer: {
 			alignContent: "flex-start",
@@ -68,12 +76,12 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({ onChange, currentFilte
 			paddingHorizontal: theme.spacing.lg
 		},
 		divider: {
-			marginBottom: 16
+			marginBottom: theme.spacing.md
 		},
 		filterTitle: {
 			color: theme.colors.black,
+			fontFamily: "InterTightBold",
 			fontSize: 20,
-			fontWeight: "700",
 			paddingBottom: theme.spacing.lg
 		}
 	});
@@ -86,12 +94,11 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({ onChange, currentFilte
 				ref={bottomSheetModalRef}
 				index={0}
 				snapPoints={["50%", "90%"]}
-				backdropComponent={CustomBackdrop}
 				style={styles.bottomSheetStyle}
 			>
 				<View style={styles.contentContainer}>
 					<Text style={styles.filterTitle}>Sort by</Text>
-					<Divider color={theme.colors.black} style={styles.divider} width={1} />
+					<Divider color={theme.colors.black} style={styles.divider} width={2} />
 					<ToggleButton title="A-Z" filter="a-z" onChange={onChange} currentFilter={currentFilter} />
 					<ToggleButton title="Z-A" filter="z-a" onChange={onChange} currentFilter={currentFilter} />
 					<ToggleButton title="Newest" filter="desc" onChange={onChange} currentFilter={currentFilter} />

@@ -86,10 +86,10 @@ const CategoryFeedItem: React.FC<CategoryFeedItemProps> = props => {
 			<View style={styles.container}>
 				<View style={styles.header}>
 					<View style={styles.leftPanel}>
-						<Text>{source_id.name}</Text>
 						<Text style={styles.heading} numberOfLines={3}>
 							{title}
 						</Text>
+						<Text>{source_id.name}</Text>
 					</View>
 					<Image
 						style={styles.thumbnail}

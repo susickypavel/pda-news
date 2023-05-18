@@ -5,9 +5,9 @@ import { StyleSheet, View } from "react-native";
 
 import { BookmarkSortOrder, useBookmarkedArticles } from "@/queries/articles";
 
-import { ArticleFeedSeparator, FetchingIndicator } from "./article-feed";
-import { ArticlePreview } from "./article-preview";
+import { FetchingIndicator } from "./article-feed";
 import { IllustrationTemplate } from "./common/illustration";
+import { SearchFeedItem, SearchFeedSeparator } from "./search-feed";
 
 const NoBookmarks = () => (
 	<IllustrationTemplate
@@ -40,11 +40,12 @@ export const SavedArticlesFeed: React.FC<SavedArticlesFeedProps> = ({ searchTerm
 			<FlashList
 				showsVerticalScrollIndicator={false}
 				data={data}
+				bounces={false}
 				keyExtractor={item => item.id}
-				renderItem={({ item }: any) => <ArticlePreview {...item} is_bookmarked={true} />}
+				renderItem={({ item }: any) => <SearchFeedItem {...item} is_bookmarked={true} />}
 				estimatedItemSize={10}
 				ListEmptyComponent={isLoading ? FetchingIndicator : NoBookmarks}
-				ItemSeparatorComponent={ArticleFeedSeparator}
+				ItemSeparatorComponent={SearchFeedSeparator}
 			/>
 		</View>
 	);

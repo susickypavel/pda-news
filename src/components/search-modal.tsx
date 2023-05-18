@@ -1,6 +1,6 @@
 import { SearchBar, useTheme } from "@rneui/themed";
 import React, { PropsWithChildren, useState } from "react";
-import { Modal, Platform, StyleSheet } from "react-native";
+import { Modal, StyleSheet } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useDebounce } from "use-debounce";
 
@@ -21,7 +21,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isVisible, onClose }) 
 			color: theme.colors.primary
 		},
 		container: {
-			backgroundColor: "#fff",
+			backgroundColor: theme.colors.background,
 			flex: 1,
 			justifyContent: "flex-start"
 		},
@@ -50,7 +50,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isVisible, onClose }) 
 								}}
 								showLoading={isFetching && !isFetchingNextPage}
 								value={searchTerm || ""}
-								platform={Platform.OS === "ios" ? "ios" : "android"}
+								platform="ios"
 								placeholder="Search articles..."
 								showCancel={true}
 								onCancel={onClose}

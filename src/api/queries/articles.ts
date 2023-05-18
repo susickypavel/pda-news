@@ -6,7 +6,7 @@ import { useAuthSafe } from "@/context/auth";
 
 import { supabase } from "../supabase";
 
-const ARTICLES_LIMIT_PER_LOAD = 5;
+const ARTICLES_LIMIT_PER_LOAD = 8;
 
 export function useArticleFeed(currentDate: Date, region: string) {
 	const { user } = useAuthSafe();
@@ -146,7 +146,7 @@ export function useBookmarkedArticles(searchTerm = "", order: BookmarkSortOrder)
 					break;
 			}
 
-			const response = await request;
+			const response = await request.select("*, source_id (name)");
 
 			return response.data;
 		}

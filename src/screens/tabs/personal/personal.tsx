@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { Icon, SearchBar, useTheme } from "@rneui/themed";
 import React, { Fragment, useState } from "react";
 import { StyleSheet, View } from "react-native";
@@ -13,10 +14,16 @@ const Tab: React.FC = () => {
 	const [order, setOrder] = useState<BookmarkSortOrder>("desc");
 	const [debouncedSearchTerm] = useDebounce(searchTerm, 250);
 	const { theme } = useTheme();
+	const { navigate } = useNavigation();
 
 	const styles = StyleSheet.create({
+		buttonsContainer: {
+			flexDirection: "row",
+			gap: theme.spacing.sm
+		},
 		filterButton: {
-			padding: theme.spacing.xs
+			borderRadius: 4,
+			padding: theme.spacing.sm
 		},
 		searchBar: {
 			backgroundColor: "transparent",
@@ -28,10 +35,7 @@ const Tab: React.FC = () => {
 			color: theme.colors.primary
 		},
 		searchBarContainer: {
-			alignItems: "center",
-			flexDirection: "row",
-			gap: theme.spacing.xs,
-			justifyContent: "center",
+			gap: theme.spacing.sm,
 			padding: theme.spacing.sm,
 			paddingBottom: 0,
 			paddingRight: 0
@@ -44,18 +48,6 @@ const Tab: React.FC = () => {
 	return (
 		<Fragment>
 			<View style={styles.searchBarContainer}>
-				<FilterSheet onChange={setOrder} currentFilter={order}>
-					{onPress => (
-						<Icon
-							name="filter-list-alt"
-							type="material"
-							size={40}
-							iconStyle={styles.filterButton}
-							color="black"
-							onPress={onPress}
-						/>
-					)}
-				</FilterSheet>
 				<SearchBar
 					containerStyle={styles.searchBar}
 					inputContainerStyle={styles.searchBarInput}
@@ -67,6 +59,30 @@ const Tab: React.FC = () => {
 					placeholder="Search bookmarks..."
 					value={searchTerm}
 				/>
+				<View style={styles.buttonsContainer}>
+					<FilterSheet onChange={setOrder} currentFilter={order}>
+						{onPress => (
+							<Icon
+								name="filter-list-alt"
+								backgroundColor={theme.colors.primary}
+								type="material"
+								size={32}
+								iconStyle={styles.filterButton}
+								color="white"
+								onPress={onPress}
+							/>
+						)}
+					</FilterSheet>
+					<Icon
+						name="settings"
+						backgroundColor={theme.colors.primary}
+						type="material"
+						size={32}
+						iconStyle={styles.filterButton}
+						color="white"
+						onPress={() => navigate("Settings")}
+					/>
+				</View>
 			</View>
 			<SavedArticlesFeed searchTerm={debouncedSearchTerm} order={order} />
 		</Fragment>

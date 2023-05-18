@@ -8,6 +8,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
 import { useState } from "react";
+import { StatusBar } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { AuthProvider } from "@/context/auth";
@@ -16,6 +17,8 @@ import { ApplicationRoot } from "./Application";
 import { theme } from "./src/theme";
 
 SplashScreen.preventAutoHideAsync();
+
+StatusBar.setBarStyle("dark-content", false);
 
 const client = new QueryClient();
 
