@@ -1,8 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigation } from "@react-navigation/native";
 import { Button, Icon } from "@rneui/themed";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Alert, StyleSheet } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import { z } from "zod";
 
 import { supabase } from "@/api/supabase";
@@ -32,13 +33,21 @@ export const SignInForm: React.FC = () => {
 		control,
 		handleSubmit,
 		setFocus,
+		reset,
 		formState: { isSubmitting }
 	} = useForm<LoginFormData>({
-		resolver: zodResolver(LOGIN_SCHEMA)
+		resolver: zodResolver(LOGIN_SCHEMA),
+		shouldFocusError: false
 	});
+	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+	const { addListener } = useNavigation();
+
+	const togglePasswordVisibility = () => setIsPasswordVisible(prev => !prev);
+
+	useEffect(() => addListener("blur", () => reset()), [reset, addListener]);
 
 	return (
-		<React.Fragment>
+		<View style={styles.container}>
 			<Controller
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
@@ -57,6 +66,7 @@ export const SignInForm: React.FC = () => {
 						caretHidden={false}
 						errorMessage={fieldState.error?.message}
 						label="Email"
+						leftIcon="email"
 					/>
 				)}
 				name="email"
@@ -70,12 +80,15 @@ export const SignInForm: React.FC = () => {
 						ref={ref}
 						returnKeyType="done"
 						value={value}
-						secureTextEntry
+						secureTextEntry={!isPasswordVisible}
 						onBlur={onBlur}
 						onChangeText={onChange}
 						errorMessage={fieldState.error?.message}
 						label="Password"
 						onSubmitEditing={handleSubmit(onSubmit)}
+						leftIcon="lock"
+						rightIcon={isPasswordVisible ? "visibility-off" : "visibility"}
+						rightIconOnPress={togglePasswordVisibility}
 					/>
 				)}
 				name="password"
@@ -93,11 +106,14 @@ export const SignInForm: React.FC = () => {
 				title="Sign in"
 				onPress={handleSubmit(onSubmit)}
 			/>
-		</React.Fragment>
+		</View>
 	);
 };
 
 export const styles = StyleSheet.create({
+	container: {
+		gap: 16
+	},
 	submitButton: {
 		paddingHorizontal: 16
 	}

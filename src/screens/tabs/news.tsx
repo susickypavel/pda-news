@@ -1,3 +1,5 @@
+import { useNavigation } from "@react-navigation/native";
+import { Button } from "@rneui/themed";
 import React, { Fragment, useState } from "react";
 import { StyleSheet } from "react-native";
 
@@ -13,9 +15,16 @@ const Tab: React.FC = () => {
 
 		return date;
 	});
+	const { navigate } = useNavigation();
 
 	return (
 		<Fragment>
+			<Button
+				title="Settings"
+				onPress={() => {
+					navigate("Settings");
+				}}
+			/>
 			<HistoryPicker onChange={setCurrentDate} />
 			<ArticleFeed currentDate={currentDate} />
 		</Fragment>

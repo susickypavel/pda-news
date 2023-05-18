@@ -1,8 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Icon } from "@rneui/themed";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Alert } from "react-native";
+import { Alert, View } from "react-native";
 import { z } from "zod";
 
 import { supabase } from "@/api/supabase";
@@ -43,9 +43,14 @@ export const SignUpForm: React.FC = () => {
 	} = useForm<RegistrationFormData>({
 		resolver: zodResolver(REGISTER_SCHEMA)
 	});
+	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+	const [isPasswordConfirmationVisible, setIsPasswordConfirmationVisible] = useState(false);
+
+	const togglePasswordVisibility = () => setIsPasswordVisible(prev => !prev);
+	const togglePasswordConfirmationVisibility = () => setIsPasswordConfirmationVisible(prev => !prev);
 
 	return (
-		<React.Fragment>
+		<View style={styles.container}>
 			<Controller
 				control={control}
 				render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
@@ -64,6 +69,7 @@ export const SignUpForm: React.FC = () => {
 						caretHidden={false}
 						errorMessage={fieldState.error?.message}
 						label="Email"
+						leftIcon="email"
 					/>
 				)}
 				name="email"
@@ -78,11 +84,14 @@ export const SignUpForm: React.FC = () => {
 						onSubmitEditing={() => setFocus("passwordConfirmation")}
 						returnKeyType="next"
 						value={value}
-						secureTextEntry
+						secureTextEntry={!isPasswordVisible}
 						onBlur={onBlur}
 						onChangeText={onChange}
 						errorMessage={fieldState.error?.message}
 						label="Password"
+						rightIcon={isPasswordVisible ? "visibility-off" : "visibility"}
+						rightIconOnPress={togglePasswordVisibility}
+						leftIcon="lock"
 					/>
 				)}
 				name="password"
@@ -97,11 +106,14 @@ export const SignUpForm: React.FC = () => {
 						value={value}
 						onSubmitEditing={handleSubmit(onSubmit)}
 						returnKeyType="done"
-						secureTextEntry
+						secureTextEntry={!isPasswordConfirmationVisible}
 						onBlur={onBlur}
 						onChangeText={onChange}
 						errorMessage={fieldState.error?.message}
 						label="Confirm Password"
+						rightIcon={isPasswordConfirmationVisible ? "visibility-off" : "visibility"}
+						rightIconOnPress={togglePasswordConfirmationVisibility}
+						leftIcon="lock"
 					/>
 				)}
 				name="passwordConfirmation"
@@ -119,6 +131,6 @@ export const SignUpForm: React.FC = () => {
 				title="Let's become informed!"
 				onPress={handleSubmit(onSubmit)}
 			/>
-		</React.Fragment>
+		</View>
 	);
 };
