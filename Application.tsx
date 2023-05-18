@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useTheme } from "@rneui/themed";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
 import { useEffect } from "react";
@@ -18,6 +19,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const ApplicationRoot: React.FC = () => {
 	const session = useAuth();
+	const { theme } = useTheme();
 
 	useEffect(() => {
 		async function hideSplashScreen() {
@@ -46,14 +48,29 @@ export const ApplicationRoot: React.FC = () => {
 			initialRouteName="Home"
 			screenOptions={{
 				headerShown: false,
-				animation: Platform.OS === "ios" ? "simple_push" : "default"
+				headerShadowVisible: false,
+				headerTintColor: theme.colors.primary,
+				animation: Platform.OS === "ios" ? "flip" : "default"
 			}}
 		>
 			<Stack.Screen name="Home" component={HomeScreen} />
-			<Stack.Screen name="Settings" component={SettingsScreen} />
-			<Stack.Screen name="AccountSettings" component={AccountSettingsScreen} />
 			<Stack.Screen name="InterestSubpage" component={InterestSubpageScreen} />
 			<Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} />
+			<Stack.Screen
+				name="Settings"
+				component={SettingsScreen}
+				options={{
+					headerShown: true
+				}}
+			/>
+			<Stack.Screen
+				name="AccountSettings"
+				component={AccountSettingsScreen}
+				options={{
+					headerShown: true,
+					headerTitle: "Account"
+				}}
+			/>
 		</Stack.Navigator>
 	);
 };

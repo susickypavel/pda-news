@@ -1,7 +1,7 @@
 import { NavigationProp, RouteProp, useNavigation } from "@react-navigation/native";
 import { Icon, ListItem, useTheme } from "@rneui/themed";
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 import { RootStackParamList, RootStackScreens } from "@/types/app";
 
@@ -42,19 +42,19 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = () => {
 	const { navigate } = useNavigation();
 
 	const styles = StyleSheet.create({
-		container: {
-			gap: 8
-		},
 		listItem: {
 			width: "100%"
+		},
+		listItemContainer: {
+			padding: 16
 		}
 	});
 
 	return (
-		<View style={styles.container}>
+		<React.Fragment>
 			{menu.map(item => (
 				<TouchableOpacity activeOpacity={0.5} key={item.path} onPress={() => navigate(item.path)}>
-					<ListItem style={styles.listItem}>
+					<ListItem style={styles.listItem} containerStyle={styles.listItemContainer}>
 						<Icon name={item.icon} color={theme.colors.black} />
 						<ListItem.Content>
 							<ListItem.Title>{item.title}</ListItem.Title>
@@ -63,7 +63,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = () => {
 					</ListItem>
 				</TouchableOpacity>
 			))}
-		</View>
+		</React.Fragment>
 	);
 };
 
