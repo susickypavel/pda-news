@@ -17,16 +17,14 @@ const Tab: React.FC = () => {
 	const { navigate } = useNavigation();
 
 	const styles = StyleSheet.create({
-		buttonsContainer: {
-			flexDirection: "row",
-			gap: theme.spacing.sm
-		},
 		filterButton: {
 			borderRadius: 4,
 			padding: theme.spacing.sm
 		},
+		iconContainer: {
+			marginRight: theme.spacing.sm
+		},
 		searchBar: {
-			backgroundColor: "transparent",
 			flexShrink: 1,
 			paddingBottom: 0,
 			paddingTop: 0
@@ -35,7 +33,7 @@ const Tab: React.FC = () => {
 			color: theme.colors.primary
 		},
 		searchBarContainer: {
-			gap: theme.spacing.sm,
+			flexDirection: "row",
 			padding: theme.spacing.sm,
 			paddingBottom: 0,
 			paddingRight: 0
@@ -59,30 +57,30 @@ const Tab: React.FC = () => {
 					placeholder="Search bookmarks..."
 					value={searchTerm}
 				/>
-				<View style={styles.buttonsContainer}>
-					<FilterSheet onChange={setOrder} currentFilter={order}>
-						{onPress => (
-							<Icon
-								name="filter-list-alt"
-								backgroundColor={theme.colors.primary}
-								type="material"
-								size={32}
-								iconStyle={styles.filterButton}
-								color="white"
-								onPress={onPress}
-							/>
-						)}
-					</FilterSheet>
-					<Icon
-						name="settings"
-						backgroundColor={theme.colors.primary}
-						type="material"
-						size={32}
-						iconStyle={styles.filterButton}
-						color="white"
-						onPress={() => navigate("Settings")}
-					/>
-				</View>
+				<FilterSheet onChange={setOrder} currentFilter={order}>
+					{onPress => (
+						<Icon
+							name="filter-list-alt"
+							backgroundColor={theme.colors.primary}
+							type="material"
+							size={32}
+							containerStyle={styles.iconContainer}
+							iconStyle={styles.filterButton}
+							color="white"
+							onPress={onPress}
+						/>
+					)}
+				</FilterSheet>
+				<Icon
+					name="settings"
+					backgroundColor={theme.colors.primary}
+					type="material"
+					size={32}
+					iconStyle={styles.filterButton}
+					containerStyle={styles.iconContainer}
+					color="white"
+					onPress={() => navigate("Settings")}
+				/>
 			</View>
 			<SavedArticlesFeed searchTerm={debouncedSearchTerm} order={order} />
 		</Fragment>
