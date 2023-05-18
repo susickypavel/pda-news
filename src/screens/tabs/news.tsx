@@ -1,3 +1,5 @@
+import { Button } from "@rneui/themed";
+import * as Location from "expo-location";
 import React, { Fragment, useState } from "react";
 import { StyleSheet } from "react-native";
 
@@ -16,6 +18,23 @@ const Tab: React.FC = () => {
 
 	return (
 		<Fragment>
+			<Button
+				title="GPS TEST"
+				onPress={async () => {
+					try {
+						const response = await Location.requestForegroundPermissionsAsync();
+
+						const location = await Location.getCurrentPositionAsync();
+
+						const geocoding = await Location.reverseGeocodeAsync({
+							latitude: location.coords.latitude,
+							longitude: location.coords.longitude
+						});
+					} catch (error) {
+						console.error(error);
+					}
+				}}
+			/>
 			<HistoryPicker onChange={setCurrentDate} />
 			<NewsFeedTabView currentDate={currentDate} />
 		</Fragment>
