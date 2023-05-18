@@ -1,11 +1,11 @@
 import { Colors, createTheme } from "@rneui/themed";
 
-const categories: Colors["categories"] = {
+export const categories: Colors["categories"] = {
 	business: { bg: "#7DA1F6", fg: "#000" },
-	entertainment: { bg: "#dc2626", fg: "#000" },
-	environment: { bg: "#00C474", fg: "#000" },
-	food: { bg: "#ea580c", fg: "#000" },
-	health: { bg: "#F08957", fg: "#000" },
+	entertainment: { bg: "#D2F776", fg: "#000" },
+	environment: { bg: "#58C17B", fg: "#000" },
+	food: { bg: "#F08957", fg: "#000" },
+	health: { bg: "#DDC0E7", fg: "#000" },
 	politics: { bg: "#9D9CDE", fg: "#000" },
 	science: { bg: "#B68353", fg: "#000" },
 	sports: { bg: "#F2B040", fg: "#000" },
