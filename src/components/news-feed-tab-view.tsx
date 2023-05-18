@@ -3,6 +3,7 @@ import { useWindowDimensions } from "react-native";
 import { TabView } from "react-native-tab-view";
 
 import { ArticleFeed } from "./article-feed";
+import { GPSBasedNews } from "./gps-based-news";
 import { NewsFeedTabBar } from "./news-feed-tab-bar";
 
 const routes = [
@@ -27,13 +28,14 @@ export const NewsFeedTabView: React.FC<NewsFeedTabViewProps> = ({ currentDate })
 			case "home":
 				return <ArticleFeed currentDate={currentDate} />;
 			case "local":
-				return <ArticleFeed currentDate={currentDate} region="de" />;
+				return <GPSBasedNews currentDate={currentDate} />;
 		}
 	};
 
 	return (
 		<TabView
 			initialLayout={{ width }}
+			lazy={({ route }) => route.key === "local"}
 			navigationState={{ index, routes }}
 			renderScene={renderScene}
 			onIndexChange={setIndex}

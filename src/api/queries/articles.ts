@@ -40,6 +40,7 @@ export function useArticleFeed(currentDate: Date, region: string) {
 			return data;
 		},
 		{
+			staleTime: 1000 * 60 * 60 * 6,
 			getNextPageParam: (lastPages, pages) => {
 				if (lastPages.length < ARTICLES_LIMIT_PER_LOAD) {
 					return undefined;
@@ -97,6 +98,7 @@ export function useCategoryFeed(category: BadgeCategory) {
 			return data;
 		},
 		{
+			staleTime: 1000 * 60 * 60 * 6,
 			getNextPageParam: (lastPages, pages) => {
 				if (lastPages.length < ARTICLES_LIMIT_PER_LOAD) {
 					return undefined;
