@@ -155,7 +155,7 @@ export const InterestPickScreen: React.FC<InterestScreenProps> = () => {
 							key={index}
 							style={StyleSheet.compose(styles.item, {
 								backgroundColor: selectedInterests.includes(item.title) ? item.bg : item.inactive,
-								borderWidth: selectedInterests.includes(item.title) ? 1 : 0
+								borderColor: selectedInterests.includes(item.title) ? "black" : "white"
 							})}
 							onPress={() => handleInterestClick(item.title)}
 						>
@@ -171,7 +171,7 @@ export const InterestPickScreen: React.FC<InterestScreenProps> = () => {
 							key={index}
 							style={StyleSheet.compose(styles.item, {
 								backgroundColor: selectedInterests.includes(item.title) ? item.bg : item.inactive,
-								borderWidth: selectedInterests.includes(item.title) ? 1 : 0
+								borderColor: selectedInterests.includes(item.title) ? "black" : "white"
 							})}
 							onPress={() => handleInterestClick(item.title)}
 						>
@@ -187,7 +187,7 @@ export const InterestPickScreen: React.FC<InterestScreenProps> = () => {
 							key={index}
 							style={StyleSheet.compose(styles.item, {
 								backgroundColor: selectedInterests.includes(item.title) ? item.bg : item.inactive,
-								borderWidth: selectedInterests.includes(item.title) ? 1 : 0
+								borderColor: selectedInterests.includes(item.title) ? "black" : "white"
 							})}
 							onPress={() => handleInterestClick(item.title)}
 						>
