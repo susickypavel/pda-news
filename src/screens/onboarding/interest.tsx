@@ -1,13 +1,81 @@
+import { NavigationProp, RouteProp } from "@react-navigation/native";
 import { useTheme } from "@rneui/themed";
-import React, { PropsWithChildren } from "react";
+import React from "react";
+import { FlatList, Text, TouchableOpacity } from "react-native";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { RootStackParamList } from "src/types/app";
 
 import { OnboardingFooter } from "@/components/onboarding-footer";
+import { useOnboarding } from "@/context/onboarding";
 
-type OnboardingInterestProps = PropsWithChildren<unknown>;
+export type OnboardingInterestScreenRouteProp = RouteProp<RootStackParamList, "OnboardingInterest">;
 
-export const OnboardingInterestScreen: React.FC<OnboardingInterestProps> = () => {
+export type OnboardingInterestScreenNavigationProp = NavigationProp<RootStackParamList, "OnboardingInterest">;
+
+type OnboardingInterestScreenProps = {
+	route: OnboardingInterestScreenRouteProp;
+	navigation: OnboardingInterestScreenNavigationProp;
+};
+
+const interests = [
+	{ bg: "#7DA1F6", inactive: "#B1C7FA", title: "business" },
+	{ bg: "#D2F776", inactive: "#E4FAAD", title: "entertainment" },
+	{ bg: "#58C17B", inactive: "#9BDAB0", title: "enviroment" },
+	{ bg: "#F08957", inactive: "#F29B6D", title: "food" },
+	{ bg: "#DDC0E7", inactive: "#EBD9F1", title: "health" },
+	{ bg: "#9D9CDE", inactive: "#C4C4EB", title: "politics" },
+	{ bg: "#B68353", inactive: "#D3B598", title: "science" },
+	{ bg: "#F2B040", inactive: "#F7D08C", title: "sports" },
+	{ bg: "#F0E360", inactive: "#F6EEA0", title: "technology" }
+];
+
+interface ItemProps {
+	title: string;
+	bg: string;
+	inactive: string;
+}
+
+const Item: React.FC<ItemProps> = ({ title, bg, inactive }) => {
+	const { theme } = useTheme();
+	const { selectedInterests, addInterest, removeInterest } = useOnboarding();
+
+	const isSelected = selectedInterests.includes(title);
+
+	const styles = StyleSheet.create({
+		item: {
+			alignItems: "center",
+			aspectRatio: 1,
+			backgroundColor: isSelected ? bg : inactive,
+			borderColor: isSelected ? theme.colors.black : theme.colors.white,
+			borderRadius: 5,
+			borderWidth: 1,
+			flexBasis: "33%",
+			flexShrink: 1,
+			justifyContent: "center"
+		},
+		title: {
+			color: isSelected ? theme.colors.black : theme.colors.grey2,
+			textTransform: "capitalize"
+		}
+	});
+
+	function handleInterestClick(interest: string): void {
+		if (isSelected) {
+			removeInterest(interest);
+		} else {
+			addInterest(interest);
+		}
+	}
+
+	return (
+		<TouchableOpacity style={styles.item} onPress={() => handleInterestClick(title)}>
+			<Text style={styles.title}>{title}</Text>
+		</TouchableOpacity>
+	);
+};
+
+export const OnboardingInterestScreen: React.FC<OnboardingInterestScreenProps> = () => {
 	const { theme } = useTheme();
 
 	const styles = StyleSheet.create({
@@ -15,239 +83,56 @@ export const OnboardingInterestScreen: React.FC<OnboardingInterestProps> = () =>
 			backgroundColor: theme.colors.brandAlternative,
 			flex: 1,
 			paddingVertical: theme.spacing.xl
+		},
+		description: {
+			fontSize: 14,
+			gap: theme.spacing.lg,
+			lineHeight: 21,
+			paddingTop: theme.spacing.lg,
+			width: "100%"
+		},
+		list: {
+			backgroundColor: theme.colors.background,
+			flex: 1,
+			gap: theme.spacing.sm,
+			padding: theme.spacing.sm
+		},
+		listColumnWrapper: {
+			gap: theme.spacing.sm
+		},
+		textContainer: {
+			alignContent: "flex-start",
+			backgroundColor: theme.colors.background,
+			display: "flex",
+			paddingHorizontal: theme.spacing.lg,
+			paddingVertical: 24
+		},
+		title: {
+			fontFamily: "InterTightBold",
+			fontSize: 24
 		}
 	});
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<View style={{ flex: 1 }} />
+			<View style={styles.textContainer}>
+				<Text style={styles.title}>Follow what you want</Text>
+				<Text style={styles.description}>
+					Choose what matters to you and you’ll get personalised daily reading suggestions, alongside wider
+					curated articles. Change your interests anytime in Settings.
+				</Text>
+			</View>
+			<FlatList
+				contentContainerStyle={styles.list}
+				columnWrapperStyle={styles.listColumnWrapper}
+				data={interests}
+				keyExtractor={item => item.title}
+				renderItem={({ item }) => <Item {...item} />}
+				numColumns={3}
+			/>
 			<OnboardingFooter />
 		</SafeAreaView>
 	);
 };
 
 OnboardingInterestScreen.displayName = "OnboardingInterest";
-
-// import { NavigationProp, RouteProp } from "@react-navigation/native";
-// import { useNavigation } from "@react-navigation/native";
-// import { useTheme } from "@rneui/themed";
-// import { Button, Icon } from "@rneui/themed";
-// import React from "react";
-// import { useContext } from "react";
-// import { Text } from "react-native";
-// import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-// import { SafeAreaView } from "react-native-safe-area-context";
-// import { categories } from "src/theme";
-// import { RootStackParamList } from "src/types/app";
-
-// import { supabase } from "@/api/supabase";
-
-// import { OnboardingContext } from "./onboarding-context";
-
-// export type OnboardingInterestScreenRouteProp = RouteProp<RootStackParamList, "OnboardingInterest">;
-
-// export type OnboardingInterestScreenNavigationProp = NavigationProp<RootStackParamList, "OnboardingInterest">;
-
-// type OnboardingInterestScreenProps = {
-// 	route: OnboardingInterestScreenRouteProp;
-// 	navigation: OnboardingInterestScreenNavigationProp;
-// };
-
-// const interests = [
-// 	{ bg: "#7DA1F6", inactive: "#B1C7FA", title: "Business" },
-// 	{ bg: "#D2F776", inactive: "#E4FAAD", title: "Entertainment" },
-// 	{ bg: "#58C17B", inactive: "#9BDAB0", title: "Enviroment" },
-// 	{ bg: "#F08957", inactive: "#F29B6D", title: "Food" },
-// 	{ bg: "#DDC0E7", inactive: "#EBD9F1", title: "Health" },
-// 	{ bg: "#9D9CDE", inactive: "#C4C4EB", title: "Politics" },
-// 	{ bg: "#B68353", inactive: "#D3B598", title: "Science" },
-// 	{ bg: "#F2B040", inactive: "#F7D08C", title: "Sports" },
-// 	{ bg: "#F0E360", inactive: "#F6EEA0", title: "Technology" }
-// ];
-
-// export const OnboardingInterestScreen: React.FC<OnboardingInterestScreenProps> = () => {
-// 	const { theme } = useTheme();
-// 	const navigation = useNavigation();
-
-// 	const styles = StyleSheet.create({
-// 		blackDot: {
-// 			backgroundColor: "black"
-// 		},
-// 		cardsContainer: {
-// 			display: "flex",
-// 			flexDirection: "column",
-// 			gap: 8
-// 		},
-// 		categoryRowContainer: {
-// 			alignItems: "center",
-// 			display: "flex",
-// 			flexDirection: "row",
-// 			gap: 8,
-// 			justifyContent: "center",
-// 			paddingHorizontal: 16
-// 		},
-// 		container: {
-// 			flex: 1,
-// 			justifyContent: "space-between",
-// 			paddingTop: 16
-// 		},
-// 		containerDots: {
-// 			flexDirection: "row",
-// 			justifyContent: "flex-start",
-// 			// marginBottom: 8,
-// 			marginTop: 64,
-// 			paddingHorizontal: 16
-// 		},
-// 		description: {
-// 			gap: 16,
-// 			paddingTop: 16,
-// 			width: "100%"
-// 		},
-// 		dot: {
-// 			borderRadius: 5,
-// 			height: 8,
-// 			marginHorizontal: 5,
-// 			width: 8
-// 		},
-// 		grayDot: {
-// 			backgroundColor: "gray"
-// 		},
-// 		item: {
-// 			alignItems: "center",
-// 			backgroundColor: "gray",
-// 			borderRadius: 5,
-// 			borderWidth: 1,
-// 			justifyContent: "center",
-// 			paddingBottom: "14%",
-// 			paddingTop: "14%",
-// 			width: "32%"
-// 		},
-// 		navContainer: {
-// 			alignContent: "center",
-// 			backgroundColor: "#9D9CD9",
-
-// 			display: "flex",
-// 			flexDirection: "row",
-// 			justifyContent: "space-between",
-// 			paddingHorizontal: 32,
-// 			paddingVertical: 30
-// 		},
-// 		textContainer: {
-// 			alignContent: "flex-start",
-// 			backgroundColor: theme.colors.background,
-// 			display: "flex",
-// 			paddingHorizontal: 16,
-// 			paddingVertical: 24
-// 		},
-// 		title: {
-// 			fontSize: 36,
-// 			lineHeight: 38
-// 		}
-// 	});
-// 	const firstInterestRow = interests.slice(0, 3);
-// 	const secondInterestRow = interests.slice(3, 6);
-// 	const thirdInterestRow = interests.slice(6, 9);
-
-// 	const {
-// 		currentStep,
-// 		setCurrentStep,
-// 		addInterest,
-// 		removeInterest,
-// 		selectedInterests,
-// 		onSkip,
-// 		navigateToIntro,
-// 		navigateToNotificationsPick
-// 	} = useContext(OnboardingContext);
-
-// 	const handleInterestClick = (interest: string) => {
-// 		if (selectedInterests.includes(interest)) {
-// 			removeInterest(interest);
-// 		} else {
-// 			addInterest(interest);
-// 		}
-// 	};
-
-// 	return (
-// 		<SafeAreaView style={styles.container}>
-// 			<View style={styles.textContainer}>
-// 				<Text style={styles.title}>Add your interests</Text>
-// 				<View style={styles.description}>
-// 					<Text>
-// 						Choose what matters to you and you’ll get personalised daily reading suggestions, alongside
-// 						wider curated articles. Change your interests anytime in Profile → Settings.
-// 					</Text>
-// 				</View>
-// 			</View>
-// 			<View style={styles.cardsContainer}>
-// 				<View style={styles.categoryRowContainer}>
-// 					{firstInterestRow.map((item, index) => (
-// 						<TouchableOpacity
-// 							key={index}
-// 							style={StyleSheet.compose(styles.item, {
-// 								backgroundColor: selectedInterests.includes(item.title) ? item.bg : item.inactive,
-// 								borderColor: selectedInterests.includes(item.title) ? "black" : "white"
-// 							})}
-// 							onPress={() => handleInterestClick(item.title)}
-// 						>
-// 							<Text style={{ color: selectedInterests.includes(item.title) ? "black" : "#7D7D7D" }}>
-// 								{item.title}
-// 							</Text>
-// 						</TouchableOpacity>
-// 					))}
-// 				</View>
-// 				<View style={styles.categoryRowContainer}>
-// 					{secondInterestRow.map((item, index) => (
-// 						<TouchableOpacity
-// 							key={index}
-// 							style={StyleSheet.compose(styles.item, {
-// 								backgroundColor: selectedInterests.includes(item.title) ? item.bg : item.inactive,
-// 								borderColor: selectedInterests.includes(item.title) ? "black" : "white"
-// 							})}
-// 							onPress={() => handleInterestClick(item.title)}
-// 						>
-// 							<Text style={{ color: selectedInterests.includes(item.title) ? "black" : "#7D7D7D" }}>
-// 								{item.title}
-// 							</Text>
-// 						</TouchableOpacity>
-// 					))}
-// 				</View>
-// 				<View style={styles.categoryRowContainer}>
-// 					{thirdInterestRow.map((item, index) => (
-// 						<TouchableOpacity
-// 							key={index}
-// 							style={StyleSheet.compose(styles.item, {
-// 								backgroundColor: selectedInterests.includes(item.title) ? item.bg : item.inactive,
-// 								borderColor: selectedInterests.includes(item.title) ? "black" : "white"
-// 							})}
-// 							onPress={() => handleInterestClick(item.title)}
-// 						>
-// 							<Text style={{ color: selectedInterests.includes(item.title) ? "black" : "#7D7D7D" }}>
-// 								{item.title}
-// 							</Text>
-// 						</TouchableOpacity>
-// 					))}
-// 				</View>
-// 			</View>
-
-// 			<View style={styles.containerDots}>
-// 				<TouchableOpacity
-// 					style={[styles.dot, currentStep === 1 ? styles.blackDot : styles.grayDot]}
-// 					onPress={navigateToIntro}
-// 				/>
-// 				<TouchableOpacity style={[styles.dot, currentStep === 2 ? styles.blackDot : styles.grayDot]} />
-// 				<TouchableOpacity
-// 					style={[styles.dot, currentStep === 3 ? styles.blackDot : styles.grayDot]}
-// 					onPress={navigateToNotificationsPick}
-// 				/>
-// 			</View>
-// 			<View style={styles.navContainer}>
-// 				<TouchableOpacity onPress={onSkip}>
-// 					<Text style={{ fontWeight: "500", fontSize: 16, marginTop: 2 }}>Skip</Text>
-// 				</TouchableOpacity>
-// 				<TouchableOpacity onPress={navigateToNotificationsPick}>
-// 					<Icon name="long-arrow-right" type="font-awesome" color="black" size={26} />
-// 				</TouchableOpacity>
-// 			</View>
-// 		</SafeAreaView>
-// 	);
-// };

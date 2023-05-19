@@ -20,9 +20,10 @@ export const OnboardingRegionScreen: React.FC<OnboardingRegionProps> = () => {
 			paddingVertical: theme.spacing.xl
 		},
 		content: {
+			backgroundColor: theme.colors.background,
 			flex: 1,
 			justifyContent: "center",
-			paddingVertical: theme.spacing.sm
+			padding: theme.spacing.sm
 		},
 		title: {
 			fontFamily: "InterTightBold",
@@ -33,8 +34,8 @@ export const OnboardingRegionScreen: React.FC<OnboardingRegionProps> = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<Text style={styles.title}>Select your home region</Text>
 			<View style={styles.content}>
+				<Text style={styles.title}>Select your home region</Text>
 				<Picker
 					style={{
 						backgroundColor: theme.colors.background
