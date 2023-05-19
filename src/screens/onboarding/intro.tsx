@@ -1,17 +1,12 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "@rneui/themed";
-import { Button, Icon } from "@rneui/themed";
 import React from "react";
-import { useContext } from "react";
 import { Text } from "react-native";
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { RootStackParamList } from "src/types/app";
 
-import { supabase } from "@/api/supabase";
-
-import { OnboardingContext } from "./onboarding-context";
+import { OnboardingFooter } from "@/components/onboarding-footer";
 
 export type OnboardingIntroRouteProp = RouteProp<RootStackParamList, "OnboardingIntro">;
 
@@ -24,38 +19,17 @@ type OnboardingIntroProps = {
 
 export const OnboardingIntroScreen: React.FC<OnboardingIntroProps> = () => {
 	const { theme } = useTheme();
-	const navigation = useNavigation();
 
 	const styles = StyleSheet.create({
-		blackDot: {
-			backgroundColor: "black"
-		},
 		container: {
-			backgroundColor: "#9D9CD9",
+			backgroundColor: theme.colors.brandAlternative,
 			flex: 1,
-			justifyContent: "space-around"
-			// paddingTop: 80
-		},
-		containerDots: {
-			flexDirection: "row",
-			justifyContent: "flex-start",
-			// marginBottom: 8,
-			marginTop: 48
-			// paddingHorizontal: 16
+			justifyContent: "space-between",
+			paddingVertical: theme.spacing.xl
 		},
 		description: {
-			gap: 16,
-			paddingTop: 16,
-			width: "100%"
-		},
-		dot: {
-			borderRadius: 5,
-			height: 8,
-			marginHorizontal: 5,
-			width: 8
-		},
-		grayDot: {
-			backgroundColor: "gray"
+			fontSize: 14,
+			lineHeight: 21
 		},
 		illustration: {
 			height: 350,
@@ -67,29 +41,20 @@ export const OnboardingIntroScreen: React.FC<OnboardingIntroProps> = () => {
 			display: "flex",
 			flexDirection: "column"
 		},
-		navContainer: {
-			alignContent: "center",
-			backgroundColor: "#9D9CD9",
-			display: "flex",
-			flexDirection: "row",
-			justifyContent: "space-between",
-			paddingHorizontal: 32,
-			paddingVertical: 30
-		},
 		textContainer: {
 			alignContent: "flex-start",
 			backgroundColor: theme.colors.background,
 			display: "flex",
-			paddingHorizontal: 16,
+			gap: theme.spacing.md,
+			paddingHorizontal: theme.spacing.lg,
 			paddingVertical: 24
 		},
 		title: {
+			fontFamily: "InterTightSemiBold",
 			fontSize: 36,
 			lineHeight: 38
 		}
 	});
-	const { currentStep, setCurrentStep, onSkip, navigateToInterestsPick, navigateToNotificationsPick } =
-		useContext(OnboardingContext);
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -100,31 +65,12 @@ export const OnboardingIntroScreen: React.FC<OnboardingIntroProps> = () => {
 				<Text style={styles.title}>
 					Access trusted,{"\n"}premium news{"\n"}sources
 				</Text>
-				<View style={styles.description}>
-					<Text>Get a daily curation of must-read articles — all in one app.</Text>
-					<Text>Set up your personal news absorbing experience with our 3 step process.</Text>
-				</View>
-				<View style={styles.containerDots}>
-					<TouchableOpacity style={[styles.dot, currentStep === 1 ? styles.blackDot : styles.grayDot]} />
-					<TouchableOpacity
-						style={[styles.dot, currentStep === 2 ? styles.blackDot : styles.grayDot]}
-						onPress={navigateToInterestsPick}
-					/>
-					<TouchableOpacity
-						style={[styles.dot, currentStep === 3 ? styles.blackDot : styles.grayDot]}
-						onPress={navigateToNotificationsPick}
-					/>
-				</View>
+				<Text style={styles.description}>Get a daily curation of must-read articles — all in one app.</Text>
+				<Text style={styles.description}>
+					Set up your personal news absorbing experience with our 3 step process.
+				</Text>
 			</View>
-
-			<View style={styles.navContainer}>
-				<TouchableOpacity onPress={onSkip}>
-					<Text style={{ fontWeight: "500", fontSize: 16, marginTop: 2 }}>Skip</Text>
-				</TouchableOpacity>
-				<TouchableOpacity onPress={navigateToInterestsPick}>
-					<Icon name="long-arrow-right" type="font-awesome" color="black" size={26} />
-				</TouchableOpacity>
-			</View>
+			<OnboardingFooter />
 		</SafeAreaView>
 	);
 };

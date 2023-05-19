@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { Platform } from "react-native";
 
 import { useAuth } from "@/context/auth";
+import { ONBOARDING_STEPS, OnboardingProvider } from "@/context/onboarding";
 import { ArticleDetailScreen } from "@/screens/article-detail";
 import { HomeScreen } from "@/screens/home";
 import { OnboardingInterestScreen } from "@/screens/onboarding/interest";
@@ -46,9 +47,26 @@ export const ApplicationRoot: React.FC = () => {
 		);
 	}
 
+	if (!session.user.user_metadata.onboarding_finished) {
+		return (
+			<OnboardingProvider>
+				<Stack.Navigator
+					initialRouteName={ONBOARDING_STEPS.get(0)}
+					screenOptions={{
+						headerShown: false
+					}}
+				>
+					<Stack.Screen name="OnboardingIntro" component={OnboardingIntroScreen} />
+					<Stack.Screen name="OnboardingRegion" component={OnboardingRegionScreen} />
+					<Stack.Screen name="OnboardingInterest" component={OnboardingInterestScreen} />
+				</Stack.Navigator>
+			</OnboardingProvider>
+		);
+	}
+
 	return (
 		<Stack.Navigator
-			initialRouteName={session.user.user_metadata.onboarding_finished ? "Home" : "OnboardingIntro"}
+			initialRouteName={"Home"}
 			screenOptions={{
 				headerShadowVisible: false,
 				headerTintColor: theme.colors.primary,
@@ -61,15 +79,6 @@ export const ApplicationRoot: React.FC = () => {
 				}
 			}}
 		>
-			<Stack.Group
-				screenOptions={{
-					headerShown: false
-				}}
-			>
-				<Stack.Screen name="OnboardingIntro" component={OnboardingIntroScreen} />
-				<Stack.Screen name="OnboardingInterest" component={OnboardingInterestScreen} />
-				<Stack.Screen name="OnboardingRegion" component={OnboardingRegionScreen} />
-			</Stack.Group>
 			<Stack.Screen
 				name="Home"
 				component={HomeScreen}
