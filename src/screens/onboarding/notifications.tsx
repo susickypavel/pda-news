@@ -1,13 +1,11 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "@rneui/themed";
-import { Button, Icon } from "@rneui/themed";
 import React from "react";
 import { useContext } from "react";
 import { Text } from "react-native";
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { categories } from "src/theme";
 import { RootStackParamList } from "src/types/app";
 
 import { supabase } from "@/api/supabase";
