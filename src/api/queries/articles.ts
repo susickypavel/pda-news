@@ -25,9 +25,8 @@ export function useArticleFeed(currentDate: Date, region: string) {
 			end.setHours(23, 59, 59, 999);
 
 			const { data, error } = await supabase
-				.rpc("get_user_feed", {
-					user_id: user.id
-				})
+				.from("articles")
+				.select("*, source_id (name)")
 				.eq("region", region)
 				.in("category", categories)
 				.gte("published_at", start.toUTCString())
@@ -35,7 +34,6 @@ export function useArticleFeed(currentDate: Date, region: string) {
 				.order("published_at", {
 					ascending: false
 				})
-				.select("*, source_id (name)")
 				.range(from, to);
 
 			if (error) {
@@ -63,7 +61,6 @@ export function useArticleFeed(currentDate: Date, region: string) {
 
 export function useExploreFeed() {
 	const query = useQuery(["category-articles"], async () => {
-		// TODO: Fetch bookmark
 		const { data, error } = await supabase.from("category_articles").select("*");
 
 		if (error) {
@@ -89,11 +86,12 @@ export function useCategoryFeed(category: BadgeCategory) {
 			const to = from + ARTICLES_LIMIT_PER_LOAD - 1;
 
 			const { data, error } = await supabase
-				.rpc("get_category_feed", {
-					user_id: user.id,
-					category
-				})
+				.from("articles")
 				.select("*, source_id (name)")
+				.eq("category", category)
+				.order("published_at", {
+					ascending: false
+				})
 				.range(from, to);
 
 			if (error) {

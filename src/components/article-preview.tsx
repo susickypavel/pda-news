@@ -2,7 +2,6 @@ import { useNavigation } from "@react-navigation/native";
 import { Badge, Icon, Text, useTheme } from "@rneui/themed";
 import React from "react";
 import { Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
-import { useBookmarkStore } from "src/stores/bookmark-store";
 
 import { useArticleFeed } from "@/api/queries/articles";
 import { BadgeCategory } from "@/types/theme";
@@ -17,18 +16,13 @@ export type ArticlePreviewProps = ReturnType<typeof useArticleFeed>[0][0] & {
 export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	const { navigate } = useNavigation();
 	const { theme } = useTheme();
-	const bookmarks = useBookmarkStore(state => state.bookmarks);
 
 	const {
 		title,
 		content,
 		source_id: { name },
-		category,
-		is_bookmarked,
-		id
+		category
 	} = props;
-
-	const isBookmarked = typeof bookmarks[id] === "undefined" ? is_bookmarked : bookmarks[id];
 
 	const onPress = () => {
 		navigate("ArticleDetail", props);
@@ -94,7 +88,6 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 				<View style={styles.author}>
 					<Badge value={category} category={category} />
 					<Text style={styles.domain}>{name}</Text>
-					<Icon name={isBookmarked ? "bookmark" : "bookmark-border"} color="black" size={32} />
 				</View>
 			</View>
 		</TouchableWithoutFeedback>

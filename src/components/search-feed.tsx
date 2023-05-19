@@ -9,7 +9,6 @@ import { Text } from "react-native";
 import { supabase } from "@/api/supabase";
 import { useAuthSafe } from "@/context/auth";
 import { useSearchArticles } from "@/queries/articles";
-import { useBookmarkStore } from "@/stores/bookmark-store";
 import { BadgeCategory } from "@/types/theme";
 
 import { FetchingIndicator } from "./article-feed";
@@ -42,12 +41,11 @@ const EmptySearchList: React.FC = () => (
 export const SearchFeedSeparator = () => <View style={{ height: 8 }} />;
 
 export const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props }) => {
-	const { title, published_at, image_url, category, id, source_id, is_bookmarked = false } = props;
+	const { title, published_at, image_url, category, id, source_id } = props;
 	const { user } = useAuthSafe();
 	const { theme } = useTheme();
 	const { navigate } = useNavigation();
 	const queryClient = useQueryClient();
-	const toggleBookmark = useBookmarkStore(state => state.toggleBookmark);
 
 	const styles = StyleSheet.create({
 		bookmarkButton: {
@@ -75,12 +73,10 @@ export const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...p
 			onRedirect();
 		}
 
-		navigate("ArticleDetail", { ...props, is_bookmarked } as any);
+		navigate("ArticleDetail", props);
 	};
 
 	const onBookmarkButtonPress = async () => {
-		toggleBookmark(id, true);
-
 		const { error } = await supabase.from("user_articles").insert({
 			user_id: user.id,
 			article_id: id

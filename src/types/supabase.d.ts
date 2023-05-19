@@ -16,7 +16,7 @@ export interface Database {
 					created_at: string
 					id: string
 					image_url: string | null
-					original_url: string | null
+					original_url: string
 					published_at: string
 					region: string
 					source_id: string

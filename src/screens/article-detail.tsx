@@ -1,14 +1,13 @@
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Icon, useTheme } from "@rneui/themed";
-import { useQueryClient } from "@tanstack/react-query";
-import React, { useEffect, useMemo } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import React, { useEffect } from "react";
 import { Share, StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { WebView } from "react-native-webview";
 
 import { supabase } from "@/api/supabase";
 import { useAuthSafe } from "@/context/auth";
-import { useBookmarkStore } from "@/stores/bookmark-store";
 import type { RootStackParamList } from "@/types/app";
 
 type ArticleDetailsScreenProps = NativeStackScreenProps<RootStackParamList, "ArticleDetail">;
@@ -17,13 +16,25 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 	const { user } = useAuthSafe();
 	const { theme } = useTheme();
 	const queryClient = useQueryClient();
-	const { id, title, original_url, is_bookmarked } = route.params;
-	const [bookmarks, toggleBookmark] = useBookmarkStore(state => [state.bookmarks, state.toggleBookmark]);
+	const { id, title, original_url } = route.params;
+	const { data: isBookmarked, refetch } = useQuery({
+		initialData: false,
+		queryKey: ["bookmark", id],
+		queryFn: async () => {
+			const { data, error } = await supabase
+				.from("user_articles")
+				.select("user_id")
+				.eq("user_id", user.id)
+				.eq("article_id", id)
+				.single();
 
-	const isBookmarked = useMemo(
-		() => (typeof bookmarks[id] === "undefined" ? is_bookmarked : bookmarks[id]),
-		[bookmarks, id, is_bookmarked]
-	);
+			if (error) {
+				return false;
+			}
+
+			return Boolean(data);
+		}
+	});
 
 	const onShare = () => {
 		Share.share({
@@ -33,14 +44,14 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 	};
 
 	const onBookmark = async () => {
-		toggleBookmark(id, !isBookmarked);
-
 		if (isBookmarked) {
 			const { error } = await supabase.from("user_articles").delete().eq("user_id", user.id).eq("article_id", id);
 
 			if (error) {
 				console.error("Error deleting bookmark", error.message);
 			}
+
+			console.log("Bookmarked deleted");
 		} else {
 			const { error } = await supabase.from("user_articles").insert({
 				user_id: user.id,
@@ -50,7 +61,11 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 			if (error) {
 				console.error("Error creating bookmark", error.message);
 			}
+
+			console.log("Bookmarked");
 		}
+
+		refetch();
 
 		queryClient.invalidateQueries({
 			queryKey: ["saved-articles", user.id]
