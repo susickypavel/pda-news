@@ -7,6 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { RootStackParamList } from "src/types/app";
 
 import { OnboardingFooter } from "@/components/onboarding-footer";
+import { ONBOARDING_STEPS } from "@/context/onboarding";
 
 export type OnboardingIntroRouteProp = RouteProp<RootStackParamList, "OnboardingIntro">;
 
@@ -67,7 +68,7 @@ export const OnboardingIntroScreen: React.FC<OnboardingIntroProps> = () => {
 				</Text>
 				<Text style={styles.description}>Get a daily curation of must-read articles — all in one app.</Text>
 				<Text style={styles.description}>
-					Set up your personal news absorbing experience with our 3 step process.
+					Set up your personal news absorbing experience with our {ONBOARDING_STEPS.length} step process.
 				</Text>
 			</View>
 			<OnboardingFooter />

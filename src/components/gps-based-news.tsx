@@ -16,7 +16,10 @@ type GPSBasedNewsProps = PropsWithChildren<{
 	currentDate: Date;
 }>;
 
-const SUPPORTED_REGIONS = ["de", "cz", "gb"];
+export const SUPPORTED_REGIONS = ["de", "cz", "gb"] as const;
+
+export type SupportedRegion = (typeof SUPPORTED_REGIONS)[number];
+
 const LAST_POSITON_MAX_AGE = 1000 * 60 * 5;
 
 class RegionError extends Error {
@@ -29,6 +32,10 @@ class GrantError extends Error {
 	constructor() {
 		super("Permission not granted, open settings and allow location access.");
 	}
+}
+
+function isSupportedRegion(region: string): region is (typeof SUPPORTED_REGIONS)[number] {
+	return SUPPORTED_REGIONS.includes(region as any);
 }
 
 export const GPSBasedNews: React.FC<GPSBasedNewsProps> = ({ currentDate }) => {
@@ -58,7 +65,7 @@ export const GPSBasedNews: React.FC<GPSBasedNewsProps> = ({ currentDate }) => {
 
 			const countryCode = geocoding[0]?.isoCountryCode?.toLowerCase() || "";
 
-			if (!SUPPORTED_REGIONS.includes(countryCode)) {
+			if (!isSupportedRegion(countryCode)) {
 				throw new RegionError(countryCode);
 			}
 

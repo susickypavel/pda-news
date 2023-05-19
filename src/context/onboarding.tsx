@@ -3,6 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 
 import { supabase } from "@/api/supabase";
+import type { SupportedRegion } from "@/components/gps-based-news";
 import type { RootStackScreens } from "@/types/app";
 
 export const ONBOARDING_STEPS = [
@@ -17,6 +18,7 @@ type OnboardingProviderProps = {
 
 type OnboardingContext = {
 	currentStep: number;
+	homeRegion: SupportedRegion;
 	setCurrentStep: Dispatch<SetStateAction<number>>;
 	selectedInterests: string[];
 	addInterest: (interest: string) => void;
@@ -25,10 +27,12 @@ type OnboardingContext = {
 	goto: (step: number) => void;
 	nextStep: () => void;
 	previousStep: () => void;
+	setHomeRegion: (region: SupportedRegion) => void;
 };
 
 const OnboardingContext = createContext<OnboardingContext>({
-	currentStep: 1,
+	currentStep: 0,
+	homeRegion: "cz",
 	setCurrentStep: () => {},
 	selectedInterests: [],
 	addInterest: () => {},
@@ -36,7 +40,8 @@ const OnboardingContext = createContext<OnboardingContext>({
 	onSkip: () => {},
 	goto: () => {},
 	nextStep: () => {},
-	previousStep: () => {}
+	previousStep: () => {},
+	setHomeRegion: () => {}
 });
 
 export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children }) => {
@@ -44,15 +49,19 @@ export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children
 
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+	const [homeRegion, setHomeRegion] = useState<SupportedRegion>("de");
 
 	const updateUser = async () => {
-		console.log("UPDATE USER");
+		console.log("UPDATE USER", {
+			homeRegion,
+			selectedInterests,
+			currentStep
+		});
 		// const { data, error } = await supabase.auth.updateUser({
 		// 	data: {
 		// 		onboarding_finished: true,
 		// 		interests: selectedInterests,
-		// 		// TODO: Region
-		// 		home_region: "cz"
+		// 		home_region: homeRegion
 		// 	}
 		// });
 
@@ -99,6 +108,7 @@ export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children
 	return (
 		<OnboardingContext.Provider
 			value={{
+				homeRegion,
 				currentStep,
 				setCurrentStep,
 				selectedInterests,
@@ -107,7 +117,8 @@ export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children
 				onSkip,
 				nextStep,
 				previousStep,
-				goto
+				goto,
+				setHomeRegion
 			}}
 		>
 			{children}
