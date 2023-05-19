@@ -2,6 +2,8 @@ import React from "react";
 import { useWindowDimensions } from "react-native";
 import { TabView } from "react-native-tab-view";
 
+import { useAuthSafe } from "@/context/auth";
+
 import { ArticleFeed } from "./article-feed";
 import { GPSBasedNews } from "./gps-based-news";
 import { NewsFeedTabBar } from "./news-feed-tab-bar";
@@ -22,11 +24,12 @@ interface NewsFeedTabViewProps {
 export const NewsFeedTabView: React.FC<NewsFeedTabViewProps> = ({ currentDate }) => {
 	const [index, setIndex] = React.useState(0);
 	const { width } = useWindowDimensions();
+	const { user } = useAuthSafe();
 
 	const renderScene = ({ route }: Route) => {
 		switch (route.key) {
 			case "home":
-				return <ArticleFeed currentDate={currentDate} />;
+				return <ArticleFeed currentDate={currentDate} region={user.user_metadata.home_region} />;
 			case "local":
 				return <GPSBasedNews currentDate={currentDate} />;
 		}

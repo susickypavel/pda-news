@@ -22,6 +22,7 @@ export const OnboardingRegionScreen: React.FC<OnboardingRegionProps> = () => {
 		content: {
 			backgroundColor: theme.colors.background,
 			flex: 1,
+			gap: theme.spacing.md,
 			justifyContent: "center",
 			padding: theme.spacing.sm
 		},

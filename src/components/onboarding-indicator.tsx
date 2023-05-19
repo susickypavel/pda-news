@@ -23,9 +23,9 @@ export const OnboardingIndicator: React.FC<OnboardingIndicatorProps> = () => {
 		},
 		dot: {
 			backgroundColor: theme.colors.white,
-			borderRadius: 6,
-			height: 12,
-			width: 12
+			borderRadius: 4,
+			height: 8,
+			width: 8
 		}
 	});
 

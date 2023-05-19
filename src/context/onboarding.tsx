@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { useNavigation } from "@react-navigation/native";
 import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
+import { Alert } from "react-native";
 
 import { supabase } from "@/api/supabase";
 import type { SupportedRegion } from "@/components/gps-based-news";
@@ -52,25 +53,17 @@ export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children
 	const [homeRegion, setHomeRegion] = useState<SupportedRegion>("de");
 
 	const updateUser = async () => {
-		console.log("UPDATE USER", {
-			homeRegion,
-			selectedInterests,
-			currentStep
+		const { error } = await supabase.auth.updateUser({
+			data: {
+				onboarding_finished: true,
+				interests: selectedInterests,
+				home_region: homeRegion
+			}
 		});
-		// const { data, error } = await supabase.auth.updateUser({
-		// 	data: {
-		// 		onboarding_finished: true,
-		// 		interests: selectedInterests,
-		// 		home_region: homeRegion
-		// 	}
-		// });
 
-		// if (error) {
-		// 	console.error(error)
-		// 	return;
-		// }
-
-		// console.log(data)
+		if (error) {
+			Alert.alert("Couldn't finish onboarding", error);
+		}
 	};
 
 	const addInterest = (interest: string) => {
