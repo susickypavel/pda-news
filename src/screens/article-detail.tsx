@@ -1,5 +1,5 @@
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Button, Icon, useTheme } from "@rneui/themed";
+import { Icon, useTheme } from "@rneui/themed";
 import { useQueryClient } from "@tanstack/react-query";
 import React, { useEffect, useMemo } from "react";
 import { Share, StyleSheet, View } from "react-native";

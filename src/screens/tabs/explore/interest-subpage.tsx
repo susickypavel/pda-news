@@ -1,7 +1,6 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { Header, useTheme } from "@rneui/themed";
+import { useTheme } from "@rneui/themed";
 import React, { Fragment, useEffect } from "react";
-import { StyleSheet, Text } from "react-native";
 import { RootStackParamList } from "src/types/app";
 
 import { CategoryFeed } from "@/components/category-feed";
