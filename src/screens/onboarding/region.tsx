@@ -3,6 +3,7 @@ import { Text, useTheme } from "@rneui/themed";
 import React, { PropsWithChildren } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { REGION_FULLNAME, SUPPORTED_REGIONS } from "src/constants";
 
 import { OnboardingFooter } from "@/components/onboarding-footer";
 import { useOnboarding } from "@/context/onboarding";
@@ -26,6 +27,9 @@ export const OnboardingRegionScreen: React.FC<OnboardingRegionProps> = () => {
 			justifyContent: "center",
 			padding: theme.spacing.sm
 		},
+		picker: {
+			backgroundColor: theme.colors.background
+		},
 		title: {
 			fontFamily: "InterTightBold",
 			fontSize: 24,
@@ -38,16 +42,14 @@ export const OnboardingRegionScreen: React.FC<OnboardingRegionProps> = () => {
 			<View style={styles.content}>
 				<Text style={styles.title}>Select your home region</Text>
 				<Picker
-					style={{
-						backgroundColor: theme.colors.background
-					}}
+					style={styles.picker}
 					selectionColor={theme.colors.primary}
 					selectedValue={homeRegion}
 					onValueChange={setHomeRegion}
 				>
-					<Picker.Item label="Czech Republic" value="cz" />
-					<Picker.Item label="Germany" value="de" />
-					<Picker.Item label="Great Britain" value="gb" />
+					{SUPPORTED_REGIONS.map(region => (
+						<Picker.Item key={region} label={REGION_FULLNAME[region]} value={region} />
+					))}
 				</Picker>
 			</View>
 			<OnboardingFooter />

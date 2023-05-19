@@ -8,6 +8,7 @@ import {
 } from "expo-location";
 import React, { PropsWithChildren } from "react";
 import { Linking, StyleSheet } from "react-native";
+import { SUPPORTED_REGIONS } from "src/constants";
 
 import { ArticleFeed, FetchingIndicator } from "./article-feed";
 import { Alert } from "./common/alert";
@@ -15,10 +16,6 @@ import { Alert } from "./common/alert";
 type GPSBasedNewsProps = PropsWithChildren<{
 	currentDate: Date;
 }>;
-
-export const SUPPORTED_REGIONS = ["de", "cz", "gb"] as const;
-
-export type SupportedRegion = (typeof SUPPORTED_REGIONS)[number];
 
 const LAST_POSITON_MAX_AGE = 1000 * 60 * 5;
 

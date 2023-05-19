@@ -2,9 +2,9 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 import { Alert } from "react-native";
+import type { SupportedRegion } from "src/constants";
 
 import { supabase } from "@/api/supabase";
-import type { SupportedRegion } from "@/components/gps-based-news";
 import type { RootStackScreens } from "@/types/app";
 
 export const ONBOARDING_STEPS = [
@@ -62,7 +62,7 @@ export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children
 		});
 
 		if (error) {
-			Alert.alert("Couldn't finish onboarding", error);
+			Alert.alert("Couldn't finish onboarding", error.message);
 		}
 	};
 

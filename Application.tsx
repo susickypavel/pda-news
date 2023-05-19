@@ -98,7 +98,8 @@ export const ApplicationRoot: React.FC = () => {
 				name="ArticleDetail"
 				component={ArticleDetailScreen}
 				options={{
-					headerTintColor: theme.colors.black
+					headerTintColor: theme.colors.black,
+					title: "Article"
 				}}
 			/>
 			<Stack.Screen name="Settings" component={SettingsScreen} />

@@ -1,7 +1,9 @@
 import type { Session } from "@supabase/supabase-js";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import type { SupportedRegion } from "src/constants";
 
 import { supabase } from "@/api/supabase";
+import { BadgeCategory } from "@/types/theme";
 
 export const AuthContext = createContext<Session | null | undefined>(null);
 
@@ -47,7 +49,14 @@ export function useAuth() {
 	return session;
 }
 
-export function useAuthSafe() {
-	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	return useContext(AuthContext)!;
+export function useAuthSafe(): Session & {
+	user: {
+		user_metadata: {
+			interests: BadgeCategory[];
+			home_region: SupportedRegion;
+			onboarding_finished: boolean;
+		};
+	};
+} {
+	return useContext(AuthContext) as any;
 }

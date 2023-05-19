@@ -1,13 +1,11 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
-import { CATEGORIES } from "src/constants";
+import { ARTICLES_LIMIT_PER_LOAD, CATEGORIES } from "src/constants";
 
 import { useAuthSafe } from "@/context/auth";
 import type { BadgeCategory } from "@/types/theme";
 
 import { supabase } from "../supabase";
-
-const ARTICLES_LIMIT_PER_LOAD = 8;
 
 export function useArticleFeed(currentDate: Date, region: string) {
 	const { user } = useAuthSafe();

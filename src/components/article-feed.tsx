@@ -44,10 +44,8 @@ type ArticleFeedProps = {
 };
 
 const Feed: React.FC<ArticleFeedProps> = ({ currentDate, region }) => {
-	const [articles, { hasNextPage, isFetchingNextPage, fetchNextPage, isError, isLoading }] = useArticleFeed(
-		currentDate,
-		region
-	);
+	const [articles, { hasNextPage, isFetchingNextPage, fetchNextPage, isError, isLoading, refetch, isRefetching }] =
+		useArticleFeed(currentDate, region);
 
 	const onEndReached = () => {
 		if (hasNextPage && !isFetchingNextPage) {
@@ -66,6 +64,8 @@ const Feed: React.FC<ArticleFeedProps> = ({ currentDate, region }) => {
 	return (
 		<FlashList
 			showsVerticalScrollIndicator={false}
+			refreshing={isRefetching}
+			onRefresh={refetch}
 			data={articles}
 			keyExtractor={item => item.id}
 			renderItem={({ item }: any) => <ArticlePreview {...item} />}
