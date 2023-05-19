@@ -26,7 +26,14 @@ type RegistrationFormData = z.infer<typeof REGISTER_SCHEMA>;
 async function onSubmit(data: RegistrationFormData) {
 	const response = await supabase.auth.signUp({
 		email: data.email,
-		password: data.password
+		password: data.password,
+		options: {
+			data: {
+				onboarding_finished: false,
+				interests: [],
+				home_region: null
+			}
+		}
 	});
 
 	if (response.error) {

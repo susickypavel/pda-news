@@ -8,6 +8,9 @@ import { Platform } from "react-native";
 import { useAuth } from "@/context/auth";
 import { ArticleDetailScreen } from "@/screens/article-detail";
 import { HomeScreen } from "@/screens/home";
+import { OnboardingInterestScreen } from "@/screens/onboarding/interest";
+import { OnboardingIntroScreen } from "@/screens/onboarding/intro";
+import { OnboardingRegionScreen } from "@/screens/onboarding/region";
 import { AccountSettingsScreen } from "@/screens/settings/account";
 import { SettingsScreen } from "@/screens/settings/settings";
 import { SignInScreen } from "@/screens/sign-in";
@@ -45,7 +48,7 @@ export const ApplicationRoot: React.FC = () => {
 
 	return (
 		<Stack.Navigator
-			initialRouteName="Home"
+			initialRouteName={session.user.user_metadata.onboarding_finished ? "Home" : "OnboardingIntro"}
 			screenOptions={{
 				headerShadowVisible: false,
 				headerTintColor: theme.colors.primary,
@@ -58,6 +61,15 @@ export const ApplicationRoot: React.FC = () => {
 				}
 			}}
 		>
+			<Stack.Group
+				screenOptions={{
+					headerShown: false
+				}}
+			>
+				<Stack.Screen name="OnboardingIntro" component={OnboardingIntroScreen} />
+				<Stack.Screen name="OnboardingInterest" component={OnboardingInterestScreen} />
+				<Stack.Screen name="OnboardingRegion" component={OnboardingRegionScreen} />
+			</Stack.Group>
 			<Stack.Screen
 				name="Home"
 				component={HomeScreen}
