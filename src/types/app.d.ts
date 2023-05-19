@@ -18,8 +18,9 @@ export type RootStackParamList = {
 	CategorySubpage: {
 		category: BadgeCategory;
 	};
-	Onboarding: undefined;
-	InterestPick: undefined;
+	OnboardingIntro: undefined;
+	OnboardingInterest: undefined;
+	OnboardingRegion: undefined;
 	NotificationPick: undefined;
 };
 

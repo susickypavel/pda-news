@@ -13,16 +13,16 @@ import { supabase } from "@/api/supabase";
 
 import { OnboardingContext } from "./onboarding-context";
 
-export type OnboardingScreenRouteProp = RouteProp<RootStackParamList, "Onboarding">;
+export type OnboardingIntroRouteProp = RouteProp<RootStackParamList, "OnboardingIntro">;
 
-export type OnboardingScreenNavigationProp = NavigationProp<RootStackParamList, "Onboarding">;
+export type OnboardingIntroNavigationProp = NavigationProp<RootStackParamList, "OnboardingIntro">;
 
-type OnboardingScreenProps = {
-	route: OnboardingScreenRouteProp;
-	navigation: OnboardingScreenNavigationProp;
+type OnboardingIntroProps = {
+	route: OnboardingIntroRouteProp;
+	navigation: OnboardingIntroNavigationProp;
 };
 
-export const IntroScreen: React.FC<OnboardingScreenProps> = () => {
+export const OnboardingIntroScreen: React.FC<OnboardingIntroProps> = () => {
 	const { theme } = useTheme();
 	const navigation = useNavigation();
 
