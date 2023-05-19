@@ -4,6 +4,7 @@ import { FlashList } from "@shopify/flash-list";
 import { useQueryClient } from "@tanstack/react-query";
 import React, { Fragment } from "react";
 import { Image, Platform, StyleSheet, TouchableHighlight, TouchableNativeFeedback, View } from "react-native";
+import { Text } from "react-native";
 
 import { supabase } from "@/api/supabase";
 import { useAuthSafe } from "@/context/auth";
@@ -11,7 +12,8 @@ import { useSearchArticles } from "@/queries/articles";
 import { useBookmarkStore } from "@/stores/bookmark-store";
 import { BadgeCategory } from "@/types/theme";
 
-import { EmptyList, FetchingIndicator } from "./article-feed";
+import { FetchingIndicator } from "./article-feed";
+import { IllustrationTemplate } from "./common/illustration";
 
 type SearchResult = ReturnType<typeof useSearchArticles>;
 
@@ -29,6 +31,13 @@ type SearchFeedItemProps = SearchResult[0][0] & {
 	onRedirect?: () => void;
 	is_bookmarked?: boolean;
 };
+
+const EmptySearchList: React.FC = () => (
+	<IllustrationTemplate title="We are sorry!" image={require("@/assets/images/illustrations/search-not-found.png")}>
+		<Text>We couldn{"'"}t find article you were looking for.</Text>
+		<Text>Check typos and try using full words.</Text>
+	</IllustrationTemplate>
+);
 
 export const SearchFeedSeparator = () => <View style={{ height: 8 }} />;
 
@@ -139,7 +148,7 @@ export const SearchFeed: React.FC<SearchFeedProps> = ({ searchTerm, children, on
 				data={data}
 				keyExtractor={item => item.id}
 				renderItem={({ item }: any) => <SearchFeedItem {...item} onRedirect={onRedirect} />}
-				ListEmptyComponent={isFetched ? EmptyList : null}
+				ListEmptyComponent={isFetched ? EmptySearchList : null}
 				estimatedItemSize={10}
 				onEndReached={onEndReached}
 				onEndReachedThreshold={0.5}
