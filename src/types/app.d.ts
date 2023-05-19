@@ -15,7 +15,7 @@ export type RootStackParamList = {
 	InterestsSettings: undefined;
 	LocationSettings: undefined;
 	NotificationsSettings: undefined;
-	InterestSubpage: {
+	CategorySubpage: {
 		category: BadgeCategory;
 	};
 };

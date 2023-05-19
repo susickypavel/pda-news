@@ -31,7 +31,7 @@ export const CategoryPicker: React.FC<CategoryPickerProps> = () => {
 	});
 
 	const onPress = (category: BadgeCategory) => {
-		navigate("InterestSubpage", {
+		navigate("CategorySubpage", {
 			category
 		});
 	};
@@ -43,7 +43,10 @@ export const CategoryPicker: React.FC<CategoryPickerProps> = () => {
 					type="clear"
 					key={category}
 					containerStyle={styles.interestButton}
-					buttonStyle={{ backgroundColor: theme.colors.categories[category].bg, paddingHorizontal: theme.spacing.lg }}
+					buttonStyle={{
+						backgroundColor: theme.colors.categories[category].bg,
+						paddingHorizontal: theme.spacing.lg
+					}}
 					titleStyle={styles.interestTitle}
 					onPress={() => onPress(category)}
 				>

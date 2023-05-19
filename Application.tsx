@@ -12,7 +12,7 @@ import { AccountSettingsScreen } from "@/screens/settings/account";
 import { SettingsScreen } from "@/screens/settings/settings";
 import { SignInScreen } from "@/screens/sign-in";
 import { SignUpScreen } from "@/screens/sign-up";
-import { InterestSubpageScreen } from "@/screens/tabs/explore/interest-subpage";
+import { CategorySubpageScreen } from "@/screens/tabs/explore/category-subpage";
 import { RootStackParamList } from "@/types/app";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -47,7 +47,6 @@ export const ApplicationRoot: React.FC = () => {
 		<Stack.Navigator
 			initialRouteName="Home"
 			screenOptions={{
-				headerShown: false,
 				headerShadowVisible: false,
 				headerTintColor: theme.colors.primary,
 				animation: Platform.OS === "ios" ? "flip" : "default",
@@ -59,12 +58,17 @@ export const ApplicationRoot: React.FC = () => {
 				}
 			}}
 		>
-			<Stack.Screen name="Home" component={HomeScreen} />
 			<Stack.Screen
-				name="InterestSubpage"
-				component={InterestSubpageScreen}
+				name="Home"
+				component={HomeScreen}
 				options={{
-					headerShown: true,
+					headerShown: false
+				}}
+			/>
+			<Stack.Screen
+				name="CategorySubpage"
+				component={CategorySubpageScreen}
+				options={{
 					headerTintColor: theme.colors.black
 				}}
 			/>
@@ -72,22 +76,14 @@ export const ApplicationRoot: React.FC = () => {
 				name="ArticleDetail"
 				component={ArticleDetailScreen}
 				options={{
-					headerShown: true,
 					headerTintColor: theme.colors.black
 				}}
 			/>
-			<Stack.Screen
-				name="Settings"
-				component={SettingsScreen}
-				options={{
-					headerShown: true
-				}}
-			/>
+			<Stack.Screen name="Settings" component={SettingsScreen} />
 			<Stack.Screen
 				name="AccountSettings"
 				component={AccountSettingsScreen}
 				options={{
-					headerShown: true,
 					headerTitle: "Account"
 				}}
 			/>
