@@ -31,8 +31,8 @@ export const OnboardingIndicator: React.FC<OnboardingIndicatorProps> = () => {
 
 	return (
 		<View style={styles.containerDots}>
-			{Array.from(ONBOARDING_STEPS).map(([index, screen]) => (
-				<TouchableOpacity key={screen} style={[styles.dot, currentStep === index ? styles.currentDot : null]} />
+			{Array.from(ONBOARDING_STEPS).map((screen, i) => (
+				<TouchableOpacity key={screen} style={[styles.dot, currentStep === i ? styles.currentDot : null]} />
 			))}
 		</View>
 	);

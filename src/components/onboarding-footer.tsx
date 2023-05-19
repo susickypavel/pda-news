@@ -6,11 +6,9 @@ import { useOnboarding } from "@/context/onboarding";
 
 import { OnboardingIndicator } from "./onboarding-indicator";
 
-type OnboardingFooterProps = PropsWithChildren<unknown>;
-
-export const OnboardingFooter: React.FC<OnboardingFooterProps> = () => {
+export const OnboardingFooter: React.FC = () => {
 	const { theme } = useTheme();
-	const { onSkip, navigateToInterestsPick } = useOnboarding();
+	const { onSkip, nextStep, previousStep, currentStep } = useOnboarding();
 
 	const styles = StyleSheet.create({
 		navigationContainer: {
@@ -28,11 +26,11 @@ export const OnboardingFooter: React.FC<OnboardingFooterProps> = () => {
 
 	return (
 		<View style={styles.navigationContainer}>
-			<TouchableOpacity onPress={onSkip}>
-				<Text style={styles.secondaryAction}>Skip</Text>
+			<TouchableOpacity onPress={currentStep > 0 ? previousStep : onSkip}>
+				<Text style={styles.secondaryAction}>{currentStep > 0 ? "Back" : "Skip"}</Text>
 			</TouchableOpacity>
 			<OnboardingIndicator />
-			<TouchableOpacity onPress={navigateToInterestsPick}>
+			<TouchableOpacity onPress={nextStep}>
 				<Icon name="long-arrow-right" type="font-awesome" color="black" size={26} />
 			</TouchableOpacity>
 		</View>
