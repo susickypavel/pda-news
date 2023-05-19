@@ -1,6 +1,14 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { useNavigation } from "@react-navigation/native";
-import React, { createContext, Dispatch, ReactNode, SetStateAction, useState } from "react";
+import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
+
+import type { RootStackScreens } from "@/types/app";
+
+export const ONBOARDING_STEPS = new Map<number, RootStackScreens>([
+	[0, "OnboardingIntro"],
+	[1, "OnboardingRegion"],
+	[2, "OnboardingInterest"]
+]);
 
 type OnboardingProviderProps = {
 	children: ReactNode;
@@ -30,10 +38,10 @@ const OnboardingContext = createContext<OnboardingContextType>({
 	navigateToNotificationsPick: () => {}
 });
 
-const OnboardingProvider = ({ children }: OnboardingProviderProps) => {
+export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children }) => {
 	const navigation = useNavigation();
 
-	const [currentStep, setCurrentStep] = useState<number>(1);
+	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
 
 	const addInterest = (interest: string) => {
@@ -80,4 +88,8 @@ const OnboardingProvider = ({ children }: OnboardingProviderProps) => {
 	);
 };
 
-export { OnboardingContext, OnboardingProvider };
+OnboardingProvider.displayName = "OnboardingProvider";
+
+export function useOnboarding() {
+	return useContext(OnboardingContext);
+}

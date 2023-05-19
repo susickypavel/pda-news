@@ -14,6 +14,7 @@ export type BadgeCategory =
 declare module "@rneui/themed" {
 	export interface Colors {
 		brand: string;
+		brandAlternative: string;
 		categories: readonly Record<
 			BadgeCategory,
 			{
