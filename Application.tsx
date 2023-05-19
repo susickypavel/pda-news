@@ -51,9 +51,10 @@ export const ApplicationRoot: React.FC = () => {
 		return (
 			<OnboardingProvider>
 				<Stack.Navigator
-					initialRouteName={ONBOARDING_STEPS.get(0)}
+					initialRouteName={ONBOARDING_STEPS[0]}
 					screenOptions={{
-						headerShown: false
+						headerShown: false,
+						animation: "simple_push"
 					}}
 				>
 					<Stack.Screen name="OnboardingIntro" component={OnboardingIntroScreen} />

@@ -1,10 +1,29 @@
+import { useTheme } from "@rneui/themed";
 import React, { PropsWithChildren } from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import { OnboardingFooter } from "@/components/onboarding-footer";
 
 type OnboardingInterestProps = PropsWithChildren<unknown>;
 
 export const OnboardingInterestScreen: React.FC<OnboardingInterestProps> = () => {
-	return <View />;
+	const { theme } = useTheme();
+
+	const styles = StyleSheet.create({
+		container: {
+			backgroundColor: theme.colors.brandAlternative,
+			flex: 1,
+			paddingVertical: theme.spacing.xl
+		}
+	});
+
+	return (
+		<SafeAreaView style={styles.container}>
+			<View style={{ flex: 1 }} />
+			<OnboardingFooter />
+		</SafeAreaView>
+	);
 };
 
 OnboardingInterestScreen.displayName = "OnboardingInterest";

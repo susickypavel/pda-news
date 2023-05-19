@@ -1,41 +1,42 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { useNavigation } from "@react-navigation/native";
-import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
+import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 
+import { supabase } from "@/api/supabase";
 import type { RootStackScreens } from "@/types/app";
 
-export const ONBOARDING_STEPS = new Map<number, RootStackScreens>([
-	[0, "OnboardingIntro"],
-	[1, "OnboardingRegion"],
-	[2, "OnboardingInterest"]
-]);
+export const ONBOARDING_STEPS = [
+	"OnboardingIntro",
+	"OnboardingRegion",
+	"OnboardingInterest"
+] satisfies RootStackScreens[];
 
 type OnboardingProviderProps = {
 	children: ReactNode;
 };
 
-type OnboardingContextType = {
+type OnboardingContext = {
 	currentStep: number;
 	setCurrentStep: Dispatch<SetStateAction<number>>;
 	selectedInterests: string[];
 	addInterest: (interest: string) => void;
 	removeInterest: (interest: string) => void;
 	onSkip: () => void;
-	navigateToIntro: () => void;
-	navigateToInterestsPick: () => void;
-	navigateToNotificationsPick: () => void;
+	goto: (step: number) => void;
+	nextStep: () => void;
+	previousStep: () => void;
 };
 
-const OnboardingContext = createContext<OnboardingContextType>({
+const OnboardingContext = createContext<OnboardingContext>({
 	currentStep: 1,
 	setCurrentStep: () => {},
 	selectedInterests: [],
 	addInterest: () => {},
 	removeInterest: () => {},
 	onSkip: () => {},
-	navigateToIntro: () => {},
-	navigateToInterestsPick: () => {},
-	navigateToNotificationsPick: () => {}
+	goto: () => {},
+	nextStep: () => {},
+	previousStep: () => {}
 });
 
 export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children }) => {
@@ -43,6 +44,25 @@ export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children
 
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+
+	const updateUser = async () => {
+		console.log("UPDATE USER");
+		// const { data, error } = await supabase.auth.updateUser({
+		// 	data: {
+		// 		onboarding_finished: true,
+		// 		interests: selectedInterests,
+		// 		// TODO: Region
+		// 		home_region: "cz"
+		// 	}
+		// });
+
+		// if (error) {
+		// 	console.error(error)
+		// 	return;
+		// }
+
+		// console.log(data)
+	};
 
 	const addInterest = (interest: string) => {
 		setSelectedInterests(prevInterests => [...prevInterests, interest]);
@@ -52,22 +72,29 @@ export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children
 		setSelectedInterests(prevInterests => prevInterests.filter(item => item !== interest));
 	};
 
-	const onSkip = () => {
-		//TODO: On skip
+	const onSkip = async () => await updateUser();
+
+	const goto: OnboardingContext["goto"] = async step => {
+		if (step < 0 || step >= ONBOARDING_STEPS.length) {
+			await updateUser();
+			return;
+		}
+
+		setCurrentStep(step);
 	};
 
-	const navigateToIntro = () => {
-		setCurrentStep(1);
-		navigation.navigate("Onboarding");
-	};
-	const navigateToInterestsPick = () => {
-		setCurrentStep(2);
-		navigation.navigate("InterestPick");
-	};
-	const navigateToNotificationsPick = () => {
-		setCurrentStep(3);
-		navigation.navigate("NotificationPick");
-	};
+	const nextStep = () => goto(currentStep + 1);
+	const previousStep = () => goto(currentStep - 1);
+
+	useEffect(() => {
+		const nextPage = ONBOARDING_STEPS[currentStep];
+
+		if (!nextPage) {
+			return;
+		}
+
+		navigation.navigate(nextPage);
+	}, [currentStep]);
 
 	return (
 		<OnboardingContext.Provider
@@ -78,9 +105,9 @@ export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children
 				addInterest,
 				removeInterest,
 				onSkip,
-				navigateToIntro,
-				navigateToInterestsPick,
-				navigateToNotificationsPick
+				nextStep,
+				previousStep,
+				goto
 			}}
 		>
 			{children}
