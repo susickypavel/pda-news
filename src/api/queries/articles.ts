@@ -1,8 +1,9 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
-import { BadgeCategory } from "src/types/theme";
+import { CATEGORIES } from "src/constants";
 
 import { useAuthSafe } from "@/context/auth";
+import type { BadgeCategory } from "@/types/theme";
 
 import { supabase } from "../supabase";
 
@@ -10,6 +11,11 @@ const ARTICLES_LIMIT_PER_LOAD = 8;
 
 export function useArticleFeed(currentDate: Date, region: string) {
 	const { user } = useAuthSafe();
+
+	const categories =
+		Array.isArray(user.user_metadata.interests) && user.user_metadata.interests.length > 0
+			? user.user_metadata.interests : CATEGORIES;
+
 	const { data, ...query } = useInfiniteQuery(
 		["daily-feed", currentDate.toDateString(), region],
 		async ({ pageParam = 0 }) => {
@@ -25,6 +31,7 @@ export function useArticleFeed(currentDate: Date, region: string) {
 					user_id: user.id
 				})
 				.eq("region", region)
+				.in("category", categories)
 				.gte("published_at", start.toUTCString())
 				.lte("published_at", end.toUTCString())
 				.order("published_at", {

@@ -1,5 +1,5 @@
 import { Icon, useTheme } from "@rneui/themed";
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { useOnboarding } from "@/context/onboarding";

@@ -1,6 +1,6 @@
 import { Text, useTheme } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
-import React from "react";
+import React, { memo } from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 
 import { ArticlePreview } from "@/components/article-preview";
@@ -40,10 +40,10 @@ export const ListEnd: React.FC = () => (
 
 type ArticleFeedProps = {
 	currentDate: Date;
-	region?: string;
+	region: string;
 };
 
-export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate, region = "gb" }) => {
+const Feed: React.FC<ArticleFeedProps> = ({ currentDate, region }) => {
 	const [articles, { hasNextPage, isFetchingNextPage, fetchNextPage, isError, isLoading }] = useArticleFeed(
 		currentDate,
 		region
@@ -80,6 +80,8 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ currentDate, region = 
 		/>
 	);
 };
+
+export const ArticleFeed = memo(Feed);
 
 const styles = StyleSheet.create({
 	separator: {
