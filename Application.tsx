@@ -13,6 +13,7 @@ import { OnboardingInterestScreen } from "@/screens/onboarding/interest";
 import { OnboardingIntroScreen } from "@/screens/onboarding/intro";
 import { OnboardingRegionScreen } from "@/screens/onboarding/region";
 import { AccountSettingsScreen } from "@/screens/settings/account";
+import { InterestsSettingsScreen } from "@/screens/settings/interests";
 import { SettingsScreen } from "@/screens/settings/settings";
 import { SignInScreen } from "@/screens/sign-in";
 import { SignUpScreen } from "@/screens/sign-up";
@@ -108,6 +109,13 @@ export const ApplicationRoot: React.FC = () => {
 				component={AccountSettingsScreen}
 				options={{
 					headerTitle: "Account"
+				}}
+			/>
+			<Stack.Screen
+				name="InterestsSettings"
+				component={InterestsSettingsScreen}
+				options={{
+					headerTitle: "Interests"
 				}}
 			/>
 		</Stack.Navigator>

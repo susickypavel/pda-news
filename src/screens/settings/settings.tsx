@@ -21,19 +21,21 @@ const menu = [
 		path: "AccountSettings"
 	},
 	{
-		title: "Notifications",
-		icon: "notifications",
-		path: "NotificationsSettings"
-	},
-	{
 		title: "Manage interests",
 		icon: "tag",
 		path: "InterestsSettings"
 	},
 	{
+		title: "Notifications",
+		icon: "notifications",
+		path: "NotificationsSettings",
+		disabled: true
+	},
+	{
 		title: "Location based news",
 		icon: "gps-fixed",
-		path: "LocationSettings"
+		path: "LocationSettings",
+		disabled: true
 	}
 ] satisfies { title: string; icon: string; path: RootStackScreens; disabled?: boolean }[];
 
@@ -46,15 +48,28 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = () => {
 			width: "100%"
 		},
 		listItemContainer: {
-			padding: 16
+			padding: theme.spacing.lg
+		},
+		listItemDisabled: {
+			opacity: 0.5
 		}
 	});
 
 	return (
 		<React.Fragment>
 			{menu.map(item => (
-				<TouchableOpacity activeOpacity={0.5} key={item.path} onPress={() => navigate(item.path)}>
-					<ListItem style={styles.listItem} containerStyle={styles.listItemContainer}>
+				<TouchableOpacity
+					disabled={item.disabled}
+					activeOpacity={0.5}
+					key={item.path}
+					onPress={() => navigate(item.path)}
+				>
+					<ListItem
+						disabledStyle={styles.listItemDisabled}
+						disabled={item.disabled}
+						style={styles.listItem}
+						containerStyle={styles.listItemContainer}
+					>
 						<Icon name={item.icon} color={theme.colors.black} />
 						<ListItem.Content>
 							<ListItem.Title>{item.title}</ListItem.Title>
