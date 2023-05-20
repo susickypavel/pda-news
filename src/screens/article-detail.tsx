@@ -2,7 +2,7 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Icon, useTheme } from "@rneui/themed";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useEffect } from "react";
-import { Share, StyleSheet, View } from "react-native";
+import { Alert, Share, StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { WebView } from "react-native-webview";
 
@@ -48,10 +48,8 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 			const { error } = await supabase.from("user_articles").delete().eq("user_id", user.id).eq("article_id", id);
 
 			if (error) {
-				console.error("Error deleting bookmark", error.message);
+				Alert.alert("Error", "Couldn't delete bookmark.");
 			}
-
-			console.log("Bookmarked deleted");
 		} else {
 			const { error } = await supabase.from("user_articles").insert({
 				user_id: user.id,
@@ -59,10 +57,8 @@ export const ArticleDetailHeaderActions: React.FC<ArticleDetailsScreenProps> = (
 			});
 
 			if (error) {
-				console.error("Error creating bookmark", error.message);
+				Alert.alert("Error", "Couldn't create bookmark.");
 			}
-
-			console.log("Bookmarked");
 		}
 
 		refetch();

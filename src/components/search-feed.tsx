@@ -3,7 +3,7 @@ import { Button, ListItem, useTheme } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import { useQueryClient } from "@tanstack/react-query";
 import React, { Fragment } from "react";
-import { Image, Platform, StyleSheet, TouchableHighlight, TouchableNativeFeedback, View } from "react-native";
+import { Alert, Image, Platform, StyleSheet, TouchableHighlight, TouchableNativeFeedback, View } from "react-native";
 import { Text } from "react-native";
 
 import { supabase } from "@/api/supabase";
@@ -28,7 +28,7 @@ type SearchFeedItemProps = SearchResult[0][0] & {
 	};
 	category: BadgeCategory;
 	onRedirect?: () => void;
-	is_bookmarked?: boolean;
+	action?: "bookmark" | "unbookmark";
 };
 
 const EmptySearchList: React.FC = () => (
@@ -40,7 +40,18 @@ const EmptySearchList: React.FC = () => (
 
 export const SearchFeedSeparator = () => <View style={{ height: 8 }} />;
 
-export const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...props }) => {
+async function createBookmark(user: string, article: string) {
+	return await supabase.from("user_articles").upsert({
+		user_id: user,
+		article_id: article
+	});
+}
+
+async function deleteBookmark(user: string, article: string) {
+	return await supabase.from("user_articles").delete().eq("user_id", user).eq("article_id", article);
+}
+
+export const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, action = "bookmark", ...props }) => {
 	const { title, published_at, image_url, category, id, source_id } = props;
 	const { user } = useAuthSafe();
 	const { theme } = useTheme();
@@ -77,18 +88,20 @@ export const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...p
 	};
 
 	const onBookmarkButtonPress = async () => {
-		const { error } = await supabase.from("user_articles").insert({
-			user_id: user.id,
-			article_id: id
-		});
+		try {
+			const { error } =
+				action === "bookmark" ? await createBookmark(user.id, id) : await deleteBookmark(user.id, id);
 
-		if (error) {
-			console.error("Error creating bookmark", error.message);
+			if (error) {
+				throw new Error(error.message);
+			}
+
+			queryClient.invalidateQueries({
+				queryKey: ["saved-articles", user.id]
+			});
+		} catch (error) {
+			Alert.alert("Error", `Couldn't toggle bookmark.`);
 		}
-
-		queryClient.invalidateQueries({
-			queryKey: ["saved-articles", user.id]
-		});
 	};
 
 	return (
@@ -96,13 +109,14 @@ export const SearchFeedItem: React.FC<SearchFeedItemProps> = ({ onRedirect, ...p
 			Component={Platform.OS == "android" ? TouchableNativeFeedback : TouchableHighlight}
 			rightContent={reset => (
 				<Button
+					color={action === "bookmark" ? "primary" : "error"}
 					buttonStyle={styles.bookmarkButton}
-					title="Bookmark"
+					title={action === "bookmark" ? "Bookmark" : "Delete"}
 					onPress={() => {
 						onBookmarkButtonPress();
 						reset();
 					}}
-					icon={{ name: "bookmark", color: "white" }}
+					icon={{ name: action === "bookmark" ? "bookmark" : "delete", color: "white" }}
 				/>
 			)}
 			containerStyle={styles.container}

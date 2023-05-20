@@ -42,7 +42,7 @@ export const SavedArticlesFeed: React.FC<SavedArticlesFeedProps> = ({ searchTerm
 				data={data}
 				bounces={false}
 				keyExtractor={item => item.id}
-				renderItem={({ item }: any) => <SearchFeedItem {...item} is_bookmarked={true} />}
+				renderItem={({ item }: any) => <SearchFeedItem {...item} action="unbookmark" />}
 				estimatedItemSize={10}
 				ListEmptyComponent={isLoading ? FetchingIndicator : NoBookmarks}
 				ItemSeparatorComponent={SearchFeedSeparator}

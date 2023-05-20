@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Badge, Icon, Text, useTheme } from "@rneui/themed";
+import { Badge, Text, useTheme } from "@rneui/themed";
 import React from "react";
 import { Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
