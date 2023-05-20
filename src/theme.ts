@@ -14,7 +14,7 @@ export const categories: Colors["categories"] = {
 
 export const theme = createTheme({
 	darkColors: {
-		background: "#000000",
+		background: "#111",
 		brand: "#9333ea",
 		brandAlternative: "#9D9CD9",
 		primary: "#9333ea",
@@ -26,7 +26,7 @@ export const theme = createTheme({
 		errorBackground: "#450a0a"
 	},
 	lightColors: {
-		background: "#ffffff",
+		background: "#fff",
 		brand: "#9333ea",
 		brandAlternative: "#9D9CD9",
 		error: "#dc2626",

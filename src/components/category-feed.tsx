@@ -128,6 +128,9 @@ export const CategoryFeed: React.FC<CategoryFeedProps> = ({ category }) => {
 			onEndReached={onEndReached}
 			ItemSeparatorComponent={CategoryFeedSeparator}
 			onEndReachedThreshold={0.5}
+			ListFooterComponentStyle={{
+				marginVertical: 32
+			}}
 			ListEmptyComponent={EmptyList}
 			ListFooterComponent={
 				isFetchingNextPage ? FetchingIndicator : !hasNextPage && data.length > 0 ? ListEnd : null

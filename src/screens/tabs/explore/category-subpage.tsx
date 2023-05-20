@@ -54,7 +54,7 @@ export const CategorySubpageScreen: React.FC<CategorySubpageScreenProps> = ({ ro
 							alignItems: "center"
 						}}
 					>
-						<Icon size={24} name={isFollowing ? "check-circle" : "add-circle"} color="#000" />
+						<Icon size={20} name={isFollowing ? "check-circle" : "add-circle"} color="#000" />
 						<Text style={{ color: "black", fontFamily: "InterTightBold" }}>
 							{isFollowing ? "Following" : "Follow"}
 						</Text>
