@@ -87,13 +87,22 @@ export const GPSBasedNews: React.FC<GPSBasedNewsProps> = ({ currentDate }) => {
 
 		if (error instanceof GrantError) {
 			content = (
-				<Button
-					title="Open settings"
-					onPress={Linking.openSettings}
-					icon={<Icon name="settings" />}
-					iconPosition="right"
-					buttonStyle={styles.retryButton}
-				/>
+				<React.Fragment>
+					<Button
+						title="Retry"
+						onPress={() => refetch()}
+						icon={<Icon name="restart" type="material-community" />}
+						iconPosition="right"
+						buttonStyle={styles.retryButton}
+					/>
+					<Button
+						title="Open settings"
+						onPress={Linking.openSettings}
+						icon={<Icon name="settings" />}
+						iconPosition="right"
+						buttonStyle={styles.retryButton}
+					/>
+				</React.Fragment>
 			);
 		}
 
