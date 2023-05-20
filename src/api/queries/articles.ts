@@ -15,7 +15,7 @@ export function useArticleFeed(currentDate: Date, region: string) {
 			? user.user_metadata.interests : CATEGORIES;
 
 	const { data, ...query } = useInfiniteQuery(
-		["daily-feed", currentDate.toDateString(), region],
+		["daily-feed", currentDate.toDateString(), region, categories],
 		async ({ pageParam = 0 }) => {
 			const from = pageParam * ARTICLES_LIMIT_PER_LOAD;
 			const to = from + ARTICLES_LIMIT_PER_LOAD - 1;
