@@ -7,15 +7,12 @@ import { REGION_FULLNAME, SUPPORTED_REGIONS } from "src/constants";
 
 import { OnboardingFooter } from "@/components/onboarding-footer";
 import { useOnboarding } from "@/context/onboarding";
-import { useOnboardingLocation } from "@/hooks/useOnboardingLocation";
 
 type OnboardingRegionProps = PropsWithChildren<unknown>;
 
 export const OnboardingRegionScreen: React.FC<OnboardingRegionProps> = () => {
 	const { theme } = useTheme();
 	const { homeRegion, setHomeRegion } = useOnboarding();
-
-	useOnboardingLocation();
 
 	const styles = StyleSheet.create({
 		container: {

@@ -8,7 +8,6 @@ import { RootStackParamList } from "src/types/app";
 
 import { OnboardingFooter } from "@/components/onboarding-footer";
 import { useOnboarding } from "@/context/onboarding";
-import { useOnboardingLocation } from "@/hooks/useOnboardingLocation";
 
 export type OnboardingInterestScreenRouteProp = RouteProp<RootStackParamList, "OnboardingInterest">;
 
@@ -40,8 +39,6 @@ interface ItemProps {
 const Item: React.FC<ItemProps> = ({ title, bg, inactive }) => {
 	const { theme } = useTheme();
 	const { selectedInterests, addInterest, removeInterest } = useOnboarding();
-
-	useOnboardingLocation();
 
 	const isSelected = selectedInterests.includes(title);
 
