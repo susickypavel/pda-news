@@ -66,9 +66,14 @@ export const TextField = forwardRef<any, TextFieldProps>(
 					leftIcon={leftIcon ? <Icon name={leftIcon} size={24} color={theme.colors.black} /> : undefined}
 					rightIcon={
 						props.errorMessage ? (
-							<Icon onPress={rightIconOnPress} size={24} name={rightIcon ?? "error"} color="#dc2626" />
+							<Icon
+								onPress={rightIconOnPress}
+								size={24}
+								name={rightIcon ?? "error"}
+								color={theme.colors.error}
+							/>
 						) : rightIcon ? (
-							<Icon onPress={rightIconOnPress} size={24} name={rightIcon} color="black" />
+							<Icon onPress={rightIconOnPress} size={24} name={rightIcon} color={theme.colors.black} />
 						) : undefined
 					}
 					{...props}

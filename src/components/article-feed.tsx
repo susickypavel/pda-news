@@ -74,6 +74,9 @@ const Feed: React.FC<ArticleFeedProps> = ({ currentDate, region }) => {
 			estimatedItemSize={200}
 			onEndReached={onEndReached}
 			onEndReachedThreshold={0.5}
+			ListFooterComponentStyle={{
+				marginVertical: 32
+			}}
 			ListFooterComponent={
 				isFetchingNextPage ? FetchingIndicator : !hasNextPage && articles.length > 0 ? ListEnd : null
 			}

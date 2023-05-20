@@ -1,7 +1,8 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { Icon, useTheme } from "@rneui/themed";
+import { Icon, Text, useTheme } from "@rneui/themed";
 import React, { useEffect } from "react";
-import { Alert } from "react-native";
+import { StatusBar } from "react-native";
+import { Alert, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { RootStackParamList } from "src/types/app";
 
@@ -45,18 +46,27 @@ export const CategorySubpageScreen: React.FC<CategorySubpageScreenProps> = ({ ro
 				backgroundColor: theme.colors.categories[params.category].bg
 			},
 			headerRight: () => (
-				<Icon
-					size={24}
-					name={isFollowing ? "check-circle" : "add-circle"}
-					color="#000"
-					onPress={onFollowPress}
-				/>
+				<TouchableOpacity onPress={onFollowPress}>
+					<View
+						style={{
+							flexDirection: "row",
+							gap: theme.spacing.sm,
+							alignItems: "center"
+						}}
+					>
+						<Icon size={24} name={isFollowing ? "check-circle" : "add-circle"} color="#000" />
+						<Text style={{ color: "black", fontFamily: "InterTightBold" }}>
+							{isFollowing ? "Following" : "Follow"}
+						</Text>
+					</View>
+				</TouchableOpacity>
 			)
 		});
 	}, [navigation, params.category, theme, isFollowing, user.user_metadata]);
 
 	return (
 		<SafeAreaView edges={["bottom"]} style={{ flex: 1 }}>
+			<StatusBar barStyle="dark-content" />
 			<CategoryFeed category={params.category} />
 		</SafeAreaView>
 	);

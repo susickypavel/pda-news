@@ -106,8 +106,7 @@ export const ApplicationRoot: React.FC = () => {
 				name="CategorySubpage"
 				component={CategorySubpageScreen}
 				options={{
-					headerTintColor: "#000",
-					statusBarColor: "#000"
+					headerTintColor: "#000"
 				}}
 			/>
 			<Stack.Screen
