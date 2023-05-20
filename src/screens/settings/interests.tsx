@@ -38,7 +38,7 @@ export const InterestsSettingsScreen: React.FC<InterestsSettingsScreenProps> = (
 			data: {
 				...user.user_metadata,
 				interests: isFollowing
-					? user.user_metadata.interests.filter((interest: string) => interest !== interest)
+					? user.user_metadata.interests.filter((currentInterest: string) => interest !== currentInterest)
 					: [...user.user_metadata.interests, interest]
 			}
 		});
@@ -64,6 +64,7 @@ export const InterestsSettingsScreen: React.FC<InterestsSettingsScreenProps> = (
 								checkedIcon="checkbox-marked"
 								uncheckedIcon="checkbox-blank-outline"
 								checked={isFollowing}
+								disabled={true}
 							/>
 						</ListItem>
 					</TouchableOpacity>
