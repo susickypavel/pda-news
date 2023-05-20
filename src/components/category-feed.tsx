@@ -46,9 +46,9 @@ const CategoryFeedItem: React.FC<CategoryFeedItemProps> = props => {
 			fontSize: 12
 		},
 		description: {
-			borderLeftColor: theme.colors.black,
-			borderLeftWidth: 2,
-			paddingLeft: theme.spacing.md
+			fontSize: 14,
+			lineHeight: 21,
+			marginTop: theme.spacing.sm
 		},
 		header: {
 			alignItems: "center",
