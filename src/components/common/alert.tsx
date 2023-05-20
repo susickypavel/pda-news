@@ -36,7 +36,7 @@ export const Alert: React.FC<AlertProps> = ({ title, message, children }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.titleContainer}>
-				<Icon name="error" color="black" />
+				<Icon name="error" color={theme.colors.black} />
 				<Text style={styles.title}>{title}</Text>
 			</View>
 			<Text style={styles.message}>{message}</Text>

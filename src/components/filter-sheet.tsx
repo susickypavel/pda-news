@@ -59,17 +59,7 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({ onChange, currentFilte
 		bottomSheetIndicator: {
 			backgroundColor: theme.colors.black
 		},
-		bottomSheetStyle: {
-			backgroundColor: theme.colors.background,
-			borderRadius: 100,
-			shadowColor: "#000",
-			shadowOffset: {
-				width: 0,
-				height: 0
-			},
-			shadowOpacity: 0.25,
-			shadowRadius: 16
-		},
+
 		contentContainer: {
 			alignContent: "flex-start",
 			flex: 1,
@@ -90,11 +80,13 @@ export const FilterSheet: React.FC<FilterSheetProps> = ({ onChange, currentFilte
 		<Fragment>
 			{children(onModalOpen)}
 			<BottomSheetModal
+				backgroundStyle={{
+					backgroundColor: theme.colors.grey5
+				}}
 				handleIndicatorStyle={styles.bottomSheetIndicator}
 				ref={bottomSheetModalRef}
 				index={0}
 				snapPoints={["50%", "90%"]}
-				style={styles.bottomSheetStyle}
 			>
 				<View style={styles.contentContainer}>
 					<Text style={styles.filterTitle}>Sort by</Text>

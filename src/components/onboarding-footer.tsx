@@ -26,8 +26,8 @@ export const OnboardingFooter: React.FC = () => {
 
 	return (
 		<View style={styles.navigationContainer}>
-			<TouchableOpacity onPress={currentStep > 0 ? previousStep : onSkip}>
-				<Text style={styles.secondaryAction}>{currentStep > 0 ? "Back" : "Skip"}</Text>
+			<TouchableOpacity onPress={currentStep === 0 ? onSkip : previousStep}>
+				<Text style={styles.secondaryAction}>{currentStep === 0 ? "Skip" : "Back"}</Text>
 			</TouchableOpacity>
 			<OnboardingIndicator />
 			<TouchableOpacity onPress={nextStep}>

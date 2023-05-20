@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useTheme } from "@rneui/themed";
+import { useTheme, useThemeMode } from "@rneui/themed";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
 import { useEffect } from "react";
-import { Platform } from "react-native";
+import { Platform, StatusBar, useColorScheme } from "react-native";
 
 import { useAuth } from "@/context/auth";
 import { ONBOARDING_STEPS, OnboardingProvider } from "@/context/onboarding";
@@ -26,6 +26,14 @@ export const ApplicationRoot: React.FC = () => {
 	const session = useAuth();
 	const { theme } = useTheme();
 
+	const colorMode = useColorScheme();
+	const { setMode } = useThemeMode();
+
+	useEffect(() => {
+		setMode(colorMode ? colorMode : "light");
+		StatusBar.setBarStyle(colorMode === "dark" ? "light-content" : "dark-content", false);
+	}, [colorMode]);
+
 	useEffect(() => {
 		async function hideSplashScreen() {
 			await SplashScreen.hideAsync();
@@ -39,7 +47,10 @@ export const ApplicationRoot: React.FC = () => {
 			<Stack.Navigator
 				initialRouteName="SignIn"
 				screenOptions={{
-					headerShown: false
+					headerShown: false,
+					contentStyle: {
+						backgroundColor: theme.colors.background
+					}
 				}}
 			>
 				<Stack.Screen name="SignIn" component={SignInScreen} />
@@ -76,6 +87,9 @@ export const ApplicationRoot: React.FC = () => {
 				contentStyle: {
 					backgroundColor: theme.colors.background
 				},
+				headerStyle: {
+					backgroundColor: theme.colors.background
+				},
 				headerTitleStyle: {
 					fontFamily: "InterTightBold"
 				}
@@ -92,14 +106,15 @@ export const ApplicationRoot: React.FC = () => {
 				name="CategorySubpage"
 				component={CategorySubpageScreen}
 				options={{
-					headerTintColor: theme.colors.black
+					headerTintColor: "#000",
+					statusBarColor: "#000"
 				}}
 			/>
 			<Stack.Screen
 				name="ArticleDetail"
 				component={ArticleDetailScreen}
 				options={{
-					headerTintColor: theme.colors.black,
+					headerTintColor: "#000",
 					title: "Article"
 				}}
 			/>

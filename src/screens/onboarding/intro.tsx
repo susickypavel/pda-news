@@ -1,7 +1,6 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { useTheme } from "@rneui/themed";
+import { Text, useTheme } from "@rneui/themed";
 import React from "react";
-import { Text } from "react-native";
 import { Image, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { RootStackParamList } from "src/types/app";

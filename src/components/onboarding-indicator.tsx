@@ -18,11 +18,11 @@ export const OnboardingIndicator: React.FC<OnboardingIndicatorProps> = () => {
 			justifyContent: "center"
 		},
 		currentDot: {
-			backgroundColor: theme.colors.black,
+			backgroundColor: "#000",
 			transform: [{ scale: 1.25 }]
 		},
 		dot: {
-			backgroundColor: theme.colors.white,
+			backgroundColor: "#fff",
 			borderRadius: 4,
 			height: 8,
 			width: 8

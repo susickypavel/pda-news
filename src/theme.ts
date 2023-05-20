@@ -23,7 +23,7 @@ export const theme = createTheme({
 		misc: {
 			backdrop: "rgba(0, 0, 0, 0.5)"
 		},
-		errorBackground: "#f87171"
+		errorBackground: "#450a0a"
 	},
 	lightColors: {
 		background: "#ffffff",
@@ -64,9 +64,19 @@ export const theme = createTheme({
 		Icon: {
 			color: "#fff"
 		},
-		Text: {
-			style: {
-				fontFamily: "InterTightRegular"
+		SearchBar(_, theme) {
+			return {
+				inputStyle: {
+					color: theme.colors.black
+				}
+			}
+		},
+		Text(_, theme) {
+			return {
+				style: {
+					fontFamily: "InterTightRegular",
+					color: theme.colors.black
+				}
 			}
 		},
 		Header(_, theme) {

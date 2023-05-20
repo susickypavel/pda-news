@@ -1,7 +1,7 @@
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { useTheme } from "@rneui/themed";
+import { Text, useTheme } from "@rneui/themed";
 import React from "react";
-import { FlatList, Text, TouchableOpacity } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { RootStackParamList } from "src/types/app";
@@ -20,12 +20,12 @@ type OnboardingInterestScreenProps = {
 
 const interests = [
 	{ bg: "#7DA1F6", inactive: "#B1C7FA", title: "business" },
+	{ bg: "#9D9CDE", inactive: "#C4C4EB", title: "politics" },
+	{ bg: "#DDC0E7", inactive: "#EBD9F1", title: "health" },
 	{ bg: "#D2F776", inactive: "#E4FAAD", title: "entertainment" },
 	{ bg: "#58C17B", inactive: "#9BDAB0", title: "enviroment" },
-	{ bg: "#F08957", inactive: "#F29B6D", title: "food" },
-	{ bg: "#DDC0E7", inactive: "#EBD9F1", title: "health" },
-	{ bg: "#9D9CDE", inactive: "#C4C4EB", title: "politics" },
 	{ bg: "#B68353", inactive: "#D3B598", title: "science" },
+	{ bg: "#F08957", inactive: "#F29B6D", title: "food" },
 	{ bg: "#F2B040", inactive: "#F7D08C", title: "sports" },
 	{ bg: "#F0E360", inactive: "#F6EEA0", title: "technology" }
 ];
@@ -55,7 +55,7 @@ const Item: React.FC<ItemProps> = ({ title, bg, inactive }) => {
 			justifyContent: "center"
 		},
 		title: {
-			color: isSelected ? theme.colors.black : theme.colors.grey2,
+			color: isSelected ? "#000" : theme.colors.grey2,
 			textTransform: "capitalize"
 		}
 	});

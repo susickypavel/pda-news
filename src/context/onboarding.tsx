@@ -53,17 +53,19 @@ export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({ children
 	const [homeRegion, setHomeRegion] = useState<SupportedRegion>("de");
 
 	const updateUser = async () => {
-		const { error } = await supabase.auth.updateUser({
-			data: {
-				onboarding_finished: true,
-				interests: selectedInterests,
-				home_region: homeRegion
-			}
-		});
+		console.log("dasdas");
 
-		if (error) {
-			Alert.alert("Couldn't finish onboarding", error.message);
-		}
+		// const { error } = await supabase.auth.updateUser({
+		// 	data: {
+		// 		onboarding_finished: true,
+		// 		interests: selectedInterests,
+		// 		home_region: homeRegion
+		// 	}
+		// });
+
+		// if (error) {
+		// 	Alert.alert("Couldn't finish onboarding", error.message);
+		// }
 	};
 
 	const addInterest = (interest: string) => {

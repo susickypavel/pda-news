@@ -30,6 +30,9 @@ export const OnboardingRegionScreen: React.FC<OnboardingRegionProps> = () => {
 		picker: {
 			backgroundColor: theme.colors.background
 		},
+		pickerItem: {
+			color: theme.colors.black
+		},
 		title: {
 			fontFamily: "InterTightBold",
 			fontSize: 24,
@@ -43,6 +46,7 @@ export const OnboardingRegionScreen: React.FC<OnboardingRegionProps> = () => {
 				<Text style={styles.title}>Select your home region</Text>
 				<Picker
 					style={styles.picker}
+					itemStyle={styles.pickerItem}
 					selectionColor={theme.colors.primary}
 					selectedValue={homeRegion}
 					onValueChange={setHomeRegion}

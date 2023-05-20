@@ -48,7 +48,7 @@ export const CategorySubpageScreen: React.FC<CategorySubpageScreenProps> = ({ ro
 				<Icon
 					size={24}
 					name={isFollowing ? "check-circle" : "add-circle"}
-					color={theme.colors.black}
+					color="#000"
 					onPress={onFollowPress}
 				/>
 			)

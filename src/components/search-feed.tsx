@@ -1,10 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import { Button, ListItem, useTheme } from "@rneui/themed";
+import { Text } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import { useQueryClient } from "@tanstack/react-query";
 import React, { Fragment } from "react";
 import { Alert, Image, Platform, StyleSheet, TouchableHighlight, TouchableNativeFeedback, View } from "react-native";
-import { Text } from "react-native";
 
 import { supabase } from "@/api/supabase";
 import { useAuthSafe } from "@/context/auth";
