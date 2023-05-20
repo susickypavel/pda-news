@@ -8,6 +8,7 @@ import { RootStackParamList } from "src/types/app";
 
 import { OnboardingFooter } from "@/components/onboarding-footer";
 import { useOnboarding } from "@/context/onboarding";
+import type { BadgeCategory } from "@/types/theme";
 
 export type OnboardingInterestScreenRouteProp = RouteProp<RootStackParamList, "OnboardingInterest">;
 
@@ -18,12 +19,12 @@ type OnboardingInterestScreenProps = {
 	navigation: OnboardingInterestScreenNavigationProp;
 };
 
-const interests = [
+const interests: { bg: string; inactive: string; title: BadgeCategory }[] = [
 	{ bg: "#7DA1F6", inactive: "#B1C7FA", title: "business" },
 	{ bg: "#9D9CDE", inactive: "#C4C4EB", title: "politics" },
 	{ bg: "#DDC0E7", inactive: "#EBD9F1", title: "health" },
 	{ bg: "#D2F776", inactive: "#E4FAAD", title: "entertainment" },
-	{ bg: "#58C17B", inactive: "#9BDAB0", title: "enviroment" },
+	{ bg: "#58C17B", inactive: "#9BDAB0", title: "environment" },
 	{ bg: "#B68353", inactive: "#D3B598", title: "science" },
 	{ bg: "#F08957", inactive: "#F29B6D", title: "food" },
 	{ bg: "#F2B040", inactive: "#F7D08C", title: "sports" },
