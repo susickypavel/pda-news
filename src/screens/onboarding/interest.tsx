@@ -119,7 +119,7 @@ export const OnboardingInterestScreen: React.FC<OnboardingInterestScreenProps> =
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.textContainer}>
-				<Text style={styles.title}>Follow what you want</Text>
+				<Text style={styles.title}>Pick your interests</Text>
 				<Text style={styles.description}>
 					Choose what matters to you and you’ll get personalised daily reading suggestions, alongside wider
 					curated articles. Change your interests anytime in Settings.

@@ -12,7 +12,7 @@ export const Alert: React.FC<AlertProps> = ({ title, message, children }) => {
 
 	const styles = StyleSheet.create({
 		container: {
-			backgroundColor: theme.colors.error,
+			backgroundColor: theme.colors.errorBackground,
 			borderRadius: 4,
 			gap: theme.spacing.lg,
 			padding: theme.spacing.lg

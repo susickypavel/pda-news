@@ -18,20 +18,24 @@ export const theme = createTheme({
 		brand: "#9333ea",
 		brandAlternative: "#9D9CD9",
 		primary: "#9333ea",
+		error: "#dc2626",
 		categories,
 		misc: {
 			backdrop: "rgba(0, 0, 0, 0.5)"
-		}
+		},
+		errorBackground: "#f87171"
 	},
 	lightColors: {
 		background: "#ffffff",
 		brand: "#9333ea",
 		brandAlternative: "#9D9CD9",
+		error: "#dc2626",
 		primary: "#9333ea",
 		categories,
 		misc: {
 			backdrop: "rgba(255, 255, 255, 0.5)"
-		}
+		},
+		errorBackground: "#f87171"
 	},
 	spacing: {
 		xs: 4,
