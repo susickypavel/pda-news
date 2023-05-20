@@ -55,7 +55,7 @@ const Item: React.FC<ItemProps> = ({ title, bg, inactive }) => {
 			justifyContent: "center"
 		},
 		title: {
-			color: isSelected ? "#000" : theme.colors.grey2,
+			color: isSelected ? "#000" : "#333",
 			textTransform: "capitalize"
 		}
 	});
