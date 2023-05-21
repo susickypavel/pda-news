@@ -1,5 +1,6 @@
 import type { Session } from "@supabase/supabase-js";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { Alert } from "react-native";
 import type { SupportedRegion } from "src/constants";
 
 import { supabase } from "@/api/supabase";
@@ -22,7 +23,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children, onAuthStat
 				setAuthSession(data.session);
 			})
 			.catch(reason => {
-				console.log(`ERROR: Couldn't fetch session status. (${reason})`);
+				Alert.alert("Couldn't login", reason.message);
 				setAuthSession(null);
 			})
 			.finally(() => {
