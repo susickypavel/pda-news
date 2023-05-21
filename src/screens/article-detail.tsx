@@ -2,7 +2,7 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Icon, useTheme } from "@rneui/themed";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useEffect } from "react";
-import { Alert, Share, StyleSheet, View } from "react-native";
+import { Alert, Share, StatusBar, StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { WebView } from "react-native-webview";
 
@@ -107,12 +107,15 @@ export const ArticleDetailScreen: React.FC<ArticleDetailsScreenProps> = ({ route
 	}, [navigation, theme, category]);
 
 	return (
-		<WebView
-			style={styles.webview}
-			originWhitelist={["*"]}
-			source={{
-				uri: original_url
-			}}
-		/>
+		<React.Fragment>
+			<StatusBar barStyle="dark-content" />
+			<WebView
+				style={styles.webview}
+				originWhitelist={["*"]}
+				source={{
+					uri: original_url
+				}}
+			/>
+		</React.Fragment>
 	);
 };
