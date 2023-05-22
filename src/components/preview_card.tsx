@@ -1,12 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { Badge, useTheme } from "@rneui/themed";
 import React from "react";
-import { Image, StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
+import { Image, Share, StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 
 import { ArticlePreviewProps } from "@/components/article-preview";
 
 export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
-	const { title, category } = props;
+	const { title, category, original_url } = props;
 	const { navigate } = useNavigation();
 	const { theme } = useTheme();
 
@@ -35,12 +35,21 @@ export const PreviewCard: React.FC<ArticlePreviewProps> = props => {
 
 	const onPress = () => navigate("ArticleDetail", props);
 
+	const onLongPress = () => {
+		Share.share({
+			title,
+			url: original_url
+		});
+	};
+
 	return (
-		<TouchableWithoutFeedback onPress={onPress}>
+		<TouchableWithoutFeedback onPress={onPress} onLongPress={onLongPress}>
 			<View style={styles.container}>
 				<Image
 					style={styles.thumbnailImg}
-					source={props.image_url ? { uri: props.image_url } : require("@/assets/images/fallback-thumbnail.png")}
+					source={
+						props.image_url ? { uri: props.image_url } : require("@/assets/images/fallback-thumbnail.png")
+					}
 				/>
 				<Badge value={category} category={category} containerStyle={styles.badge} />
 				<Text numberOfLines={3} style={styles.title}>

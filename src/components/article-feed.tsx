@@ -41,9 +41,10 @@ export const ListEnd: React.FC = () => (
 type ArticleFeedProps = {
 	currentDate: Date;
 	region: string;
+	headerComponent?: JSX.Element;
 };
 
-const Feed: React.FC<ArticleFeedProps> = ({ currentDate, region }) => {
+const Feed: React.FC<ArticleFeedProps> = ({ currentDate, region, headerComponent }) => {
 	const [articles, { hasNextPage, isFetchingNextPage, fetchNextPage, isError, isLoading, refetch, isRefetching }] =
 		useArticleFeed(currentDate, region);
 
@@ -63,6 +64,7 @@ const Feed: React.FC<ArticleFeedProps> = ({ currentDate, region }) => {
 
 	return (
 		<FlashList
+			ListHeaderComponent={headerComponent}
 			showsVerticalScrollIndicator={false}
 			refreshing={isRefetching}
 			onRefresh={refetch}

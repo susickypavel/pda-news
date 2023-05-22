@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Text, useTheme } from "@rneui/themed";
 import { FlashList } from "@shopify/flash-list";
 import React from "react";
-import { Image, StyleSheet, TouchableNativeFeedback, View } from "react-native";
+import { Image, Share, StyleSheet, TouchableNativeFeedback, View } from "react-native";
 
 import { useCategoryFeed } from "@/queries/articles";
 import { BadgeCategory } from "@/types/theme";
@@ -31,7 +31,7 @@ const CategoryFeedSeparator = () => (
 );
 
 const CategoryFeedItem: React.FC<CategoryFeedItemProps> = props => {
-	const { content, title, image_url, source_id, category, published_at } = props;
+	const { content, title, image_url, source_id, category, published_at, original_url } = props;
 	const { theme } = useTheme();
 	const { navigate } = useNavigation();
 
@@ -74,8 +74,15 @@ const CategoryFeedItem: React.FC<CategoryFeedItemProps> = props => {
 
 	const onPress = () => navigate("ArticleDetail", props);
 
+	const onLongPress = () => {
+		Share.share({
+			title,
+			url: original_url
+		});
+	};
+
 	return (
-		<TouchableNativeFeedback onPress={onPress}>
+		<TouchableNativeFeedback onPress={onPress} onLongPress={onLongPress}>
 			<View style={styles.container}>
 				<View style={styles.header}>
 					<View style={styles.leftPanel}>

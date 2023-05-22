@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { Badge, Text, useTheme } from "@rneui/themed";
 import React from "react";
-import { Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { Image, Share, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 
 import { useArticleFeed } from "@/api/queries/articles";
 import { BadgeCategory } from "@/types/theme";
@@ -21,11 +21,19 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 		title,
 		content,
 		source_id: { name },
-		category
+		category,
+		original_url
 	} = props;
 
 	const onPress = () => {
 		navigate("ArticleDetail", props);
+	};
+
+	const onLongPress = () => {
+		Share.share({
+			title,
+			url: original_url
+		});
 	};
 
 	const isExternal = !content;
@@ -67,7 +75,7 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = props => {
 	});
 
 	return (
-		<TouchableWithoutFeedback onPress={onPress}>
+		<TouchableWithoutFeedback onPress={onPress} onLongPress={onLongPress}>
 			<View style={styles.container}>
 				<Image
 					style={styles.thumbnail}

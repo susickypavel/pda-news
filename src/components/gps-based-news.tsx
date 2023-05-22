@@ -1,4 +1,4 @@
-import { Button, Icon } from "@rneui/themed";
+import { Button, Icon, Text } from "@rneui/themed";
 import { useQuery } from "@tanstack/react-query";
 import {
 	getCurrentPositionAsync,
@@ -7,8 +7,9 @@ import {
 	reverseGeocodeAsync
 } from "expo-location";
 import React, { PropsWithChildren } from "react";
-import { Linking, StyleSheet } from "react-native";
+import { Linking, StyleSheet, View } from "react-native";
 import { SUPPORTED_REGIONS } from "src/constants";
+import { REGION_FULLNAME } from "src/constants";
 
 import { ArticleFeed, FetchingIndicator } from "./article-feed";
 import { Alert } from "./common/alert";
@@ -113,12 +114,32 @@ export const GPSBasedNews: React.FC<GPSBasedNewsProps> = ({ currentDate }) => {
 		);
 	}
 
-	return <ArticleFeed currentDate={currentDate} region={data} />;
+	return (
+		<ArticleFeed
+			currentDate={currentDate}
+			region={data}
+			headerComponent={
+				<View style={styles.successAlert}>
+					<Text style={styles.text}>Feed is from {REGION_FULLNAME[data]}!</Text>
+				</View>
+			}
+		/>
+	);
 };
 
 const styles = StyleSheet.create({
 	retryButton: {
 		justifyContent: "space-between"
+	},
+	successAlert: {
+		backgroundColor: "green",
+		marginBottom: 16,
+		padding: 16
+	},
+	text: {
+		color: "#fff",
+		fontFamily: "InterTightBold",
+		textAlign: "center"
 	}
 });
 
